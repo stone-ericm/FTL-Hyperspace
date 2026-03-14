@@ -54,7 +54,8 @@ void Bridge::serializeState(float* buf, ShipManager* player,
         idx += 6;
     }
     if (player->oxygenSystem) {
-        buf[idx++] = static_cast<float>(player->oxygenSystem->fTotalOxygen);
+        // fTotalOxygen is a 0-1 ratio; spec expects 0-100 percentage
+        buf[idx++] = player->oxygenSystem->fTotalOxygen * 100.0f;
         buf[idx++] = static_cast<float>(player->oxygenSystem->bLeakingO2);
     } else {
         idx += 2;
