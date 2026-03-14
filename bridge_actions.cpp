@@ -41,22 +41,33 @@ namespace ftl_rl {
 static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player) {
     if (action == 0) return; // hold
 
-    // FIXME_ACCESSOR: Get weapon from WeaponSystem
-    // auto* wpnSys = player->weaponSystem;
-    // if (!wpnSys || weapon_idx >= wpnSys->weapons.size()) return;
-    // auto* wpn = wpnSys->weapons[weapon_idx];
-    // if (!wpn) return;
+    auto* wpnSys = player->weaponSystem;
+    if (!wpnSys || weapon_idx >= static_cast<int>(wpnSys->weapons.size())) return;
+    auto* wpn = wpnSys->weapons[weapon_idx];
+    if (!wpn || !wpn->powered) return;
 
     if (action == 41) {
-        // Toggle autofire
-        // FIXME_ACCESSOR: wpn->autoFiring = !wpn->autoFiring;
+        wpn->autoFiring = !wpn->autoFiring;
         return;
     }
 
     // action 1-40 = fire at enemy room (action - 1 = room_id)
     int target_room = action - 1;
-    // FIXME_ACCESSOR: wpn->FireAtTarget(target_room);
-    (void)target_room;
+    wpn->autoFiring = true;
+    wpn->targetId = target_room;
+
+    // Set target point from enemy room geometry
+    ShipManager* enemy = Global::GetInstance()->GetShipManager(1);
+    if (enemy && target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
+        Room* room = enemy->ship.vRoomList[target_room];
+        if (room) {
+            Pointf center;
+            center.x = room->rect.x + room->rect.w / 2.0f;
+            center.y = room->rect.y + room->rect.h / 2.0f;
+            wpn->targets.clear();
+            wpn->targets.push_back(center);
+        }
+    }
 }
 
 // ============================================================================
@@ -105,9 +116,11 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
         // current[i] = sys ? sys->GetEffectivePower() : 0;
         // max_levels[i] = sys ? sys->GetMaxPower() : 0;
         // zoltan_power[i] = sys ? sys->GetZoltanPower() : 0;
-        current[i] = 0;       // placeholder
-        max_levels[i] = 0;    // placeholder
-        zoltan_power[i] = 0;  // placeholder
+        ShipSystem* sys = (i < static_cast<int>(ship->vSystemList.size()))
+            ? ship->vSystemList[i] : nullptr;
+        current[i] = sys ? sys->GetEffectivePower() : 0;
+        max_levels[i] = sys ? sys->maxLevel : 0;
+        zoltan_power[i] = 0; // TODO: derive from Zoltan crew
 
         int target_action = power_targets[i];
         if (target_action == 0) {
@@ -127,11 +140,9 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
         reactor_demand += std::max(0, requested[i] - zoltan_power[i]);
     }
 
-    // FIXME_ACCESSOR: Get reactor capacity and battery power
-    // int reactor = ship->GetReactorTotal();
-    // int battery = ship->batterySystem ? ship->batterySystem->GetActivePower() : 0;
-    int reactor = 8; // placeholder
-    int battery = 0; // placeholder
+    PowerManager* pm = PowerManager::GetPowerManager(ship->iShipId);
+    int reactor = pm ? pm->currentPower.second : 8;
+    int battery = pm ? pm->batteryPower.first : 0;
     int effective_capacity = reactor + battery;
 
     if (reactor_demand > effective_capacity) {
@@ -150,12 +161,12 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
     // Apply power changes
     for (int i = 0; i < 15; i++) {
         if (requested[i] != current[i]) {
-            // FIXME_ACCESSOR: Adjust power via IncreasePower/DecreasePower
-            // auto* sys = ship->GetSystemByIndex(i);
-            // if (!sys) continue;
-            // int diff = requested[i] - current[i];
-            // while (diff > 0) { sys->IncreasePower(1, false); diff--; }
-            // while (diff < 0) { sys->DecreasePower(false); diff++; }
+            int diff = requested[i] - current[i];
+            if (diff > 0) {
+                for (int d = 0; d < diff; d++) ship->IncreaseSystemPower(i);
+            } else {
+                for (int d = 0; d < -diff; d++) ship->ForceDecreaseSystemPower(i);
+            }
         }
     }
 }

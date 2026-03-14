@@ -28,7 +28,12 @@ HOOK_METHOD_PRIORITY(ShipManager, OnLoop, 50, () -> void) {
     ftl_rl::Bridge::step();
 }
 
-// B.1: OnInit, CreateShip, and JumpLeave hooks disabled.
-// OnInit fires during ship selection (not just game start), which
-// triggers handleReset() at the wrong time. These hooks need careful
-// timing guards before enabling — deferred to B.2/B.3.
+// OnInit and CreateShip hooks disabled (need timing guards).
+// JumpLeave re-enabled for flee detection (B.3).
+
+HOOK_METHOD(ShipManager, JumpLeave, () -> void) {
+    if (this == Global::GetInstance()->GetShipManager(0)) {
+        ftl_rl::Bridge::onJumpLeave(0);
+    }
+    super();
+}

@@ -4,6 +4,8 @@
 #include "bridge.h"
 #include <cstdio>
 
+#define G_ Global::GetInstance()
+
 namespace ftl_rl {
 
 void Bridge::setSpeedMultiplier(float multiplier) {
@@ -47,22 +49,20 @@ void Bridge::resetGame() {
 }
 
 bool Bridge::checkEpisodeDone(EpisodeResult& result) {
-    // FIXME_ACCESSOR: Check game-over conditions.
+    ShipManager* player = G_->GetShipManager(0);
+    ShipManager* enemy = G_->GetShipManager(1);
 
-    // Player destroyed
-    // if (player->bDestroyed) {
-    //     result = EpisodeResult::LOSS;
-    //     return true;
-    // }
+    // Player destroyed = LOSS
+    if (player && player->bDestroyed) {
+        result = EpisodeResult::LOSS;
+        return true;
+    }
 
-    // Enemy destroyed (flagship boss in sector 8)
-    // if (enemy && enemy->bDestroyed) {
-    //     // Check if this is the final boss
-    //     // if (worldManager->sector == 8 && FIXME_is_flagship) {
-    //     //     result = EpisodeResult::WIN;
-    //     //     return true;
-    //     // }
-    // }
+    // Enemy destroyed = WIN (any enemy, not just flagship)
+    if (enemy && enemy->bDestroyed) {
+        result = EpisodeResult::WIN;
+        return true;
+    }
 
     // Fled (set by onJumpLeave callback)
     if (fled_this_step_) {
