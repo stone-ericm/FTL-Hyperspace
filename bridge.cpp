@@ -21,6 +21,10 @@ int32_t Bridge::persistent_actions_[ACTION_HEAD_COUNT] = {};
 std::array<std::array<int, BEAM_PATH_ROOMS>, BEAM_PATH_COUNT> Bridge::beam_paths_ = {};
 
 void Bridge::init(const BridgeConfig& config) {
+    // Redirect stderr to file for debugging (B.1 only)
+    freopen("C:\\Users\\stone\\ftl-rl\\bridge_log.txt", "w", stderr);
+    setvbuf(stderr, nullptr, _IONBF, 0); // unbuffered
+
     config_ = config;
 
     // Build pipe name
@@ -50,6 +54,19 @@ void Bridge::init(const BridgeConfig& config) {
     setSpeedMultiplier(config_.speed_multiplier);
 
     // Wait for initial RESET from Python
+    MsgType msg_type;
+    uint32_t payload_size;
+    if (!recv_message(pipe_, msg_type, nullptr, 0, payload_size,
+                      config_.timeout_seconds * 1000)) {
+        fprintf(stderr, "[Bridge] Failed to receive initial RESET\n");
+        handleDisconnect();
+        return;
+    }
+    if (msg_type != MsgType::RESET) {
+        fprintf(stderr, "[Bridge] Expected RESET, got %d\n", static_cast<int>(msg_type));
+        handleDisconnect();
+        return;
+    }
     handleReset();
 }
 
