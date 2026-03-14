@@ -37,3 +37,14 @@ HOOK_METHOD(ShipManager, JumpLeave, () -> void) {
     }
     super();
 }
+
+// --- Fallback: detect player death even if OnLoop stops firing ---
+// GameOver::OpenText fires exactly once when the game-over screen opens.
+// If the bridge is still connected and hasn't sent EPISODE_DONE yet,
+// it means OnLoop stopped before the per-frame check caught bDestroyed.
+HOOK_METHOD(GameOver, OpenText, (const std::string& text) -> void) {
+    super(text);
+    if (ftl_rl::Bridge::isConnected() && !ftl_rl::Bridge::isEpisodeDone()) {
+        ftl_rl::Bridge::forceEpisodeDone(ftl_rl::EpisodeResult::LOSS);
+    }
+}

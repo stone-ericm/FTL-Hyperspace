@@ -82,6 +82,19 @@ void Bridge::shutdown() {
 void Bridge::step() {
     if (!connected_) return;
 
+    // Per-frame episode check: catch bDestroyed before OnLoop stops firing.
+    // doStep() only runs every step_interval seconds — too slow to catch
+    // the narrow window between destruction and game-over screen transition.
+    if (!episode_done_) {
+        EpisodeResult result;
+        if (checkEpisodeDone(result)) {
+            fprintf(stderr, "[Bridge] Episode end detected in per-frame check (result=%d)\n",
+                    static_cast<int>(result));
+            sendEpisodeDone(result);
+            return;
+        }
+    }
+
     // Accumulate game time (delta-time per frame)
     // FIXME_ACCESSOR: Get actual frame delta-time from FTL game loop
     // float dt = G_->GetInstance()->FIXME_frame_delta_time;
@@ -103,29 +116,13 @@ void Bridge::doStep() {
     ShipManager* enemy = G_->GetShipManager(1);
     SpaceManager* space = nullptr; // B.2: access via G_->GetWorld()
 
-    // 1. Check episode end
-    EpisodeResult result;
-    if (checkEpisodeDone(result)) {
-        // Send EPISODE_DONE instead of STATE
-        uint8_t result_byte = static_cast<uint8_t>(result);
-        if (!send_message(pipe_, MsgType::EPISODE_DONE, &result_byte, 1)) {
-            handleDisconnect();
+    // 1. Check episode end (backup — step() checks every frame too)
+    if (!episode_done_) {
+        EpisodeResult result;
+        if (checkEpisodeDone(result)) {
+            sendEpisodeDone(result);
             return;
         }
-
-        // Wait for RESET or disconnect
-        MsgType msg_type;
-        uint32_t payload_size;
-        if (!recv_message(pipe_, msg_type, nullptr, 0, payload_size,
-                          config_.timeout_seconds * 1000)) {
-            handleDisconnect();
-            return;
-        }
-
-        if (msg_type == MsgType::RESET) {
-            handleReset();
-        }
-        return;
     }
 
     // 2. Serialize state
@@ -186,6 +183,48 @@ void Bridge::handleReset() {
 
     // Send RESET_ACK with initial state
     send_message(pipe_, MsgType::RESET_ACK, state_buffer_, STATE_BUFFER_BYTES);
+}
+
+void Bridge::sendEpisodeDone(EpisodeResult result) {
+    episode_done_ = true;
+    last_result_ = result;
+    fprintf(stderr, "[Bridge] Sending EPISODE_DONE (result=%d)\n", static_cast<int>(result));
+
+    uint8_t result_byte = static_cast<uint8_t>(result);
+    if (!send_message(pipe_, MsgType::EPISODE_DONE, &result_byte, 1)) {
+        handleDisconnect();
+        return;
+    }
+
+    if (result == EpisodeResult::LOSS) {
+        // Game is on death screen — resetGame() is not yet implemented,
+        // so we can't start a new game. Stop stepping but keep pipe open
+        // so the client can read the EPISODE_DONE message.
+        // DisconnectNamedPipe would discard unread data (race condition).
+        fprintf(stderr, "[Bridge] LOSS — stopping bridge (no auto-reset yet)\n");
+        connected_ = false;
+        return;
+    }
+
+    // FLED/WIN: game continues, wait for RESET and resume stepping
+    MsgType msg_type;
+    uint32_t payload_size;
+    if (!recv_message(pipe_, msg_type, nullptr, 0, payload_size,
+                      config_.timeout_seconds * 1000)) {
+        handleDisconnect();
+        return;
+    }
+
+    if (msg_type == MsgType::RESET) {
+        handleReset();
+    }
+}
+
+void Bridge::forceEpisodeDone(EpisodeResult result) {
+    if (!connected_ || episode_done_) return;
+    fprintf(stderr, "[Bridge] Force episode done from external hook (result=%d)\n",
+            static_cast<int>(result));
+    sendEpisodeDone(result);
 }
 
 void Bridge::handleDisconnect() {

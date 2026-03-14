@@ -41,7 +41,14 @@ public:
     static void allocatePower(const int32_t* power_targets, ShipManager* ship);
     static void applyVentCommand(int room_id, bool vent, ShipManager* ship);
 
+    // For external hooks (GameOver) to query and trigger episode end
+    static bool isConnected() { return connected_; }
+    static bool isEpisodeDone() { return episode_done_; }
+    static void forceEpisodeDone(EpisodeResult result);
+
 private:
+    // Send EPISODE_DONE, wait for RESET, call handleReset
+    static void sendEpisodeDone(EpisodeResult result);
     // Core loop
     static void doStep();                   // serialize → send → recv → apply
     static void handleReset();              // recv RESET → reset game → send RESET_ACK
