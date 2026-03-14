@@ -114,7 +114,8 @@ void Global::PreInitializeResources(ResourceControl *resources)
         if (!hyperspacetext)
         {
             __resourcesInitialized = true; // skip main pass
-            throw "hyperspace.xml not found";
+            hs_log_file("hyperspace.xml not found in ftl.dat — using defaults (no mods)\n");
+            return;
         }
 
         rapidxml::xml_document<> doc;
@@ -327,7 +328,8 @@ void Global::InitializeResources(ResourceControl *resources)
     {
         if (!hyperspacetext)
         {
-            throw "hyperspace.xml not found";
+            hs_log_file("hyperspace.xml not found in ftl.dat — skipping mod initialization\n");
+            return;
         }
 
         rapidxml::xml_document<> doc;

@@ -9,6 +9,57 @@
 
 static bool bridge_initialized = false;
 
+// --- Auto-start: navigate main menu → ship builder → start game ---
+// Call Open() directly to bypass button state issues.
+static int auto_start_state = 0;
+static int auto_start_wait = 0;
+
+HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
+    super();
+
+    if (auto_start_state >= 5) return;
+
+    if (auto_start_state == 0 && menu.bOpen && !menu.shipBuilder.bOpen) {
+        hs_log_file("Auto-start: opening ship builder directly\n");
+        menu.shipBuilder.Open();
+        auto_start_state = 1;
+        auto_start_wait = 60;
+    }
+    else if (auto_start_state == 1) {
+        if (menu.shipBuilder.bOpen) {
+            hs_log_file("Auto-start: ship builder open, setting bDone\n");
+            auto_start_state = 2;
+            auto_start_wait = 30;
+        } else if (--auto_start_wait <= 0) {
+            hs_log_file("Auto-start: timeout, retrying\n");
+            auto_start_state = 0;
+        }
+    }
+    else if (auto_start_state == 2 && --auto_start_wait <= 0) {
+        hs_log_file("Auto-start: setting bDone to start game\n");
+        menu.shipBuilder.bDone = true;
+        auto_start_state = 3;
+        auto_start_wait = 120;
+    }
+    else if (auto_start_state == 3) {
+        if (!menu.shipBuilder.bOpen) {
+            hs_log_file("Auto-start: game started, dismissing event popup\n");
+            auto_start_state = 4;
+            auto_start_wait = 60; // wait ~1s for event popup to render
+        } else if (--auto_start_wait <= 0) {
+            hs_log_file("Auto-start: timeout, retrying\n");
+            auto_start_state = 0;
+        }
+    }
+    else if (auto_start_state == 4 && --auto_start_wait <= 0) {
+        // Dismiss the initial event popup by pressing "1" (first choice)
+        this->OnKeyDown(static_cast<SDLKey>(0x31)); // SDLK_1
+        this->OnKeyUp(static_cast<SDLKey>(0x31));
+        hs_log_file("Auto-start: sent '1' to dismiss event popup\n");
+        auto_start_state = 5;
+    }
+}
+
 // --- Main game loop: serialize state, send/recv, apply actions ---
 // ShipManager::OnLoop fires every frame for each ship (player + enemy).
 // Priority 50 = run before most Hyperspace hooks for clean game state.
