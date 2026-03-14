@@ -101,6 +101,14 @@ static constexpr int DEPRIORITY_ORDER[] = {
     14, 13, 2, 5, 6, 4, 7, 10, 8, 1, 0, 3, 11, 12, 9
 };
 
+// Observation spec slot → FTL SystemId mapping (same as bridge_state.cpp).
+static constexpr int SLOT_TO_SYSID[] = {
+    0, 1, 2, 3, 4, 5,  // shields, engines, oxygen, weapons, drones, medbay
+    9, 10, 14, 15,      // teleporter, cloaking, mind_control, hacking
+    6, 7, 8,            // piloting, sensors, doors
+    12, 11,             // battery, artillery
+};
+
 void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
     if (!ship) return;
 
@@ -111,23 +119,18 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
     int zoltan_power[15] = {};  // free per-system power from Zoltan crew
 
     for (int i = 0; i < 15; i++) {
-        // FIXME_ACCESSOR: Get current, max, and Zoltan power for system i
-        // auto* sys = ship->GetSystemByIndex(i);
-        // current[i] = sys ? sys->GetEffectivePower() : 0;
-        // max_levels[i] = sys ? sys->GetMaxPower() : 0;
-        // zoltan_power[i] = sys ? sys->GetZoltanPower() : 0;
-        ShipSystem* sys = (i < static_cast<int>(ship->vSystemList.size()))
-            ? ship->vSystemList[i] : nullptr;
+        int sysId = SLOT_TO_SYSID[i];
+        ShipSystem* sys = ship->GetSystem(sysId);
+        // Slot 5: medbay/clonebay fallback
+        if (i == 5 && !sys) sys = ship->GetSystem(13); // SYS_CLONEBAY
         current[i] = sys ? sys->GetEffectivePower() : 0;
         max_levels[i] = sys ? sys->maxLevel : 0;
         zoltan_power[i] = 0; // TODO: derive from Zoltan crew
 
         int target_action = power_targets[i];
         if (target_action == 0) {
-            // no_change
             requested[i] = current[i];
         } else {
-            // action N = power level (N - 1)
             int desired = target_action - 1;
             requested[i] = std::min(desired, max_levels[i]);
             requested[i] = std::max(requested[i], 0);
@@ -150,7 +153,6 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
         int excess = reactor_demand - effective_capacity;
         for (int idx : DEPRIORITY_ORDER) {
             if (excess <= 0) break;
-            // Can only reduce reactor-sourced portion (not Zoltan power)
             int reducible = std::max(0, requested[idx] - zoltan_power[idx]);
             int reduce = std::min(reducible, excess);
             requested[idx] -= reduce;
@@ -158,14 +160,17 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
         }
     }
 
-    // Apply power changes
+    // Apply power changes — use FTL system IDs, not observation slot indices
     for (int i = 0; i < 15; i++) {
         if (requested[i] != current[i]) {
+            int sysId = SLOT_TO_SYSID[i];
+            if (i == 5 && !ship->GetSystem(sysId))
+                sysId = 13; // SYS_CLONEBAY fallback
             int diff = requested[i] - current[i];
             if (diff > 0) {
-                for (int d = 0; d < diff; d++) ship->IncreaseSystemPower(i);
+                for (int d = 0; d < diff; d++) ship->IncreaseSystemPower(sysId);
             } else {
-                for (int d = 0; d < -diff; d++) ship->ForceDecreaseSystemPower(i);
+                for (int d = 0; d < -diff; d++) ship->ForceDecreaseSystemPower(sysId);
             }
         }
     }

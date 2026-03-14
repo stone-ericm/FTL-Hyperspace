@@ -79,13 +79,24 @@ void Bridge::serializeState(float* buf, ShipManager* player,
     }
 
     // --- systems (15 slots × 12 fields = 180) ---
+    // Observation spec slot → FTL SystemId mapping.
+    // Slots 0-5 match, 6+ diverge (FTL puts pilot/sensors/doors at 6-8).
+    // Slot 5 is medbay_or_clonebay: try medbay first, fall back to clonebay.
+    static constexpr int SLOT_TO_SYSID[] = {
+        0, 1, 2, 3, 4, 5,  // shields, engines, oxygen, weapons, drones, medbay
+        9, 10, 14, 15,      // teleporter, cloaking, mind_control, hacking
+        6, 7, 8,            // piloting, sensors, doors
+        12, 11,             // battery, artillery
+    };
     for (int i = 0; i < 15; i++) {
-        ShipSystem* sys = (i < static_cast<int>(player->vSystemList.size()))
-            ? player->vSystemList[i] : nullptr;
+        ShipSystem* sys = player->GetSystem(SLOT_TO_SYSID[i]);
+        // Slot 5: medbay/clonebay — ships have one or the other
+        if (i == 5 && !sys) sys = player->GetSystem(13); // SYS_CLONEBAY
         if (!sys) { idx += 12; continue; }
         buf[idx++] = static_cast<float>(sys->powerState.first);   // power_allocated
         buf[idx++] = static_cast<float>(sys->maxLevel);           // max_level
-        buf[idx++] = static_cast<float>(sys->healthState.first);  // physical_damage
+        // physical_damage = max_health - current_health (healthState.first is health remaining)
+        buf[idx++] = static_cast<float>(sys->healthState.second - sys->healthState.first);
         buf[idx++] = static_cast<float>(sys->iLockCount);         // ion_damage
         buf[idx++] = static_cast<float>(sys->lockTimer.currTime); // ion_timer
         buf[idx++] = static_cast<float>(sys->GetEffectivePower()); // effective_power
