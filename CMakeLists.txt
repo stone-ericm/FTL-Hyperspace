@@ -79,6 +79,15 @@ target_sources(
     Balance.cpp
     Balance.h
     BeamFixes.cpp
+    bridge.cpp
+    bridge.h
+    bridge_actions.cpp
+    bridge_game.cpp
+    bridge_hooks.cpp
+    bridge_paths.cpp
+    bridge_protocol.cpp
+    bridge_protocol.h
+    bridge_state.cpp
     Blueprint_Extend.cpp
     Blueprint_Extend.h
     CloneQueue.cpp
