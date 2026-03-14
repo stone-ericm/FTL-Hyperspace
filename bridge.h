@@ -37,6 +37,10 @@ public:
     static void onJumpLeave(int shipId);    // JUMP_LEAVE → fled detection
     static void onEncounterStart();         // GENERATOR_CREATE_SHIP_POST → beam paths
 
+    // Called from static helpers in bridge_actions.cpp
+    static void allocatePower(const int32_t* power_targets, ShipManager* ship);
+    static void applyVentCommand(int room_id, bool vent, ShipManager* ship);
+
 private:
     // Core loop
     static void doStep();                   // serialize → send → recv → apply
@@ -57,12 +61,6 @@ private:
     static void resetGame();
     static bool checkEpisodeDone(EpisodeResult& result);
     static void setSpeedMultiplier(float multiplier);
-
-    // Power allocation algorithm
-    static void allocatePower(const int32_t* power_targets, ShipManager* ship);
-
-    // Vent BFS algorithm
-    static void applyVentCommand(int room_id, bool vent, ShipManager* ship);
 
     // State
     static HANDLE pipe_;
