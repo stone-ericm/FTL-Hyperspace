@@ -95,7 +95,7 @@ void Bridge::serializeState(float* buf, ShipManager* player,
         if (i == 5 && !sys) sys = player->GetSystem(13); // SYS_CLONEBAY
         if (!sys) { idx += 12; continue; }
         buf[idx++] = static_cast<float>(sys->powerState.first);   // power_allocated
-        buf[idx++] = static_cast<float>(sys->maxLevel);           // max_level
+        buf[idx++] = static_cast<float>(sys->powerState.second); // max_level (current upgrade level)
         // physical_damage = max_health - current_health (healthState.first is health remaining)
         buf[idx++] = static_cast<float>(sys->healthState.second - sys->healthState.first);
         buf[idx++] = static_cast<float>(sys->iLockCount);         // ion_damage

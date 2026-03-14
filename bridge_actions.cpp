@@ -124,7 +124,7 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
         // Slot 5: medbay/clonebay fallback
         if (i == 5 && !sys) sys = ship->GetSystem(13); // SYS_CLONEBAY
         current[i] = sys ? sys->GetEffectivePower() : 0;
-        max_levels[i] = sys ? sys->maxLevel : 0;
+        max_levels[i] = sys ? sys->powerState.second : 0; // current upgrade level, not global cap
         zoltan_power[i] = 0; // TODO: derive from Zoltan crew
 
         int target_action = power_targets[i];
