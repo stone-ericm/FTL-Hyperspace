@@ -77,6 +77,9 @@ private:
     static bool fled_this_step_;
     static EpisodeResult last_result_;
     static float game_time_accumulator_;
+public:
+    static ShipManager* cached_enemy_;  // set in doStep, used by applyWeaponFire
+private:
 
     // Buffers
     static float state_buffer_[OBS_FIELD_COUNT];

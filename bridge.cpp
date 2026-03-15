@@ -15,6 +15,7 @@ bool Bridge::episode_done_ = false;
 bool Bridge::fled_this_step_ = false;
 EpisodeResult Bridge::last_result_ = EpisodeResult::LOSS;
 float Bridge::game_time_accumulator_ = 0.0f;
+ShipManager* Bridge::cached_enemy_ = nullptr;
 float Bridge::state_buffer_[OBS_FIELD_COUNT] = {};
 int32_t Bridge::action_buffer_[ACTION_HEAD_COUNT] = {};
 int32_t Bridge::persistent_actions_[ACTION_HEAD_COUNT] = {};
@@ -95,9 +96,11 @@ void Bridge::step() {
         }
     }
 
-    // Per-frame weapon targeting DISABLED for debugging.
-    // Was crashing — needs investigation of Targetable cast and Fire() call.
-    // TODO: Re-enable after crash is diagnosed.
+    // Per-frame weapon code removed. Weapons now fire via:
+    // 1. applyWeaponFire() sets correct Targetable ptr + calls Fire() when ready
+    // 2. autoFiring flag causes game's own ProjectileFactory::Update() to fire between steps
+    // Root cause of prior crash: reinterpret_cast<Targetable*>(enemy) was wrong —
+    // Targetable is a member (_targetable), not a base class. Fixed to &enemy->_targetable.
 
     // Accumulate game time (delta-time per frame)
     // FIXME_ACCESSOR: Get actual frame delta-time from FTL game loop
@@ -122,7 +125,8 @@ void Bridge::doStep() {
     ShipManager* enemy = G_->GetShipManager(1);
     SpaceManager* space = nullptr; // B.2: access via G_->GetWorld()
 
-    fprintf(stderr, "[Bridge] player=%p enemy=%p\n", (void*)player, (void*)enemy);
+    cached_enemy_ = enemy;
+    fprintf(stderr, "[Bridge] player=%p enemy=%p cached=%p\n", (void*)player, (void*)enemy, (void*)cached_enemy_);
 
     // 1. Check episode end (backup — step() checks every frame too)
     if (!episode_done_) {

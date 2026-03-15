@@ -112,6 +112,18 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
                     player->hostile_ship = true;
                     newEnemy->current_target = player;
                     newEnemy->hostile_ship = true;
+
+                    // Ensure CombatControl knows about the enemy so player weapons can target.
+                    // CreateLocation() may have already called AddEnemyShip, but verify.
+                    if (gui && gui->combatControl.enemyShips.empty()) {
+                        WorldManager* w = Global::GetInstance()->GetWorld();
+                        CompleteShip* enemyCS = w && w->playerShip
+                            ? w->playerShip->enemyShip : nullptr;
+                        if (enemyCS) {
+                            hs_log_file("Auto-nav: calling AddEnemyShip for CombatControl\n");
+                            gui->AddEnemyShip(enemyCS);
+                        }
+                    }
                 }
                 // Unpause — FTL auto-pauses on events/encounters
                 if (gui) {

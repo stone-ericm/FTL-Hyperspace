@@ -10,6 +10,10 @@
 
 namespace ftl_rl {
 
+// Cached enemy pointer — set by applyActions, read by applyWeaponFire.
+// volatile: cross-compiler was optimizing away the read.
+static volatile ShipManager* s_current_enemy = nullptr;
+
 // ============================================================================
 // ACTION HEAD INDEX LAYOUT (matches action spec YAML)
 // ============================================================================
@@ -40,11 +44,30 @@ namespace ftl_rl {
 // ============================================================================
 static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player) {
     if (action == 0) return; // hold
+    // Get enemy from Bridge class member (set in doStep where GetShipManager(1) works)
+    ShipManager* enemy = Bridge::cached_enemy_;
+    fprintf(stderr, "[Weapon] W%d: Bridge::cached_enemy_=%p\n", weapon_idx, (void*)enemy);
 
     auto* wpnSys = player->weaponSystem;
-    if (!wpnSys || weapon_idx >= static_cast<int>(wpnSys->weapons.size())) return;
+    if (!wpnSys) {
+        fprintf(stderr, "[Weapon] W%d: no weaponSystem\n", weapon_idx);
+        return;
+    }
+    if (weapon_idx >= static_cast<int>(wpnSys->weapons.size())) {
+        fprintf(stderr, "[Weapon] W%d: idx >= weapons.size(%d)\n", weapon_idx, (int)wpnSys->weapons.size());
+        return;
+    }
     auto* wpn = wpnSys->weapons[weapon_idx];
-    if (!wpn || !wpn->powered) return;
+    if (!wpn) {
+        fprintf(stderr, "[Weapon] W%d: weapon ptr is null\n", weapon_idx);
+        return;
+    }
+    if (!wpn->powered) {
+        fprintf(stderr, "[Weapon] W%d: not powered (action=%d)\n", weapon_idx, action);
+        return;
+    }
+
+    fprintf(stderr, "[Weapon] W%d: powered, action=%d\n", weapon_idx, action);
 
     if (action == 41) {
         wpn->autoFiring = !wpn->autoFiring;
@@ -54,19 +77,53 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     // action 1-40 = fire at enemy room (action - 1 = room_id)
     int target_room = action - 1;
 
-    ShipManager* enemy = Global::GetInstance()->GetShipManager(1);
-    if (!enemy) return;
+    fprintf(stderr, "[Weapon] W%d: pre-null-check enemy=%p\n", weapon_idx, (void*)enemy);
+    if (!enemy) {
+        fprintf(stderr, "[Weapon] W%d: no enemy ship! (was %p at read)\n", weapon_idx, (void*)Bridge::cached_enemy_);
+        return;
+    }
+    fprintf(stderr, "[Weapon] W%d: PASSED null check, enemy=%p\n", weapon_idx, (void*)enemy);
 
-    // Set target ship and room
-    wpn->currentShipTarget = reinterpret_cast<Targetable*>(enemy);
+    // FIX: _targetable is a MEMBER of ShipManager, not a base class.
+    fprintf(stderr, "[Weapon] W%d: setting currentShipTarget to &enemy->_targetable\n", weapon_idx);
+    wpn->currentShipTarget = &enemy->_targetable;
     wpn->targetId = target_room;
     wpn->autoFiring = true;
-    // fireWhenReady omitted — conflicts with autofire
+    fprintf(stderr, "[Weapon] W%d: set targetId=%d, autoFiring=true\n", weapon_idx, target_room);
 
-    // Set target point using Targetable for correct world coordinates
-    Pointf world = enemy->_targetable.GetRandomTargettingPoint(false);
+    // Compute target point from enemy room geometry
+    // ShipGraph::ConvertToWorldPosition converts local→world coords.
+    Pointf world = {0.0f, 0.0f};
+    if (target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
+        auto* room = enemy->ship.vRoomList[target_room];
+        if (room) {
+            Pointf local;
+            local.x = room->rect.x + room->rect.w / 2.0f;
+            local.y = room->rect.y + room->rect.h / 2.0f;
+            ShipGraph* graph = ShipGraph::GetShipInfo(enemy->iShipId);
+            if (graph) {
+                world = graph->ConvertToWorldPosition(local);
+            }
+        }
+    }
+    fprintf(stderr, "[Weapon] W%d: target point (%.1f, %.1f) room %d\n",
+            weapon_idx, world.x, world.y, target_room);
     wpn->targets.clear();
     wpn->targets.push_back(world);
+
+    // Fire directly when ready (mirrors CombatAI::UpdateWeapons approach)
+    fprintf(stderr, "[Weapon] W%d: checking ReadyToFire (cooldown=%.1f/%.1f)...\n",
+            weapon_idx, wpn->cooldown.first, wpn->cooldown.second);
+    if (wpn->ReadyToFire()) {
+        std::vector<Pointf> firePoints;
+        firePoints.push_back(world);
+        fprintf(stderr, "[Weapon] W%d: FIRE at room %d!\n", weapon_idx, target_room);
+        wpn->Fire(firePoints, target_room);
+        fprintf(stderr, "[Weapon] W%d: Fire() returned OK\n", weapon_idx);
+    } else {
+        fprintf(stderr, "[Weapon] weapon %d targeting room %d (not ready, cooldown=%.1f/%.1f)\n",
+                weapon_idx, target_room, wpn->cooldown.first, wpn->cooldown.second);
+    }
 }
 
 // ============================================================================
@@ -378,10 +435,10 @@ static void applyStrategic(const int32_t* actions, ShipManager* player) {
 // ============================================================================
 void Bridge::applyActions(const int32_t* actions, ShipManager* player, ShipManager* enemy) {
     if (!player) return;
-    (void)enemy; // enemy used for targeting validation
 
     // Phase 1: Combat Core
-    fprintf(stderr, "[Bridge] applyWeaponFire...\n");
+    s_current_enemy = enemy;
+    fprintf(stderr, "[Bridge] applyWeaponFire (s_current_enemy=%p)...\n", (void*)s_current_enemy);
     for (int i = 0; i < 4; i++) applyWeaponFire(i, actions[i], player);
     fprintf(stderr, "[Bridge] allocatePower...\n");
     // Beam paths (heads 4-7) are stored in persistent_actions_, used on fire
