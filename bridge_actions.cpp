@@ -91,39 +91,17 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     wpn->autoFiring = true;
     fprintf(stderr, "[Weapon] W%d: set targetId=%d, autoFiring=true\n", weapon_idx, target_room);
 
-    // Compute target point from enemy room geometry
-    // ShipGraph::ConvertToWorldPosition converts local→world coords.
-    Pointf world = {0.0f, 0.0f};
-    if (target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
-        auto* room = enemy->ship.vRoomList[target_room];
-        if (room) {
-            Pointf local;
-            local.x = room->rect.x + room->rect.w / 2.0f;
-            local.y = room->rect.y + room->rect.h / 2.0f;
-            ShipGraph* graph = ShipGraph::GetShipInfo(enemy->iShipId);
-            if (graph) {
-                world = graph->ConvertToWorldPosition(local);
-            }
-        }
-    }
-    fprintf(stderr, "[Weapon] W%d: target point (%.1f, %.1f) room %d\n",
-            weapon_idx, world.x, world.y, target_room);
-    wpn->targets.clear();
-    wpn->targets.push_back(world);
-
-    // Fire directly when ready (mirrors CombatAI::UpdateWeapons approach)
-    fprintf(stderr, "[Weapon] W%d: checking ReadyToFire (cooldown=%.1f/%.1f)...\n",
-            weapon_idx, wpn->cooldown.first, wpn->cooldown.second);
-    if (wpn->ReadyToFire()) {
-        std::vector<Pointf> firePoints;
-        firePoints.push_back(world);
-        fprintf(stderr, "[Weapon] W%d: FIRE at room %d!\n", weapon_idx, target_room);
-        wpn->Fire(firePoints, target_room);
-        fprintf(stderr, "[Weapon] W%d: Fire() returned OK\n", weapon_idx);
-    } else {
-        fprintf(stderr, "[Weapon] weapon %d targeting room %d (not ready, cooldown=%.1f/%.1f)\n",
-                weapon_idx, target_room, wpn->cooldown.first, wpn->cooldown.second);
-    }
+    // DON'T set wpn->targets — let the game's autoFiring compute its own
+    // world-space target point from currentShipTarget + targetId.
+    // Previously we set targets to ConvertToWorldPosition(room center) which
+    // returned local coords (~-18, -11) instead of world coords (~700, 300),
+    // causing projectiles to aim off-screen.
+    //
+    // DON'T call Fire() directly either — autoFiring handles firing when ready.
+    // Our explicit Fire() never executed anyway (ReadyToFire was false because
+    // autoFiring already fired and reset the cooldown between steps).
+    fprintf(stderr, "[Weapon] W%d: autoFiring set for room %d (game handles fire timing)\n",
+            weapon_idx, target_room);
 }
 
 // ============================================================================
