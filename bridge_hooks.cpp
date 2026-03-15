@@ -165,7 +165,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             }
         }
 
-        if (enemy) return; // in combat — bridge handles weapon control
+        if (enemy && !enemy->bDestroyed) return; // in live combat — bridge handles weapon control
 
         // If FTL is charged and no combat, teleport to next beacon
         ShipManager* player = Global::GetInstance()->GetShipManager(0);
