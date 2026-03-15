@@ -53,20 +53,20 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
 
     // action 1-40 = fire at enemy room (action - 1 = room_id)
     int target_room = action - 1;
-    wpn->autoFiring = true;
-    wpn->targetId = target_room;
 
-    // Set target point from enemy room geometry
     ShipManager* enemy = Global::GetInstance()->GetShipManager(1);
-    if (enemy && target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
-        Room* room = enemy->ship.vRoomList[target_room];
-        if (room) {
-            Pointf center;
-            center.x = room->rect.x + room->rect.w / 2.0f;
-            center.y = room->rect.y + room->rect.h / 2.0f;
-            wpn->targets.clear();
-            wpn->targets.push_back(center);
-        }
+    if (!enemy) return;
+
+    // Set target ship and room
+    wpn->currentShipTarget = enemy;
+    wpn->targetId = target_room;
+    wpn->autoFiring = true;
+
+    // Get target point via ShipGraph (handles coordinate system correctly)
+    if (target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
+        Pointf center = enemy->ship.GetRoomCenter(target_room);
+        wpn->targets.clear();
+        wpn->targets.push_back(center);
     }
 }
 
