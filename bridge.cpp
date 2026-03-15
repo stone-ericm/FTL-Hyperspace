@@ -95,37 +95,9 @@ void Bridge::step() {
         }
     }
 
-    // Per-frame: set weapon targets and fire directly when ready
-    {
-        ShipManager* player = G_->GetShipManager(0);
-        ShipManager* enemy = G_->GetShipManager(1);
-        if (player && enemy && player->weaponSystem) {
-            for (int i = 0; i < 4 && i < static_cast<int>(player->weaponSystem->weapons.size()); i++) {
-                int action = persistent_actions_[i]; // last weapon target action
-                if (action <= 0 || action > 40) continue;
-                auto* wpn = player->weaponSystem->weapons[i];
-                if (!wpn || !wpn->powered) continue;
-                int target_room = action - 1;
-                wpn->currentShipTarget = reinterpret_cast<Targetable*>(enemy);
-                wpn->targetId = target_room;
-                wpn->autoFiring = true;
-                // Direct fire when charged — bypass autofire system
-                if (target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
-                    Pointf world = enemy->_targetable.GetRandomTargettingPoint(false);
-                    wpn->targets.clear();
-                    wpn->targets.push_back(world);
-                    // Fire when charge is at or near 100% (bypass ReadyToFire which
-                    // returns false — likely needs CombatControl armed state)
-                    if (wpn->cooldown.second > 0 &&
-                        wpn->cooldown.first >= wpn->cooldown.second * 0.95f) {
-                        std::vector<Pointf> points;
-                        points.push_back(world);
-                        wpn->Fire(points, 1);
-                    }
-                }
-            }
-        }
-    }
+    // Per-frame weapon targeting DISABLED for debugging.
+    // Was crashing — needs investigation of Targetable cast and Fire() call.
+    // TODO: Re-enable after crash is diagnosed.
 
     // Accumulate game time (delta-time per frame)
     // FIXME_ACCESSOR: Get actual frame delta-time from FTL game loop
@@ -143,10 +115,14 @@ void Bridge::step() {
 }
 
 void Bridge::doStep() {
+    fprintf(stderr, "[Bridge] doStep() enter\n");
+
     // Get game objects via Hyperspace Global singleton
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
     SpaceManager* space = nullptr; // B.2: access via G_->GetWorld()
+
+    fprintf(stderr, "[Bridge] player=%p enemy=%p\n", (void*)player, (void*)enemy);
 
     // 1. Check episode end (backup — step() checks every frame too)
     if (!episode_done_) {
@@ -158,14 +134,17 @@ void Bridge::doStep() {
     }
 
     // 2. Serialize state
+    fprintf(stderr, "[Bridge] Serializing state...\n");
     memset(state_buffer_, 0, sizeof(state_buffer_));
     serializeState(state_buffer_, player, enemy, space);
+    fprintf(stderr, "[Bridge] State serialized (hull=%.0f)\n", state_buffer_[4]);
 
     // 3. Send STATE
     if (!send_message(pipe_, MsgType::STATE, state_buffer_, STATE_BUFFER_BYTES)) {
         handleDisconnect();
         return;
     }
+    fprintf(stderr, "[Bridge] STATE sent, waiting for ACTION...\n");
 
     // 4. Receive ACTION (blocks until Python responds)
     MsgType msg_type;
@@ -182,6 +161,11 @@ void Bridge::doStep() {
         return;
     }
 
+    fprintf(stderr, "[Bridge] ACTION received. Heads 0-11: %d %d %d %d | %d %d %d %d | %d %d %d %d\n",
+            action_buffer_[0], action_buffer_[1], action_buffer_[2], action_buffer_[3],
+            action_buffer_[4], action_buffer_[5], action_buffer_[6], action_buffer_[7],
+            action_buffer_[8], action_buffer_[9], action_buffer_[10], action_buffer_[11]);
+
     // 5. Resolve persistent actions (option 0 = no_change → use previous)
     for (int i = 0; i < ACTION_HEAD_COUNT; i++) {
         if (action_buffer_[i] != 0) {
@@ -191,10 +175,13 @@ void Bridge::doStep() {
     }
 
     // 6. Apply actions
+    fprintf(stderr, "[Bridge] Applying actions...\n");
     applyActions(action_buffer_, player, enemy);
+    fprintf(stderr, "[Bridge] Actions applied OK\n");
 
     // Reset per-step flags
     fled_this_step_ = false;
+    fprintf(stderr, "[Bridge] doStep() done\n");
 }
 
 void Bridge::handleReset() {

@@ -165,12 +165,26 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
             int sysId = SLOT_TO_SYSID[i];
             if (i == 5 && !ship->GetSystem(sysId))
                 sysId = 13; // SYS_CLONEBAY fallback
-            int diff = requested[i] - current[i];
-            if (diff > 0) {
-                for (int d = 0; d < diff; d++) ship->IncreaseSystemPower(sysId);
-            } else {
-                for (int d = 0; d < -diff; d++) ship->ForceDecreaseSystemPower(sysId);
+            ShipSystem* targetSys = ship->GetSystem(sysId);
+            if (!targetSys) {
+                fprintf(stderr, "[Power] slot %d sysId %d: system nullptr, skipping\n", i, sysId);
+                continue;
             }
+            int diff = requested[i] - current[i];
+            fprintf(stderr, "[Power] slot %d sysId %d: %d -> %d (diff %d)\n",
+                    i, sysId, current[i], requested[i], diff);
+            if (diff > 0) {
+                for (int d = 0; d < diff; d++) {
+                    fprintf(stderr, "[Power]   IncreaseSystemPower(%d) call %d\n", sysId, d);
+                    ship->IncreaseSystemPower(sysId);
+                }
+            } else {
+                for (int d = 0; d < -diff; d++) {
+                    fprintf(stderr, "[Power]   ForceDecreaseSystemPower(%d) call %d\n", sysId, d);
+                    ship->ForceDecreaseSystemPower(sysId);
+                }
+            }
+            fprintf(stderr, "[Power] slot %d done\n", i);
         }
     }
 }
@@ -367,18 +381,26 @@ void Bridge::applyActions(const int32_t* actions, ShipManager* player, ShipManag
     (void)enemy; // enemy used for targeting validation
 
     // Phase 1: Combat Core
+    fprintf(stderr, "[Bridge] applyWeaponFire...\n");
     for (int i = 0; i < 4; i++) applyWeaponFire(i, actions[i], player);
+    fprintf(stderr, "[Bridge] allocatePower...\n");
     // Beam paths (heads 4-7) are stored in persistent_actions_, used on fire
     allocatePower(actions + 8, player);  // heads 8-22
+    fprintf(stderr, "[Bridge] applySystemActivations...\n");
     applySystemActivations(actions, player);
+    fprintf(stderr, "[Bridge] applyDroneDeployment...\n");
     applyDroneDeployment(actions, player);
 
     // Phase 2: Crew & Doors
+    fprintf(stderr, "[Bridge] applyCrewMovement...\n");
     applyCrewMovement(actions, persistent_actions_, player);
+    fprintf(stderr, "[Bridge] applyVentSeal...\n");
     applyVentSeal(persistent_actions_, player);
 
     // Phase 3: Strategic
+    fprintf(stderr, "[Bridge] applyStrategic...\n");
     applyStrategic(actions, player);
+    fprintf(stderr, "[Bridge] applyActions done\n");
 }
 
 } // namespace ftl_rl
