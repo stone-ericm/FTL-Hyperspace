@@ -63,12 +63,10 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     wpn->autoFiring = true;
     wpn->fireWhenReady = true;
 
-    // Get target point via ShipGraph (handles coordinate system correctly)
-    if (target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
-        Pointf center = enemy->ship.GetRoomCenter(target_room);
-        wpn->targets.clear();
-        wpn->targets.push_back(center);
-    }
+    // Set target point using Targetable for correct world coordinates
+    Pointf world = enemy->_targetable.GetRandomTargettingPoint(false);
+    wpn->targets.clear();
+    wpn->targets.push_back(world);
 }
 
 // ============================================================================
