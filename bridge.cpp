@@ -95,7 +95,7 @@ void Bridge::step() {
         }
     }
 
-    // Per-frame: re-apply weapon targeting (FTL clears targetId each frame)
+    // Per-frame: set weapon targets and fire directly when ready
     {
         ShipManager* player = G_->GetShipManager(0);
         ShipManager* enemy = G_->GetShipManager(1);
@@ -109,11 +109,13 @@ void Bridge::step() {
                 wpn->currentShipTarget = reinterpret_cast<Targetable*>(enemy);
                 wpn->targetId = target_room;
                 wpn->autoFiring = true;
-                // fireWhenReady omitted — conflicts with autofire
-                if (target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
+                // Direct fire when charged — bypass autofire system
+                if (wpn->ReadyToFire() &&
+                    target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
                     Pointf world = enemy->_targetable.GetRandomTargettingPoint(false);
-                    wpn->targets.clear();
-                    wpn->targets.push_back(world);
+                    std::vector<Pointf> points;
+                    points.push_back(world);
+                    wpn->Fire(points, target_room);
                 }
             }
         }
@@ -220,12 +222,11 @@ void Bridge::sendEpisodeDone(EpisodeResult result) {
         return;
     }
 
-    if (result == EpisodeResult::LOSS) {
-        // Game is on death screen — resetGame() is not yet implemented,
-        // so we can't start a new game. Stop stepping but keep pipe open
-        // so the client can read the EPISODE_DONE message.
-        // DisconnectNamedPipe would discard unread data (race condition).
-        fprintf(stderr, "[Bridge] LOSS — stopping bridge (no auto-reset yet)\n");
+    if (result == EpisodeResult::LOSS || result == EpisodeResult::WIN) {
+        // Stop stepping — resetGame() not yet implemented.
+        // Keep pipe open so client can read EPISODE_DONE.
+        fprintf(stderr, "[Bridge] %s — stopping bridge (no auto-reset yet)\n",
+            result == EpisodeResult::LOSS ? "LOSS" : "WIN");
         connected_ = false;
         return;
     }
