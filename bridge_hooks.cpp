@@ -229,6 +229,15 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     }
 }
 
+// --- Intercept weapon Fire() to log target coordinates ---
+HOOK_METHOD(ProjectileFactory, Fire, (std::vector<Pointf>& points, int target) -> void) {
+    if (!points.empty()) {
+        fprintf(stderr, "[Fire] owner=%d target_room=%d points[0]=(%.1f,%.1f) npoints=%d\n",
+                this->iShipId, target, points[0].x, points[0].y, (int)points.size());
+    }
+    super(points, target);
+}
+
 // --- Cache enemy worldPosition post-render ---
 // ShipGraph::worldPosition is set during the render pass, not during OnLoop.
 // Cache it here so applyWeaponFire (which runs during OnLoop) has valid coords.
