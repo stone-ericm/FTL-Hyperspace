@@ -36,9 +36,6 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
                 gui->AddEnemyShip(enemyCS);
             }
         }
-        // Cache enemy screen position for weapon targeting
-        Bridge::cached_enemy_world_pos_.x = static_cast<float>(gui->combatControl.position.x);
-        Bridge::cached_enemy_world_pos_.y = static_cast<float>(gui->combatControl.position.y);
     }
 
     // --- Reset state machine (runs when reset_phase_ != NONE) ---
@@ -236,21 +233,6 @@ HOOK_METHOD(ProjectileFactory, Fire, (std::vector<Pointf>& points, int target) -
                 this->iShipId, target, points[0].x, points[0].y, (int)points.size());
     }
     super(points, target);
-}
-
-// --- Cache enemy worldPosition post-render ---
-// ShipGraph::worldPosition is set during the render pass, not during OnLoop.
-// Cache it here so applyWeaponFire (which runs during OnLoop) has valid coords.
-HOOK_METHOD(CApp, OnRender, () -> void) {
-    super();
-
-    ShipManager* enemyMgr = Global::GetInstance()->GetShipManager(1);
-    if (enemyMgr) {
-        ShipGraph* eg = ShipGraph::GetShipInfo(enemyMgr->iShipId);
-        if (eg && (eg->worldPosition.x != -1.0f || eg->worldPosition.y != -1.0f)) {
-            ftl_rl::Bridge::cached_enemy_world_pos_ = eg->worldPosition;
-        }
-    }
 }
 
 // --- Main game loop: serialize state, send/recv, apply actions ---

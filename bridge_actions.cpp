@@ -91,14 +91,17 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     wpn->autoFiring = true;
     fprintf(stderr, "[Weapon] W%d: set targetId=%d, autoFiring=true\n", weapon_idx, target_room);
 
-    // Compute world-space target point for this room.
-    // ConvertToWorldPosition uses ShipGraph::worldPosition — diagnostic to check if it's valid.
-    // Don't set wpn->targets — let the game compute world-space targeting.
-    // With CombatControl.enemyShips properly set (via AddEnemyShip), the game's
-    // own autoFiring mechanism can compute correct target points.
-    // Previously we overrode targets with bad coordinates which caused projectiles to miss.
-    fprintf(stderr, "[Weapon] W%d: autoFiring room %d (game computes target coords)\n",
-            weapon_idx, target_room);
+    // Fire() takes LOCAL ship coordinates (not world coords).
+    // FTL's projectile system adds the target ship's world position internally.
+    // Use ShipGraph::GetRoomCenter() which returns local room center.
+    ShipGraph* graphE = ShipGraph::GetShipInfo(enemy->iShipId);
+    if (graphE) {
+        Pointf roomCenter = graphE->GetRoomCenter(target_room);
+        wpn->targets.clear();
+        wpn->targets.push_back(roomCenter);
+        fprintf(stderr, "[Weapon] W%d: target local=(%.1f,%.1f) room %d\n",
+                weapon_idx, roomCenter.x, roomCenter.y, target_room);
+    }
 }
 
 // ============================================================================
