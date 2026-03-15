@@ -116,6 +116,19 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
                 world->CreateLocation(target);
                 // Reset FTL charge
                 player->jump_timer.first = 0.0f;
+                // Initialize combat: set mutual targeting so combat engine runs
+                ShipManager* newEnemy = Global::GetInstance()->GetShipManager(1);
+                if (newEnemy) {
+                    player->current_target = newEnemy;
+                    player->hostile_ship = true;
+                    newEnemy->current_target = player;
+                    newEnemy->hostile_ship = true;
+                }
+                // Unpause — FTL auto-pauses on events/encounters
+                if (gui) {
+                    gui->bPaused = false;
+                    gui->bAutoPaused = false;
+                }
                 auto_start_wait = 60; // wait before next jump attempt
             }
         }
