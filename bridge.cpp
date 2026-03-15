@@ -95,6 +95,30 @@ void Bridge::step() {
         }
     }
 
+    // Per-frame: re-apply weapon targeting (FTL clears targetId each frame)
+    {
+        ShipManager* player = G_->GetShipManager(0);
+        ShipManager* enemy = G_->GetShipManager(1);
+        if (player && enemy && player->weaponSystem) {
+            for (int i = 0; i < 4 && i < static_cast<int>(player->weaponSystem->weapons.size()); i++) {
+                int action = persistent_actions_[i]; // last weapon target action
+                if (action <= 0 || action > 40) continue;
+                auto* wpn = player->weaponSystem->weapons[i];
+                if (!wpn || !wpn->powered) continue;
+                int target_room = action - 1;
+                wpn->currentShipTarget = reinterpret_cast<Targetable*>(enemy);
+                wpn->targetId = target_room;
+                wpn->autoFiring = true;
+                // fireWhenReady omitted — conflicts with autofire
+                if (target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
+                    Pointf world = enemy->_targetable.GetRandomTargettingPoint(false);
+                    wpn->targets.clear();
+                    wpn->targets.push_back(world);
+                }
+            }
+        }
+    }
+
     // Accumulate game time (delta-time per frame)
     // FIXME_ACCESSOR: Get actual frame delta-time from FTL game loop
     // float dt = G_->GetInstance()->FIXME_frame_delta_time;

@@ -58,10 +58,10 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     if (!enemy) return;
 
     // Set target ship and room
-    wpn->currentShipTarget = &enemy->_targetable;
+    wpn->currentShipTarget = reinterpret_cast<Targetable*>(enemy);
     wpn->targetId = target_room;
     wpn->autoFiring = true;
-    wpn->fireWhenReady = true;
+    // fireWhenReady omitted — conflicts with autofire
 
     // Set target point using Targetable for correct world coordinates
     Pointf world = enemy->_targetable.GetRandomTargettingPoint(false);
