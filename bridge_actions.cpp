@@ -93,29 +93,19 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
 
     // Compute world-space target point for this room.
     // ConvertToWorldPosition uses ShipGraph::worldPosition — diagnostic to check if it's valid.
-    // Diagnostic: dump all position data from both player and enemy ShipGraphs
+    // Compute world-space target using cached enemy position (set post-render in CApp::OnLoop)
+    // + local room center from ShipGraph. ShipGraph::worldPosition is only valid after
+    // rendering, but applyWeaponFire runs during game logic (ShipManager::OnLoop).
+    // The cached position is from the PREVIOUS frame's render pass.
+    Pointf cachedPos = Bridge::cached_enemy_world_pos_;
     ShipGraph* graphE = ShipGraph::GetShipInfo(enemy->iShipId);
-    ShipGraph* graphP = ShipGraph::GetShipInfo(0); // player
-    if (graphE && graphP) {
-        fprintf(stderr, "[Weapon] W%d: PLAYER graph: center=(%d,%d) worldPos=(%.1f,%.1f) shipBox=(%d,%d,%d,%d)\n",
-                weapon_idx, graphP->center.x, graphP->center.y,
-                graphP->worldPosition.x, graphP->worldPosition.y,
-                graphP->shipBox.x, graphP->shipBox.y, graphP->shipBox.w, graphP->shipBox.h);
-        fprintf(stderr, "[Weapon] W%d: ENEMY  graph: center=(%d,%d) worldPos=(%.1f,%.1f) shipBox=(%d,%d,%d,%d)\n",
-                weapon_idx, graphE->center.x, graphE->center.y,
-                graphE->worldPosition.x, graphE->worldPosition.y,
-                graphE->shipBox.x, graphE->shipBox.y, graphE->shipBox.w, graphE->shipBox.h);
-    }
-
-    // Compute target: use shipBox position + local room center
     Pointf world = {0.0f, 0.0f};
     if (graphE) {
         Pointf local = graphE->GetRoomCenter(target_room);
-        // Try using shipBox as the ship's screen position
-        world.x = graphE->shipBox.x + local.x;
-        world.y = graphE->shipBox.y + local.y;
-        fprintf(stderr, "[Weapon] W%d: local=(%.1f,%.1f) shipBox+local=(%.1f,%.1f) room %d\n",
-                weapon_idx, local.x, local.y, world.x, world.y, target_room);
+        world.x = cachedPos.x + local.x;
+        world.y = cachedPos.y + local.y;
+        fprintf(stderr, "[Weapon] W%d: cached=(%.1f,%.1f) local=(%.1f,%.1f) world=(%.1f,%.1f) room %d\n",
+                weapon_idx, cachedPos.x, cachedPos.y, local.x, local.y, world.x, world.y, target_room);
     }
     wpn->targets.clear();
     wpn->targets.push_back(world);

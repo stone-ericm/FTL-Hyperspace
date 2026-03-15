@@ -95,6 +95,7 @@ private:
     static int reset_wait_frames_;    // frame counter for timeouts
 public:
     static ShipManager* cached_enemy_;  // set in doStep, used by applyWeaponFire
+    static Pointf cached_enemy_world_pos_;  // set in CApp::OnLoop (post-render), used by applyWeaponFire
 private:
 
     // Buffers

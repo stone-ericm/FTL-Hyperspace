@@ -22,6 +22,16 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     using ftl_rl::ResetPhase;
     using ftl_rl::EpisodeResult;
 
+    // Cache enemy ship worldPosition (only valid after super() = post-render).
+    // Used by applyWeaponFire for correct world-space targeting.
+    ShipManager* enemyMgr = Global::GetInstance()->GetShipManager(1);
+    if (enemyMgr) {
+        ShipGraph* eg = ShipGraph::GetShipInfo(enemyMgr->iShipId);
+        if (eg) {
+            Bridge::cached_enemy_world_pos_ = eg->worldPosition;
+        }
+    }
+
     // --- Reset state machine (runs when reset_phase_ != NONE) ---
 
     if (Bridge::resetPhase() == ResetPhase::WAITING_FOR_RESET) {

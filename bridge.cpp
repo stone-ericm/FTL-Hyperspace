@@ -16,6 +16,7 @@ bool Bridge::fled_this_step_ = false;
 EpisodeResult Bridge::last_result_ = EpisodeResult::LOSS;
 float Bridge::game_time_accumulator_ = 0.0f;
 ShipManager* Bridge::cached_enemy_ = nullptr;
+Pointf Bridge::cached_enemy_world_pos_ = {0.0f, 0.0f};
 ResetPhase Bridge::reset_phase_ = ResetPhase::NONE;
 int Bridge::reset_wait_frames_ = 0;
 float Bridge::state_buffer_[OBS_FIELD_COUNT] = {};
