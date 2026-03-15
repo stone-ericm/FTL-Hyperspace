@@ -59,4 +59,9 @@ bool recv_message(HANDLE pipe, MsgType& out_type, void* out_payload,
 // Close and cleanup pipe handle.
 void close_pipe(HANDLE pipe);
 
+// Non-blocking check for available data in pipe.
+// Returns true if pipe is valid; sets bytes_available to buffered byte count.
+// Returns false if pipe is broken (client disconnected).
+bool peek_pipe(HANDLE pipe, uint32_t& bytes_available);
+
 } // namespace ftl_rl

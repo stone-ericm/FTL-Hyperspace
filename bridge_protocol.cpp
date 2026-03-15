@@ -100,6 +100,17 @@ bool recv_message(HANDLE pipe, MsgType& out_type, void* out_payload,
     return true;
 }
 
+bool peek_pipe(HANDLE pipe, uint32_t& bytes_available) {
+    DWORD avail = 0;
+    if (!PeekNamedPipe(pipe, nullptr, 0, nullptr, &avail, nullptr)) {
+        fprintf(stderr, "[Bridge] PeekNamedPipe failed: %lu\n", GetLastError());
+        bytes_available = 0;
+        return false;
+    }
+    bytes_available = static_cast<uint32_t>(avail);
+    return true;
+}
+
 void close_pipe(HANDLE pipe) {
     if (pipe != INVALID_HANDLE_VALUE) {
         DisconnectNamedPipe(pipe);
