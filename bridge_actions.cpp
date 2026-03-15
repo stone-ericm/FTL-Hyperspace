@@ -91,17 +91,14 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     wpn->autoFiring = true;
     fprintf(stderr, "[Weapon] W%d: set targetId=%d, autoFiring=true\n", weapon_idx, target_room);
 
-    // DON'T set wpn->targets — let the game's autoFiring compute its own
-    // world-space target point from currentShipTarget + targetId.
-    // Previously we set targets to ConvertToWorldPosition(room center) which
-    // returned local coords (~-18, -11) instead of world coords (~700, 300),
+    // Use Targetable::GetWorldCenterPoint() for correct world-space coords.
+    // ConvertToWorldPosition returned local coords (ship worldPosition was 0,0),
     // causing projectiles to aim off-screen.
-    //
-    // DON'T call Fire() directly either — autoFiring handles firing when ready.
-    // Our explicit Fire() never executed anyway (ReadyToFire was false because
-    // autoFiring already fired and reset the cooldown between steps).
-    fprintf(stderr, "[Weapon] W%d: autoFiring set for room %d (game handles fire timing)\n",
-            weapon_idx, target_room);
+    Pointf world = enemy->_targetable.GetWorldCenterPoint();
+    fprintf(stderr, "[Weapon] W%d: target world=(%.1f, %.1f) room %d\n",
+            weapon_idx, world.x, world.y, target_room);
+    wpn->targets.clear();
+    wpn->targets.push_back(world);
 }
 
 // ============================================================================
