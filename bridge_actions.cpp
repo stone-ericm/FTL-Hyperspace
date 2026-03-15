@@ -93,22 +93,12 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
 
     // Compute world-space target point for this room.
     // ConvertToWorldPosition uses ShipGraph::worldPosition — diagnostic to check if it's valid.
-    // Compute world-space target using cached enemy position (set post-render in CApp::OnLoop)
-    // + local room center from ShipGraph. ShipGraph::worldPosition is only valid after
-    // rendering, but applyWeaponFire runs during game logic (ShipManager::OnLoop).
-    // The cached position is from the PREVIOUS frame's render pass.
-    Pointf cachedPos = Bridge::cached_enemy_world_pos_;
-    ShipGraph* graphE = ShipGraph::GetShipInfo(enemy->iShipId);
-    Pointf world = {0.0f, 0.0f};
-    if (graphE) {
-        Pointf local = graphE->GetRoomCenter(target_room);
-        world.x = cachedPos.x + local.x;
-        world.y = cachedPos.y + local.y;
-        fprintf(stderr, "[Weapon] W%d: cached=(%.1f,%.1f) local=(%.1f,%.1f) world=(%.1f,%.1f) room %d\n",
-                weapon_idx, cachedPos.x, cachedPos.y, local.x, local.y, world.x, world.y, target_room);
-    }
-    wpn->targets.clear();
-    wpn->targets.push_back(world);
+    // Don't set wpn->targets — let the game compute world-space targeting.
+    // With CombatControl.enemyShips properly set (via AddEnemyShip), the game's
+    // own autoFiring mechanism can compute correct target points.
+    // Previously we overrode targets with bad coordinates which caused projectiles to miss.
+    fprintf(stderr, "[Weapon] W%d: autoFiring room %d (game computes target coords)\n",
+            weapon_idx, target_room);
 }
 
 // ============================================================================
