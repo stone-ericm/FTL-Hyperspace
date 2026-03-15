@@ -22,11 +22,12 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     using ftl_rl::ResetPhase;
     using ftl_rl::EpisodeResult;
 
-    // Ensure CombatControl has the enemy ship — required for autoFiring weapon targeting.
-    // The auto-start code calls AddEnemyShip during CreateLocation, but the CompleteShip
-    // may not be ready at that point. Re-check every frame during combat.
+    // Per-step combat maintenance (only during active stepping, reset_phase == NONE)
     if (gui && Bridge::isConnected() && Bridge::resetPhase() == ResetPhase::NONE) {
+        ShipManager* playerCheck = Global::GetInstance()->GetShipManager(0);
         ShipManager* enemyCheck = Global::GetInstance()->GetShipManager(1);
+
+        // Ensure CombatControl has the enemy ship — required for autoFiring weapon targeting.
         if (enemyCheck && !enemyCheck->bDestroyed && gui->combatControl.enemyShips.empty()) {
             WorldManager* w = Global::GetInstance()->GetWorld();
             CompleteShip* enemyCS = w && w->playerShip
@@ -34,6 +35,36 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             if (enemyCS) {
                 fprintf(stderr, "[Bridge] Adding enemy to CombatControl (was missing)\n");
                 gui->AddEnemyShip(enemyCS);
+            }
+        }
+
+        // Non-combat beacon escape: if enemy exists but hostile_ship is false,
+        // this is a non-combat event outcome. Jump away immediately.
+        if (playerCheck && enemyCheck && !enemyCheck->bDestroyed
+            && !playerCheck->hostile_ship && playerCheck->fuel_count > 0) {
+            StarMap& starMap = world->starMap;
+            if (starMap.currentLoc && !starMap.currentLoc->connectedLocations.empty()) {
+                int idx = rand() % starMap.currentLoc->connectedLocations.size();
+                Location* target = starMap.currentLoc->connectedLocations[idx];
+                playerCheck->fuel_count--;
+                starMap.currentLoc = target;
+                world->CreateLocation(target);
+                playerCheck->jump_timer.first = 0.0f;
+                fprintf(stderr, "[Bridge] Non-combat beacon — jumping away (fuel=%d)\n",
+                        playerCheck->fuel_count);
+
+                // Set up combat if enemy spawned
+                ShipManager* newEnemy = Global::GetInstance()->GetShipManager(1);
+                if (newEnemy) {
+                    playerCheck->current_target = newEnemy;
+                    playerCheck->hostile_ship = true;
+                    newEnemy->current_target = playerCheck;
+                    newEnemy->hostile_ship = true;
+                }
+                if (gui) {
+                    gui->bPaused = false;
+                    gui->bAutoPaused = false;
+                }
             }
         }
     }
