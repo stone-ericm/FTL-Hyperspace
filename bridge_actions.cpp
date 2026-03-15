@@ -61,6 +61,7 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     wpn->currentShipTarget = &enemy->_targetable;
     wpn->targetId = target_room;
     wpn->autoFiring = true;
+    wpn->fireWhenReady = true;
 
     // Get target point via ShipGraph (handles coordinate system correctly)
     if (target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
