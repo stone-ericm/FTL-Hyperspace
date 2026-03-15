@@ -390,7 +390,86 @@ void Bridge::serializeState(float* buf, ShipManager* player,
     }
 
     // --- enemy_ship (152 fields) ---
-    idx += 152; // TODO: mirror player serialization for enemy
+    // enemy_ship.base (16 fields)
+    if (enemy) {
+        buf[idx++] = static_cast<float>(enemy->ship.hullIntegrity.first);
+        buf[idx++] = static_cast<float>(enemy->ship.hullIntegrity.second);
+        if (enemy->shieldSystem) {
+            buf[idx++] = static_cast<float>(enemy->shieldSystem->shields.power.first);
+            buf[idx++] = static_cast<float>(enemy->shieldSystem->shields.charger);
+            buf[idx++] = static_cast<float>(enemy->shieldSystem->chargeTime);
+            buf[idx++] = static_cast<float>(enemy->shieldSystem->shields_shutdown);
+            buf[idx++] = static_cast<float>(enemy->shieldSystem->shields.power.super.first);
+            buf[idx++] = static_cast<float>(enemy->shieldSystem->shields.power.super.second);
+            buf[idx++] = static_cast<float>(enemy->shieldSystem->shields.superTimer);
+        } else {
+            idx += 7;
+        }
+        buf[idx++] = static_cast<float>(enemy->GetDodgeFactor());
+        buf[idx++] = enemy->oxygenSystem
+            ? enemy->oxygenSystem->fTotalOxygen * 100.0f : 0.0f;
+        if (enemy->cloakSystem) {
+            buf[idx++] = static_cast<float>(enemy->cloakSystem->bTurnedOn);
+            buf[idx++] = static_cast<float>(enemy->cloakSystem->timer.currTime);
+            buf[idx++] = 0.0f; // cloak_cooldown_remaining — TODO
+        } else {
+            idx += 3;
+        }
+        // artillery
+        if (!enemy->artillerySystems.empty() && enemy->artillerySystems[0]) {
+            buf[idx++] = 0.0f; // TODO: artillery charge ratio
+            buf[idx++] = 0.0f; // TODO: artillery cooldown base
+        } else {
+            idx += 2;
+        }
+    } else {
+        idx += 16;
+    }
+
+    // enemy_ship.systems (15 slots × 6 fields = 90)
+    for (int i = 0; i < 15; i++) {
+        ShipSystem* sys = enemy ? enemy->GetSystem(SLOT_TO_SYSID[i]) : nullptr;
+        if (i == 5 && !sys && enemy) sys = enemy->GetSystem(13); // clonebay fallback
+        if (!sys) { idx += 6; continue; }
+        buf[idx++] = 1.0f; // system_present
+        buf[idx++] = static_cast<float>(sys->powerState.first);
+        buf[idx++] = static_cast<float>(sys->powerState.second);
+        buf[idx++] = static_cast<float>(sys->healthState.second - sys->healthState.first);
+        buf[idx++] = static_cast<float>(sys->iLockCount);
+        buf[idx++] = static_cast<float>(sys->GetEffectivePower());
+    }
+
+    // enemy_ship.weapons (4 slots × 10 fields = 40)
+    for (int i = 0; i < 4; i++) {
+        ProjectileFactory* wpn = (enemy && enemy->weaponSystem &&
+            i < static_cast<int>(enemy->weaponSystem->weapons.size()))
+            ? enemy->weaponSystem->weapons[i] : nullptr;
+        if (!wpn) { idx += 10; continue; }
+        buf[idx++] = 1.0f; // weapon_present
+        buf[idx++] = static_cast<float>(wpn->blueprint->type);
+        buf[idx++] = (wpn->cooldown.second > 0.0f)
+            ? (wpn->cooldown.first / wpn->cooldown.second) : 0.0f;
+        buf[idx++] = static_cast<float>(wpn->powered);
+        buf[idx++] = static_cast<float>(wpn->blueprint->damage.iDamage);
+        buf[idx++] = static_cast<float>(wpn->blueprint->shots);
+        buf[idx++] = static_cast<float>(wpn->blueprint->damage.iShieldPiercing);
+        buf[idx++] = static_cast<float>(wpn->blueprint->damage.iIonDamage);
+        buf[idx++] = static_cast<float>(wpn->blueprint->cooldown);
+        buf[idx++] = static_cast<float>(wpn->blueprint->missiles);
+    }
+
+    // enemy_ship.enemy_hacking_drone (6 fields)
+    if (enemy && enemy->hackingSystem) {
+        buf[idx++] = static_cast<float>(!enemy->hackingSystem->bArmed && enemy->hackingSystem->drone.deployed);
+        buf[idx++] = 0.0f; // in_transit — TODO
+        buf[idx++] = static_cast<float>(enemy->hackingSystem->drone.arrived);
+        buf[idx++] = static_cast<float>(enemy->hackingSystem->currentSystem
+            ? enemy->hackingSystem->currentSystem->iSystemType : -1);
+        buf[idx++] = 0.0f; // position_x — TODO: needs SpaceDrone cast
+        buf[idx++] = 0.0f; // position_y
+    } else {
+        idx += 6;
+    }
 
     // --- beam_path_lookup (80 paths × 5 rooms = 400 fields) ---
     for (int p = 0; p < static_cast<int>(BEAM_PATH_COUNT); p++) {

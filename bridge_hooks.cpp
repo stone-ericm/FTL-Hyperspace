@@ -65,27 +65,27 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
         auto_start_wait = 3; // check every ~3 steps
 
         ShipManager* enemy = Global::GetInstance()->GetShipManager(1);
-        // Diagnostic: log once to see why jump isn't happening
-        static bool nav_logged = false;
-        ShipManager* player_dbg = Global::GetInstance()->GetShipManager(0);
-        if (!nav_logged && player_dbg) {
-            FILE* lf = fopen("C:\\Users\\stone\\ftl-rl\\autonav_log.txt", "w");
-            if (lf) {
-                fprintf(lf, "enemy=%s jump=%.0f/%.0f fuel=%d connectedLocs=%d\n",
-                    enemy ? "YES" : "no",
-                    player_dbg->jump_timer.first, player_dbg->jump_timer.second,
-                    player_dbg->fuel_count,
-                    (int)(world->starMap.currentLoc ?
-                        world->starMap.currentLoc->connectedLocations.size() : -1));
-                fclose(lf);
-            }
-            nav_logged = true;
-        }
-        if (enemy) return; // in combat — let the bridge handle it
 
-        // Not in combat: try to dismiss any event popup
-        this->OnKeyDown(static_cast<SDLKey>(0x31)); // SDLK_1
-        this->OnKeyUp(static_cast<SDLKey>(0x31));
+        // Always send number keys to dismiss event popups (harmless during
+        // combat — no event popup means keys are ignored). Rotate 4→1
+        // since last choice is usually free "Leave".
+        // Only send Escape when no enemy + bridge disconnected (close stores
+        // during pre-combat auto-nav without disrupting combat pause menu).
+        {
+            static int key_cycle = 0;
+            SDLKey key;
+            if (!enemy && key_cycle % 5 == 0) {
+                key = static_cast<SDLKey>(0x1B); // Escape to close stores (safe: no combat)
+            } else {
+                int nkeys[] = {0x34, 0x33, 0x32, 0x31}; // 4, 3, 2, 1
+                key = static_cast<SDLKey>(nkeys[key_cycle % 4]);
+            }
+            this->OnKeyDown(key);
+            this->OnKeyUp(key);
+            key_cycle++;
+        }
+
+        if (enemy) return; // in combat — let the bridge handle it
 
         // If FTL is charged and no combat, teleport to next beacon
         ShipManager* player = Global::GetInstance()->GetShipManager(0);
