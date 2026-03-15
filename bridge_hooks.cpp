@@ -181,7 +181,10 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             }
         }
 
-        if (enemy && !enemy->bDestroyed) return; // in live combat — bridge handles weapon control
+        // Only stop jumping if we're actually IN combat (hostile_ship = true).
+        // Some events have an enemy present but no combat (peaceful event outcome).
+        ShipManager* player_check = Global::GetInstance()->GetShipManager(0);
+        if (enemy && !enemy->bDestroyed && player_check && player_check->hostile_ship) return;
 
         // If FTL is charged and no combat, teleport to next beacon
         ShipManager* player = Global::GetInstance()->GetShipManager(0);

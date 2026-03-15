@@ -291,7 +291,7 @@ void Bridge::checkCombatReady() {
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
 
-    if (player && enemy && !player->bDestroyed && !enemy->bDestroyed) {
+    if (player && enemy && !player->bDestroyed && !enemy->bDestroyed && player->hostile_ship) {
         fprintf(stderr, "[Bridge] Combat ready! player=%p enemy=%p\n",
                 (void*)player, (void*)enemy);
         handleReset();
