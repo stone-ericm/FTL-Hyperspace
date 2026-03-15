@@ -93,31 +93,32 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
 
     // Compute world-space target point for this room.
     // ConvertToWorldPosition uses ShipGraph::worldPosition — diagnostic to check if it's valid.
-    ShipGraph* graph = ShipGraph::GetShipInfo(enemy->iShipId);
-    Pointf local = {0.0f, 0.0f};
-    Pointf world = {0.0f, 0.0f};
-    if (graph) {
-        fprintf(stderr, "[Weapon] W%d: ShipGraph worldPos=(%.1f, %.1f) shipId=%d\n",
-                weapon_idx, graph->worldPosition.x, graph->worldPosition.y, enemy->iShipId);
-        local = graph->GetRoomCenter(target_room);
-        fprintf(stderr, "[Weapon] W%d: local room center=(%.1f, %.1f)\n", weapon_idx, local.x, local.y);
-        world = graph->ConvertToWorldPosition(local);
-        fprintf(stderr, "[Weapon] W%d: ConvertToWorld=(%.1f, %.1f)\n", weapon_idx, world.x, world.y);
+    // Diagnostic: dump all position data from both player and enemy ShipGraphs
+    ShipGraph* graphE = ShipGraph::GetShipInfo(enemy->iShipId);
+    ShipGraph* graphP = ShipGraph::GetShipInfo(0); // player
+    if (graphE && graphP) {
+        fprintf(stderr, "[Weapon] W%d: PLAYER graph: center=(%d,%d) worldPos=(%.1f,%.1f) shipBox=(%d,%d,%d,%d)\n",
+                weapon_idx, graphP->center.x, graphP->center.y,
+                graphP->worldPosition.x, graphP->worldPosition.y,
+                graphP->shipBox.x, graphP->shipBox.y, graphP->shipBox.w, graphP->shipBox.h);
+        fprintf(stderr, "[Weapon] W%d: ENEMY  graph: center=(%d,%d) worldPos=(%.1f,%.1f) shipBox=(%d,%d,%d,%d)\n",
+                weapon_idx, graphE->center.x, graphE->center.y,
+                graphE->worldPosition.x, graphE->worldPosition.y,
+                graphE->shipBox.x, graphE->shipBox.y, graphE->shipBox.w, graphE->shipBox.h);
+    }
 
-        // If ConvertToWorldPosition returned local-looking coords (worldPosition was 0),
-        // manually add worldPosition as fallback
-        if (graph->worldPosition.x == 0.0f && graph->worldPosition.y == 0.0f) {
-            // worldPosition not set — try the shipBox center instead
-            float boxCenterX = graph->shipBox.x + graph->shipBox.w / 2.0f;
-            float boxCenterY = graph->shipBox.y + graph->shipBox.h / 2.0f;
-            fprintf(stderr, "[Weapon] W%d: shipBox center=(%.1f, %.1f)\n",
-                    weapon_idx, boxCenterX, boxCenterY);
-        }
+    // Compute target: use shipBox position + local room center
+    Pointf world = {0.0f, 0.0f};
+    if (graphE) {
+        Pointf local = graphE->GetRoomCenter(target_room);
+        // Try using shipBox as the ship's screen position
+        world.x = graphE->shipBox.x + local.x;
+        world.y = graphE->shipBox.y + local.y;
+        fprintf(stderr, "[Weapon] W%d: local=(%.1f,%.1f) shipBox+local=(%.1f,%.1f) room %d\n",
+                weapon_idx, local.x, local.y, world.x, world.y, target_room);
     }
     wpn->targets.clear();
     wpn->targets.push_back(world);
-    fprintf(stderr, "[Weapon] W%d: final target=(%.1f, %.1f) room %d\n",
-            weapon_idx, world.x, world.y, target_room);
 }
 
 // ============================================================================
