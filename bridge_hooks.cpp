@@ -66,20 +66,13 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
 
         ShipManager* enemy = Global::GetInstance()->GetShipManager(1);
 
-        // Always send number keys to dismiss event popups (harmless during
-        // combat — no event popup means keys are ignored). Rotate 4→1
-        // since last choice is usually free "Leave".
-        // Only send Escape when no enemy + bridge disconnected (close stores
-        // during pre-combat auto-nav without disrupting combat pause menu).
+        // Send number keys to dismiss event popups. Rotate 4→1 since
+        // last choice is usually free "Leave". Harmless during combat
+        // (no popup = keys ignored). No Escape — it opens pause menu.
         {
             static int key_cycle = 0;
-            SDLKey key;
-            if (!enemy && key_cycle % 5 == 0) {
-                key = static_cast<SDLKey>(0x1B); // Escape to close stores (safe: no combat)
-            } else {
-                int nkeys[] = {0x34, 0x33, 0x32, 0x31}; // 4, 3, 2, 1
-                key = static_cast<SDLKey>(nkeys[key_cycle % 4]);
-            }
+            int keys[] = {0x34, 0x33, 0x32, 0x31}; // SDLK_4, 3, 2, 1
+            SDLKey key = static_cast<SDLKey>(keys[key_cycle % 4]);
             this->OnKeyDown(key);
             this->OnKeyUp(key);
             key_cycle++;
