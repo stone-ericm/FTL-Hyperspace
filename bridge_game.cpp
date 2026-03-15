@@ -28,24 +28,9 @@ void Bridge::setSpeedMultiplier(float multiplier) {
 }
 
 void Bridge::resetGame() {
-    // FIXME_ACCESSOR: Programmatically start a new game.
-    //
-    // This must replicate what happens when the player clicks:
-    //   Main Menu → New Game → Select Ship → Start
-    //
-    // Likely approach:
-    //   1. G_->GetApp()->NewGame(config_.ship_blueprint);
-    //   or
-    //   1. ScoreKeeper::Reset()
-    //   2. WorldManager::StartNewGame(shipBlueprint)
-    //   3. Wait for first beacon to load
-    //
-    // UNCERTAINTY: FTL was not designed for thousands of resets.
-    // Memory leaks or stale state are possible. If detected,
-    // the fallback is process restart every N episodes (handled
-    // by Python in Plan 3).
-
-    fprintf(stderr, "[Bridge] Resetting game with ship: %s\n", config_.ship_blueprint.c_str());
+    // No-op: game reset is now handled by the CApp::OnLoop state machine
+    // (RESTARTING_GAME phase for LOSS, FINDING_COMBAT for WIN/FLED).
+    // This method is retained for potential future use (direct API reset).
 }
 
 bool Bridge::checkEpisodeDone(EpisodeResult& result) {
