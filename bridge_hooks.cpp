@@ -17,7 +17,7 @@ static int auto_start_wait = 0;
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     super();
 
-    if (auto_start_state >= 5) return;
+    if (auto_start_state > 5) return; // 5 = auto-nav active, 6 = done
 
     if (auto_start_state == 0 && menu.bOpen && !menu.shipBuilder.bOpen) {
         hs_log_file("Auto-start: opening ship builder directly\n");
@@ -57,6 +57,58 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
         this->OnKeyUp(static_cast<SDLKey>(0x31));
         hs_log_file("Auto-start: sent '1' to dismiss event popup\n");
         auto_start_state = 5;
+        auto_start_wait = 3; // short wait (CApp::OnLoop fires ~1/sec during bridge stepping)
+    }
+    else if (auto_start_state == 5) {
+        // Auto-navigate: dismiss event popups and jump to next beacon
+        if (--auto_start_wait > 0) return; // debounce between actions
+        auto_start_wait = 3; // check every ~3 steps
+
+        ShipManager* enemy = Global::GetInstance()->GetShipManager(1);
+        // Diagnostic: log once to see why jump isn't happening
+        static bool nav_logged = false;
+        ShipManager* player_dbg = Global::GetInstance()->GetShipManager(0);
+        if (!nav_logged && player_dbg) {
+            FILE* lf = fopen("C:\\Users\\stone\\ftl-rl\\autonav_log.txt", "w");
+            if (lf) {
+                fprintf(lf, "enemy=%s jump=%.0f/%.0f fuel=%d connectedLocs=%d\n",
+                    enemy ? "YES" : "no",
+                    player_dbg->jump_timer.first, player_dbg->jump_timer.second,
+                    player_dbg->fuel_count,
+                    (int)(world->starMap.currentLoc ?
+                        world->starMap.currentLoc->connectedLocations.size() : -1));
+                fclose(lf);
+            }
+            nav_logged = true;
+        }
+        if (enemy) return; // in combat — let the bridge handle it
+
+        // Not in combat: try to dismiss any event popup
+        this->OnKeyDown(static_cast<SDLKey>(0x31)); // SDLK_1
+        this->OnKeyUp(static_cast<SDLKey>(0x31));
+
+        // If FTL is charged and no combat, teleport to next beacon
+        ShipManager* player = Global::GetInstance()->GetShipManager(0);
+        if (player && player->jump_timer.first >= player->jump_timer.second
+            && player->jump_timer.second > 0) {
+            StarMap& starMap = world->starMap;
+            if (starMap.currentLoc &&
+                !starMap.currentLoc->connectedLocations.empty()) {
+                // Pick a random connected beacon
+                int idx = rand() % starMap.currentLoc->connectedLocations.size();
+                Location* target = starMap.currentLoc->connectedLocations[idx];
+                // Consume fuel
+                if (player->fuel_count > 0) {
+                    player->fuel_count--;
+                }
+                // Teleport: change current location and start the new beacon
+                starMap.currentLoc = target;
+                world->CreateLocation(target);
+                // Reset FTL charge
+                player->jump_timer.first = 0.0f;
+                auto_start_wait = 60; // wait before next jump attempt
+            }
+        }
     }
 }
 
