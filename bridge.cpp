@@ -16,6 +16,8 @@ bool Bridge::fled_this_step_ = false;
 EpisodeResult Bridge::last_result_ = EpisodeResult::LOSS;
 float Bridge::game_time_accumulator_ = 0.0f;
 ShipManager* Bridge::cached_enemy_ = nullptr;
+ResetPhase Bridge::reset_phase_ = ResetPhase::NONE;
+int Bridge::reset_wait_frames_ = 0;
 float Bridge::state_buffer_[OBS_FIELD_COUNT] = {};
 int32_t Bridge::action_buffer_[ACTION_HEAD_COUNT] = {};
 int32_t Bridge::persistent_actions_[ACTION_HEAD_COUNT] = {};
@@ -68,7 +70,17 @@ void Bridge::init(const BridgeConfig& config) {
         handleDisconnect();
         return;
     }
-    handleReset();
+
+    // Don't call handleReset() — game isn't running yet.
+    // Enter RESTARTING_GAME (not FINDING_COMBAT) because the full menu->game
+    // startup takes 10-15s and FINDING_COMBAT has a 30s timeout that could
+    // fire prematurely. RESTARTING_GAME handles states 0-5 naturally and
+    // transitions to FINDING_COMBAT when auto_start_state >= 5.
+    // auto_start_state is already 0 at startup, and the RESTARTING_GAME guard
+    // (auto_start_state > 0 || < -2) won't trigger for 0, so states 0-5 run.
+    episode_done_ = false;
+    reset_phase_ = ResetPhase::RESTARTING_GAME;
+    fprintf(stderr, "[Bridge] Initial RESET received, entering RESTARTING_GAME\n");
 }
 
 void Bridge::shutdown() {
@@ -81,11 +93,9 @@ void Bridge::shutdown() {
 }
 
 void Bridge::step() {
-    if (!connected_) return;
+    if (!connected_ || reset_phase_ != ResetPhase::NONE) return;
 
     // Per-frame episode check: catch bDestroyed before OnLoop stops firing.
-    // doStep() only runs every step_interval seconds — too slow to catch
-    // the narrow window between destruction and game-over screen transition.
     if (!episode_done_) {
         EpisodeResult result;
         if (checkEpisodeDone(result)) {
@@ -102,15 +112,13 @@ void Bridge::step() {
     // Root cause of prior crash: reinterpret_cast<Targetable*>(enemy) was wrong —
     // Targetable is a member (_targetable), not a base class. Fixed to &enemy->_targetable.
 
-    // Accumulate game time (delta-time per frame)
+    // Accumulate game time
     // FIXME_ACCESSOR: Get actual frame delta-time from FTL game loop
-    // float dt = G_->GetInstance()->FIXME_frame_delta_time;
     float dt = 1.0f / 60.0f; // placeholder: assume 60fps
     game_time_accumulator_ += dt;
 
-    // Check if step interval has elapsed
     if (game_time_accumulator_ < config_.step_interval) {
-        return; // Not time for an agent step yet
+        return;
     }
     game_time_accumulator_ -= config_.step_interval;
 
@@ -189,26 +197,112 @@ void Bridge::doStep() {
 }
 
 void Bridge::handleReset() {
-    // Reset game state
-    resetGame();
+    // Game is already in combat-ready state (state machine ensured this)
     episode_done_ = false;
     fled_this_step_ = false;
     game_time_accumulator_ = 0.0f;
+    cached_enemy_ = nullptr;
     memset(persistent_actions_, 0, sizeof(persistent_actions_));
 
-    // Serialize initial state
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
-    SpaceManager* space = nullptr; // B.2: access via G_->GetWorld()
 
     memset(state_buffer_, 0, sizeof(state_buffer_));
-    serializeState(state_buffer_, player, enemy, space);
+    serializeState(state_buffer_, player, enemy, nullptr);
 
-    // Send RESET_ACK with initial state
-    send_message(pipe_, MsgType::RESET_ACK, state_buffer_, STATE_BUFFER_BYTES);
+    if (!send_message(pipe_, MsgType::RESET_ACK, state_buffer_, STATE_BUFFER_BYTES)) {
+        handleDisconnect();
+        return;
+    }
+    fprintf(stderr, "[Bridge] RESET_ACK sent, resuming stepping\n");
+}
+
+void Bridge::pollForReset() {
+    // Called from CApp::OnLoop during WAITING_FOR_RESET phase.
+    // Non-blocking check for Python's RESET message.
+    reset_wait_frames_++;
+
+    // Timeout: 60 seconds at ~60fps = 3600 frames
+    if (reset_wait_frames_ > 3600) {
+        fprintf(stderr, "[Bridge] WAITING_FOR_RESET timeout (60s). Disconnecting.\n");
+        handleDisconnect();
+        reset_phase_ = ResetPhase::NONE;
+        return;
+    }
+
+    uint32_t avail = 0;
+    if (!peek_pipe(pipe_, avail)) {
+        // Pipe broken (client crashed)
+        fprintf(stderr, "[Bridge] Pipe broken during WAITING_FOR_RESET\n");
+        handleDisconnect();
+        reset_phase_ = ResetPhase::NONE;
+        return;
+    }
+
+    if (avail < MSG_HEADER_BYTES) return; // no message yet
+
+    // Message available — read it (blocking call is instant since data is buffered)
+    MsgType msg_type;
+    uint32_t payload_size;
+    if (!recv_message(pipe_, msg_type, nullptr, 0, payload_size, 1000)) {
+        handleDisconnect();
+        reset_phase_ = ResetPhase::NONE;
+        return;
+    }
+
+    if (msg_type != MsgType::RESET) {
+        fprintf(stderr, "[Bridge] Expected RESET during reset phase, got %d\n",
+                static_cast<int>(msg_type));
+        handleDisconnect();
+        reset_phase_ = ResetPhase::NONE;
+        return;
+    }
+
+    fprintf(stderr, "[Bridge] RESET received (waited %d frames). last_result=%d\n",
+            reset_wait_frames_, static_cast<int>(last_result_));
+
+    // NOTE: After setting phase here, the CApp::OnLoop hook reads resetPhase()
+    // and sets auto_start_state accordingly (-2 for RESTARTING, 5 for FINDING).
+    // This coupling is intentional — pollForReset is a Bridge method and should
+    // not directly touch file-static hook variables.
+    if (last_result_ == EpisodeResult::LOSS) {
+        setResetPhase(ResetPhase::RESTARTING_GAME);  // resets frame counter
+        fprintf(stderr, "[Bridge] LOSS → RESTARTING_GAME\n");
+    } else {
+        // WIN or FLED — game still running, just need next combat
+        setResetPhase(ResetPhase::FINDING_COMBAT);  // resets frame counter
+        fprintf(stderr, "[Bridge] WIN/FLED → FINDING_COMBAT\n");
+    }
+}
+
+void Bridge::checkCombatReady() {
+    // Called from CApp::OnLoop during FINDING_COMBAT phase.
+    // When both player and live enemy exist, finalize the reset.
+    reset_wait_frames_++;
+
+    // Timeout: 30 seconds at ~60fps = 1800 frames
+    if (reset_wait_frames_ > 1800) {
+        fprintf(stderr, "[Bridge] FINDING_COMBAT timeout (30s). Forcing game restart.\n");
+        // Force a full restart — setResetPhase resets frame counter.
+        // The hook checks for RESTARTING_GAME and sets auto_start_state = -2.
+        setResetPhase(ResetPhase::RESTARTING_GAME);
+        return;
+    }
+
+    ShipManager* player = G_->GetShipManager(0);
+    ShipManager* enemy = G_->GetShipManager(1);
+
+    if (player && enemy && !player->bDestroyed && !enemy->bDestroyed) {
+        fprintf(stderr, "[Bridge] Combat ready! player=%p enemy=%p\n",
+                (void*)player, (void*)enemy);
+        handleReset();
+        reset_phase_ = ResetPhase::NONE;
+        reset_wait_frames_ = 0;
+    }
 }
 
 void Bridge::sendEpisodeDone(EpisodeResult result) {
+    if (episode_done_) return;  // idempotent — prevent double send
     episode_done_ = true;
     last_result_ = result;
     fprintf(stderr, "[Bridge] Sending EPISODE_DONE (result=%d)\n", static_cast<int>(result));
@@ -219,27 +313,10 @@ void Bridge::sendEpisodeDone(EpisodeResult result) {
         return;
     }
 
-    if (result == EpisodeResult::LOSS || result == EpisodeResult::WIN) {
-        // Stop stepping — resetGame() not yet implemented.
-        // Keep pipe open so client can read EPISODE_DONE.
-        fprintf(stderr, "[Bridge] %s — stopping bridge (no auto-reset yet)\n",
-            result == EpisodeResult::LOSS ? "LOSS" : "WIN");
-        connected_ = false;
-        return;
-    }
-
-    // FLED/WIN: game continues, wait for RESET and resume stepping
-    MsgType msg_type;
-    uint32_t payload_size;
-    if (!recv_message(pipe_, msg_type, nullptr, 0, payload_size,
-                      config_.timeout_seconds * 1000)) {
-        handleDisconnect();
-        return;
-    }
-
-    if (msg_type == MsgType::RESET) {
-        handleReset();
-    }
+    reset_phase_ = ResetPhase::WAITING_FOR_RESET;
+    reset_wait_frames_ = 0;
+    fprintf(stderr, "[Bridge] Entering WAITING_FOR_RESET\n");
+    // Return immediately — no blocking, no disconnect
 }
 
 void Bridge::forceEpisodeDone(EpisodeResult result) {
