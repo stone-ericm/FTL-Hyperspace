@@ -66,16 +66,22 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
 
         ShipManager* enemy = Global::GetInstance()->GetShipManager(1);
 
-        // Send number keys to dismiss event popups. Rotate 4→1 since
-        // last choice is usually free "Leave". Harmless during combat
-        // (no popup = keys ignored). No Escape — it opens pause menu.
-        {
-            static int key_cycle = 0;
-            int keys[] = {0x34, 0x33, 0x32, 0x31}; // SDLK_4, 3, 2, 1
-            SDLKey key = static_cast<SDLKey>(keys[key_cycle % 4]);
-            this->OnKeyDown(key);
-            this->OnKeyUp(key);
-            key_cycle++;
+        // Dismiss UI overlays based on what's actually open:
+        // - choiceBox open → number keys (dismiss event popup)
+        // - store open → Escape (close store)
+        // - nothing open → don't send keys (1-4 are weapon hotkeys!)
+        if (gui) {
+            if (gui->choiceBoxOpen) {
+                static int key_cycle = 0;
+                int keys[] = {0x34, 0x33, 0x32, 0x31}; // 4, 3, 2, 1
+                SDLKey key = static_cast<SDLKey>(keys[key_cycle % 4]);
+                this->OnKeyDown(key);
+                this->OnKeyUp(key);
+                key_cycle++;
+            } else if (gui->equipScreen.bStoreMode) {
+                this->OnKeyDown(static_cast<SDLKey>(0x1B)); // Escape
+                this->OnKeyUp(static_cast<SDLKey>(0x1B));
+            }
         }
 
         if (enemy) return; // in combat — let the bridge handle it

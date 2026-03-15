@@ -58,7 +58,7 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     if (!enemy) return;
 
     // Set target ship and room
-    wpn->currentShipTarget = enemy;
+    wpn->currentShipTarget = &enemy->_targetable;
     wpn->targetId = target_room;
     wpn->autoFiring = true;
 
