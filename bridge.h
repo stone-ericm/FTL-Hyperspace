@@ -20,6 +20,14 @@ struct BridgeConfig {
     bool debug_json = false;        // output JSON instead of binary (dev only)
 };
 
+// --- Reset State Machine ---
+enum class ResetPhase {
+    NONE,              // Normal stepping
+    WAITING_FOR_RESET, // EPISODE_DONE sent, polling for Python's RESET
+    RESTARTING_GAME,   // LOSS only: navigating game-over → menu → new game
+    FINDING_COMBAT,    // Waiting for auto-nav to reach a beacon with an enemy
+};
+
 // --- Beam Path Data ---
 constexpr size_t BEAM_PATH_COUNT = 80;
 constexpr size_t BEAM_PATH_ROOMS = 5;
@@ -45,6 +53,12 @@ public:
     static bool isConnected() { return connected_; }
     static bool isEpisodeDone() { return episode_done_; }
     static void forceEpisodeDone(EpisodeResult result);
+
+    // Reset state machine — called from CApp::OnLoop hook
+    static void pollForReset();       // WAITING_FOR_RESET: peek pipe for RESET
+    static void checkCombatReady();   // FINDING_COMBAT: check enemy, send RESET_ACK
+    static ResetPhase resetPhase() { return reset_phase_; }
+    static void setResetPhase(ResetPhase phase) { reset_phase_ = phase; reset_wait_frames_ = 0; }
 
 private:
     // Send EPISODE_DONE, wait for RESET, call handleReset
@@ -77,6 +91,8 @@ private:
     static bool fled_this_step_;
     static EpisodeResult last_result_;
     static float game_time_accumulator_;
+    static ResetPhase reset_phase_;
+    static int reset_wait_frames_;    // frame counter for timeouts
 public:
     static ShipManager* cached_enemy_;  // set in doStep, used by applyWeaponFire
 private:
