@@ -22,6 +22,16 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     using ftl_rl::ResetPhase;
     using ftl_rl::EpisodeResult;
 
+    // Log CombatControl positions for weapon targeting debug
+    if (gui && Bridge::isConnected() && Bridge::resetPhase() == ResetPhase::NONE) {
+        fprintf(stderr, "[CombatCtrl] playerShipPos=(%d,%d) position=(%d,%d) targetPos=(%d,%d) boxPos=(%d,%d) enemyShips=%d\n",
+                gui->combatControl.playerShipPosition.x, gui->combatControl.playerShipPosition.y,
+                gui->combatControl.position.x, gui->combatControl.position.y,
+                gui->combatControl.targetPosition.x, gui->combatControl.targetPosition.y,
+                gui->combatControl.boxPosition.x, gui->combatControl.boxPosition.y,
+                (int)gui->combatControl.enemyShips.size());
+    }
+
     // --- Reset state machine (runs when reset_phase_ != NONE) ---
 
     if (Bridge::resetPhase() == ResetPhase::WAITING_FOR_RESET) {
