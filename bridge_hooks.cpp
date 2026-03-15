@@ -22,14 +22,23 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     using ftl_rl::ResetPhase;
     using ftl_rl::EpisodeResult;
 
-    // Log CombatControl positions for weapon targeting debug
+    // Ensure CombatControl has the enemy ship — required for autoFiring weapon targeting.
+    // The auto-start code calls AddEnemyShip during CreateLocation, but the CompleteShip
+    // may not be ready at that point. Re-check every frame during combat.
     if (gui && Bridge::isConnected() && Bridge::resetPhase() == ResetPhase::NONE) {
-        fprintf(stderr, "[CombatCtrl] playerShipPos=(%d,%d) position=(%d,%d) targetPos=(%d,%d) boxPos=(%d,%d) enemyShips=%d\n",
-                gui->combatControl.playerShipPosition.x, gui->combatControl.playerShipPosition.y,
-                gui->combatControl.position.x, gui->combatControl.position.y,
-                gui->combatControl.targetPosition.x, gui->combatControl.targetPosition.y,
-                gui->combatControl.boxPosition.x, gui->combatControl.boxPosition.y,
-                (int)gui->combatControl.enemyShips.size());
+        ShipManager* enemyCheck = Global::GetInstance()->GetShipManager(1);
+        if (enemyCheck && !enemyCheck->bDestroyed && gui->combatControl.enemyShips.empty()) {
+            WorldManager* w = Global::GetInstance()->GetWorld();
+            CompleteShip* enemyCS = w && w->playerShip
+                ? w->playerShip->enemyShip : nullptr;
+            if (enemyCS) {
+                fprintf(stderr, "[Bridge] Adding enemy to CombatControl (was missing)\n");
+                gui->AddEnemyShip(enemyCS);
+            }
+        }
+        // Cache enemy screen position for weapon targeting
+        Bridge::cached_enemy_world_pos_.x = static_cast<float>(gui->combatControl.position.x);
+        Bridge::cached_enemy_world_pos_.y = static_cast<float>(gui->combatControl.position.y);
     }
 
     // --- Reset state machine (runs when reset_phase_ != NONE) ---
