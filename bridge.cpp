@@ -110,12 +110,18 @@ void Bridge::step() {
                 wpn->targetId = target_room;
                 wpn->autoFiring = true;
                 // Direct fire when charged — bypass autofire system
-                if (wpn->ReadyToFire() &&
-                    target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
+                if (target_room < static_cast<int>(enemy->ship.vRoomList.size())) {
                     Pointf world = enemy->_targetable.GetRandomTargettingPoint(false);
-                    std::vector<Pointf> points;
-                    points.push_back(world);
-                    wpn->Fire(points, target_room);
+                    wpn->targets.clear();
+                    wpn->targets.push_back(world);
+                    // Fire when charge is at or near 100% (bypass ReadyToFire which
+                    // returns false — likely needs CombatControl armed state)
+                    if (wpn->cooldown.second > 0 &&
+                        wpn->cooldown.first >= wpn->cooldown.second * 0.95f) {
+                        std::vector<Pointf> points;
+                        points.push_back(world);
+                        wpn->Fire(points, 1);
+                    }
                 }
             }
         }

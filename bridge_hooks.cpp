@@ -84,18 +84,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             }
         }
 
-        if (enemy) {
-            // During combat without popup: select weapons 1+2 to enable autofire
-            if (gui && !gui->choiceBoxOpen) {
-                static int wpn_cycle = 0;
-                int wpnKeys[] = {0x31, 0x32}; // SDLK_1, SDLK_2
-                SDLKey key = static_cast<SDLKey>(wpnKeys[wpn_cycle % 2]);
-                this->OnKeyDown(key);
-                this->OnKeyUp(key);
-                wpn_cycle++;
-            }
-            return;
-        }
+        if (enemy) return; // in combat — bridge handles weapon control
 
         // If FTL is charged and no combat, teleport to next beacon
         ShipManager* player = Global::GetInstance()->GetShipManager(0);
