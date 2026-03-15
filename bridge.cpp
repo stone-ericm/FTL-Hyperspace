@@ -71,16 +71,14 @@ void Bridge::init(const BridgeConfig& config) {
         return;
     }
 
-    // Don't call handleReset() — game isn't running yet.
-    // Enter RESTARTING_GAME (not FINDING_COMBAT) because the full menu->game
-    // startup takes 10-15s and FINDING_COMBAT has a 30s timeout that could
-    // fire prematurely. RESTARTING_GAME handles states 0-5 naturally and
-    // transitions to FINDING_COMBAT when auto_start_state >= 5.
-    // auto_start_state is already 0 at startup, and the RESTARTING_GAME guard
-    // (auto_start_state > 0 || < -2) won't trigger for 0, so states 0-5 run.
+    // Don't call handleReset() — need to wait for combat to start.
+    // Use FINDING_COMBAT (not RESTARTING_GAME): by the time init() fires
+    // from ShipManager::OnLoop, the game is already running (auto-start
+    // states 0-5 have completed). We just need to find the first enemy.
+    // RESTARTING_GAME would incorrectly try to dismiss a game-over screen.
     episode_done_ = false;
-    reset_phase_ = ResetPhase::RESTARTING_GAME;
-    fprintf(stderr, "[Bridge] Initial RESET received, entering RESTARTING_GAME\n");
+    reset_phase_ = ResetPhase::FINDING_COMBAT;
+    fprintf(stderr, "[Bridge] Initial RESET received, entering FINDING_COMBAT\n");
 }
 
 void Bridge::shutdown() {
