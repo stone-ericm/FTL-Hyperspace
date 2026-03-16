@@ -215,7 +215,6 @@ auto_start:
 
             bool gameover_flag = gui && gui->gameover;
             if (goOpen || gameover_flag) {
-                // Game-over detected! Clear flags and open menu.
                 auto& go = gui->gameOverScreen;
                 go.bOpen = false;
                 go.bShowStats = false;
@@ -223,12 +222,9 @@ auto_start:
                 gui->gameover = false;
                 gui->alreadyWon = false;
                 menu.Open();
-                fprintf(stderr, "[Reset] game-over cleared (goOpen=%d gameover=%d), menu.Open()\n",
-                        goOpen, gameover_flag);
+                fprintf(stderr, "[Reset] game-over cleared → menu\n");
             }
-            // else: wait passively — don't send keys that could interfere
-            // with the death animation. The game needs time to process
-            // bDestroyed → death explosion → GameOver::OpenText.
+            // else: wait passively for death animation (~210 frames)
         }
 
         dismiss_attempt++;
@@ -359,15 +355,6 @@ auto_start:
     }
 }
 
-// --- Lightweight Fire() hook — log player weapon fires only ---
-HOOK_METHOD(ProjectileFactory, Fire, (std::vector<Pointf>& points, int target) -> void) {
-    if (this->iShipId == 0 && !points.empty()) {  // player ship only
-        fprintf(stderr, "[Fire] shipId=0 room=%d pts=(%.0f,%.0f) n=%d\n",
-                target, points[0].x, points[0].y, (int)points.size());
-    }
-    super(points, target);
-}
-
 // --- ShipManager::OnLoop: just step, no init ---
 HOOK_METHOD_PRIORITY(ShipManager, OnLoop, 50, () -> void) {
     super();
@@ -383,13 +370,9 @@ HOOK_METHOD(ShipManager, JumpLeave, () -> void) {
     super();
 }
 
-// --- GameOver::OpenText: fallback loss detection + diagnostic ---
+// --- GameOver::OpenText: fallback loss detection ---
 HOOK_METHOD(GameOver, OpenText, (const std::string& text) -> void) {
     super(text);
-    fprintf(stderr, "[GameOver] OpenText fired! bOpen=%d this=%p phase=%d\n",
-            this->bOpen, (void*)this,
-            static_cast<int>(ftl_rl::Bridge::resetPhase()));
-    // Phase guard is in forceEpisodeDone (only fires during NONE)
     if (ftl_rl::Bridge::isConnected() && !ftl_rl::Bridge::isEpisodeDone()) {
         ftl_rl::Bridge::forceEpisodeDone(ftl_rl::EpisodeResult::LOSS);
     }

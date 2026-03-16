@@ -180,25 +180,15 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
             if (i == 5 && !ship->GetSystem(sysId))
                 sysId = 13; // SYS_CLONEBAY fallback
             ShipSystem* targetSys = ship->GetSystem(sysId);
-            if (!targetSys) {
-                fprintf(stderr, "[Power] slot %d sysId %d: system nullptr, skipping\n", i, sysId);
-                continue;
-            }
+            if (!targetSys) continue;
             int diff = requested[i] - current[i];
-            fprintf(stderr, "[Power] slot %d sysId %d: %d -> %d (diff %d)\n",
-                    i, sysId, current[i], requested[i], diff);
             if (diff > 0) {
-                for (int d = 0; d < diff; d++) {
-                    fprintf(stderr, "[Power]   IncreaseSystemPower(%d) call %d\n", sysId, d);
+                for (int d = 0; d < diff; d++)
                     ship->IncreaseSystemPower(sysId);
-                }
             } else {
-                for (int d = 0; d < -diff; d++) {
-                    fprintf(stderr, "[Power]   ForceDecreaseSystemPower(%d) call %d\n", sysId, d);
+                for (int d = 0; d < -diff; d++)
                     ship->ForceDecreaseSystemPower(sysId);
-                }
             }
-            fprintf(stderr, "[Power] slot %d done\n", i);
         }
     }
 }
