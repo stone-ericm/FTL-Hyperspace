@@ -125,15 +125,14 @@ void Bridge::step() {
 }
 
 void Bridge::doStep() {
-    fprintf(stderr, "[Bridge] doStep() enter\n");
+    static int step_count = 0;
 
     // Get game objects via Hyperspace Global singleton
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
-    SpaceManager* space = nullptr; // B.2: access via G_->GetWorld()
+    SpaceManager* space = nullptr;
 
     cached_enemy_ = enemy;
-    fprintf(stderr, "[Bridge] player=%p enemy=%p cached=%p\n", (void*)player, (void*)enemy, (void*)cached_enemy_);
 
     // 1. Check episode end (backup — step() checks every frame too)
     if (!episode_done_) {
@@ -145,17 +144,14 @@ void Bridge::doStep() {
     }
 
     // 2. Serialize state
-    fprintf(stderr, "[Bridge] Serializing state...\n");
     memset(state_buffer_, 0, sizeof(state_buffer_));
     serializeState(state_buffer_, player, enemy, space);
-    fprintf(stderr, "[Bridge] State serialized (hull=%.0f)\n", state_buffer_[4]);
 
     // 3. Send STATE
     if (!send_message(pipe_, MsgType::STATE, state_buffer_, STATE_BUFFER_BYTES)) {
         handleDisconnect();
         return;
     }
-    fprintf(stderr, "[Bridge] STATE sent, waiting for ACTION...\n");
 
     // 4. Receive ACTION (blocks until Python responds)
     MsgType msg_type;
@@ -172,27 +168,26 @@ void Bridge::doStep() {
         return;
     }
 
-    fprintf(stderr, "[Bridge] ACTION received. Heads 0-11: %d %d %d %d | %d %d %d %d | %d %d %d %d\n",
-            action_buffer_[0], action_buffer_[1], action_buffer_[2], action_buffer_[3],
-            action_buffer_[4], action_buffer_[5], action_buffer_[6], action_buffer_[7],
-            action_buffer_[8], action_buffer_[9], action_buffer_[10], action_buffer_[11]);
-
     // 5. Resolve persistent actions (option 0 = no_change → use previous)
     for (int i = 0; i < ACTION_HEAD_COUNT; i++) {
         if (action_buffer_[i] != 0) {
             persistent_actions_[i] = action_buffer_[i];
         }
-        // For one-shot heads, action_buffer_[i] is used directly (0 = hold)
     }
 
     // 6. Apply actions
-    fprintf(stderr, "[Bridge] Applying actions...\n");
     applyActions(action_buffer_, player, enemy);
-    fprintf(stderr, "[Bridge] Actions applied OK\n");
 
     // Reset per-step flags
     fled_this_step_ = false;
-    fprintf(stderr, "[Bridge] doStep() done\n");
+    step_count++;
+
+    // Log every 10 steps for visibility without spam
+    if (step_count % 10 == 0) {
+        fprintf(stderr, "[Bridge] step %d hull=%.0f enemy_hull=%.0f\n",
+                step_count, state_buffer_[4],
+                state_buffer_[5241]); // enemy_ship.base.hull
+    }
 }
 
 void Bridge::handleReset() {
@@ -279,9 +274,10 @@ void Bridge::checkCombatReady() {
     // When both player and live enemy exist, finalize the reset.
     reset_wait_frames_++;
 
-    // Timeout: 30 seconds at ~60fps = 1800 frames
-    if (reset_wait_frames_ > 1800) {
-        fprintf(stderr, "[Bridge] FINDING_COMBAT timeout (30s). Forcing game restart.\n");
+    // Timeout: 120 seconds at ~60fps = 7200 frames.
+    // Needs to be long enough for FTL drive to charge + multiple beacon jumps.
+    if (reset_wait_frames_ > 7200) {
+        fprintf(stderr, "[Bridge] FINDING_COMBAT timeout (120s). Forcing game restart.\n");
         // Force a full restart — setResetPhase resets frame counter.
         // The hook checks for RESTARTING_GAME and sets auto_start_state = -2.
         setResetPhase(ResetPhase::RESTARTING_GAME);

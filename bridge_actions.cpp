@@ -43,70 +43,44 @@ static volatile ShipManager* s_current_enemy = nullptr;
 // WEAPON FIRE (heads 0-3)
 // ============================================================================
 static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player) {
-    if (action == 0) return; // hold
-    // Get enemy from Bridge class member (set in doStep where GetShipManager(1) works)
-    ShipManager* enemy = Bridge::cached_enemy_;
-    fprintf(stderr, "[Weapon] W%d: Bridge::cached_enemy_=%p\n", weapon_idx, (void*)enemy);
+    if (action == 0) return; // hold — no change
 
     auto* wpnSys = player->weaponSystem;
-    if (!wpnSys) {
-        fprintf(stderr, "[Weapon] W%d: no weaponSystem\n", weapon_idx);
-        return;
-    }
-    if (weapon_idx >= static_cast<int>(wpnSys->weapons.size())) {
-        fprintf(stderr, "[Weapon] W%d: idx >= weapons.size(%d)\n", weapon_idx, (int)wpnSys->weapons.size());
-        return;
-    }
+    if (!wpnSys) return;
+    if (weapon_idx >= static_cast<int>(wpnSys->weapons.size())) return;
     auto* wpn = wpnSys->weapons[weapon_idx];
-    if (!wpn) {
-        fprintf(stderr, "[Weapon] W%d: weapon ptr is null\n", weapon_idx);
-        return;
-    }
-    if (!wpn->powered) {
-        fprintf(stderr, "[Weapon] W%d: not powered (action=%d)\n", weapon_idx, action);
-        return;
-    }
+    if (!wpn || !wpn->powered) return;
 
-    fprintf(stderr, "[Weapon] W%d: powered, action=%d\n", weapon_idx, action);
-
+    // Action 41: toggle autofire (mirrors the player's autofire button)
     if (action == 41) {
-        wpn->autoFiring = !wpn->autoFiring;
+        wpn->SetAutoFire(!wpn->autoFiring);
         return;
     }
 
-    // action 1-40 = fire at enemy room (action - 1 = room_id)
+    // Action 1-40: target enemy room (action - 1 = room_id)
+    // Mirrors: player selects weapon, clicks enemy room.
+    // We set the target and fireWhenReady — the game fires when charged.
     int target_room = action - 1;
 
-    fprintf(stderr, "[Weapon] W%d: pre-null-check enemy=%p\n", weapon_idx, (void*)enemy);
-    if (!enemy) {
-        fprintf(stderr, "[Weapon] W%d: no enemy ship! (was %p at read)\n", weapon_idx, (void*)Bridge::cached_enemy_);
-        return;
-    }
-    fprintf(stderr, "[Weapon] W%d: PASSED null check, enemy=%p\n", weapon_idx, (void*)enemy);
+    ShipManager* enemy = Bridge::cached_enemy_;
+    if (!enemy) return;
 
-    // FIX: _targetable is a MEMBER of ShipManager, not a base class.
-    fprintf(stderr, "[Weapon] W%d: setting currentShipTarget to &enemy->_targetable\n", weapon_idx);
+    // Set target ship (Targetable is a MEMBER, not base class)
     wpn->SetCurrentShip(&enemy->_targetable);
     wpn->targetId = target_room;
-    // Do NOT set autoFiring — it consumes ammo without creating projectiles.
-    // Instead, keep weapon charged and call Fire() directly when ready.
-    wpn->autoFiring = false;
 
-    // Compute target in LOCAL ship coords and fire when ready
+    // Compute target point in enemy's local ship coordinates
     ShipGraph* graphE = ShipGraph::GetShipInfo(enemy->iShipId);
-    if (graphE) {
-        Pointf roomCenter = graphE->GetRoomCenter(target_room);
-        wpn->targets.clear();
-        wpn->targets.push_back(roomCenter);
+    if (!graphE) return;
 
-        if (wpn->ReadyToFire()) {
-            std::vector<Pointf> firePoints;
-            firePoints.push_back(roomCenter);
-            wpn->Fire(firePoints, target_room);
-            fprintf(stderr, "[Weapon] W%d: FIRE! room=%d (%.1f,%.1f) ammo=%d\n",
-                    weapon_idx, target_room, roomCenter.x, roomCenter.y, wpn->iAmmo);
-        }
-    }
+    Pointf roomCenter = graphE->GetRoomCenter(target_room);
+    wpn->targets.clear();
+    wpn->targets.push_back(roomCenter);
+
+    // Let the game fire when ready — equivalent to player clicking a room.
+    // fireWhenReady queues a single shot; the game's own update loop
+    // handles charge checking, projectile creation, and damage.
+    wpn->fireWhenReady = true;
 }
 
 // ============================================================================
@@ -421,26 +395,17 @@ void Bridge::applyActions(const int32_t* actions, ShipManager* player, ShipManag
 
     // Phase 1: Combat Core
     s_current_enemy = enemy;
-    fprintf(stderr, "[Bridge] applyWeaponFire (s_current_enemy=%p)...\n", (void*)s_current_enemy);
     for (int i = 0; i < 4; i++) applyWeaponFire(i, actions[i], player);
-    fprintf(stderr, "[Bridge] allocatePower...\n");
-    // Beam paths (heads 4-7) are stored in persistent_actions_, used on fire
     allocatePower(actions + 8, player);  // heads 8-22
-    fprintf(stderr, "[Bridge] applySystemActivations...\n");
     applySystemActivations(actions, player);
-    fprintf(stderr, "[Bridge] applyDroneDeployment...\n");
     applyDroneDeployment(actions, player);
 
     // Phase 2: Crew & Doors
-    fprintf(stderr, "[Bridge] applyCrewMovement...\n");
     applyCrewMovement(actions, persistent_actions_, player);
-    fprintf(stderr, "[Bridge] applyVentSeal...\n");
     applyVentSeal(persistent_actions_, player);
 
     // Phase 3: Strategic
-    fprintf(stderr, "[Bridge] applyStrategic...\n");
     applyStrategic(actions, player);
-    fprintf(stderr, "[Bridge] applyActions done\n");
 }
 
 } // namespace ftl_rl

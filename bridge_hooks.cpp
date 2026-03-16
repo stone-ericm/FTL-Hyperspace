@@ -13,7 +13,8 @@ static bool bridge_initialized = false;
 // Call Open() directly to bypass button state issues.
 static int auto_start_state = 0;
 static int auto_start_wait = 0;
-static int dismiss_attempt = 0;  // game-over dismiss retry counter (reset on RESTARTING_GAME entry)
+static int dismiss_attempt = 0;  // game-over dismiss retry counter
+static bool restart_entry_done = false;  // one-shot flag for RESTARTING_GAME entry
 
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     super();
@@ -33,7 +34,6 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             CompleteShip* enemyCS = w && w->playerShip
                 ? w->playerShip->enemyShip : nullptr;
             if (enemyCS) {
-                fprintf(stderr, "[Bridge] Adding enemy to CombatControl (was missing)\n");
                 gui->AddEnemyShip(enemyCS);
             }
         }
@@ -85,25 +85,65 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     }
 
     if (Bridge::resetPhase() == ResetPhase::RESTARTING_GAME) {
-        // Ensure auto_start_state is set for game-over dismiss.
-        // This handles both entry from WAITING_FOR_RESET (above) and
-        // fallback from checkCombatReady() timeout.
-        if (auto_start_state > 0 || auto_start_state < -2) {
+        // One-shot entry: force state -2 to start game-over dismiss sequence.
+        // This fires once per RESTARTING_GAME entry, then states -2→0→1→...→5 progress.
+        if (!restart_entry_done) {
+            restart_entry_done = true;
             auto_start_state = -2;
             auto_start_wait = 60;
             dismiss_attempt = 0;
+            fprintf(stderr, "[Reset] RESTARTING_GAME entry → state -2\n");
         }
         // Transition: once auto-start reaches state 5, game is running
         if (auto_start_state >= 5) {
             fprintf(stderr, "[Reset] RESTARTING_GAME → FINDING_COMBAT (auto_start_state=%d)\n",
                     auto_start_state);
+            restart_entry_done = false;
             Bridge::setResetPhase(ResetPhase::FINDING_COMBAT);
         }
         // Fall through to auto-start states below (including -2)
+    } else {
+        restart_entry_done = false;
     }
 
     if (Bridge::resetPhase() == ResetPhase::FINDING_COMBAT) {
+        // Enable auto-nav ONLY if the initial auto-start already completed.
+        if (auto_start_state > 5) {
+            auto_start_state = 5;
+            auto_start_wait = 3;
+        }
+        // Keep game unpaused so FTL drive charges and auto-nav can jump.
+        // The initial event popup pauses the game; state 4 dismissed it
+        // but doesn't unpause.
+        if (gui) {
+            gui->bPaused = false;
+            gui->bAutoPaused = false;
+        }
         Bridge::checkCombatReady();
+        // If checkCombatReady succeeded, phase is now NONE → ensure combat is
+        // fully initiated. The auto-nav jump code does this after CreateLocation,
+        // but checkCombatReady may find combat without a jump (e.g., first beacon).
+        if (Bridge::resetPhase() == ResetPhase::NONE) {
+            ShipManager* p = Global::GetInstance()->GetShipManager(0);
+            ShipManager* e = Global::GetInstance()->GetShipManager(1);
+            if (p && e) {
+                p->current_target = e;
+                p->hostile_ship = true;
+                e->current_target = p;
+                e->hostile_ship = true;
+            }
+            if (gui) {
+                if (gui->combatControl.enemyShips.empty()) {
+                    WorldManager* w = Global::GetInstance()->GetWorld();
+                    CompleteShip* ecs = w && w->playerShip
+                        ? w->playerShip->enemyShip : nullptr;
+                    if (ecs) gui->AddEnemyShip(ecs);
+                }
+                gui->bPaused = false;
+                gui->bAutoPaused = false;
+            }
+            fprintf(stderr, "[Bridge] Combat initiated — targets set, unpaused\n");
+        }
         // Fall through to auto-start state 5 for beacon jumping
     }
 
@@ -131,19 +171,28 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             return;
         }
 
-        // Close game-over screen programmatically — no mouse clicks needed.
-        // Works headless for parallel training sessions.
-        if (gui) {
-            auto& goScreen = gui->gameOverScreen;
-            if (goScreen.bOpen) {
-                fprintf(stderr, "[Reset] closing game-over (bOpen=%d, attempt=%d)\n",
-                        goScreen.bOpen, dismiss_attempt);
-                goScreen.Close();
-                // Set command to "main menu" (first button command)
-                if (!goScreen.commands.empty()) {
-                    goScreen.command = goScreen.commands[0];
-                    fprintf(stderr, "[Reset] set command=%d\n", goScreen.commands[0]);
-                }
+        // Dismiss game-over screen. Try multiple approaches:
+        // 1. FocusWindow::Close() + command to trigger "Main Menu"
+        // 2. Keyboard input (Enter, Escape) for intermediate screens
+        {
+            bool goOpen = gui && gui->gameOverScreen.bOpen;
+            fprintf(stderr, "[Reset] dismiss attempt=%d goOpen=%d\n", dismiss_attempt, goOpen);
+
+            if (goOpen) {
+                auto& go = gui->gameOverScreen;
+                // Force-close game-over and transition to menu.
+                // Normal button clicks don't work from our hook context.
+                go.bOpen = false;
+                go.bShowStats = false;
+                menu.bOpen = true;
+                fprintf(stderr, "[Reset] force-closed game-over, opened menu\n");
+            } else {
+                // No game-over FocusWindow — send Enter + Escape to
+                // dismiss intermediate screens
+                this->OnKeyDown(static_cast<SDLKey>(0x0D));
+                this->OnKeyUp(static_cast<SDLKey>(0x0D));
+                this->OnKeyDown(static_cast<SDLKey>(0x1B));
+                this->OnKeyUp(static_cast<SDLKey>(0x1B));
             }
         }
 
@@ -151,7 +200,11 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
         auto_start_wait = 10;
 
         if (dismiss_attempt > 30) {
-            fprintf(stderr, "[Reset] game-over dismiss failed after 30 attempts\n");
+            fprintf(stderr, "[Reset] game-over dismiss failed after 30 attempts, "
+                    "falling back to menu start\n");
+            // Give up on dismiss, assume we can reach menu.
+            // Jump to state 0 which waits for menu.bOpen.
+            auto_start_state = 0;
             dismiss_attempt = 0;
         }
         return;
@@ -159,43 +212,54 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
 
     // Note: state -1 removed — state -2 transitions directly to 0 when menu detected.
 
-    // States 0-5: Existing auto-start (unchanged)
+    // States 0-5: Auto-start menu→game sequence
+    // Debug: log state every 60 frames during reset phases
+    {
+        static int dbg_counter = 0;
+        if (++dbg_counter >= 60 && Bridge::resetPhase() != ResetPhase::NONE) {
+            dbg_counter = 0;
+            fprintf(stderr, "[Auto] tick: state=%d wait=%d phase=%d menu=%d builder=%d\n",
+                    auto_start_state, auto_start_wait,
+                    static_cast<int>(Bridge::resetPhase()),
+                    menu.bOpen, menu.shipBuilder.bOpen);
+        }
+    }
     if (auto_start_state == 0 && menu.bOpen && !menu.shipBuilder.bOpen) {
-        hs_log_file("Auto-start: opening ship builder directly\n");
+        fprintf(stderr, "[Auto] state 0: opening ship builder\n");
         menu.shipBuilder.Open();
         auto_start_state = 1;
         auto_start_wait = 60;
     }
     else if (auto_start_state == 1) {
         if (menu.shipBuilder.bOpen) {
-            hs_log_file("Auto-start: ship builder open, setting bDone\n");
+            fprintf(stderr, "[Auto] state 1: ship builder open → state 2 (wait 30)\n");
             auto_start_state = 2;
             auto_start_wait = 30;
         } else if (--auto_start_wait <= 0) {
-            hs_log_file("Auto-start: timeout, retrying\n");
+            fprintf(stderr, "[Auto] state 1: timeout, retrying\n");
             auto_start_state = 0;
         }
     }
     else if (auto_start_state == 2 && --auto_start_wait <= 0) {
-        hs_log_file("Auto-start: setting bDone to start game\n");
+        fprintf(stderr, "[Auto] state 2: setting bDone to start game\n");
         menu.shipBuilder.bDone = true;
         auto_start_state = 3;
         auto_start_wait = 120;
     }
     else if (auto_start_state == 3) {
         if (!menu.shipBuilder.bOpen) {
-            hs_log_file("Auto-start: game started, dismissing event popup\n");
+            fprintf(stderr, "[Auto] state 3: game started → state 4 (dismiss popup)\n");
             auto_start_state = 4;
             auto_start_wait = 60;
         } else if (--auto_start_wait <= 0) {
-            hs_log_file("Auto-start: timeout, retrying\n");
+            fprintf(stderr, "[Auto] state 3: timeout, retrying from state 0\n");
             auto_start_state = 0;
         }
     }
     else if (auto_start_state == 4 && --auto_start_wait <= 0) {
         this->OnKeyDown(static_cast<SDLKey>(0x31)); // SDLK_1
         this->OnKeyUp(static_cast<SDLKey>(0x31));
-        hs_log_file("Auto-start: sent '1' to dismiss event popup\n");
+        fprintf(stderr, "[Auto] state 4: sent '1' to dismiss event popup → state 5\n");
         auto_start_state = 5;
         auto_start_wait = 3;
     }
@@ -266,15 +330,6 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             }
         }
     }
-}
-
-// --- Intercept weapon Fire() to log target coordinates ---
-HOOK_METHOD(ProjectileFactory, Fire, (std::vector<Pointf>& points, int target) -> void) {
-    if (!points.empty()) {
-        fprintf(stderr, "[Fire] owner=%d target_room=%d points[0]=(%.1f,%.1f) npoints=%d\n",
-                this->iShipId, target, points[0].x, points[0].y, (int)points.size());
-    }
-    super(points, target);
 }
 
 // --- Main game loop: serialize state, send/recv, apply actions ---
