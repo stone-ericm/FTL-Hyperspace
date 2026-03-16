@@ -209,32 +209,33 @@ auto_start:
         // Dismiss game-over screen
         {
             bool goOpen = gui && gui->gameOverScreen.bOpen;
-            fprintf(stderr, "[Reset] dismiss attempt=%d goOpen=%d\n", dismiss_attempt, goOpen);
+            fprintf(stderr, "[Reset] dismiss attempt=%d goOpen=%d goPtr=%p gui=%p gameover=%d\n",
+                    dismiss_attempt, goOpen, (void*)&gui->gameOverScreen, (void*)gui,
+                    gui ? gui->gameover : -1);
 
-            if (goOpen) {
+            bool gameover_flag = gui && gui->gameover;
+            if (goOpen || gameover_flag) {
+                // Game-over detected! Clear flags and open menu.
                 auto& go = gui->gameOverScreen;
-                // Clear ALL game-over flags, then open menu
                 go.bOpen = false;
                 go.bShowStats = false;
                 go.bShowingCredits = false;
                 gui->gameover = false;
                 gui->alreadyWon = false;
                 menu.Open();
-                fprintf(stderr, "[Reset] game-over cleared, menu.Open() called\n");
-            } else {
-                // Send Enter + Escape to dismiss intermediate screens
-                this->OnKeyDown(static_cast<SDLKey>(0x0D));
-                this->OnKeyUp(static_cast<SDLKey>(0x0D));
-                this->OnKeyDown(static_cast<SDLKey>(0x1B));
-                this->OnKeyUp(static_cast<SDLKey>(0x1B));
+                fprintf(stderr, "[Reset] game-over cleared (goOpen=%d gameover=%d), menu.Open()\n",
+                        goOpen, gameover_flag);
             }
+            // else: wait passively — don't send keys that could interfere
+            // with the death animation. The game needs time to process
+            // bDestroyed → death explosion → GameOver::OpenText.
         }
 
         dismiss_attempt++;
         auto_start_wait = 10;
 
-        if (dismiss_attempt > 30) {
-            fprintf(stderr, "[Reset] game-over dismiss failed after 30 attempts → state 0\n");
+        if (dismiss_attempt > 60) {
+            fprintf(stderr, "[Reset] game-over dismiss failed after 60 attempts → state 0\n");
             auto_start_state = 0;
             dismiss_attempt = 0;
         }
@@ -373,9 +374,12 @@ HOOK_METHOD(ShipManager, JumpLeave, () -> void) {
     super();
 }
 
-// --- GameOver::OpenText: fallback loss detection ---
+// --- GameOver::OpenText: fallback loss detection + diagnostic ---
 HOOK_METHOD(GameOver, OpenText, (const std::string& text) -> void) {
     super(text);
+    fprintf(stderr, "[GameOver] OpenText fired! bOpen=%d this=%p phase=%d\n",
+            this->bOpen, (void*)this,
+            static_cast<int>(ftl_rl::Bridge::resetPhase()));
     // Phase guard is in forceEpisodeDone (only fires during NONE)
     if (ftl_rl::Bridge::isConnected() && !ftl_rl::Bridge::isEpisodeDone()) {
         ftl_rl::Bridge::forceEpisodeDone(ftl_rl::EpisodeResult::LOSS);
