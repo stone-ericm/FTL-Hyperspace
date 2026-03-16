@@ -131,42 +131,27 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             return;
         }
 
-        // Game-over screen has "Main Menu" button that requires mouse click.
-        // Keyboard (Space/Enter/Escape) doesn't work. Use two approaches:
-        // 1. Click the "Main Menu" button via OnLButtonDown/Up
-        // 2. Set gameOverScreen.command directly as fallback
+        // Close game-over screen programmatically — no mouse clicks needed.
+        // Works headless for parallel training sessions.
         if (gui) {
             auto& goScreen = gui->gameOverScreen;
-
-            // Try clicking the first button ("Main Menu") if it has buttons
-            if (!goScreen.buttons.empty() && goScreen.buttons[0]) {
-                // TextButton inherits from GenericButton which has position
-                // Click at button center — try button[0] ("Main Menu")
-                auto* btn = goScreen.buttons[0];
-                // GenericButton has a rect or position — try clicking near game-over center
-                // Game-over is typically centered. For 1024x768: button ~(390, 600)
-                int clickX = 390;
-                int clickY = 600;
-                if (dismiss_attempt == 0) {
-                    fprintf(stderr, "[Reset] game-over: nButtons=%d, clicking (%d,%d)\n",
-                            (int)goScreen.buttons.size(), clickX, clickY);
+            if (goScreen.bOpen) {
+                fprintf(stderr, "[Reset] closing game-over (bOpen=%d, attempt=%d)\n",
+                        goScreen.bOpen, dismiss_attempt);
+                goScreen.Close();
+                // Set command to "main menu" (first button command)
+                if (!goScreen.commands.empty()) {
+                    goScreen.command = goScreen.commands[0];
+                    fprintf(stderr, "[Reset] set command=%d\n", goScreen.commands[0]);
                 }
-                this->OnLButtonDown(clickX, clickY);
-                this->OnLButtonUp(clickX, clickY);
-            }
-
-            // Also try setting command directly (0 = first button = "Main Menu")
-            if (dismiss_attempt >= 3) {
-                goScreen.command = 0;
-                fprintf(stderr, "[Reset] game-over: set command=0 (main menu)\n");
             }
         }
 
         dismiss_attempt++;
         auto_start_wait = 10;
 
-        if (dismiss_attempt > 20) {
-            fprintf(stderr, "[Reset] game-over dismiss failed after 20 attempts\n");
+        if (dismiss_attempt > 30) {
+            fprintf(stderr, "[Reset] game-over dismiss failed after 30 attempts\n");
             dismiss_attempt = 0;
         }
         return;
