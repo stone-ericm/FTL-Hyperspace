@@ -22,10 +22,12 @@ struct BridgeConfig {
 
 // --- Reset State Machine ---
 enum class ResetPhase {
-    NONE,              // Normal stepping
-    WAITING_FOR_RESET, // EPISODE_DONE sent, polling for Python's RESET
-    RESTARTING_GAME,   // LOSS only: navigating game-over → menu → new game
-    FINDING_COMBAT,    // Waiting for auto-nav to reach a beacon with an enemy
+    NONE,               // Normal stepping
+    WAITING_FOR_GAME,   // Auto-start running, no pipe yet
+    WAITING_FOR_COMBAT, // Pipe created, waiting for strict combat confirmation
+    WAITING_FOR_CLIENT, // Combat confirmed, waiting for Python to connect
+    WAITING_FOR_RESET,  // EPISODE_DONE sent, polling for Python's RESET
+    RESTARTING_GAME,    // LOSS: navigating game-over → menu → new game
 };
 
 // --- Beam Path Data ---
@@ -35,15 +37,19 @@ constexpr size_t BEAM_PATH_ROOMS = 5;
 // --- Bridge Singleton ---
 class Bridge {
 public:
-    // Initialization — called once at game startup
-    static void init(const BridgeConfig& config);
+    // Initialization — phased, called from CApp::OnLoop
+    static void initPipe(const BridgeConfig& config);  // Create pipe (non-blocking)
+    static bool waitForClient();                         // ConnectNamedPipe + RESET handshake
+    static bool checkCombatConfirmed();                  // Strict combat check with consecutive gate
     static void shutdown();
 
+    // Stepping — called from ShipManager::OnLoop
+    static void step();
+
     // Lua hook callbacks
-    static void step();                     // ON_TICK → check interval, step if due
-    static void onRunStart(bool isNewGame); // on_init callback
-    static void onJumpLeave(int shipId);    // JUMP_LEAVE → fled detection
-    static void onEncounterStart();         // GENERATOR_CREATE_SHIP_POST → beam paths
+    static void onRunStart(bool isNewGame);
+    static void onJumpLeave(int shipId);
+    static void onEncounterStart();
 
     // Called from static helpers in bridge_actions.cpp
     static void allocatePower(const int32_t* power_targets, ShipManager* ship);
@@ -55,18 +61,20 @@ public:
     static void forceEpisodeDone(EpisodeResult result);
 
     // Reset state machine — called from CApp::OnLoop hook
-    static void pollForReset();       // WAITING_FOR_RESET: peek pipe for RESET
-    static void checkCombatReady();   // FINDING_COMBAT: check enemy, send RESET_ACK
+    static void pollForReset();
+    static void handleReset();    // public: called from hook on reset path
     static ResetPhase resetPhase() { return reset_phase_; }
     static void setResetPhase(ResetPhase phase) { reset_phase_ = phase; reset_wait_frames_ = 0; }
 
+    // Public state for hooks
+    static ShipManager* cached_enemy_;
+    static Pointf cached_enemy_world_pos_;
+    static int combat_confirm_count_;
+
 private:
-    // Send EPISODE_DONE, wait for RESET, call handleReset
     static void sendEpisodeDone(EpisodeResult result);
-    // Core loop
-    static void doStep();                   // serialize → send → recv → apply
-    static void handleReset();              // recv RESET → reset game → send RESET_ACK
-    static void handleDisconnect();         // cleanup on pipe error
+    static void doStep();
+    static void handleDisconnect();
 
     // State serialization (bridge_state.cpp)
     static void serializeState(float* buffer, ShipManager* player, ShipManager* enemy,
@@ -92,16 +100,12 @@ private:
     static EpisodeResult last_result_;
     static float game_time_accumulator_;
     static ResetPhase reset_phase_;
-    static int reset_wait_frames_;    // frame counter for timeouts
-public:
-    static ShipManager* cached_enemy_;  // set in doStep, used by applyWeaponFire
-    static Pointf cached_enemy_world_pos_;  // set in CApp::OnLoop (post-render), used by applyWeaponFire
-private:
+    static int reset_wait_frames_;
 
     // Buffers
     static float state_buffer_[OBS_FIELD_COUNT];
     static int32_t action_buffer_[ACTION_HEAD_COUNT];
-    static int32_t persistent_actions_[ACTION_HEAD_COUNT]; // last non-zero per head
+    static int32_t persistent_actions_[ACTION_HEAD_COUNT];
 
     // Beam path cache
     static std::array<std::array<int, BEAM_PATH_ROOMS>, BEAM_PATH_COUNT> beam_paths_;

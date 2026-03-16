@@ -19,19 +19,26 @@ ShipManager* Bridge::cached_enemy_ = nullptr;
 Pointf Bridge::cached_enemy_world_pos_ = {0.0f, 0.0f};
 ResetPhase Bridge::reset_phase_ = ResetPhase::NONE;
 int Bridge::reset_wait_frames_ = 0;
+int Bridge::combat_confirm_count_ = 0;
 float Bridge::state_buffer_[OBS_FIELD_COUNT] = {};
 int32_t Bridge::action_buffer_[ACTION_HEAD_COUNT] = {};
 int32_t Bridge::persistent_actions_[ACTION_HEAD_COUNT] = {};
 std::array<std::array<int, BEAM_PATH_ROOMS>, BEAM_PATH_COUNT> Bridge::beam_paths_ = {};
 
-void Bridge::init(const BridgeConfig& config) {
-    // Redirect stderr to file for debugging (B.1 only)
+// ============================================================================
+// INITIALIZATION (phased, non-blocking)
+// ============================================================================
+
+void Bridge::initPipe(const BridgeConfig& config) {
+    // Idempotent — only create pipe once
+    if (pipe_ != INVALID_HANDLE_VALUE) return;
+
+    // Redirect stderr to file for debugging
     freopen("C:\\Users\\stone\\ftl-rl\\bridge_log.txt", "w", stderr);
-    setvbuf(stderr, nullptr, _IONBF, 0); // unbuffered
+    setvbuf(stderr, nullptr, _IONBF, 0);
 
     config_ = config;
 
-    // Build pipe name
     char pipe_name[256];
     snprintf(pipe_name, sizeof(pipe_name), "\\\\.\\pipe\\ftl_rl_%d", config_.instance_id);
 
@@ -41,45 +48,67 @@ void Bridge::init(const BridgeConfig& config) {
         fprintf(stderr, "[Bridge] FATAL: Could not create pipe\n");
         return;
     }
+    fprintf(stderr, "[Bridge] Pipe created, waiting for combat confirmation...\n");
+}
 
+bool Bridge::waitForClient() {
     fprintf(stderr, "[Bridge] Waiting for Python client...\n");
     if (!wait_for_connection(pipe_, 0)) {
-        fprintf(stderr, "[Bridge] FATAL: Client connection failed\n");
-        close_pipe(pipe_);
-        pipe_ = INVALID_HANDLE_VALUE;
-        return;
+        fprintf(stderr, "[Bridge] Client connection failed\n");
+        return false;
     }
 
     connected_ = true;
-    fprintf(stderr, "[Bridge] Connected! Instance %d, speed %.1fx, step %.2fs\n",
-            config_.instance_id, config_.speed_multiplier, config_.step_interval);
-
-    // Apply speed multiplier
-    setSpeedMultiplier(config_.speed_multiplier);
+    fprintf(stderr, "[Bridge] Connected! Instance %d\n", config_.instance_id);
 
     // Wait for initial RESET from Python
     MsgType msg_type;
     uint32_t payload_size;
     if (!recv_message(pipe_, msg_type, nullptr, 0, payload_size,
                       config_.timeout_seconds * 1000)) {
-        fprintf(stderr, "[Bridge] Failed to receive initial RESET\n");
-        handleDisconnect();
-        return;
+        fprintf(stderr, "[Bridge] Failed to receive RESET\n");
+        connected_ = false;
+        return false;
     }
     if (msg_type != MsgType::RESET) {
         fprintf(stderr, "[Bridge] Expected RESET, got %d\n", static_cast<int>(msg_type));
-        handleDisconnect();
-        return;
+        connected_ = false;
+        return false;
     }
 
-    // Don't call handleReset() — need to wait for combat to start.
-    // Use FINDING_COMBAT (not RESTARTING_GAME): by the time init() fires
-    // from ShipManager::OnLoop, the game is already running (auto-start
-    // states 0-5 have completed). We just need to find the first enemy.
-    // RESTARTING_GAME would incorrectly try to dismiss a game-over screen.
-    episode_done_ = false;
-    reset_phase_ = ResetPhase::FINDING_COMBAT;
-    fprintf(stderr, "[Bridge] Initial RESET received, entering FINDING_COMBAT\n");
+    fprintf(stderr, "[Bridge] RESET received, sending RESET_ACK\n");
+    handleReset();
+    return true;
+}
+
+bool Bridge::checkCombatConfirmed() {
+    // Frame-skip: only evaluate every 10th call
+    static int frame_skip = 0;
+    if (++frame_skip < 10) return false;
+    frame_skip = 0;
+
+    ShipManager* player = G_->GetShipManager(0);
+    ShipManager* enemy = G_->GetShipManager(1);
+
+    bool ok = player && enemy
+        && !player->bDestroyed && !enemy->bDestroyed
+        && player->hostile_ship && enemy->hostile_ship
+        && player->current_target == enemy
+        && enemy->current_target == player;
+
+    if (ok) {
+        combat_confirm_count_++;
+    } else {
+        combat_confirm_count_ = 0;
+    }
+
+    if (combat_confirm_count_ >= 3) {
+        fprintf(stderr, "[Bridge] Combat confirmed! (%d consecutive checks)\n",
+                combat_confirm_count_);
+        combat_confirm_count_ = 0;
+        return true;
+    }
+    return false;
 }
 
 void Bridge::shutdown() {
@@ -91,6 +120,10 @@ void Bridge::shutdown() {
     fprintf(stderr, "[Bridge] Shutdown\n");
 }
 
+// ============================================================================
+// STEPPING
+// ============================================================================
+
 void Bridge::step() {
     if (!connected_ || reset_phase_ != ResetPhase::NONE) return;
 
@@ -98,21 +131,14 @@ void Bridge::step() {
     if (!episode_done_) {
         EpisodeResult result;
         if (checkEpisodeDone(result)) {
-            fprintf(stderr, "[Bridge] Episode end detected in per-frame check (result=%d)\n",
+            fprintf(stderr, "[Bridge] Episode end detected (result=%d)\n",
                     static_cast<int>(result));
             sendEpisodeDone(result);
             return;
         }
     }
 
-    // Per-frame weapon code removed. Weapons now fire via:
-    // 1. applyWeaponFire() sets correct Targetable ptr + calls Fire() when ready
-    // 2. autoFiring flag causes game's own ProjectileFactory::Update() to fire between steps
-    // Root cause of prior crash: reinterpret_cast<Targetable*>(enemy) was wrong —
-    // Targetable is a member (_targetable), not a base class. Fixed to &enemy->_targetable.
-
     // Accumulate game time
-    // FIXME_ACCESSOR: Get actual frame delta-time from FTL game loop
     float dt = 1.0f / 60.0f; // placeholder: assume 60fps
     game_time_accumulator_ += dt;
 
@@ -127,14 +153,13 @@ void Bridge::step() {
 void Bridge::doStep() {
     static int step_count = 0;
 
-    // Get game objects via Hyperspace Global singleton
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
     SpaceManager* space = nullptr;
 
     cached_enemy_ = enemy;
 
-    // 1. Check episode end (backup — step() checks every frame too)
+    // Check episode end (backup)
     if (!episode_done_) {
         EpisodeResult result;
         if (checkEpisodeDone(result)) {
@@ -143,17 +168,17 @@ void Bridge::doStep() {
         }
     }
 
-    // 2. Serialize state
+    // Serialize state
     memset(state_buffer_, 0, sizeof(state_buffer_));
     serializeState(state_buffer_, player, enemy, space);
 
-    // 3. Send STATE
+    // Send STATE
     if (!send_message(pipe_, MsgType::STATE, state_buffer_, STATE_BUFFER_BYTES)) {
         handleDisconnect();
         return;
     }
 
-    // 4. Receive ACTION (blocks until Python responds)
+    // Receive ACTION (blocks until Python responds)
     MsgType msg_type;
     uint32_t payload_size;
     if (!recv_message(pipe_, msg_type, action_buffer_, ACTION_BUFFER_BYTES,
@@ -168,30 +193,30 @@ void Bridge::doStep() {
         return;
     }
 
-    // 5. Resolve persistent actions (option 0 = no_change → use previous)
+    // Resolve persistent actions
     for (int i = 0; i < ACTION_HEAD_COUNT; i++) {
         if (action_buffer_[i] != 0) {
             persistent_actions_[i] = action_buffer_[i];
         }
     }
 
-    // 6. Apply actions
+    // Apply actions
     applyActions(action_buffer_, player, enemy);
 
-    // Reset per-step flags
     fled_this_step_ = false;
     step_count++;
 
-    // Log every 10 steps for visibility without spam
     if (step_count % 10 == 0) {
         fprintf(stderr, "[Bridge] step %d hull=%.0f enemy_hull=%.0f\n",
-                step_count, state_buffer_[4],
-                state_buffer_[5241]); // enemy_ship.base.hull
+                step_count, state_buffer_[4], state_buffer_[5241]);
     }
 }
 
+// ============================================================================
+// RESET STATE MACHINE
+// ============================================================================
+
 void Bridge::handleReset() {
-    // Game is already in combat-ready state (state machine ensured this)
     episode_done_ = false;
     fled_this_step_ = false;
     game_time_accumulator_ = 0.0f;
@@ -212,11 +237,9 @@ void Bridge::handleReset() {
 }
 
 void Bridge::pollForReset() {
-    // Called from CApp::OnLoop during WAITING_FOR_RESET phase.
-    // Non-blocking check for Python's RESET message.
     reset_wait_frames_++;
 
-    // Timeout: 60 seconds at ~60fps = 3600 frames
+    // Timeout: 60 seconds
     if (reset_wait_frames_ > 3600) {
         fprintf(stderr, "[Bridge] WAITING_FOR_RESET timeout (60s). Disconnecting.\n");
         handleDisconnect();
@@ -226,16 +249,14 @@ void Bridge::pollForReset() {
 
     uint32_t avail = 0;
     if (!peek_pipe(pipe_, avail)) {
-        // Pipe broken (client crashed)
         fprintf(stderr, "[Bridge] Pipe broken during WAITING_FOR_RESET\n");
         handleDisconnect();
         reset_phase_ = ResetPhase::NONE;
         return;
     }
 
-    if (avail < MSG_HEADER_BYTES) return; // no message yet
+    if (avail < MSG_HEADER_BYTES) return;
 
-    // Message available — read it (blocking call is instant since data is buffered)
     MsgType msg_type;
     uint32_t payload_size;
     if (!recv_message(pipe_, msg_type, nullptr, 0, payload_size, 1000)) {
@@ -245,8 +266,7 @@ void Bridge::pollForReset() {
     }
 
     if (msg_type != MsgType::RESET) {
-        fprintf(stderr, "[Bridge] Expected RESET during reset phase, got %d\n",
-                static_cast<int>(msg_type));
+        fprintf(stderr, "[Bridge] Expected RESET, got %d\n", static_cast<int>(msg_type));
         handleDisconnect();
         reset_phase_ = ResetPhase::NONE;
         return;
@@ -255,49 +275,17 @@ void Bridge::pollForReset() {
     fprintf(stderr, "[Bridge] RESET received (waited %d frames). last_result=%d\n",
             reset_wait_frames_, static_cast<int>(last_result_));
 
-    // NOTE: After setting phase here, the CApp::OnLoop hook reads resetPhase()
-    // and sets auto_start_state accordingly (-2 for RESTARTING, 5 for FINDING).
-    // This coupling is intentional — pollForReset is a Bridge method and should
-    // not directly touch file-static hook variables.
     if (last_result_ == EpisodeResult::LOSS) {
-        setResetPhase(ResetPhase::RESTARTING_GAME);  // resets frame counter
+        setResetPhase(ResetPhase::RESTARTING_GAME);
         fprintf(stderr, "[Bridge] LOSS → RESTARTING_GAME\n");
     } else {
-        // WIN or FLED — game still running, just need next combat
-        setResetPhase(ResetPhase::FINDING_COMBAT);  // resets frame counter
-        fprintf(stderr, "[Bridge] WIN/FLED → FINDING_COMBAT\n");
-    }
-}
-
-void Bridge::checkCombatReady() {
-    // Called from CApp::OnLoop during FINDING_COMBAT phase.
-    // When both player and live enemy exist, finalize the reset.
-    reset_wait_frames_++;
-
-    // Timeout: 120 seconds at ~60fps = 7200 frames.
-    // Needs to be long enough for FTL drive to charge + multiple beacon jumps.
-    if (reset_wait_frames_ > 7200) {
-        fprintf(stderr, "[Bridge] FINDING_COMBAT timeout (120s). Forcing game restart.\n");
-        // Force a full restart — setResetPhase resets frame counter.
-        // The hook checks for RESTARTING_GAME and sets auto_start_state = -2.
-        setResetPhase(ResetPhase::RESTARTING_GAME);
-        return;
-    }
-
-    ShipManager* player = G_->GetShipManager(0);
-    ShipManager* enemy = G_->GetShipManager(1);
-
-    if (player && enemy && !player->bDestroyed && !enemy->bDestroyed && player->hostile_ship) {
-        fprintf(stderr, "[Bridge] Combat ready! player=%p enemy=%p\n",
-                (void*)player, (void*)enemy);
-        handleReset();
-        reset_phase_ = ResetPhase::NONE;
-        reset_wait_frames_ = 0;
+        setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
+        fprintf(stderr, "[Bridge] WIN/FLED → WAITING_FOR_COMBAT\n");
     }
 }
 
 void Bridge::sendEpisodeDone(EpisodeResult result) {
-    if (episode_done_) return;  // idempotent — prevent double send
+    if (episode_done_) return;
     episode_done_ = true;
     last_result_ = result;
     fprintf(stderr, "[Bridge] Sending EPISODE_DONE (result=%d)\n", static_cast<int>(result));
@@ -311,11 +299,12 @@ void Bridge::sendEpisodeDone(EpisodeResult result) {
     reset_phase_ = ResetPhase::WAITING_FOR_RESET;
     reset_wait_frames_ = 0;
     fprintf(stderr, "[Bridge] Entering WAITING_FOR_RESET\n");
-    // Return immediately — no blocking, no disconnect
 }
 
 void Bridge::forceEpisodeDone(EpisodeResult result) {
-    if (!connected_ || episode_done_) return;
+    // Phase guard: only fire during active stepping (NONE).
+    // Prevents desync if player dies during init phases.
+    if (!connected_ || episode_done_ || reset_phase_ != ResetPhase::NONE) return;
     fprintf(stderr, "[Bridge] Force episode done from external hook (result=%d)\n",
             static_cast<int>(result));
     sendEpisodeDone(result);
@@ -324,14 +313,12 @@ void Bridge::forceEpisodeDone(EpisodeResult result) {
 void Bridge::handleDisconnect() {
     fprintf(stderr, "[Bridge] Disconnected. Waiting for reconnection...\n");
     connected_ = false;
-    // Disconnect current client
     DisconnectNamedPipe(pipe_);
 
-    // Wait for new connection
+    // Wait for new connection (blocking — acknowledged future fix)
     if (wait_for_connection(pipe_, 0)) {
         connected_ = true;
         fprintf(stderr, "[Bridge] Reconnected\n");
-        // Client must send RESET to re-synchronize
         MsgType msg_type;
         uint32_t payload_size;
         if (recv_message(pipe_, msg_type, nullptr, 0, payload_size,
@@ -343,13 +330,17 @@ void Bridge::handleDisconnect() {
     }
 }
 
+// ============================================================================
+// HOOK CALLBACKS
+// ============================================================================
+
 void Bridge::onRunStart(bool isNewGame) {
     fprintf(stderr, "[Bridge] Run started (new=%d)\n", isNewGame);
     game_time_accumulator_ = 0.0f;
 }
 
 void Bridge::onJumpLeave(int shipId) {
-    if (shipId == 0) { // player ship
+    if (shipId == 0) {
         fled_this_step_ = true;
     }
 }
@@ -358,11 +349,5 @@ void Bridge::onEncounterStart() {
     ShipManager* enemy = G_->GetShipManager(1);
     computeBeamPaths(enemy);
 }
-
-// FIXME: Flagship phase transitions (phases 1→2→3) change the ship layout
-// but may NOT fire GENERATOR_CREATE_SHIP_POST. Need to detect phase changes
-// (e.g., by monitoring boss health thresholds or phase flags) and call
-// computeBeamPaths() again. Add a check in doStep() or hook a phase-change
-// event if Hyperspace exposes one.
 
 } // namespace ftl_rl
