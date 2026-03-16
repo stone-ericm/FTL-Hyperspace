@@ -257,12 +257,21 @@ void Bridge::pollForReset() {
 
     if (avail < MSG_HEADER_BYTES) return;
 
+    // Read message — use action_buffer_ as scratch space for stale ACTIONs
     MsgType msg_type;
     uint32_t payload_size;
-    if (!recv_message(pipe_, msg_type, nullptr, 0, payload_size, 1000)) {
+    if (!recv_message(pipe_, msg_type, action_buffer_, ACTION_BUFFER_BYTES,
+                      payload_size, 1000)) {
         handleDisconnect();
         reset_phase_ = ResetPhase::NONE;
         return;
+    }
+
+    // Discard stale ACTION messages (race: Python sent ACTION before
+    // receiving EPISODE_DONE). Keep polling for RESET.
+    if (msg_type == MsgType::ACTION) {
+        fprintf(stderr, "[Bridge] Discarded stale ACTION during WAITING_FOR_RESET\n");
+        return;  // will check again next frame
     }
 
     if (msg_type != MsgType::RESET) {
