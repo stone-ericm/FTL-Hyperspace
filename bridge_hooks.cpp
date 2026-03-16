@@ -123,7 +123,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             return;
         }
 
-        // Check if menu already appeared (game-over auto-dismissed or key worked)
+        // Check if menu already appeared
         if (menu.bOpen) {
             fprintf(stderr, "[Reset] menu detected! transitioning to state 0\n");
             auto_start_state = 0;
@@ -131,25 +131,42 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             return;
         }
 
-        // Send dismiss key — try Space first, then Enter, then Escape
-        SDLKey key;
-        if (dismiss_attempt < 3) {
-            key = static_cast<SDLKey>(0x20);  // Space
-        } else if (dismiss_attempt < 6) {
-            key = static_cast<SDLKey>(0x0D);  // Enter/Return
-        } else {
-            key = static_cast<SDLKey>(0x1B);  // Escape
-        }
-        this->OnKeyDown(key);
-        this->OnKeyUp(key);
-        fprintf(stderr, "[Reset] dismiss attempt %d, key=0x%02X, menu=%d\n",
-                dismiss_attempt, static_cast<int>(key), menu.bOpen);
-        dismiss_attempt++;
-        auto_start_wait = 10;  // reduced from 30 — CApp::OnLoop fires at ~60fps during reset
+        // Game-over screen has "Main Menu" button that requires mouse click.
+        // Keyboard (Space/Enter/Escape) doesn't work. Use two approaches:
+        // 1. Click the "Main Menu" button via OnLButtonDown/Up
+        // 2. Set gameOverScreen.command directly as fallback
+        if (gui) {
+            auto& goScreen = gui->gameOverScreen;
 
-        if (dismiss_attempt > 12) {
-            // 12 attempts failed — something unexpected. Log and retry.
-            hs_log_file("Reset: game-over dismiss failed after 12 attempts, retrying\n");
+            // Try clicking the first button ("Main Menu") if it has buttons
+            if (!goScreen.buttons.empty() && goScreen.buttons[0]) {
+                // TextButton inherits from GenericButton which has position
+                // Click at button center — try button[0] ("Main Menu")
+                auto* btn = goScreen.buttons[0];
+                // GenericButton has a rect or position — try clicking near game-over center
+                // Game-over is typically centered. For 1024x768: button ~(390, 600)
+                int clickX = 390;
+                int clickY = 600;
+                if (dismiss_attempt == 0) {
+                    fprintf(stderr, "[Reset] game-over: nButtons=%d, clicking (%d,%d)\n",
+                            (int)goScreen.buttons.size(), clickX, clickY);
+                }
+                this->OnLButtonDown(clickX, clickY);
+                this->OnLButtonUp(clickX, clickY);
+            }
+
+            // Also try setting command directly (0 = first button = "Main Menu")
+            if (dismiss_attempt >= 3) {
+                goScreen.command = 0;
+                fprintf(stderr, "[Reset] game-over: set command=0 (main menu)\n");
+            }
+        }
+
+        dismiss_attempt++;
+        auto_start_wait = 10;
+
+        if (dismiss_attempt > 20) {
+            fprintf(stderr, "[Reset] game-over dismiss failed after 20 attempts\n");
             dismiss_attempt = 0;
         }
         return;
