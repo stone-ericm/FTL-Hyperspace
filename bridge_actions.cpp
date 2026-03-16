@@ -77,10 +77,10 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     wpn->targets.clear();
     wpn->targets.push_back(roomCenter);
 
-    // Let the game fire when ready — equivalent to player clicking a room.
-    // fireWhenReady queues a single shot; the game's own update loop
-    // handles charge checking, projectile creation, and damage.
-    wpn->fireWhenReady = true;
+    // Enable autofire — the game's own weapon system fires when charged.
+    // This mirrors the player's autofire toggle: set target + autofire on.
+    // The game handles burst shots, charge reset, and damage.
+    wpn->autoFiring = true;
 }
 
 // ============================================================================

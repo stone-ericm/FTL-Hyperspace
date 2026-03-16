@@ -359,6 +359,15 @@ auto_start:
     }
 }
 
+// --- Lightweight Fire() hook — log player weapon fires only ---
+HOOK_METHOD(ProjectileFactory, Fire, (std::vector<Pointf>& points, int target) -> void) {
+    if (this->iShipId == 0 && !points.empty()) {  // player ship only
+        fprintf(stderr, "[Fire] shipId=0 room=%d pts=(%.0f,%.0f) n=%d\n",
+                target, points[0].x, points[0].y, (int)points.size());
+    }
+    super(points, target);
+}
+
 // --- ShipManager::OnLoop: just step, no init ---
 HOOK_METHOD_PRIORITY(ShipManager, OnLoop, 50, () -> void) {
     super();
