@@ -115,11 +115,17 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     // dismiss_attempt is file-static (not function-static) so it can be
     // reset by the RESTARTING_GAME entry block above.
     if (auto_start_state == -2) {
-        if (--auto_start_wait > 0) return;
+        if (--auto_start_wait > 0) {
+            if (auto_start_wait % 10 == 0) {
+                fprintf(stderr, "[Reset] state -2 waiting (%d frames left) menu=%d\n",
+                        auto_start_wait, menu.bOpen);
+            }
+            return;
+        }
 
         // Check if menu already appeared (game-over auto-dismissed or key worked)
         if (menu.bOpen) {
-            hs_log_file("Reset: menu open, transitioning to state 0\n");
+            fprintf(stderr, "[Reset] menu detected! transitioning to state 0\n");
             auto_start_state = 0;
             dismiss_attempt = 0;
             return;
@@ -136,10 +142,10 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
         }
         this->OnKeyDown(key);
         this->OnKeyUp(key);
-        hs_log_file("Reset: dismiss game-over (attempt %d, key=0x%02X)\n",
-                    dismiss_attempt, static_cast<int>(key));
+        fprintf(stderr, "[Reset] dismiss attempt %d, key=0x%02X, menu=%d\n",
+                dismiss_attempt, static_cast<int>(key), menu.bOpen);
         dismiss_attempt++;
-        auto_start_wait = 30;  // wait ~0.5s between attempts
+        auto_start_wait = 10;  // reduced from 30 — CApp::OnLoop fires at ~60fps during reset
 
         if (dismiss_attempt > 12) {
             // 12 attempts failed — something unexpected. Log and retry.
