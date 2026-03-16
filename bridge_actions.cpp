@@ -88,24 +88,28 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     fprintf(stderr, "[Weapon] W%d: setting currentShipTarget to &enemy->_targetable\n", weapon_idx);
     wpn->currentShipTarget = &enemy->_targetable;
     wpn->targetId = target_room;
-    wpn->autoFiring = true;
-    fprintf(stderr, "[Weapon] W%d: set targetId=%d, autoFiring=true\n", weapon_idx, target_room);
+    // Use SetAutoFire METHOD (not direct field write) — may trigger CombatControl updates
+    wpn->SetAutoFire(true);
+    wpn->SetCurrentShip(&enemy->_targetable);
 
-    // Compute target coords and call Fire() directly when ready.
-    // autoFiring alone does NOT call Fire() for player weapons — only enemy AI
-    // fires via CombatAI::UpdateWeapons. We must call Fire() ourselves.
-    // Fire() takes LOCAL ship coordinates (relative to target ship layout).
+    // Compute target coords in LOCAL ship coordinates
     ShipGraph* graphE = ShipGraph::GetShipInfo(enemy->iShipId);
     if (graphE) {
         Pointf roomCenter = graphE->GetRoomCenter(target_room);
         wpn->targets.clear();
         wpn->targets.push_back(roomCenter);
 
-        if (wpn->ReadyToFire()) {
+        bool ready = wpn->ReadyToFire();
+        fprintf(stderr, "[Weapon] W%d: room=%d ready=%d cooldown=(%.1f/%.1f) powered=%d ammo=%d\n",
+                weapon_idx, target_room, ready,
+                wpn->cooldown.first, wpn->cooldown.second,
+                wpn->powered, wpn->iAmmo);
+
+        if (ready) {
             std::vector<Pointf> firePoints;
             firePoints.push_back(roomCenter);
             wpn->Fire(firePoints, target_room);
-            fprintf(stderr, "[Weapon] W%d: FIRE at room %d (%.1f,%.1f)\n",
+            fprintf(stderr, "[Weapon] W%d: FIRE! room=%d (%.1f,%.1f)\n",
                     weapon_idx, target_room, roomCenter.x, roomCenter.y);
         }
     }
