@@ -25,6 +25,11 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
 
     // --- Per-step combat maintenance (only during active stepping) ---
     if (gui && Bridge::isConnected() && Bridge::resetPhase() == ResetPhase::NONE) {
+        // Keep game unpaused during stepping — FTL pauses on focus loss
+        // which happens when another window (recording, Claude terminal) steals focus.
+        gui->bPaused = false;
+        gui->bAutoPaused = false;
+
         ShipManager* playerCheck = Global::GetInstance()->GetShipManager(0);
         ShipManager* enemyCheck = Global::GetInstance()->GetShipManager(1);
 
