@@ -90,11 +90,22 @@ bool Bridge::checkCombatConfirmed() {
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
 
+    // Game only sets hostile_ship on the PLAYER, not the enemy.
+    // current_target is set on both sides by the event system.
     bool ok = player && enemy
         && !player->bDestroyed && !enemy->bDestroyed
-        && player->hostile_ship && enemy->hostile_ship
-        && player->current_target == enemy
-        && enemy->current_target == player;
+        && player->hostile_ship
+        && (player->current_target == enemy || enemy->current_target == player);
+
+    // Log failed checks periodically to diagnose stuck combat search
+    static int diag_counter = 0;
+    if (!ok && player && enemy && ++diag_counter >= 30) {
+        diag_counter = 0;
+        fprintf(stderr, "[Combat] p_hostile=%d e_hostile=%d p_target=%d e_target=%d p_dead=%d e_dead=%d\n",
+                player->hostile_ship, enemy->hostile_ship,
+                player->current_target == enemy, enemy->current_target == player,
+                player->bDestroyed, enemy->bDestroyed);
+    }
 
     if (ok) {
         combat_confirm_count_++;
