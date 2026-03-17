@@ -17,19 +17,20 @@ static int wfc_timeout_frames = 0;      // WAITING_FOR_COMBAT timeout counter
 static int wfc_timeout_cycles = 0;      // consecutive timeout cycles (max 3)
 
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
-    super();
-
-    using ftl_rl::Bridge;
-    using ftl_rl::ResetPhase;
-    using ftl_rl::EpisodeResult;
-
-    // Keep game running regardless of window focus — every frame, all phases.
-    // FTL throttles/pauses when unfocused. OnInputFocus re-asserts focus.
+    // BEFORE super(): assert focus + unpause so the game's native OnLoop
+    // sees focus as set and processes combat normally. If this runs AFTER
+    // super(), the game already skipped combat for this frame.
     this->OnInputFocus();
     if (gui) {
         gui->bPaused = false;
         gui->bAutoPaused = false;
     }
+
+    super();
+
+    using ftl_rl::Bridge;
+    using ftl_rl::ResetPhase;
+    using ftl_rl::EpisodeResult;
 
     // --- Per-step combat maintenance (only during active stepping) ---
     if (gui && Bridge::isConnected() && Bridge::resetPhase() == ResetPhase::NONE) {
