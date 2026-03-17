@@ -35,11 +35,6 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
         gui->bPaused = false;
         gui->bAutoPaused = false;
 
-        // Call step() from here instead of ShipManager::OnLoop.
-        // When unfocused, the game skips ship updates (ShipManager::OnLoop
-        // doesn't fire) but CApp::OnLoop still runs at full speed.
-        Bridge::step();
-
         ShipManager* playerCheck = Global::GetInstance()->GetShipManager(0);
         ShipManager* enemyCheck = Global::GetInstance()->GetShipManager(1);
 
@@ -349,6 +344,14 @@ auto_start:
             }
         }
     }
+}
+
+// --- Prevent focus-loss from stopping game updates ---
+// altpause=0 in settings.ini prevents visual pause.
+// This hook prevents the engine from entering "unfocused" state
+// which skips ship updates (ShipManager::OnLoop stops firing).
+HOOK_METHOD(CApp, OnInputBlur, () -> void) {
+    // Don't call super() — skip the engine's unfocus handling
 }
 
 // --- ShipManager::OnLoop: just step, no init ---
