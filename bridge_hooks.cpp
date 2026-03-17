@@ -46,22 +46,9 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             }
         }
 
-        // Non-combat beacon escape
-        if (playerCheck && enemyCheck && !enemyCheck->bDestroyed
-            && !playerCheck->hostile_ship && playerCheck->fuel_count > 0) {
-            StarMap& starMap = world->starMap;
-            if (starMap.currentLoc && !starMap.currentLoc->connectedLocations.empty()) {
-                int idx = rand() % starMap.currentLoc->connectedLocations.size();
-                Location* target = starMap.currentLoc->connectedLocations[idx];
-                playerCheck->fuel_count--;
-                starMap.currentLoc = target;
-                world->CreateLocation(target);
-                playerCheck->jump_timer.first = 0.0f;
-                fprintf(stderr, "[Bridge] Non-combat beacon — jumping away (fuel=%d)\n",
-                        playerCheck->fuel_count);
-                // Let event system handle combat initiation
-            }
-        }
+        // Non-combat beacon escape removed from NONE phase.
+        // CreateLocation during active stepping crashes the game.
+        // Auto-nav in state 5 handles beacon jumping during WAITING_FOR_COMBAT.
     }
 
     // =================================================================
