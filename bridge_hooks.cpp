@@ -109,10 +109,12 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
                 // Reset path — client already connected, send RESET_ACK
                 Bridge::handleReset();
                 Bridge::setResetPhase(ResetPhase::NONE);
+                auto_start_state = 6;  // disable auto-nav during stepping
                 fprintf(stderr, "[Bridge] Combat confirmed (reset) → stepping\n");
             } else {
                 // Init path — need client connection
                 Bridge::setResetPhase(ResetPhase::WAITING_FOR_CLIENT);
+                auto_start_state = 6;  // disable auto-nav during stepping
                 fprintf(stderr, "[Bridge] Combat confirmed → WAITING_FOR_CLIENT\n");
             }
         }
