@@ -16,20 +16,15 @@ static bool restart_entry_done = false;
 static int wfc_timeout_frames = 0;      // WAITING_FOR_COMBAT timeout counter
 static int wfc_timeout_cycles = 0;      // consecutive timeout cycles (max 3)
 
-// Skip rendering — no GPU overhead, no vsync cap.
-// Game logic runs as fast as CPU allows.
-HOOK_METHOD(CApp, OnRender, () -> void) {
-    // Don't call super() — skip all rendering
-}
+// TODO: Re-enable OnRender skip after confirming stepping works
+// HOOK_METHOD(CApp, OnRender, () -> void) {}
 
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
-    // Unpause + set speed before super()
+    // Unpause before super() — game skips ShipManager updates when paused
     if (gui) {
         gui->bPaused = false;
         gui->bAutoPaused = false;
     }
-    // Set simulation speed to 10x (same as Hyperspace SPEED console command)
-    Global::GetInstance()->GetCFPS()->speedLevel = 10;
     super();
 
     using ftl_rl::Bridge;
