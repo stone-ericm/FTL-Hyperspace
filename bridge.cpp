@@ -90,11 +90,11 @@ bool Bridge::checkCombatConfirmed() {
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
 
-    // Game only sets hostile_ship on the PLAYER, not the enemy.
-    // current_target is set on both sides by the event system.
+    // Game sets hostile_ship inconsistently — sometimes on player only,
+    // sometimes on enemy only. Check EITHER side.
     bool ok = player && enemy
         && !player->bDestroyed && !enemy->bDestroyed
-        && player->hostile_ship
+        && (player->hostile_ship || enemy->hostile_ship)
         && (player->current_target == enemy || enemy->current_target == player);
 
     // Log failed checks periodically to diagnose stuck combat search
