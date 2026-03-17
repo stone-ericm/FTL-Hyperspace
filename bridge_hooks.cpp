@@ -17,13 +17,6 @@ static int wfc_timeout_frames = 0;      // WAITING_FOR_COMBAT timeout counter
 static int wfc_timeout_cycles = 0;      // consecutive timeout cycles (max 3)
 
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
-    // Unpause the game. Focus-loss throttle is accepted — the game runs
-    // at ~15fps when not foreground. Combat still processes via SpeedFactor.
-    if (gui) {
-        gui->bPaused = false;
-        gui->bAutoPaused = false;
-    }
-
     super();
 
     using ftl_rl::Bridge;
@@ -331,13 +324,6 @@ auto_start:
             }
         }
     }
-}
-
-// --- Disable focus-loss pause for training ---
-// FTL pauses via OnInputBlur when the window loses focus.
-// Override to do nothing so the game runs regardless of focus.
-HOOK_METHOD(CApp, OnInputBlur, () -> void) {
-    // Don't call super() — skip FTL's pause-on-blur behavior
 }
 
 // --- ShipManager::OnLoop: just step, no init ---
