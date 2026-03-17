@@ -298,15 +298,17 @@ auto_start:
         // Dismiss UI overlays
         if (gui) {
             if (gui->choiceBoxOpen) {
-                // Always press '1' first — in FTL, choice 1 is usually
-                // "attack" or the hostile option that starts combat.
-                // Keys 2,3 are alternatives; key 4 is often "leave".
+                // Press '1' — usually "attack/engage" in FTL events.
                 static int key_cycle = 0;
                 int keys[] = {0x31, 0x31, 0x32, 0x33}; // 1, 1, 2, 3
                 SDLKey key = static_cast<SDLKey>(keys[key_cycle % 4]);
                 this->OnKeyDown(key);
                 this->OnKeyUp(key);
                 key_cycle++;
+                // Wait 120 frames (~2s) for event to resolve + combat to start
+                // before resuming jump checks. Without this, we jump away
+                // before hostile_ship gets set.
+                auto_start_wait = 120;
             } else if (gui->equipScreen.bStoreMode) {
                 this->OnKeyDown(static_cast<SDLKey>(0x1B)); // Escape
                 this->OnKeyUp(static_cast<SDLKey>(0x1B));
