@@ -58,18 +58,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
                 playerCheck->jump_timer.first = 0.0f;
                 fprintf(stderr, "[Bridge] Non-combat beacon — jumping away (fuel=%d)\n",
                         playerCheck->fuel_count);
-
-                ShipManager* newEnemy = Global::GetInstance()->GetShipManager(1);
-                if (newEnemy) {
-                    playerCheck->current_target = newEnemy;
-                    playerCheck->hostile_ship = true;
-                    newEnemy->current_target = playerCheck;
-                    newEnemy->hostile_ship = true;
-                }
-                if (gui) {
-                    gui->bPaused = false;
-                    gui->bAutoPaused = false;
-                }
+                // Let event system handle combat initiation
             }
         }
     }
@@ -337,25 +326,11 @@ auto_start:
                 starMap.currentLoc = target;
                 world->CreateLocation(target);
                 player->jump_timer.first = 0.0f;
-
-                ShipManager* newEnemy = Global::GetInstance()->GetShipManager(1);
-                if (newEnemy) {
-                    player->current_target = newEnemy;
-                    player->hostile_ship = true;
-                    newEnemy->current_target = player;
-                    newEnemy->hostile_ship = true;
-
-                    if (gui && gui->combatControl.enemyShips.empty()) {
-                        WorldManager* w = Global::GetInstance()->GetWorld();
-                        CompleteShip* enemyCS = w && w->playerShip
-                            ? w->playerShip->enemyShip : nullptr;
-                        if (enemyCS) gui->AddEnemyShip(enemyCS);
-                    }
-                }
-                if (gui) {
-                    gui->bPaused = false;
-                    gui->bAutoPaused = false;
-                }
+                // Don't manually set hostile_ship/current_target/AddEnemyShip.
+                // Let the game's event system handle combat initiation after
+                // the event choice is dismissed (keys 4,3,2,1 above).
+                // Our combat confirmation check will detect when the game
+                // actually starts combat.
                 auto_start_wait = 60;
             }
         }
