@@ -17,11 +17,8 @@ static int wfc_timeout_frames = 0;      // WAITING_FOR_COMBAT timeout counter
 static int wfc_timeout_cycles = 0;      // consecutive timeout cycles (max 3)
 
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
-    // BEFORE super(): set the "has input focus" flag directly so the game's
-    // native OnLoop processes combat normally. Calling OnInputFocus() crashed
-    // the game (too many side effects at 60fps). The focus flag is at offset
-    // 0x34F7 in CApp (from OnInputBlur/OnInputFocus assembly patterns).
-    reinterpret_cast<uint8_t*>(this)[0x34F7] = 1;
+    // Unpause the game. Focus-loss throttle is accepted — the game runs
+    // at ~15fps when not foreground. Combat still processes via SpeedFactor.
     if (gui) {
         gui->bPaused = false;
         gui->bAutoPaused = false;
