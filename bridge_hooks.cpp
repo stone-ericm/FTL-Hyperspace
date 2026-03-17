@@ -17,6 +17,12 @@ static int wfc_timeout_frames = 0;      // WAITING_FOR_COMBAT timeout counter
 static int wfc_timeout_cycles = 0;      // consecutive timeout cycles (max 3)
 
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
+    // Unpause BEFORE super() — the game's OnLoop skips ShipManager updates
+    // when paused, so our unpause in the NONE block (after super) is too late.
+    if (gui) {
+        gui->bPaused = false;
+        gui->bAutoPaused = false;
+    }
     super();
 
     using ftl_rl::Bridge;
@@ -25,6 +31,14 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
 
     // --- Per-step combat maintenance (only during active stepping) ---
     if (gui && Bridge::isConnected() && Bridge::resetPhase() == ResetPhase::NONE) {
+        // Keep unpaused
+        gui->bPaused = false;
+        gui->bAutoPaused = false;
+
+        // Call step() from here instead of ShipManager::OnLoop.
+        // When unfocused, the game skips ship updates (ShipManager::OnLoop
+        // doesn't fire) but CApp::OnLoop still runs at full speed.
+        Bridge::step();
 
         ShipManager* playerCheck = Global::GetInstance()->GetShipManager(0);
         ShipManager* enemyCheck = Global::GetInstance()->GetShipManager(1);
@@ -301,6 +315,17 @@ auto_start:
 
         // If FTL charged, jump to next beacon
         ShipManager* player = Global::GetInstance()->GetShipManager(0);
+        {
+            static int jump_diag = 0;
+            if (player && ++jump_diag >= 300) {
+                jump_diag = 0;
+                fprintf(stderr, "[Nav] jump_timer=%.1f/%.1f paused=%d choiceBox=%d fuel=%d\n",
+                        player->jump_timer.first, player->jump_timer.second,
+                        gui ? gui->bPaused : -1,
+                        gui ? gui->choiceBoxOpen : -1,
+                        player->fuel_count);
+            }
+        }
         if (player && player->jump_timer.first >= player->jump_timer.second
             && player->jump_timer.second > 0) {
             StarMap& starMap = world->starMap;
