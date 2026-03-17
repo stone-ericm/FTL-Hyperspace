@@ -297,8 +297,11 @@ auto_start:
         // Dismiss UI overlays
         if (gui) {
             if (gui->choiceBoxOpen) {
+                // Always press '1' first — in FTL, choice 1 is usually
+                // "attack" or the hostile option that starts combat.
+                // Keys 2,3 are alternatives; key 4 is often "leave".
                 static int key_cycle = 0;
-                int keys[] = {0x34, 0x33, 0x32, 0x31}; // 4, 3, 2, 1
+                int keys[] = {0x31, 0x31, 0x32, 0x33}; // 1, 1, 2, 3
                 SDLKey key = static_cast<SDLKey>(keys[key_cycle % 4]);
                 this->OnKeyDown(key);
                 this->OnKeyUp(key);
@@ -328,6 +331,7 @@ auto_start:
                 starMap.currentLoc = target;
                 world->CreateLocation(target);
                 player->jump_timer.first = 0.0f;
+                fprintf(stderr, "[Auto] jumped to beacon (fuel=%d)\n", player->fuel_count);
                 // Don't manually set hostile_ship/current_target/AddEnemyShip.
                 // Let the game's event system handle combat initiation after
                 // the event choice is dismissed (keys 4,3,2,1 above).
