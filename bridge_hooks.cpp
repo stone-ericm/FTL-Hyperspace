@@ -16,7 +16,8 @@ static bool restart_entry_done = false;
 static int wfc_timeout_frames = 0;      // WAITING_FOR_COMBAT timeout counter
 static int wfc_timeout_cycles = 0;      // consecutive timeout cycles (max 3)
 
-// TODO: Re-enable OnRender skip after confirming stepping works
+// OnRender skip freezes game time (SpeedFactor stops advancing).
+// Rendering is required for CFPS timing to work correctly.
 // HOOK_METHOD(CApp, OnRender, () -> void) {}
 
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
@@ -35,6 +36,12 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     using ftl_rl::Bridge;
     using ftl_rl::ResetPhase;
     using ftl_rl::EpisodeResult;
+
+    // Call step() from CApp::OnLoop (after super()) because ShipManager::OnLoop
+    // doesn't fire reliably when FTL lacks OS-level focus. CApp::OnLoop always fires.
+    if (Bridge::isConnected() && Bridge::resetPhase() == ResetPhase::NONE) {
+        Bridge::step();
+    }
 
     // --- Per-step combat maintenance (only during active stepping) ---
     if (gui && Bridge::isConnected() && Bridge::resetPhase() == ResetPhase::NONE) {
@@ -75,7 +82,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     if (Bridge::resetPhase() == ResetPhase::WAITING_FOR_GAME) {
         if (auto_start_state >= 5) {
             ftl_rl::BridgeConfig config;
-            config.speed_multiplier = 3;  // 3x speed for RL training
+            config.speed_multiplier = 3;  // 3x speed (5x+ breaks event timing)
             Bridge::initPipe(config);
             Bridge::setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
             wfc_timeout_frames = 0;
