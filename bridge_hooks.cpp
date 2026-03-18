@@ -82,7 +82,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     if (Bridge::resetPhase() == ResetPhase::WAITING_FOR_GAME) {
         if (auto_start_state >= 5) {
             ftl_rl::BridgeConfig config;
-            config.speed_multiplier = 3;  // 3x speed (5x+ breaks event timing)
+            config.speed_multiplier = 10;  // 10x speed (step() from CApp::OnLoop)
             Bridge::initPipe(config);
             Bridge::setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
             wfc_timeout_frames = 0;
