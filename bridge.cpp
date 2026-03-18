@@ -39,6 +39,11 @@ void Bridge::initPipe(const BridgeConfig& config) {
 
     config_ = config;
 
+    // Set game speed for training (uses CFPS::speedLevel)
+    if (config_.speed_multiplier > 1.0f) {
+        setSpeedMultiplier(config_.speed_multiplier);
+    }
+
     char pipe_name[256];
     snprintf(pipe_name, sizeof(pipe_name), "\\\\.\\pipe\\ftl_rl_%d", config_.instance_id);
 
@@ -149,8 +154,10 @@ void Bridge::step() {
         }
     }
 
-    // Accumulate game time
-    float dt = 1.0f / 60.0f; // placeholder: assume 60fps
+    // Accumulate game time using actual frame delta (accounts for speedLevel)
+    CFPS* cfps = G_->GetCFPS();
+    float dt = cfps ? cfps->SpeedFactor : (1.0f / 60.0f);
+    if (dt <= 0.0f || dt > 1.0f) dt = 1.0f / 60.0f; // sanity clamp
     game_time_accumulator_ += dt;
 
     if (game_time_accumulator_ < config_.step_interval) {

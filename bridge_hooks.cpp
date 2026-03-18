@@ -25,6 +25,11 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
         gui->bPaused = false;
         gui->bAutoPaused = false;
     }
+
+    // Force the game to think it has input focus. Without this,
+    // CommandGui::OnLoop skips ship updates when FTL isn't foreground.
+    this->OnInputFocus();
+
     super();
 
     using ftl_rl::Bridge;
@@ -70,6 +75,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     if (Bridge::resetPhase() == ResetPhase::WAITING_FOR_GAME) {
         if (auto_start_state >= 5) {
             ftl_rl::BridgeConfig config;
+            config.speed_multiplier = 3;  // 3x speed for RL training
             Bridge::initPipe(config);
             Bridge::setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
             wfc_timeout_frames = 0;

@@ -25,8 +25,7 @@ HANDLE create_pipe(const char* pipe_name) {
 }
 
 bool wait_for_connection(HANDLE pipe, int timeout_ms) {
-    // For simplicity, use blocking ConnectNamedPipe.
-    // timeout_ms is unused in this basic implementation — the game thread blocks.
+    (void)timeout_ms;
     BOOL result = ConnectNamedPipe(pipe, nullptr);
     if (!result && GetLastError() != ERROR_PIPE_CONNECTED) {
         fprintf(stderr, "[Bridge] ConnectNamedPipe failed: %lu\n", GetLastError());

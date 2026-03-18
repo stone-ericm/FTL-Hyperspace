@@ -9,22 +9,14 @@
 namespace ftl_rl {
 
 void Bridge::setSpeedMultiplier(float multiplier) {
-    // FIXME_ACCESSOR: Modify FTL's internal delta-time scaling.
-    //
-    // FTL uses a game speed multiplier (the 2x button sets it to 2.0).
-    // We need to find and modify this value. Likely locations:
-    //   - CApp::speedFactor or similar
-    //   - TimerHelper::speedFactor
-    //   - A global float controlling delta-time multiplication
-    //
-    // UNCERTAINTY: Values above 2x have never been tested.
-    // Start with small values and increase incrementally.
-    //
-    // Example (pseudo-code):
-    // G_->GetApp()->gameSpeedMultiplier = multiplier;
-
-    fprintf(stderr, "[Bridge] Speed set to %.1fx\n", multiplier);
-    (void)multiplier;
+    CFPS* cfps = G_->GetCFPS();
+    if (!cfps) {
+        fprintf(stderr, "[Bridge] ERROR: CFPS not available, cannot set speed\n");
+        return;
+    }
+    cfps->speedLevel = static_cast<int>(multiplier);
+    fprintf(stderr, "[Bridge] Speed set to %dx (speedLevel=%d)\n",
+            static_cast<int>(multiplier), cfps->speedLevel);
 }
 
 void Bridge::resetGame() {
