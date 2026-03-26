@@ -16,6 +16,9 @@ static bool restart_entry_done = false;
 static int wfc_timeout_frames = 0;      // WAITING_FOR_COMBAT timeout counter
 static int wfc_timeout_cycles = 0;      // consecutive timeout cycles (max 3)
 
+// Diagnostic frame counter for RESTARTING_GAME phase
+static int restart_diag_frames = 0;
+
 // OnRender skip freezes game time (SpeedFactor stops advancing).
 // Rendering is required for CFPS timing to work correctly.
 // HOOK_METHOD(CApp, OnRender, () -> void) {}
@@ -54,7 +57,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
 
         // Ensure CombatControl has the enemy ship
         if (enemyCheck && !enemyCheck->bDestroyed && gui->combatControl.enemyShips.empty()) {
-            WorldManager* w = Global::GetInstance()->GetWorld();
+            WorldManager* w = Global::GetInstance() ? Global::GetInstance()->GetWorld() : nullptr;
             CompleteShip* enemyCS = w && w->playerShip
                 ? w->playerShip->enemyShip : nullptr;
             if (enemyCS) {
@@ -165,16 +168,30 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
 
     // --- RESTARTING_GAME: game-over dismiss → menu → new game ---
     if (Bridge::resetPhase() == ResetPhase::RESTARTING_GAME) {
+        restart_diag_frames++;
         if (!restart_entry_done) {
             restart_entry_done = true;
+            restart_diag_frames = 0;
             auto_start_state = -2;
             auto_start_wait = 60;
             dismiss_attempt = 0;
-            fprintf(stderr, "[Reset] RESTARTING_GAME entry → state -2\n");
+            // Diagnostic: log all accessible pointers at entry
+            Global* g = Global::GetInstance();
+            ShipManager* p = g ? g->GetShipManager(0) : nullptr;
+            ShipManager* e = g ? g->GetShipManager(1) : nullptr;
+            WorldManager* w = g ? g->GetWorld() : nullptr;
+            fprintf(stderr, "[Reset] RESTARTING_GAME entry → state -2  gui=%p Global=%p player=%p enemy=%p world=%p menu.bOpen=%d\n",
+                    (void*)gui, (void*)g, (void*)p, (void*)e, (void*)w, menu.bOpen);
+        }
+        // Periodic diagnostic during restart
+        if (restart_diag_frames % 60 == 0 && restart_diag_frames > 0) {
+            fprintf(stderr, "[Reset] RESTARTING_GAME frame=%d auto_state=%d auto_wait=%d dismiss=%d menu=%d\n",
+                    restart_diag_frames, auto_start_state, auto_start_wait, dismiss_attempt, menu.bOpen);
         }
         if (auto_start_state >= 5) {
-            fprintf(stderr, "[Reset] RESTARTING_GAME → WAITING_FOR_COMBAT\n");
+            fprintf(stderr, "[Reset] RESTARTING_GAME → WAITING_FOR_COMBAT (took %d frames)\n", restart_diag_frames);
             restart_entry_done = false;
+            restart_diag_frames = 0;
             Bridge::setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
             wfc_timeout_frames = 0;
         }
@@ -195,8 +212,8 @@ auto_start:
     if (auto_start_state == -2) {
         if (--auto_start_wait > 0) {
             if (auto_start_wait % 10 == 0) {
-                fprintf(stderr, "[Reset] state -2 waiting (%d frames left) menu=%d\n",
-                        auto_start_wait, menu.bOpen);
+                fprintf(stderr, "[Reset] state -2 waiting (%d frames left) menu=%d gui=%p\n",
+                        auto_start_wait, menu.bOpen, (void*)gui);
             }
             return;
         }
@@ -209,23 +226,43 @@ auto_start:
             return;
         }
 
+        // Null-guard: gui must exist before touching gameOverScreen
+        if (!gui) {
+            fprintf(stderr, "[Reset] WARN: gui is NULL in state -2, attempt=%d — skipping dismiss\n", dismiss_attempt);
+            dismiss_attempt++;
+            auto_start_wait = 10;
+            if (dismiss_attempt > 60) {
+                fprintf(stderr, "[Reset] game-over dismiss failed (gui NULL) after 60 attempts → state 0\n");
+                auto_start_state = 0;
+                dismiss_attempt = 0;
+            }
+            return;
+        }
+
         // Dismiss game-over screen
         {
-            bool goOpen = gui && gui->gameOverScreen.bOpen;
-            fprintf(stderr, "[Reset] dismiss attempt=%d goOpen=%d goPtr=%p gui=%p gameover=%d\n",
-                    dismiss_attempt, goOpen, (void*)&gui->gameOverScreen, (void*)gui,
-                    gui ? gui->gameover : -1);
+            bool goOpen = gui->gameOverScreen.bOpen;
+            bool gameover_flag = gui->gameover;
+            fprintf(stderr, "[Reset] dismiss attempt=%d goOpen=%d gameover=%d gui=%p bOpen=%d bShowStats=%d bShowingCredits=%d alreadyWon=%d\n",
+                    dismiss_attempt, goOpen, gameover_flag, (void*)gui,
+                    gui->gameOverScreen.bOpen, gui->gameOverScreen.bShowStats,
+                    gui->gameOverScreen.bShowingCredits, gui->alreadyWon);
 
-            bool gameover_flag = gui && gui->gameover;
             if (goOpen || gameover_flag) {
-                auto& go = gui->gameOverScreen;
-                go.bOpen = false;
-                go.bShowStats = false;
-                go.bShowingCredits = false;
+                fprintf(stderr, "[Reset] clearing game-over state...\n");
+                gui->gameOverScreen.bOpen = false;
+                fprintf(stderr, "[Reset]   bOpen = false OK\n");
+                gui->gameOverScreen.bShowStats = false;
+                fprintf(stderr, "[Reset]   bShowStats = false OK\n");
+                gui->gameOverScreen.bShowingCredits = false;
+                fprintf(stderr, "[Reset]   bShowingCredits = false OK\n");
                 gui->gameover = false;
+                fprintf(stderr, "[Reset]   gameover = false OK\n");
                 gui->alreadyWon = false;
+                fprintf(stderr, "[Reset]   alreadyWon = false OK\n");
+                fprintf(stderr, "[Reset] calling menu.Open()...\n");
                 menu.Open();
-                fprintf(stderr, "[Reset] game-over cleared → menu\n");
+                fprintf(stderr, "[Reset] menu.Open() returned OK → menu.bOpen=%d\n", menu.bOpen);
             }
             // else: wait passively for death animation (~210 frames)
         }
@@ -287,6 +324,7 @@ auto_start:
         }
     }
     else if (auto_start_state == 4 && --auto_start_wait <= 0) {
+        fprintf(stderr, "[Auto] state 4: pressing key '1' to dismiss event\n");
         this->OnKeyDown(static_cast<SDLKey>(0x31)); // SDLK_1
         this->OnKeyUp(static_cast<SDLKey>(0x31));
         fprintf(stderr, "[Auto] state 4: dismissed event → state 5\n");
@@ -297,7 +335,12 @@ auto_start:
         if (--auto_start_wait > 0) return;
         auto_start_wait = 3;
 
-        ShipManager* enemy = Global::GetInstance()->GetShipManager(1);
+        Global* g = Global::GetInstance();
+        if (!g) {
+            fprintf(stderr, "[Auto] state 5: WARN Global is NULL, waiting\n");
+            return;
+        }
+        ShipManager* enemy = g->GetShipManager(1);
 
         // Dismiss UI overlays
         if (gui) {
@@ -320,11 +363,11 @@ auto_start:
         }
 
         // In combat? Stop jumping.
-        ShipManager* player_check = Global::GetInstance()->GetShipManager(0);
+        ShipManager* player_check = g->GetShipManager(0);
         if (enemy && !enemy->bDestroyed && player_check && player_check->hostile_ship) return;
 
         // If FTL charged, jump to next beacon
-        ShipManager* player = Global::GetInstance()->GetShipManager(0);
+        ShipManager* player = g->GetShipManager(0);
         {
             static int jump_diag = 0;
             if (player && ++jump_diag >= 300) {
@@ -338,7 +381,13 @@ auto_start:
         }
         if (player && player->jump_timer.first >= player->jump_timer.second
             && player->jump_timer.second > 0) {
-            StarMap& starMap = world->starMap;
+            // Null-guard world before accessing starMap
+            WorldManager* w = g->GetWorld();
+            if (!w) {
+                fprintf(stderr, "[Auto] state 5: WARN world is NULL, cannot jump\n");
+                return;
+            }
+            StarMap& starMap = w->starMap;
             if (starMap.currentLoc &&
                 !starMap.currentLoc->connectedLocations.empty()) {
                 int idx = rand() % starMap.currentLoc->connectedLocations.size();
@@ -347,7 +396,9 @@ auto_start:
                     player->fuel_count--;
                 }
                 starMap.currentLoc = target;
-                world->CreateLocation(target);
+                fprintf(stderr, "[Auto] calling CreateLocation on target=%p world=%p\n", (void*)target, (void*)w);
+                w->CreateLocation(target);
+                fprintf(stderr, "[Auto] CreateLocation returned OK\n");
                 player->jump_timer.first = 0.0f;
                 fprintf(stderr, "[Auto] jumped to beacon (fuel=%d)\n", player->fuel_count);
                 // Don't manually set hostile_ship/current_target/AddEnemyShip.
