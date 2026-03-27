@@ -114,14 +114,38 @@ void Bridge::initPipe(const BridgeConfig& config) {
     // TODO: disable vsync to uncap frame rate (SDL_GL_SetSwapInterval not linkable)
     // For now, rely on high speedLevel + multi-step while loop to compensate.
 
+    // Auto-assign instance_id: try pipe names 0..15 until one is available.
+    // This allows multiple FTL instances to coexist without manual configuration.
     char pipe_name[256];
+    {
+        FILE* id_file = fopen("C:\\Users\\stone\\ftl-rl\\instance_id.flag", "r");
+        if (id_file) {
+            int id = 0;
+            fscanf(id_file, "%d", &id);
+            fclose(id_file);
+            config_.instance_id = id;
+            fprintf(stderr, "[Bridge] Instance ID from file: %d\n", id);
+        }
+    }
     snprintf(pipe_name, sizeof(pipe_name), "\\\\.\\pipe\\ftl_rl_%d", config_.instance_id);
 
-    fprintf(stderr, "[Bridge] Creating pipe: %s\n", pipe_name);
+    fprintf(stderr, "[Bridge] Creating pipe: %s (instance %d)\n", pipe_name, config_.instance_id);
     pipe_ = create_pipe(pipe_name);
     if (pipe_ == INVALID_HANDLE_VALUE) {
-        fprintf(stderr, "[Bridge] FATAL: Could not create pipe\n");
-        return;
+        // Pipe name taken — try auto-assign
+        for (int id = 0; id < 16; id++) {
+            snprintf(pipe_name, sizeof(pipe_name), "\\\\.\\pipe\\ftl_rl_%d", id);
+            pipe_ = create_pipe(pipe_name);
+            if (pipe_ != INVALID_HANDLE_VALUE) {
+                config_.instance_id = id;
+                fprintf(stderr, "[Bridge] Auto-assigned instance %d\n", id);
+                break;
+            }
+        }
+        if (pipe_ == INVALID_HANDLE_VALUE) {
+            fprintf(stderr, "[Bridge] FATAL: No available pipe slots (0-15)\n");
+            return;
+        }
     }
     fprintf(stderr, "[Bridge] Pipe created, waiting for combat confirmation...\n");
 }
