@@ -19,6 +19,8 @@ struct BridgeConfig {
     std::string ship_blueprint = "kestrel_a";
     bool debug_json = false;        // output JSON instead of binary (dev only)
     bool passive_mode = false;      // observer only: no auto-start, no unpause, no speed change
+    bool headless = false;          // skip rendering, use fixed timestep
+    std::string ipc_mode = "pipe";  // "pipe" or "shm"
 };
 
 // --- Reset State Machine ---
@@ -59,6 +61,8 @@ public:
     // For external hooks (GameOver) to query and trigger episode end
     static bool isConnected() { return connected_; }
     static bool isPassiveMode() { return config_.passive_mode; }
+    static bool isHeadless() { return config_.headless; }
+    static const BridgeConfig& config() { return config_; }
     static HANDLE getPipeHandle() { return pipe_; }
     static bool isEpisodeDone() { return episode_done_; }
     static void forceEpisodeDone(EpisodeResult result);

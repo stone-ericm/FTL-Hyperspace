@@ -81,6 +81,31 @@ void Bridge::initPipe(const BridgeConfig& config) {
 
     config_ = config;
 
+    // Read headless mode from flag file OR environment.
+    // File-based flag is more reliable than env vars (Steam doesn't propagate them).
+    {
+        FILE* f = fopen("C:\\Users\\stone\\ftl-rl\\headless.flag", "r");
+        if (f) { config_.headless = true; fclose(f); }
+        const char* headless_env = getenv("FTL_BRIDGE_HEADLESS");
+        if (headless_env && (strcmp(headless_env, "1") == 0)) {
+            config_.headless = true;
+        }
+    }
+    {
+        FILE* f = fopen("C:\\Users\\stone\\ftl-rl\\ipc_mode.flag", "r");
+        if (f) {
+            char buf[32] = {};
+            fgets(buf, sizeof(buf), f);
+            fclose(f);
+            // Trim newline
+            for (int i = 0; buf[i]; i++) { if (buf[i] == '\n' || buf[i] == '\r') buf[i] = 0; }
+            if (buf[0]) config_.ipc_mode = buf;
+        }
+        const char* ipc_env = getenv("FTL_BRIDGE_IPC");
+        if (ipc_env) config_.ipc_mode = ipc_env;
+    }
+    fprintf(stderr, "[Bridge] headless=%d ipc_mode=%s\n", config_.headless, config_.ipc_mode.c_str());
+
     // Set game speed for training (uses CFPS::speedLevel)
     if (config_.speed_multiplier > 1.0f) {
         setSpeedMultiplier(config_.speed_multiplier);
@@ -199,15 +224,32 @@ void Bridge::step() {
     // Accumulate game time using actual frame delta (accounts for speedLevel)
     CFPS* cfps = G_->GetCFPS();
     float dt = cfps ? cfps->SpeedFactor : (1.0f / 60.0f);
-    if (dt <= 0.0f || dt > 1.0f) dt = 1.0f / 60.0f; // sanity clamp
+    // In headless mode, SpeedFactor can be large (speedLevel 100+ → dt > 1.0).
+    // Only clamp obviously broken values.
+    if (dt <= 0.0f || dt > 100.0f) dt = 1.0f / 60.0f;
     game_time_accumulator_ += dt;
 
-    if (game_time_accumulator_ < config_.step_interval) {
-        return;
+    // Process all accumulated steps (allows multiple steps per frame
+    // when speedLevel is high enough that dt > step_interval)
+    {
+        int steps_this_frame = 0;
+        while (game_time_accumulator_ >= config_.step_interval) {
+            game_time_accumulator_ -= config_.step_interval;
+            doStep();
+            steps_this_frame++;
+            // Re-check episode state after each step
+            if (!connected_ || reset_phase_ != ResetPhase::NONE) break;
+        }
+        static int diag_frames = 0;
+        static int diag_total_steps = 0;
+        diag_total_steps += steps_this_frame;
+        if (++diag_frames % 60 == 0) {
+            fprintf(stderr, "[Step] frames=%d dt=%.4f accum=%.4f steps_last_60frames=%d (%.1f/frame) speedLevel=%d\n",
+                    diag_frames, dt, game_time_accumulator_, diag_total_steps,
+                    diag_total_steps / 60.0f, cfps ? cfps->speedLevel : -1);
+            diag_total_steps = 0;
+        }
     }
-    game_time_accumulator_ -= config_.step_interval;
-
-    doStep();
 }
 
 void Bridge::doStep() {

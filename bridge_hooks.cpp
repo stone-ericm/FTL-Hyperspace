@@ -21,9 +21,15 @@ static int restart_diag_frames = 0;
 // Post-restart cooldown: extra delay before first CreateLocation after LOSS recovery
 static int post_restart_cooldown = 0;
 
-// OnRender skip freezes game time (SpeedFactor stops advancing).
-// Rendering is required for CFPS timing to work correctly.
-// HOOK_METHOD(CApp, OnRender, () -> void) {}
+// --- RENDERING SKIP (headless mode) ---
+// Previously disabled because skipping OnRender froze SpeedFactor.
+// Now safe: CFPS timing is decoupled in headless mode (set manually in OnLoop).
+HOOK_METHOD(CApp, OnRender, () -> void) {
+    if (ftl_rl::Bridge::isHeadless()) {
+        return;  // Skip all rendering — game logic runs via OnLoop
+    }
+    super();
+}
 
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     // Unpause before super() — game skips ShipManager updates when paused.
@@ -39,6 +45,17 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     this->OnInputFocus();
 
     super();
+
+    // CFPS TIMING DECOUPLE (headless mode):
+    // Set SpeedFactor AFTER super() — the game's own CFPS::OnLoop runs
+    // inside super() and would overwrite our value. By setting it after,
+    // we ensure step() reads our fixed timestep, not the game's.
+    if (ftl_rl::Bridge::isHeadless()) {
+        CFPS* cfps = Global::GetInstance()->GetCFPS();
+        if (cfps) {
+            cfps->SpeedFactor = (1.0f / 60.0f) * (float)cfps->speedLevel;
+        }
+    }
 
     using ftl_rl::Bridge;
     using ftl_rl::ResetPhase;
@@ -89,7 +106,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     if (Bridge::resetPhase() == ResetPhase::WAITING_FOR_GAME) {
         if (auto_start_state >= 5) {
             ftl_rl::BridgeConfig config;
-            config.speed_multiplier = 10;  // 10x speed (step() from CApp::OnLoop)
+            config.speed_multiplier = 100;  // 100x speed (headless: multiple steps per frame via while loop)
             Bridge::initPipe(config);
             Bridge::setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
             wfc_timeout_frames = 0;
