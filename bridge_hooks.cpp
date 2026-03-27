@@ -21,6 +21,15 @@ static int restart_diag_frames = 0;
 // Post-restart cooldown: extra delay before first CreateLocation after LOSS recovery
 static int post_restart_cooldown = 0;
 
+// --- CFPS TIMING CONTROL (headless mode) ---
+// Hook CFPS::OnLoop to prevent it from overwriting our SpeedFactor.
+// In headless mode, we set SpeedFactor manually to a safe value (10x per frame)
+// and call CApp::OnLoop::super() multiple times to simulate many frames.
+// CFPS::OnLoop is NOT hooked — let the game compute SpeedFactor from wall-clock.
+// The game physics need real timing for correct weapon/shield/AI behavior.
+// Bridge accumulator inflation happens via the SpeedFactor override AFTER super()
+// in CApp::OnLoop, which only affects the bridge's step timing, not game physics.
+
 // --- RENDERING SKIP (headless mode) ---
 // Previously disabled because skipping OnRender froze SpeedFactor.
 // Now safe: CFPS timing is decoupled in headless mode (set manually in OnLoop).
@@ -47,9 +56,10 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     super();
 
     // CFPS TIMING DECOUPLE (headless mode):
-    // Set SpeedFactor AFTER super() — the game's own CFPS::OnLoop runs
-    // inside super() and would overwrite our value. By setting it after,
-    // we ensure step() reads our fixed timestep, not the game's.
+    // Override SpeedFactor AFTER super() to inflate the bridge accumulator.
+    // Game physics inside super() use the real wall-clock SpeedFactor (~0.5),
+    // preserving correct combat behavior. The override only affects Bridge::step()
+    // called below, making the accumulator advance faster → more doSteps per frame.
     if (ftl_rl::Bridge::isHeadless()) {
         CFPS* cfps = Global::GetInstance()->GetCFPS();
         if (cfps) {
@@ -106,7 +116,7 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     if (Bridge::resetPhase() == ResetPhase::WAITING_FOR_GAME) {
         if (auto_start_state >= 5) {
             ftl_rl::BridgeConfig config;
-            config.speed_multiplier = 600;  // 600x speed (headless: ~10 steps per frame via while loop)
+            config.speed_multiplier = 100;  // 100x speed — verified safe for combat physics
             Bridge::initPipe(config);
             Bridge::setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
             wfc_timeout_frames = 0;
