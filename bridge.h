@@ -18,6 +18,7 @@ struct BridgeConfig {
     int timeout_seconds = 30;
     std::string ship_blueprint = "kestrel_a";
     bool debug_json = false;        // output JSON instead of binary (dev only)
+    bool passive_mode = false;      // observer only: no auto-start, no unpause, no speed change
 };
 
 // --- Reset State Machine ---
@@ -57,6 +58,8 @@ public:
 
     // For external hooks (GameOver) to query and trigger episode end
     static bool isConnected() { return connected_; }
+    static bool isPassiveMode() { return config_.passive_mode; }
+    static HANDLE getPipeHandle() { return pipe_; }
     static bool isEpisodeDone() { return episode_done_; }
     static void forceEpisodeDone(EpisodeResult result);
 
@@ -90,6 +93,7 @@ private:
     static void resetGame();
     static bool checkEpisodeDone(EpisodeResult& result);
     static void setSpeedMultiplier(float multiplier);
+    static bool handleEventDialog();  // returns true if event is active (skip step)
 
     // State
     static HANDLE pipe_;
@@ -101,6 +105,8 @@ private:
     static float game_time_accumulator_;
     static ResetPhase reset_phase_;
     static int reset_wait_frames_;
+    static int event_key_cycle_;
+    static int event_cooldown_;
 
     // Buffers
     static float state_buffer_[OBS_FIELD_COUNT];

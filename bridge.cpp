@@ -2,6 +2,46 @@
 #include "bridge.h"
 #include <cstdio>
 #include <cstring>
+#include <windows.h>
+
+// Performance timing for doStep() phases
+struct StepTimer {
+    LARGE_INTEGER freq_, start_, lap_;
+    double phases_[5] = {};  // serialize, send, wait, read_apply, total_overhead
+    int count_ = 0;
+
+    void init() { QueryPerformanceFrequency(&freq_); }
+
+    void begin() {
+        QueryPerformanceCounter(&start_);
+        lap_ = start_;
+    }
+
+    void mark(int phase) {
+        LARGE_INTEGER now;
+        QueryPerformanceCounter(&now);
+        phases_[phase] += (double)(now.QuadPart - lap_.QuadPart) / freq_.QuadPart * 1000.0;
+        lap_ = now;
+    }
+
+    void end() {
+        count_++;
+        if (count_ % 100 == 0) {
+            LARGE_INTEGER now;
+            QueryPerformanceCounter(&now);
+            double total = (double)(now.QuadPart - start_.QuadPart) / freq_.QuadPart * 1000.0;
+            fprintf(stderr, "[Perf] steps=%d  serialize=%.1fms  send=%.1fms  wait=%.1fms  apply=%.1fms  total=%.1fms  steps/sec=%.1f\n",
+                count_,
+                phases_[0] / 100, phases_[1] / 100, phases_[2] / 100,
+                phases_[3] / 100,
+                (phases_[0]+phases_[1]+phases_[2]+phases_[3]) / 100,
+                100000.0 / (phases_[0]+phases_[1]+phases_[2]+phases_[3]));
+            for (int i = 0; i < 5; i++) phases_[i] = 0;
+        }
+    }
+};
+static StepTimer g_perf;
+static bool g_perf_init = false;
 
 #define G_ Global::GetInstance()
 
@@ -20,6 +60,8 @@ Pointf Bridge::cached_enemy_world_pos_ = {0.0f, 0.0f};
 ResetPhase Bridge::reset_phase_ = ResetPhase::NONE;
 int Bridge::reset_wait_frames_ = 0;
 int Bridge::combat_confirm_count_ = 0;
+int Bridge::event_key_cycle_ = 0;
+int Bridge::event_cooldown_ = 0;
 float Bridge::state_buffer_[OBS_FIELD_COUNT] = {};
 int32_t Bridge::action_buffer_[ACTION_HEAD_COUNT] = {};
 int32_t Bridge::persistent_actions_[ACTION_HEAD_COUNT] = {};
@@ -171,6 +213,9 @@ void Bridge::step() {
 void Bridge::doStep() {
     static int step_count = 0;
 
+    if (!g_perf_init) { g_perf.init(); g_perf_init = true; }
+    g_perf.begin();
+
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
     SpaceManager* space = nullptr;
@@ -186,17 +231,19 @@ void Bridge::doStep() {
         }
     }
 
-    // Serialize state
+    // Phase 0: Serialize state
     memset(state_buffer_, 0, sizeof(state_buffer_));
     serializeState(state_buffer_, player, enemy, space);
+    g_perf.mark(0);
 
-    // Send STATE
+    // Phase 1: Send STATE
     if (!send_message(pipe_, MsgType::STATE, state_buffer_, STATE_BUFFER_BYTES)) {
         handleDisconnect();
         return;
     }
+    g_perf.mark(1);
 
-    // Receive ACTION (blocks until Python responds)
+    // Phase 2: Receive ACTION (blocks until Python responds)
     MsgType msg_type;
     uint32_t payload_size;
     if (!recv_message(pipe_, msg_type, action_buffer_, ACTION_BUFFER_BYTES,
@@ -204,6 +251,7 @@ void Bridge::doStep() {
         handleDisconnect();
         return;
     }
+    g_perf.mark(2);
 
     if (msg_type != MsgType::ACTION) {
         fprintf(stderr, "[Bridge] Expected ACTION, got %d\n", static_cast<int>(msg_type));
@@ -211,18 +259,18 @@ void Bridge::doStep() {
         return;
     }
 
-    // Resolve persistent actions
+    // Phase 3: Resolve persistent actions + apply
     for (int i = 0; i < ACTION_HEAD_COUNT; i++) {
         if (action_buffer_[i] != 0) {
             persistent_actions_[i] = action_buffer_[i];
         }
     }
-
-    // Apply actions
     applyActions(action_buffer_, player, enemy);
+    g_perf.mark(3);
 
     fled_this_step_ = false;
     step_count++;
+    g_perf.end();
 
     if (step_count % 10 == 0) {
         fprintf(stderr, "[Bridge] step %d hull=%.0f enemy_hull=%.0f\n",
