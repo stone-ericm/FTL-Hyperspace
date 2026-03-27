@@ -111,6 +111,9 @@ void Bridge::initPipe(const BridgeConfig& config) {
         setSpeedMultiplier(config_.speed_multiplier);
     }
 
+    // TODO: disable vsync to uncap frame rate (SDL_GL_SetSwapInterval not linkable)
+    // For now, rely on high speedLevel + multi-step while loop to compensate.
+
     char pipe_name[256];
     snprintf(pipe_name, sizeof(pipe_name), "\\\\.\\pipe\\ftl_rl_%d", config_.instance_id);
 
