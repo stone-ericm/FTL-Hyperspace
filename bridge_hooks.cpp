@@ -26,8 +26,10 @@ static int post_restart_cooldown = 0;
 // HOOK_METHOD(CApp, OnRender, () -> void) {}
 
 HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
-    // Unpause before super() — game skips ShipManager updates when paused
-    if (gui) {
+    // Unpause before super() — game skips ShipManager updates when paused.
+    // BUT: during game-over dismiss (auto_start_state == -2), let the game
+    // stay paused so the death animation and game-over screen can appear naturally.
+    if (gui && auto_start_state != -2) {
         gui->bPaused = false;
         gui->bAutoPaused = false;
     }
@@ -277,7 +279,14 @@ auto_start:
         auto_start_wait = 10;
 
         if (dismiss_attempt > 60) {
-            fprintf(stderr, "[Reset] game-over dismiss failed after 60 attempts → state 0\n");
+            fprintf(stderr, "[Reset] game-over dismiss failed after 60 attempts → forcing menu.Open() → state 0\n");
+            // Force menu open since game-over screen never appeared.
+            // Clear any lingering game-over state just in case.
+            if (gui) {
+                gui->gameOverScreen.bOpen = false;
+                gui->gameover = false;
+            }
+            menu.Open();
             auto_start_state = 0;
             dismiss_attempt = 0;
         }
