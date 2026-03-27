@@ -18,6 +18,8 @@ static int wfc_timeout_cycles = 0;      // consecutive timeout cycles (max 3)
 
 // Diagnostic frame counter for RESTARTING_GAME phase
 static int restart_diag_frames = 0;
+// Post-restart cooldown: extra delay before first CreateLocation after LOSS recovery
+static int post_restart_cooldown = 0;
 
 // OnRender skip freezes game time (SpeedFactor stops advancing).
 // Rendering is required for CFPS timing to work correctly.
@@ -194,6 +196,10 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             restart_diag_frames = 0;
             Bridge::setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
             wfc_timeout_frames = 0;
+            // After LOSS recovery, the new game needs time to fully initialize
+            // before CreateLocation is safe. Give it 300 frames (~5s at 60fps).
+            post_restart_cooldown = 300;
+            fprintf(stderr, "[Reset] post_restart_cooldown set to 300 frames\n");
         }
         // Fall through to auto-start states
     } else {
@@ -379,6 +385,15 @@ auto_start:
                         player->fuel_count);
             }
         }
+        // Post-restart cooldown: wait for game to fully initialize after LOSS recovery
+        if (post_restart_cooldown > 0) {
+            post_restart_cooldown--;
+            if (post_restart_cooldown % 60 == 0) {
+                fprintf(stderr, "[Auto] post_restart_cooldown=%d\n", post_restart_cooldown);
+            }
+            return;
+        }
+
         if (player && player->jump_timer.first >= player->jump_timer.second
             && player->jump_timer.second > 0) {
             // Null-guard world before accessing starMap
@@ -388,26 +403,34 @@ auto_start:
                 return;
             }
             StarMap& starMap = w->starMap;
-            if (starMap.currentLoc &&
-                !starMap.currentLoc->connectedLocations.empty()) {
-                int idx = rand() % starMap.currentLoc->connectedLocations.size();
-                Location* target = starMap.currentLoc->connectedLocations[idx];
-                if (player->fuel_count > 0) {
-                    player->fuel_count--;
-                }
-                starMap.currentLoc = target;
-                fprintf(stderr, "[Auto] calling CreateLocation on target=%p world=%p\n", (void*)target, (void*)w);
-                w->CreateLocation(target);
-                fprintf(stderr, "[Auto] CreateLocation returned OK\n");
-                player->jump_timer.first = 0.0f;
-                fprintf(stderr, "[Auto] jumped to beacon (fuel=%d)\n", player->fuel_count);
-                // Don't manually set hostile_ship/current_target/AddEnemyShip.
-                // Let the game's event system handle combat initiation after
-                // the event choice is dismissed (keys 4,3,2,1 above).
-                // Our combat confirmation check will detect when the game
-                // actually starts combat.
-                auto_start_wait = 60;
+            if (!starMap.currentLoc) {
+                fprintf(stderr, "[Auto] state 5: WARN starMap.currentLoc is NULL\n");
+                return;
             }
+            if (starMap.currentLoc->connectedLocations.empty()) {
+                fprintf(stderr, "[Auto] state 5: WARN no connected locations\n");
+                return;
+            }
+            int num_connected = starMap.currentLoc->connectedLocations.size();
+            int idx = rand() % num_connected;
+            Location* target = starMap.currentLoc->connectedLocations[idx];
+            if (!target) {
+                fprintf(stderr, "[Auto] state 5: WARN target location is NULL (idx=%d/%d)\n", idx, num_connected);
+                return;
+            }
+            if (player->fuel_count > 0) {
+                player->fuel_count--;
+            }
+            starMap.currentLoc = target;
+            fprintf(stderr, "[Auto] calling CreateLocation on target=%p world=%p connected=%d\n",
+                    (void*)target, (void*)w, num_connected);
+            w->CreateLocation(target);
+            fprintf(stderr, "[Auto] CreateLocation returned OK\n");
+            player->jump_timer.first = 0.0f;
+            fprintf(stderr, "[Auto] jumped to beacon (fuel=%d)\n", player->fuel_count);
+            // After jumping, wait longer to let the event system fully process
+            // the new location (load events, resolve encounters, etc.)
+            auto_start_wait = 180;  // ~3s at 60fps (was 60)
         }
     }
 }
