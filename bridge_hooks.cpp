@@ -197,9 +197,9 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             Bridge::setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
             wfc_timeout_frames = 0;
             // After LOSS recovery, the new game needs time to fully initialize
-            // before CreateLocation is safe. Give it 300 frames (~5s at 60fps).
-            post_restart_cooldown = 300;
-            fprintf(stderr, "[Reset] post_restart_cooldown set to 300 frames\n");
+            // before TravelToLocation is safe. Give it 600 frames (~10s at 60fps).
+            post_restart_cooldown = 600;
+            fprintf(stderr, "[Reset] post_restart_cooldown set to 600 frames\n");
         }
         // Fall through to auto-start states
     } else {
@@ -421,11 +421,10 @@ auto_start:
             if (player->fuel_count > 0) {
                 player->fuel_count--;
             }
-            starMap.currentLoc = target;
-            fprintf(stderr, "[Auto] calling CreateLocation on target=%p world=%p connected=%d\n",
-                    (void*)target, (void*)w, num_connected);
-            w->CreateLocation(target);
-            fprintf(stderr, "[Auto] CreateLocation returned OK\n");
+            fprintf(stderr, "[Auto] calling TravelToLocation on target=%p starMap=%p connected=%d\n",
+                    (void*)target, (void*)&starMap, num_connected);
+            starMap.TravelToLocation(target);
+            fprintf(stderr, "[Auto] TravelToLocation returned OK\n");
             player->jump_timer.first = 0.0f;
             fprintf(stderr, "[Auto] jumped to beacon (fuel=%d)\n", player->fuel_count);
             // After jumping, wait longer to let the event system fully process
