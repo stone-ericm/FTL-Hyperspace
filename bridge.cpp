@@ -322,6 +322,14 @@ void Bridge::doStep() {
     }
     g_perf.mark(2);
 
+    if (msg_type == MsgType::RESET) {
+        // Python-side truncation (max_steps reached). Continue same combat —
+        // navigating to a new beacon takes too long and blocks DummyVecEnv.
+        fprintf(stderr, "[Bridge] RESET during step %d (truncation) → continue same combat\n",
+                step_count);
+        handleReset();  // Send RESET_ACK with current state, resume stepping
+        return;
+    }
     if (msg_type != MsgType::ACTION) {
         fprintf(stderr, "[Bridge] Expected ACTION, got %d\n", static_cast<int>(msg_type));
         handleDisconnect();
