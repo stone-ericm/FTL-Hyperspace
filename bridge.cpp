@@ -336,6 +336,13 @@ void Bridge::doStep() {
         return;
     }
 
+    // Force weapons to 3 power bars — override agent's action BEFORE
+    // applyActions so the budget deprioritization logic handles conflicts.
+    // Action head 11 = power_weapons_target. Option 4 = level 3 (3 bars).
+    // Weapons are highest priority in deprioritization order, so shields/
+    // engines get reduced if total exceeds reactor capacity.
+    action_buffer_[11] = 4;
+
     // Phase 3: Resolve persistent actions + apply
     for (int i = 0; i < ACTION_HEAD_COUNT; i++) {
         if (action_buffer_[i] != 0) {
@@ -343,6 +350,7 @@ void Bridge::doStep() {
         }
     }
     applyActions(action_buffer_, player, enemy);
+
     g_perf.mark(3);
 
     fled_this_step_ = false;

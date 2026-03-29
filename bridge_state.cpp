@@ -110,8 +110,8 @@ void Bridge::serializeState(float* buf, ShipManager* player,
         }
         buf[idx++] = static_cast<float>(sys->fRepairOverTime);    // repair_progress
         buf[idx++] = static_cast<float>(sys->iActiveManned);      // active_manned_level
+        buf[idx++] = 1.0f; // system_present (must match spec field order)
         buf[idx++] = 0.0f; // zoltan_power_contribution — TODO: derive from crew
-        buf[idx++] = 1.0f; // system_present
     }
     // medbay_clonebay_type_flag
     buf[idx++] = static_cast<float>(player->cloneSystem ? 1 : 0);
