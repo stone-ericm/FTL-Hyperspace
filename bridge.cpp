@@ -366,6 +366,8 @@ void Bridge::handleReset() {
     cached_enemy_ = nullptr;
     memset(persistent_actions_, 0, sizeof(persistent_actions_));
 
+    armWeapons();  // Re-arm weapons for new episode
+
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
 
@@ -377,6 +379,37 @@ void Bridge::handleReset() {
         return;
     }
     fprintf(stderr, "[Bridge] RESET_ACK sent, resuming stepping\n");
+}
+
+void Bridge::armWeapons() {
+    ShipManager* player = G_->GetShipManager(0);
+    ShipManager* enemy = G_->GetShipManager(1);
+
+    if (!player || !player->weaponSystem) return;
+
+    // Best-effort: add up to 3 power bars to weapons (SYS_WEAPONS = 3).
+    // If reactor is full, extra IncreaseSystemPower calls are no-ops.
+    for (int i = 0; i < 3; i++)
+        player->IncreaseSystemPower(3);
+
+    // Enable autofire on all powered weapons, target room 0
+    if (enemy) {
+        ShipGraph* enemyGraph = ShipGraph::GetShipInfo(enemy->iShipId);
+        for (auto* wpn : player->weaponSystem->weapons) {
+            if (wpn && wpn->powered) {
+                wpn->SetCurrentShip(&enemy->_targetable);
+                wpn->targetId = 0;
+                wpn->targets.clear();
+                if (enemyGraph) {
+                    Pointf center = enemyGraph->GetRoomCenter(0);
+                    wpn->targets.push_back(Pointf(center.x, center.y));
+                }
+                wpn->autoFiring = true;
+            }
+        }
+    }
+
+    fprintf(stderr, "[Bridge] armWeapons: weapons re-armed + autofire on\n");
 }
 
 void Bridge::pollForReset() {

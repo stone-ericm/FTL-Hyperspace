@@ -70,6 +70,7 @@ public:
     // Reset state machine — called from CApp::OnLoop hook
     static void pollForReset();
     static void handleReset();    // public: called from hook on reset path
+    static void armWeapons();     // public: re-arm weapons + autofire for new episode
     static ResetPhase resetPhase() { return reset_phase_; }
     static void setResetPhase(ResetPhase phase) { reset_phase_ = phase; reset_wait_frames_ = 0; }
 

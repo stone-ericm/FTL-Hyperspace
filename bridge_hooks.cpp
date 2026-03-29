@@ -198,50 +198,9 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             wfc_timeout_frames = 0;
             wfc_timeout_cycles = 0;
 
-            // Power weapons at combat start — mirrors what a human player does.
-            // Kestrel A has 3 free reactor bars; weapons cost 3 (Artemis=1 + BL2=2).
-            // System ID 3 = weapons (SLOT_TO_SYSID in bridge_actions.cpp).
-            ShipManager* initPlayer = Global::GetInstance()->GetShipManager(0);
-            ShipManager* initEnemy = Global::GetInstance()->GetShipManager(1);
-            if (initPlayer) {
-                for (int i = 0; i < 3; i++)
-                    initPlayer->IncreaseSystemPower(3);
-                // Enable autofire on all weapons with default target (room 0).
-                // The agent can override targeting via actions later.
-                if (initPlayer->weaponSystem && initEnemy) {
-                    ShipGraph* enemyGraph = ShipGraph::GetShipInfo(initEnemy->iShipId);
-                    for (auto* wpn : initPlayer->weaponSystem->weapons) {
-                        if (wpn && wpn->powered) {
-                            wpn->SetCurrentShip(&initEnemy->_targetable);
-                            wpn->targetId = 0;
-                            if (enemyGraph) {
-                                Pointf center = enemyGraph->GetRoomCenter(0);
-                                wpn->targets.push_back(Pointf(center.x, center.y));
-                            }
-                            wpn->autoFiring = true;
-                        }
-                    }
-                }
-                fprintf(stderr, "[Bridge] Auto-powered weapons (3 bars) + autofire on\n");
-                // Diagnostic: log weapon internals to diagnose charge issue
-                if (initPlayer->weaponSystem) {
-                    auto& wpns = initPlayer->weaponSystem->weapons;
-                    for (int w = 0; w < (int)wpns.size() && w < 4; w++) {
-                        auto* wpn = wpns[w];
-                        if (wpn) {
-                            fprintf(stderr, "[WpnDiag] wpn%d: powered=%d cooldown=%.2f/%.2f "
-                                    "chargeLevel=%d goalCharge=%d blueprint_cd=%.1f "
-                                    "shipTarget=%p autoFiring=%d fireWhenReady=%d\n",
-                                    w, wpn->powered,
-                                    wpn->cooldown.first, wpn->cooldown.second,
-                                    wpn->chargeLevel, wpn->goalChargeLevel,
-                                    wpn->blueprint ? wpn->blueprint->cooldown : -1.0f,
-                                    (void*)wpn->currentShipTarget, wpn->autoFiring,
-                                    wpn->fireWhenReady);
-                        }
-                    }
-                }
-            }
+            // Power weapons + enable autofire at combat start.
+            // Shared function also called from handleReset() on truncation.
+            Bridge::armWeapons();
 
             if (Bridge::isConnected()) {
                 // Reset path — client already connected, send RESET_ACK
