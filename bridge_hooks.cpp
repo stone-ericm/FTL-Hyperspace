@@ -7,6 +7,9 @@
 #include "Global.h"
 #include "bridge.h"
 
+// --- Headless mode: manual ShipManager::OnLoop guard ---
+static bool in_manual_ship_update = false;
+
 // --- Auto-start: navigate main menu → ship builder → start game ---
 static bool bridge_started = false;     // true after first CApp::OnLoop
 static int auto_start_state = 0;
@@ -53,16 +56,29 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     // CommandGui::OnLoop skips ship updates when FTL isn't foreground.
     this->OnInputFocus();
 
-    super();
-
-    // CFPS TIMING DECOUPLE (headless mode):
-    // Override SpeedFactor AFTER super() to inflate the bridge accumulator.
-    // Game physics inside super() use the real wall-clock SpeedFactor (~0.5),
-    // preserving correct combat behavior. The override only affects Bridge::step()
-    // called below, making the accumulator advance faster → more doSteps per frame.
+    // HEADLESS SPEED FIX: Lower speedLevel before super() so CFPS::OnLoop
+    // (which runs inside super()) calculates a safe SpeedFactor.
+    // SpeedFactor > 2.0 breaks combat: weapons don't charge, projectiles
+    // teleport past ships, AI doesn't fire. With headless ~2ms frames and
+    // speedLevel=10, CFPS::OnLoop produces SpeedFactor ≈ 1.2 — safe.
+    // After super(), restore speedLevel and inflate SpeedFactor for the
+    // bridge accumulator (controls step timing, not game physics).
+    int saved_speedLevel = -1;
     if (ftl_rl::Bridge::isHeadless()) {
         CFPS* cfps = Global::GetInstance()->GetCFPS();
         if (cfps) {
+            saved_speedLevel = cfps->speedLevel;
+            cfps->speedLevel = 10;
+        }
+    }
+
+    super();
+
+    // Restore speedLevel and inflate SpeedFactor for bridge accumulator.
+    if (ftl_rl::Bridge::isHeadless()) {
+        CFPS* cfps = Global::GetInstance()->GetCFPS();
+        if (cfps) {
+            if (saved_speedLevel >= 0) cfps->speedLevel = saved_speedLevel;
             cfps->SpeedFactor = (1.0f / 60.0f) * (float)cfps->speedLevel;
         }
     }
@@ -96,9 +112,34 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             }
         }
 
-        // Non-combat beacon escape removed from NONE phase.
-        // CreateLocation during active stepping crashes the game.
-        // Auto-nav in state 5 handles beacon jumping during WAITING_FOR_COMBAT.
+        // Headless mode: the game's CApp::OnLoop skips ShipManager::OnLoop
+        // and SpaceManager::OnLoop without OS window focus.
+        // Call them manually to drive the full combat pipeline:
+        //   ShipManager::OnLoop — weapon charging, shield regen, system updates
+        //   SpaceManager::OnLoop — projectile movement, collision detection
+        if (ftl_rl::Bridge::isHeadless()) {
+            in_manual_ship_update = true;
+            if (playerCheck) playerCheck->OnLoop();
+            ShipManager* enemyShip = Global::GetInstance()->GetShipManager(1);
+            if (enemyShip) enemyShip->OnLoop();
+            in_manual_ship_update = false;
+
+            if (gui->space) gui->space->OnLoop();
+
+            // Re-populate weapon targets each frame so autofire continues.
+            // targets vector is consumed when the weapon fires.
+            if (playerCheck && playerCheck->weaponSystem && enemyShip) {
+                ShipGraph* eGraph = ShipGraph::GetShipInfo(enemyShip->iShipId);
+                if (eGraph) {
+                    for (auto* wpn : playerCheck->weaponSystem->weapons) {
+                        if (wpn && wpn->powered && wpn->autoFiring && wpn->targets.empty()) {
+                            Pointf c = eGraph->GetRoomCenter(wpn->targetId);
+                            wpn->targets.push_back(Pointf(c.x, c.y));
+                        }
+                    }
+                }
+            }
+        }
     }
 
     // =================================================================
@@ -156,6 +197,52 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
         if (Bridge::checkCombatConfirmed()) {
             wfc_timeout_frames = 0;
             wfc_timeout_cycles = 0;
+
+            // Power weapons at combat start — mirrors what a human player does.
+            // Kestrel A has 3 free reactor bars; weapons cost 3 (Artemis=1 + BL2=2).
+            // System ID 3 = weapons (SLOT_TO_SYSID in bridge_actions.cpp).
+            ShipManager* initPlayer = Global::GetInstance()->GetShipManager(0);
+            ShipManager* initEnemy = Global::GetInstance()->GetShipManager(1);
+            if (initPlayer) {
+                for (int i = 0; i < 3; i++)
+                    initPlayer->IncreaseSystemPower(3);
+                // Enable autofire on all weapons with default target (room 0).
+                // The agent can override targeting via actions later.
+                if (initPlayer->weaponSystem && initEnemy) {
+                    ShipGraph* enemyGraph = ShipGraph::GetShipInfo(initEnemy->iShipId);
+                    for (auto* wpn : initPlayer->weaponSystem->weapons) {
+                        if (wpn && wpn->powered) {
+                            wpn->SetCurrentShip(&initEnemy->_targetable);
+                            wpn->targetId = 0;
+                            if (enemyGraph) {
+                                Pointf center = enemyGraph->GetRoomCenter(0);
+                                wpn->targets.push_back(Pointf(center.x, center.y));
+                            }
+                            wpn->autoFiring = true;
+                        }
+                    }
+                }
+                fprintf(stderr, "[Bridge] Auto-powered weapons (3 bars) + autofire on\n");
+                // Diagnostic: log weapon internals to diagnose charge issue
+                if (initPlayer->weaponSystem) {
+                    auto& wpns = initPlayer->weaponSystem->weapons;
+                    for (int w = 0; w < (int)wpns.size() && w < 4; w++) {
+                        auto* wpn = wpns[w];
+                        if (wpn) {
+                            fprintf(stderr, "[WpnDiag] wpn%d: powered=%d cooldown=%.2f/%.2f "
+                                    "chargeLevel=%d goalCharge=%d blueprint_cd=%.1f "
+                                    "shipTarget=%p autoFiring=%d fireWhenReady=%d\n",
+                                    w, wpn->powered,
+                                    wpn->cooldown.first, wpn->cooldown.second,
+                                    wpn->chargeLevel, wpn->goalChargeLevel,
+                                    wpn->blueprint ? wpn->blueprint->cooldown : -1.0f,
+                                    (void*)wpn->currentShipTarget, wpn->autoFiring,
+                                    wpn->fireWhenReady);
+                        }
+                    }
+                }
+            }
+
             if (Bridge::isConnected()) {
                 // Reset path — client already connected, send RESET_ACK
                 Bridge::handleReset();
@@ -481,6 +568,7 @@ HOOK_METHOD(CApp, OnInputBlur, () -> void) {
 // --- ShipManager::OnLoop: just step, no init ---
 HOOK_METHOD_PRIORITY(ShipManager, OnLoop, 50, () -> void) {
     super();
+    if (in_manual_ship_update) return;  // Recursion guard for headless manual calls
     if (this != Global::GetInstance()->GetShipManager(0)) return;
     ftl_rl::Bridge::step();
 }
