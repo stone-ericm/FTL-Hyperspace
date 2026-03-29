@@ -131,8 +131,21 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             if (playerCheck && playerCheck->weaponSystem && enemyShip) {
                 ShipGraph* eGraph = ShipGraph::GetShipInfo(enemyShip->iShipId);
                 if (eGraph) {
-                    for (auto* wpn : playerCheck->weaponSystem->weapons) {
-                        if (wpn && wpn->powered && wpn->autoFiring && wpn->targets.empty()) {
+                    for (int wi = 0; wi < (int)playerCheck->weaponSystem->weapons.size() && wi < 4; wi++) {
+                        auto* wpn = playerCheck->weaponSystem->weapons[wi];
+                        if (!wpn) continue;
+                        // Diagnostic: log weapon state every 100 frames
+                        static int diag_counter = 0;
+                        if (diag_counter++ % 500 == 0) {
+                            fprintf(stderr, "[WpnDiag] wpn%d: powered=%d autoFiring=%d "
+                                    "cooldown=%.2f/%.2f chargeLevel=%d targets=%d "
+                                    "shipTarget=%p\n",
+                                    wi, wpn->powered, wpn->autoFiring,
+                                    wpn->cooldown.first, wpn->cooldown.second,
+                                    wpn->chargeLevel, (int)wpn->targets.size(),
+                                    (void*)wpn->currentShipTarget);
+                        }
+                        if (wpn->powered && wpn->autoFiring && wpn->targets.empty()) {
                             Pointf c = eGraph->GetRoomCenter(wpn->targetId);
                             wpn->targets.push_back(Pointf(c.x, c.y));
                         }

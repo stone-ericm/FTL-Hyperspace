@@ -161,9 +161,19 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
     int battery = pm ? pm->batteryPower.first : 0;
     int effective_capacity = reactor + battery;
 
+    // Diagnostic: log power state every 500 calls
+    static int power_diag_counter = 0;
+    bool do_power_diag = (power_diag_counter++ % 500 == 0);
+    if (do_power_diag) {
+        fprintf(stderr, "[PwrDiag] demand=%d cap=%d wpn_cur=%d wpn_req=%d wpn_max=%d action=%d\n",
+                reactor_demand, effective_capacity,
+                current[3], requested[3], max_levels[3], power_targets[3]);
+    }
+
     if (reactor_demand > effective_capacity) {
         // Over budget: reduce by depriority order
         int excess = reactor_demand - effective_capacity;
+        if (do_power_diag) fprintf(stderr, "[PwrDiag] OVER BUDGET excess=%d\n", excess);
         for (int idx : DEPRIORITY_ORDER) {
             if (excess <= 0) break;
             int reducible = std::max(0, requested[idx] - zoltan_power[idx]);
@@ -173,22 +183,37 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
         }
     }
 
-    // Apply power changes — use FTL system IDs, not observation slot indices
+    // Apply power changes in two passes: decreases first (free reactor bars),
+    // then increases (use freed bars). Single-pass failed because systems
+    // later in the index order hadn't freed their bars when earlier systems
+    // tried to increase (e.g., weapons at index 3 needs bars freed by
+    // sensors at index 14).
+    auto getSysId = [&](int i) -> int {
+        int sysId = SLOT_TO_SYSID[i];
+        if (i == 5 && !ship->GetSystem(sysId))
+            sysId = 13; // SYS_CLONEBAY fallback
+        return sysId;
+    };
+
+    // Pass 1: decrease power (free reactor bars)
     for (int i = 0; i < 15; i++) {
-        if (requested[i] != current[i]) {
-            int sysId = SLOT_TO_SYSID[i];
-            if (i == 5 && !ship->GetSystem(sysId))
-                sysId = 13; // SYS_CLONEBAY fallback
-            ShipSystem* targetSys = ship->GetSystem(sysId);
+        int diff = requested[i] - current[i];
+        if (diff < 0) {
+            ShipSystem* targetSys = ship->GetSystem(getSysId(i));
             if (!targetSys) continue;
-            int diff = requested[i] - current[i];
-            if (diff > 0) {
-                for (int d = 0; d < diff; d++)
-                    ship->IncreaseSystemPower(sysId);
-            } else {
-                for (int d = 0; d < -diff; d++)
-                    ship->ForceDecreaseSystemPower(sysId);
-            }
+            for (int d = 0; d < -diff; d++)
+                ship->ForceDecreaseSystemPower(getSysId(i));
+        }
+    }
+
+    // Pass 2: increase power (use freed bars)
+    for (int i = 0; i < 15; i++) {
+        int diff = requested[i] - current[i];
+        if (diff > 0) {
+            ShipSystem* targetSys = ship->GetSystem(getSysId(i));
+            if (!targetSys) continue;
+            for (int d = 0; d < diff; d++)
+                ship->IncreaseSystemPower(getSysId(i));
         }
     }
 }
