@@ -13,8 +13,8 @@ HANDLE create_pipe(const char* pipe_name) {
         PIPE_ACCESS_DUPLEX,
         PIPE_TYPE_BYTE | PIPE_READMODE_BYTE | PIPE_WAIT,
         1,            // max instances
-        STATE_BUFFER_BYTES + MSG_HEADER_BYTES + 64,  // out buffer
-        ACTION_BUFFER_BYTES + MSG_HEADER_BYTES + 64, // in buffer
+        (STATE_BUFFER_BYTES + MSG_HEADER_BYTES) * 4,  // out buffer (4× to avoid reset deadlock)
+        (ACTION_BUFFER_BYTES + MSG_HEADER_BYTES) * 4, // in buffer (4× for drain loop no-ops)
         0,            // default timeout
         nullptr       // default security
     );

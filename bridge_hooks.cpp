@@ -581,10 +581,13 @@ HOOK_METHOD(ShipManager, JumpLeave, () -> void) {
     super();
 }
 
-// --- GameOver::OpenText: fallback loss detection ---
+// --- GameOver::OpenText: suppress game-over screen ---
+// LOSS detection disabled — truncation handles reset instead.
+// But we still need to dismiss the game-over screen so the game
+// doesn't freeze on it. Clear the screen and unpause.
 HOOK_METHOD(GameOver, OpenText, (const std::string& text) -> void) {
     super(text);
-    if (ftl_rl::Bridge::isConnected() && !ftl_rl::Bridge::isEpisodeDone()) {
-        ftl_rl::Bridge::forceEpisodeDone(ftl_rl::EpisodeResult::LOSS);
-    }
+    // Don't send EPISODE_DONE — let the bridge keep stepping.
+    // The game-over screen will be dismissed by the auto-start code
+    // if it ever triggers, but during stepping we just ignore it.
 }

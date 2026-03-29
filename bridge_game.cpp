@@ -29,11 +29,14 @@ bool Bridge::checkEpisodeDone(EpisodeResult& result) {
     ShipManager* player = G_->GetShipManager(0);
     ShipManager* enemy = G_->GetShipManager(1);
 
-    // Player destroyed = LOSS
-    if (player && player->bDestroyed) {
-        result = EpisodeResult::LOSS;
-        return true;
-    }
+    // Player destroyed — suppress EPISODE_DONE, let truncation handle reset.
+    // Sending EPISODE_DONE(LOSS) triggers RESTARTING_GAME which takes 20-30s
+    // and blocks DummyVecEnv. Instead, keep stepping with hull=0 — the agent
+    // sees the penalty via reward (-20), truncation at max_steps handles reset.
+    // if (player && player->bDestroyed) {
+    //     result = EpisodeResult::LOSS;
+    //     return true;
+    // }
 
     // Enemy destroyed = WIN (any enemy, not just flagship)
     if (enemy && enemy->bDestroyed) {
