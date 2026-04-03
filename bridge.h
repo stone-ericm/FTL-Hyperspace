@@ -15,7 +15,7 @@ struct BridgeConfig {
     int instance_id = 0;
     float speed_multiplier = 1.0f;
     float step_interval = 1.0f;     // game seconds between agent steps
-    int timeout_seconds = 30;
+    int timeout_seconds = 600;   // 10min: SB3 training updates between rollouts take minutes
     std::string ship_blueprint = "kestrel_a";
     bool debug_json = false;        // output JSON instead of binary (dev only)
     bool passive_mode = false;      // observer only: no auto-start, no unpause, no speed change

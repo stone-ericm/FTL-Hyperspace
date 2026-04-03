@@ -133,8 +133,12 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             // player projectiles so collision detection finds the enemy.
             if (gui->space) {
                 for (auto* p : gui->space->projectiles) {
-                    if (p && p->ownerId == 0 && p->destinationSpace != 1) {
+                    if (p && p->ownerId == 0) {
+                        // Force both destination and current space to enemy (1).
+                        // In headless mode, the game's space transition logic
+                        // doesn't move projectiles from space 0→1, so we force it.
                         p->destinationSpace = 1;
+                        p->currentSpace = 1;
                     }
                 }
             }
