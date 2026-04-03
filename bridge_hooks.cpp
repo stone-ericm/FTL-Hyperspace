@@ -112,19 +112,41 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
             }
         }
 
-        // Headless mode: the game's CApp::OnLoop skips ShipManager::OnLoop
-        // and SpaceManager::OnLoop without OS window focus.
-        // Call them manually to drive the full combat pipeline:
-        //   ShipManager::OnLoop — weapon charging, shield regen, system updates
-        //   SpaceManager::OnLoop — projectile movement, collision detection
+        // Headless mode: super() does NOT process ShipManager::OnLoop or
+        // SpaceManager::OnLoop during stepping. Both must be called manually.
+        // CRITICAL: Set SpeedFactor to safe value (speedLevel=10) during
+        // manual OnLoop calls to prevent projectile tunneling.
         if (ftl_rl::Bridge::isHeadless()) {
+            CFPS* cfps_m = Global::GetInstance()->GetCFPS();
+            float saved_sf = cfps_m ? cfps_m->SpeedFactor : -1.0f;
+
+            // ShipManager::OnLoop — weapon charging, shield regen, system updates.
+            // Use inflated SpeedFactor for fast charging (safe for ship systems).
             in_manual_ship_update = true;
             if (playerCheck) playerCheck->OnLoop();
             ShipManager* enemyShip = Global::GetInstance()->GetShipManager(1);
             if (enemyShip) enemyShip->OnLoop();
             in_manual_ship_update = false;
 
+            // Fix projectile destination space: autofire creates projectiles
+            // with wrong destinationSpace. Force to 1 (enemy space) for
+            // player projectiles so collision detection finds the enemy.
+            if (gui->space) {
+                for (auto* p : gui->space->projectiles) {
+                    if (p && p->ownerId == 0 && p->destinationSpace != 1) {
+                        p->destinationSpace = 1;
+                    }
+                }
+            }
+
+            // SpaceManager::OnLoop — projectile movement + collision detection.
+            // Use SF=1.5 (under the 2.0 tunneling threshold) for proper
+            // projectile space transitions and collision geometry.
+            if (cfps_m) cfps_m->SpeedFactor = 1.5f;
             if (gui->space) gui->space->OnLoop();
+
+            // Restore inflated SpeedFactor for bridge step accumulator
+            if (cfps_m && saved_sf >= 0.0f) cfps_m->SpeedFactor = saved_sf;
 
             // Re-populate weapon targets each frame so autofire continues.
             // targets vector is consumed when the weapon fires.
@@ -134,17 +156,6 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
                     for (int wi = 0; wi < (int)playerCheck->weaponSystem->weapons.size() && wi < 4; wi++) {
                         auto* wpn = playerCheck->weaponSystem->weapons[wi];
                         if (!wpn) continue;
-                        // Diagnostic: log weapon state every 100 frames
-                        static int diag_counter = 0;
-                        if (diag_counter++ % 500 == 0) {
-                            fprintf(stderr, "[WpnDiag] wpn%d: powered=%d autoFiring=%d "
-                                    "cooldown=%.2f/%.2f chargeLevel=%d targets=%d "
-                                    "shipTarget=%p\n",
-                                    wi, wpn->powered, wpn->autoFiring,
-                                    wpn->cooldown.first, wpn->cooldown.second,
-                                    wpn->chargeLevel, (int)wpn->targets.size(),
-                                    (void*)wpn->currentShipTarget);
-                        }
                         if (wpn->powered && wpn->autoFiring && wpn->targets.empty()) {
                             Pointf c = eGraph->GetRoomCenter(wpn->targetId);
                             wpn->targets.push_back(Pointf(c.x, c.y));
@@ -537,12 +548,14 @@ HOOK_METHOD(CApp, OnInputBlur, () -> void) {
     // Don't call super() — skip the engine's unfocus handling
 }
 
-// --- ShipManager::OnLoop: just step, no init ---
+// --- ShipManager::OnLoop ---
+// Bridge::step() is called from CApp::OnLoop (not here) because
+// CApp::OnLoop always fires regardless of OS focus state.
+// Previously this hook also called Bridge::step(), causing double
+// step accumulation and double SpaceManager::OnLoop processing
+// which made projectiles tunnel through ships.
 HOOK_METHOD_PRIORITY(ShipManager, OnLoop, 50, () -> void) {
     super();
-    if (in_manual_ship_update) return;  // Recursion guard for headless manual calls
-    if (this != Global::GetInstance()->GetShipManager(0)) return;
-    ftl_rl::Bridge::step();
 }
 
 // --- JumpLeave: flee detection ---
@@ -563,3 +576,4 @@ HOOK_METHOD(GameOver, OpenText, (const std::string& text) -> void) {
     // The game-over screen will be dismissed by the auto-start code
     // if it ever triggers, but during stepping we just ignore it.
 }
+
