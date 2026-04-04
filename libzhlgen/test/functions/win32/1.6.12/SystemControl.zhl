@@ -1,7 +1,6 @@
 "578d7c240883e4f0ff77fc5589e557565389cb8d4ddc83ec5cc744240400000000c70424????????e8????????8b45dc8b55e0":
 __thiscall void SystemControl::CreateSystemBoxes(SystemControl *this);
-// TODO: AMBIGUOUS (2 hits)
-"8b51088b410c29d0c1f80285c074??5589e557565389ce31db83e4f0eb??66908b4140":
+"8b51088b410c29d0c1f80285c0746d5589e557565389ce31db83e4f0eb1966908b41403b450874328b460c83c30129d0c1f80239c373398b049a????????0000008b484c8b018b40503d????????74d0ffd03b45088b560875ce8b043a8d":
 __thiscall SystemBox* SystemControl::GetSystemBox(SystemControl *this, int systemId);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b09e8????????c70424????????8955d489c7e8????????8b7028c70424????????e8????????2b7024":
 __thiscall void SystemControl::RenderPowerBar(SystemControl *this);

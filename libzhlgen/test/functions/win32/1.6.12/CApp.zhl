@@ -17,14 +17,11 @@ __thiscall void CApp::OnMouseMove(CApp *this, int x, int y, int xdiff, int ydiff
 // TODO: MISSING
 ".57660fefc08d7c240883e4f0ff77fc5589e5575389cb83ec208b072b81103500008b5704":
 __thiscall void CApp::OnRButtonUp(CApp *this, int x, int y);
-// TODO: AMBIGUOUS (16 hits)
-".57660fefc08d7c240883e4f0ff77fc5589e557":
+".57660fefc08d7c240883e4f0ff77fc5589e557565389cb83":
 __thiscall void CApp::OnLButtonUp(CApp *this, int x, int y);
-// TODO: AMBIGUOUS (9 hits)
-".57660fefc08d7c240883e4f0ff77fc5589e55753":
+".57660fefc08d7c240883e4f0ff77fc5589e5575389cb83ec208b072b81183500008b57042b911c350000f30f2ac0f30f598108350000f30f2cc0660fefc0f30f2ac2f30f59810c350000f30f2cd02b91f8340000895424042b81f43400008d4df0890424e857":
 __thiscall void CApp::OnRButtonDown(CApp *this, int x, int y);
-// TODO: AMBIGUOUS (16 hits)
-".57660fefc08d7c240883e4f0ff77fc5589e5":
+".57660fefc08d7c240883e4f0ff77fc5589e5575389cb83ec208b072b81183500008b57042b911c350000f30f2ac0f30f598108350000f30f2cc0660fefc0f30f2ac2f30f59810c350000f30f2cd02b91f8340000895424042b81f43400008d4df0890424e897":
 __thiscall void CApp::OnLButtonDown(CApp *this, int x, int y);
 ".578d7c240883e4f0ff77fc5589e55756538d75d889cf":
 __thiscall void CApp::OnLanguageChange(CApp *this);
@@ -32,8 +29,7 @@ __thiscall void CApp::OnLanguageChange(CApp *this);
 __thiscall void CApp::OnKeyUp(CApp *this, SDLKey key);
 ".578d7c240883e4f0ff77fc5589e557565383ec5c8b3f":
 __thiscall void CApp::OnKeyDown(CApp *this, SDLKey key);
-// TODO: AMBIGUOUS (22 hits)
-".5589e55389cb83e4f0e8":
+".578d7c240883e4f0ff77fc5589e55756538d75d889cf":
 __thiscall void CApp::constructor(CApp *this);
 ".555789cd565383ec04":
 __thiscall void CApp::ParseArgs(CApp *this, int argc, const char** argv);

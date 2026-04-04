@@ -4,8 +4,7 @@ virtual __thiscall void GenericButton::SetLocation(GenericButton *this, Point po
 virtual __thiscall void GenericButton::SetActive(GenericButton *this, bool active);
 "578d7c240883e4f0ff77fc5589e5575383ec108b178b410c8b5f048b7f0839c27e??03411439c27c??c6414100":
 virtual __thiscall void GenericButton::MouseMove(GenericButton *this, int x, int y, bool silent);
-// TODO: AMBIGUOUS (100 hits)
-"f3c39090909090909090909090909090":
+"f3c39090909090909090909090909090f3c39090909090909090909090909090f3c39090909090909090909090909090f3c3909090909090909090909090909055":
 virtual __thiscall void GenericButton::OnRightClick(GenericButton *this);
 ".f3c39090909090909090909090909090f3c39090909090909090909090909090f3c390909090909090909090909090905589e553":
 virtual __thiscall void GenericButton::ResetPrimitives(GenericButton *this);

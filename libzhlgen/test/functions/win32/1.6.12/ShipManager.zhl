@@ -106,8 +106,7 @@ __thiscall int ShipManager::GetSystemAvailablePower(ShipManager *this, int syste
 __thiscall ShipSystem* ShipManager::GetSystem(ShipManager *this, int systemId);
 "5789c805????????8d7c240883e4f0ff77fc5589e557565381ec????????8b3789cf89442404898d90feffff893424e8????????80bf68060000008d85c0feffff89c1898594feffff":
 __thiscall void ShipManager::ExportShip(ShipManager *this, int file);
-// TODO: AMBIGUOUS (276 hits)
-".578d7c240883e4f0ff77fc5589e557565389ce":
+".5589e557568b5508":
 __thiscall void ShipManager::destructor(ShipManager *this);
 // TODO: AMBIGUOUS (21 hits)
 ".5589e55389cb83e4f083ec10e8????????891c24e8????????8b5dfc":
