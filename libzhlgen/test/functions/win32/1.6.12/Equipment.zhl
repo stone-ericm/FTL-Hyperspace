@@ -1,12 +1,10 @@
 "5589e5565389ce83e4f0e8????????8d8e8c020000c78660020000ffffffffc7865c020000ffffffffc6866802000000":
 __thiscall void Equipment::Open(Equipment *this); // 00524970
-// TODO: AMBIGUOUS (47 hits)
-".5589e583e4f0e8????????c9c3":
+".5589e583e4f0e88519":
 __thiscall void Equipment::Close(Equipment *this); // 005249f0
 ".578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b570489042489542404e8????????8b835c02000083ec0883f8ff74??8b933c0200008b0c82":
 __thiscall void Equipment::MouseClick(Equipment *this, int mX, int mY); // 00524a00
-// TODO: AMBIGUOUS (5 hits)
-".578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b57":
 __thiscall void Equipment::SetPosition(Equipment *this, Point p); // 00524a80
 ".8b81400200002b813c020000c1f80285c00f84????????578d7c240883e4f0ff77fc5589e55756":
 __thiscall void Equipment::OnLoop(Equipment *this); // 00524fb0

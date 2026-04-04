@@ -1,12 +1,10 @@
 "578d7c240883e4f0ff77fc5589e5575389cb8d490483ec20c641fc00e8????????8d8300010000":
 __thiscall void TutorialManager::constructor(TutorialManager *this);
-// TODO: AMBIGUOUS (75 hits)
-".0fb601":
+".0fb601c38db60000":
 __thiscall bool TutorialManager::Running(TutorialManager *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec7c8b470c8b378b4f048b5708c745b412000000":
 __thiscall void TutorialManager::OnInit(TutorialManager *this, ShipManager *ship, CommandGui *gui, CrewControl *crewControl, Upgrades *upgradesScreen, CombatControl *combatControl, SystemControl *sysControl, TabbedWindow *unk);
-// TODO: MISSING
-"57b87c0101008d7c240883e4f0ff77fc5589e5575653e845f62f008db9":
+"57b87c0101008d7c240883e4f0ff77fc5589e5575653e895":
 __thiscall void TutorialManager::LoadTutorial(TutorialManager *this);
 "8039000f84????????8079":
 __thiscall bool TutorialManager::MouseClick(TutorialManager *this);

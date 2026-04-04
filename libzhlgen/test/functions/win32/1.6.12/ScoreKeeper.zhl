@@ -1,7 +1,6 @@
 "5731c08d7c240883e4f0ff77fc5589e557565381ec????????8b5f048b37":
 __thiscall bool ScoreKeeper::GetShipUnlocked(ScoreKeeper *this, int shipId, int shipVariant);
-// TODO: AMBIGUOUS (3 hits)
-"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b4704":
+"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b47048d":
 __thiscall std::string ScoreKeeper::GetShipBlueprint(ScoreKeeper *this, int index);
 "578d7c240883e4f0ff77fc5589e557565389cb8d75cc8d7dd481ec????????c70424????????e8????????8d45bc":
 __thiscall void ScoreKeeper::OnInit(ScoreKeeper *this);
@@ -15,8 +14,7 @@ __thiscall void ScoreKeeper::UnlockShip(ScoreKeeper *this, int shipType, int shi
 __thiscall void ScoreKeeper::SetVictory(ScoreKeeper *this, bool victory);
 "5789c883c0148d7c240883e4f0ff77fc5589e557565389cf83ec5c89410c89c883c03c894db0c701????????":
 __thiscall void ScoreKeeper::constructor(ScoreKeeper *this);
-// TODO: AMBIGUOUS (1411 hits)
-".578d7c240883e4f0ff77fc5589e5575653":
+".578d7c240883e4f0ff77fc5589e557565383ec5c8b37c7":
 __thiscall std::pair<int, int> ScoreKeeper::GetShipId(ScoreKeeper *this, const std::string& blueprintName);
 "578d7c240883e4f0ff77fc5589f889e557565381ec????????8b4004898d28ffffff8b3f83f808898530ffffff898124130000":
 __thiscall void ScoreKeeper::LoadVersionFour(ScoreKeeper *this, int file, int version);

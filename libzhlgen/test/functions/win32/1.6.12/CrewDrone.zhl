@@ -6,8 +6,7 @@ __thiscall bool CrewDrone::ShipDamage(CrewDrone *this, float amount);
 virtual __thiscall void CrewDrone::OnLoop(CrewDrone *this);
 "8b410485c074??0fb6813d05000084c074??8b815c0700008d915c0700008b40303d????????75??0fb68170070000c3f3c35589d1":
 virtual __thiscall bool CrewDrone::ProvidesVision(CrewDrone *this);
-// TODO: AMBIGUOUS (2 hits)
-".578d7c240883e4f0ff77fc5589e55783ec148b07890424e8????????8b7dfc83ec04c98d67f85f":
+".578d7c240883e4f0ff77fc5589e55783ec148b07890424e8d4":
 __thiscall void CrewDrone::SetCurrentShip(CrewDrone *this, int shipId);
 // TODO: MISSING
 "558d910809000089e557565383e4f083ec208b8100090000c701????????894c2":

@@ -1,7 +1,6 @@
 "578d7c240883e4f0ff77fc5589e557565383ec3c8b0783f8010f84????????89cb72??":
 __thiscall void InputBox::TextEvent(InputBox *this, CEvent::TextEvent event);
-// TODO: AMBIGUOUS (1411 hits)
-".578d7c240883e4f0ff77fc5589e5575653":
+".578d7c240883e4f0ff77fc5589e557565389cb83c13c83":
 __thiscall void InputBox::StartInput(InputBox *this);
 "80790400750ac389f68dbc2700000000578d7c240883e4f0ff77fc5589e55753":
 __thiscall void InputBox::OnRender(InputBox *this);

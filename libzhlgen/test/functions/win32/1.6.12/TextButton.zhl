@@ -22,13 +22,11 @@ __thiscall void TextButton::OnInitRect(TextButton *this, Globals::Rect& rect, in
 __thiscall void TextButton::SetBaseImage(TextButton *this, const std::string& name, Point pos, int autoWidthMin);
 "8b5424048b4424108891b40000008b54240885c08891c00000008b54240c8991b80000007e??8981bc000000":
 __thiscall void TextButton::SetAutoWidth(TextButton *this, bool autoWidth, bool autoRightAlign, int margin, int min);
-// TODO: AMBIGUOUS (3 hits)
-".80b9b400000000":
+".80b9b4000000007507":
 __thiscall void TextButton::UpdateAutoWidth(TextButton *this);
 "5589e557565389cb83e4f083ec10807964000f85????????f30f1005????????c6416401f30f100d????????c781840000000000803ff30f1015????????f30f5ec8c781940000000000803f":
 __thiscall void TextButton::SetInactiveColor(TextButton *this, GL_Color color);
-// TODO: AMBIGUOUS (2 hits)
-".5589e557565389cb83e4f083ec10807964000f85????????f30f1005????????c6416401f30f100d????????c741740000803ff30f1015????????":
+".5589e557565389cb83e4f083ec10????????0f85d2":
 __thiscall void TextButton::SetActiveColor(TextButton *this, GL_Color color);
 ".5589e557565389cb83e4f083ec10807964000f85????????f30f1005????????c6416401f30f100d????????c741740000803ff30f1015????????f30f5ec8c781840000000000803f":
 __thiscall void TextButton::SetSelectedColor(TextButton *this, GL_Color color);

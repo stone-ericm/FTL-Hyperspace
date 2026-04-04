@@ -2,100 +2,75 @@
 __thiscall void SpaceManager::constructor(SpaceManager *this);
 ".0fb68188030000c6818803000000":
 __thiscall int SpaceManager::GetScreenShake(SpaceManager *this);
-// TODO: AMBIGUOUS (1993 hits)
-".578d7c240883e4f0ff77fc":
+".578d7c240883e4f0ff77fc5589e557565389ce83ec2c0f":
 __thiscall void SpaceManager::SaveSpace(SpaceManager *this, int fileHelper);
 ".8b54240489c88b8ae802000089088b8aec0200008948048b8af00200008948088b8af4020000":
 __thiscall ImageDesc SpaceManager::SwitchBeacon(SpaceManager *this);
-// TODO: AMBIGUOUS (1411 hits)
-".578d7c240883e4f0ff77fc5589e5575653":
+".578d7c240883e4f0ff77fc5589e5575653????????00008b470489":
 __thiscall ImageDesc SpaceManager::SwitchPlanet(SpaceManager *this, const std::string& name);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b81":
 __thiscall void SpaceManager::UpdatePlanetImage(SpaceManager *this);
-// TODO: AMBIGUOUS (1993 hits)
-".578d7c240883e4f0":
+".578d7c240883e4f0ff77fc5589e5575389cb83ec60":
 __thiscall void SpaceManager::SwitchImages(SpaceManager *this, ImageDesc planet, ImageDesc unk1, ImageDesc unk2);
-// TODO: AMBIGUOUS (1993 hits)
-".578d7c240883e4f0":
+".578d7c240883e4f0ff77fc5589f889e55756538d5db8":
 __thiscall ImageDesc SpaceManager::SwitchBackground(SpaceManager *this, const std::string& name);
 ".5789ca83c10c8d7c2408":
 __thiscall void SpaceManager::StartAsteroids(SpaceManager *this, int shieldCount, bool unk);
-// TODO: AMBIGUOUS (73 hits)
-".578d7c240883e4f0ff77fc5589e557565389cb81ec????????":
+".578d7c240883e4f0ff77fc5589e557565389cb81ecbc0000008b47048b37":
 __thiscall void SpaceManager::SetPlanetaryDefense(SpaceManager *this, char state, int target);
-// TODO: AMBIGUOUS (181 hits)
-".578d7c240883e4f0ff77fc5589f889e557":
+".578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083????????888189":
 __thiscall void SpaceManager::SetPulsarLevel(SpaceManager *this, bool pulsarLevel);
 ".0fb6919802000084d274??83b99c0200000174??":
 __thiscall bool SpaceManager::DangerousEnvironment(SpaceManager *this);
-// TODO: AMBIGUOUS (9 hits)
-".578d7c240883e4f0ff77fc5589e557565383ec2c8b07":
+".578d7c240883e4f0ff77fc5589e557565383ec2c8b07????????00008945e08b47048945dc8b47088945e4????????000029d0c1f80285c07469":
 __thiscall void SpaceManager::MouseMove(SpaceManager *this, int x, int y, int unk);
-// TODO: AMBIGUOUS (2 hits)
-".578d7c240883e4f0ff77fc5589e557565383ec2c8b078b91a80000008945e0":
+".578d7c240883e4f0ff77fc5589e557565383ec2c8b07????????00008945e08b47048945dc8b47088945e4????????000029d0c1f80285c0746a":
 __thiscall SpaceDrone* SpaceManager::GetSelectedDrone(SpaceManager *this, int x, int y, int unk);
 ".57660fefc08d7c240883e4f0ff77fc5589e5575383ec2080b9dc02000000":
 __thiscall float SpaceManager::GetFlashOpacity(SpaceManager *this);
 ".5589c80f2805????????89e58b55080f110180ba600300000075??f30f100d????????":
 __thiscall GL_Color SpaceManager::GetColorTint(SpaceManager *this);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565389cf83ec7c80b9":
 __thiscall void SpaceManager::OnRenderBackground(SpaceManager *this);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565389ce83ec5c80":
 __thiscall void SpaceManager::OnRenderFleet(SpaceManager *this);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565383ec6c80b9":
 __thiscall void SpaceManager::OnRenderForeground(SpaceManager *this);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565383ec4c8b0785c08945cc":
 __thiscall void SpaceManager::SetDangerZone(SpaceManager *this, int fleetType);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565383ec2c80b994":
 __thiscall void SpaceManager::OnRenderAsteroids(SpaceManager *this, int fieldLayers, float unk2);
-// TODO: AMBIGUOUS (179 hits)
-".578d7c240883e4f0ff77fc5589f889e5575653":
+".578d7c240883e4f0ff77fc5589f889e557565389cf83ec4c8b308b40":
 __thiscall void SpaceManager::OnRenderProjectiles(SpaceManager *this, int iShipId, int layerCommand);
 ".578d7c240883e4f0ff77fc5589e557568d45d8":
 __thiscall void SpaceManager::OnInit(SpaceManager *this);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565389ce83ec1c8b11":
 __thiscall void SpaceManager::Restart(SpaceManager *this);
 ".c6818802000000c6818902000000c6819802000000c7819c02000002000000":
 __thiscall void SpaceManager::ClearEnvironment(SpaceManager *this);
-// TODO: AMBIGUOUS (1411 hits)
-".578d7c240883e4f0ff77fc5589e5575653":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b819c":
 __thiscall void SpaceManager::Clear(SpaceManager *this);
 ".5589e55756538b1189ce":
 __thiscall void SpaceManager::ClearProjectiles(SpaceManager *this);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b1f8b03":
 __thiscall void SpaceManager::UpdateProjectile(SpaceManager *this, Projectile *proj);
 ".5589e556538b5d0883e4f0":
 __thiscall void SpaceManager::TransferProjectile(SpaceManager *this, Projectile *proj);
-// TODO: AMBIGUOUS (181 hits)
-".578d7c240883e4f0ff77fc5589f8":
+".578d7c240883e4f0ff77fc5589f889e557565389cf83ec3c8b99":
 __thiscall void SpaceManager::AddShip(SpaceManager *this, ShipManager *ship);
 ".578d7c240883e4f0ff77fc5589e55783ec148b41043b410874??85c08b17":
 __thiscall void SpaceManager::AddProjectile(SpaceManager *this, Projectile *proj);
-// TODO: AMBIGUOUS (1411 hits)
-".578d7c240883e4f0ff77fc5589e5575653":
+".578d7c240883e4f0ff77fc5589e557565389ce83ec4c8b078904":
 __thiscall void SpaceManager::LoadSpace(SpaceManager *this, int fileHelper);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565389cb31ff8d937c":
 __thiscall void SpaceManager::UpdatePDS(SpaceManager *this);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e5":
+".578d7c240883e4f0ff77fc5589e557565389cf8db7":
 __thiscall void SpaceManager::OnLoopNebulas(SpaceManager *this);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565389cf81c120":
 __thiscall void SpaceManager::OnLoop(SpaceManager *this);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565389ce????????00008b078b96":
 __thiscall void SpaceManager::SetNebula(SpaceManager *this, bool state);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e5":
+".578d7c240883e4f0ff77fc5589e557538d5d":
 __thiscall void SpaceManager::SetStorm(SpaceManager *this, bool state);
 "578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083ec3c8b0088818802000089d9":
 __thiscall void SpaceManager::SetFireLevel(SpaceManager *this, bool state);

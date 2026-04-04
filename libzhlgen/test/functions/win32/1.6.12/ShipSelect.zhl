@@ -8,8 +8,7 @@ __thiscall void ShipSelect::ClearShipButtons(ShipSelect *this);
 __thiscall void ShipSelect::MouseMove(ShipSelect *this, int x, int y);
 ".80b9480500000075??f3c3908d742600578d7c240883e4f0ff77fc5589e557568db144050000":
 __thiscall void ShipSelect::OnLoop(ShipSelect *this);
-// TODO: AMBIGUOUS (11 hits)
-".5781c1????????8d7c240883e4f0ff77fc5589e55783ec148b07":
+".5781c1440500008d":
 __thiscall int ShipSelect::KeyDown(ShipSelect *this, SDLKey key);
 ".578d7c240883e4f0ff77fc5589e5575389cb83ec1080b948050000000f85????????80b9bc01000000":
 __thiscall void ShipSelect::MouseClick(ShipSelect *this);
@@ -20,8 +19,7 @@ __thiscall void ShipSelect::Close(ShipSelect *this);
 // TODO: AMBIGUOUS (44 hits)
 ".8b4138":
 __thiscall int ShipSelect::GetSelectedShip(ShipSelect *this);
-// TODO: AMBIGUOUS (1411 hits)
-".578d7c240883e4f0ff77fc5589e5575653":
+".578d7c240883e4f0ff77fc5589e557565389cf81ec0c":
 __thiscall void ShipSelect::Open(ShipSelect *this, int currentId, int currentType);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec6c80b948050000000f85????????807b34000f84????????8b7b148b731039f774??89f68dbc27000000008b06":
 __thiscall void ShipSelect::OnRender(ShipSelect *this);

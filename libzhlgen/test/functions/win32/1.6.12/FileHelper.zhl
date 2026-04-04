@@ -1,82 +1,58 @@
 // TODO: AMBIGUOUS (2 hits)
 "8d4c240483e4f031c0ff71fc5589e5575653518d75d883ec588b39668945d8":
 static cleanup __cdecl void FileHelper::deleteFile(const std::string& fileName);
-// TODO: AMBIGUOUS (211 hits)
-".8d4c240483e4f0ff71fc5589e557565351":
+".8d4c240483e4f0ff71fc5589e5575653518d75d883ec488b19":
 static cleanup __cdecl std::string FileHelper::getResourceFile();
-// TODO: AMBIGUOUS (211 hits)
-".8d4c240483e4f0ff71fc5589e5575653":
+".8d4c240483e4f0ff71fc5589e5575653518dbde0":
 static cleanup __cdecl std::string FileHelper::getUserFolder();
-// TODO: AMBIGUOUS (211 hits)
-".8d4c240483e4f0ff71fc5589e557565351":
+".8d4c240483e4f0ff71fc5589e5575653518d75d0":
 static cleanup __cdecl std::string FileHelper::getSaveFile();
-// TODO: AMBIGUOUS (211 hits)
-".8d4c240483e4f0ff71fc5589e5575653":
+".8d4c240483e4f0ff71fc5589e5575653518d45b88d75d883ec68c6":
 static cleanup __cdecl void FileHelper::initFileHelper();
-// TODO: AMBIGUOUS (140 hits)
-".8d4c240483e4f0ff71fc5589e55183ec14":
+".8d4c240483e4f0ff71fc5589e55183ec14a1????????8b1185c07445":
 static cleanup __cdecl int FileHelper::fileLength(int file);
 // TODO: AMBIGUOUS (5 hits)
 ".8d4c240483e4f031c0ff71fc5589e55756":
 static cleanup __cdecl bool FileHelper::fileExists(const std::string& fileName);
-// TODO: AMBIGUOUS (3 hits)
-".8d4c240483e4f0ff71fc5589e5575653518d45b88d75d8":
+".8d4c240483e4f0ff71fc5589e5575653518d45b88d75d883ec688b":
 static cleanup __cdecl void FileHelper::renameFile(const std::string& fileName, const std::string& newName);
 ".8d4c240483e4f031d2ff71fc5589e5575653518dbd08fcffff81ec????????":
 static cleanup __cdecl int FileHelper::createBinaryFile(const std::string& fileName);
-// TODO: AMBIGUOUS (2 hits)
-".a1????????a3????????b8????????":
+".a1????????a3????????b801":
 static cleanup __cdecl int FileHelper::createSaveFile();
-// TODO: AMBIGUOUS (2 hits)
-".a1????????a3????????b8????????":
+".a1????????a3????????b803":
 static cleanup __cdecl int FileHelper::createStatsFile();
-// TODO: AMBIGUOUS (2 hits)
-".5589e55383e4f083ec10c70424????????e8????????":
+".5589e55383e4f083ec10c70424fc":
 static cleanup __cdecl void FileHelper::deleteSaveFile();
-// TODO: AMBIGUOUS (3 hits)
-".8d4c240483e4f0ff71fc5589e5575653518d45b8":
+".8d4c240483e4f0ff71fc5589e5575653518d45b88d75d883ec6889":
 static cleanup __cdecl void FileHelper::deleteAllSaveFiles();
-// TODO: AMBIGUOUS (140 hits)
-".8d4c240483e4f0ff71fc5589e55183ec14":
+".8d4c240483e4f0ff71fc5589e55183ec14a1????????8b1185c07455":
 static cleanup __cdecl int FileHelper::getPosition(int file);
-// TODO: AMBIGUOUS (211 hits)
-".8d4c240483e4f0ff71fc5589e5575653":
+".8d4c240483e4f0ff71fc5589e55756535181ec380400008b":
 static cleanup __cdecl int FileHelper::readBinaryFile(const std::string& fileName);
-// TODO: AMBIGUOUS (73 hits)
-".8d4c240483e4f0ff71fc5589e5535183ec10":
+".8d4c240483e4f0ff71fc5589e5535183ec108b013d":
 static cleanup __cdecl void FileHelper::closeBinaryFile(int file);
-// TODO: AMBIGUOUS (27 hits)
-".8d4c240483e4f0ff71fc5589e55756535183ec48":
+".8d4c240483e4f0ff71fc5589e55756535183ec488b59048b31":
 static cleanup __cdecl std::string FileHelper::readString(int file);
-// TODO: AMBIGUOUS (211 hits)
-".8d4c240483e4f0ff71fc5589e557565351":
+".8d4c240483e4f0ff71fc5589e55756535183ec488b013dfffeff7f7e733d00ffff7f0f8418":
 static cleanup __cdecl float FileHelper::readFloat(int file);
-// TODO: AMBIGUOUS (27 hits)
-".8d4c240483e4f0ff71fc5589e55756535183ec48":
+".8d4c240483e4f0ff71fc5589e55756535183ec488b013dfffeff7f7e733d00ffff7f0f8408":
 static cleanup __cdecl int FileHelper::readInteger(int file);
-// TODO: AMBIGUOUS (73 hits)
-".8d4c240483e4f0ff71fc5589e5535183ec10":
+".8d4c240483e4f0ff71fc5589e5535183ec10a180":
 static cleanup __cdecl bool FileHelper::seekPosition(int file, int pos);
-// TODO: AMBIGUOUS (212 hits)
-".8d4c240483e4f0ff71fc5589e55756":
+".8d4c240483e4f0ff71fc5589e55756535183ec488b4108":
 static cleanup __cdecl char* FileHelper::readBuffer(int file, int len, bool nullTerminate);
-// TODO: AMBIGUOUS (211 hits)
-".8d4c240483e4f0ff71fc5589e557565351":
+".8d4c240483e4f0ff71fc5589e55756535183ec488b19":
 static cleanup __cdecl void FileHelper::readData(int file, void* data, int len);
-// TODO: AMBIGUOUS (211 hits)
-".8d4c240483e4f0ff71fc5589e5575653":
+".8d4c240483e4f0ff71fc5589e55756535183ec488b018b79048b59083d":
 static cleanup __cdecl bool FileHelper::writeData(int file, void* data, int len);
-// TODO: AMBIGUOUS (89 hits)
-".8d4c240483e4f0ff71fc5589e55351":
+".8d4c240483e4f0ff71fc5589e553518d45f483ec20894424088d45f0c70424????????89442404e854":
 static cleanup __cdecl int FileHelper::readSaveFile();
-// TODO: AMBIGUOUS (4 hits)
-".8d4c240483e4f0ff71fc5589e553518d45f483ec20":
+".8d4c240483e4f0ff71fc5589e553518d45f483ec20894424088d45f0c70424a4":
 static cleanup __cdecl int FileHelper::readStatsFile();
-// TODO: AMBIGUOUS (3 hits)
-".8d4c240483e4f0ff71fc5589e553518d45f483ec2089442408":
+".8d4c240483e4f0ff71fc5589e553518d45f483ec20894424088d45f0c70424????????89442404e874":
 static cleanup __cdecl bool FileHelper::saveFileExists();
-// TODO: AMBIGUOUS (74 hits)
-".8d4c240483e4f0ff71fc5589e5565351":
+".8d4c240483e4f0ff71fc5589e556535183ec3c803d????????008b19":
 static cleanup __cdecl bool FileHelper::writeFloat(int file, float data);
 ".8d4c240483e4f0ff71fc5589e55756535183ec488b41048b318b38":
 static cleanup __cdecl bool FileHelper::writeString(int file, const std::string& data);

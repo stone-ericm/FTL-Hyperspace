@@ -6,8 +6,7 @@ noHook void RockAnimation::__DO_NOT_HOOK();
 // TODO: AMBIGUOUS (3 hits)
 ".5f5d8d67f85fc20400908d742600e8????????89c1e9????????8d7426000f1040080f114308":
 noHook void RockAnimation::__DO_NOT_HOOK2();
-// TODO: AMBIGUOUS (5 hits)
-".578d7c240883e4f0ff77fc5589e557565389cb83ec3c803d??????????0f84????????":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec3c803d????????00????????0000e870":
 __thiscall std::string RockAnimation::GetShootingSound(RockAnimation *this);
 // TODO: AMBIGUOUS (7 hits)
 "578d41088d7c240883e4f0ff77fc5589e5575389cb83ec108901":
@@ -15,8 +14,7 @@ noHook void RockAnimation::__DO_NOT_HOOK3();
 // TODO: AMBIGUOUS (7 hits)
 ".578d41088d7c240883e4f0ff77fc5589e5575389cb83ec108901":
 noHook void RockAnimation::__DO_NOT_HOOK4();
-// TODO: AMBIGUOUS (7 hits)
-".578d41088d7c240883e4f0ff77fc5589e5575389cb83ec108901":
+".578d41088d7c240883e4f0ff77fc5589e5575389cb83ec108901c74424042d":
 __thiscall std::string RockAnimation::GetDeathSound(RockAnimation *this);
 
 

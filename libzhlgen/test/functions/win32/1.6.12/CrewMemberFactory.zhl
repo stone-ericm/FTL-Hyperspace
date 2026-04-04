@@ -1,54 +1,38 @@
 "5589e557565389ce83e4f083ec108b79108b510c89f829d0c1f80285c074??":
 __thiscall void CrewMemberFactory::destructor(CrewMemberFactory *this);
-// TODO: AMBIGUOUS (42 hits)
-".5589e557565389cb83e4f0":
+".5589e557565389cb83e4f083ec108b51":
 __thiscall void CrewMemberFactory::Restart(CrewMemberFactory *this);
-// TODO: AMBIGUOUS (618 hits)
-".5589e557565383e4f0":
+".5589e557565383e4f083ec100fb645088b79":
 __thiscall int CrewMemberFactory::CountCloneReadyCrew(CrewMemberFactory *this, bool player);
-// TODO: AMBIGUOUS (2802 hits)
-".8b01":
+".8b01c3908db60000":
 __thiscall int CrewMemberFactory::GetPlayerCrewCount(CrewMemberFactory *this);
-// TODO: AMBIGUOUS (873 hits)
-".8b4108":
+".8b4108c38db60000":
 __thiscall int CrewMemberFactory::GetEnemyCloneCount(CrewMemberFactory *this);
 ".807c2404008b41040f4401":
 __thiscall int CrewMemberFactory::GetCrewCount(CrewMemberFactory *this, bool enemy);
-// TODO: AMBIGUOUS (482 hits)
-".8b4104":
+".8b4104c38db60000":
 __thiscall int CrewMemberFactory::GetEnemyCrewCount(CrewMemberFactory *this);
-// TODO: AMBIGUOUS (566 hits)
-".8d4c240483e4f0ff71fc5589e5":
+".8d4c240483e4f0ff71fc5589e5535183ec108b19c704243a":
 static cleanup __cdecl bool CrewMemberFactory::IsRace(const std::string& species);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e5":
+".578d7c240883e4f0ff77fc5589e557565383ec7c8b37":
 __thiscall std::pair<std::string, bool> CrewMemberFactory::GetRandomFriendlyName(CrewMemberFactory *this, const std::string& race);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565389ce83ec4c8b3fc7":
 __thiscall std::vector<std::string> CrewMemberFactory::GetCrewNames(CrewMemberFactory *this);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e5575653????????00008b07894d80":
 __thiscall RepairDrone* CrewMemberFactory::CreateRepairDrone(CrewMemberFactory *this, int shipId, const DroneBlueprint* bp);
-// TODO: AMBIGUOUS (181 hits)
-".578d7c240883e4f0ff77fc5589f889e55756":
+".578d7c240883e4f0ff77fc5589f889e557565389cf83ec2c8b108b40":
 __thiscall void CrewMemberFactory::GetCrewPortraitList(CrewMemberFactory *this, std::vector<CrewMember*>* vec, int teamId);
-// TODO: AMBIGUOUS (73 hits)
-".578d7c240883e4f0ff77fc5589e557565383ec4c":
+".578d7c240883e4f0ff77fc5589e557565383ec4c8b078b510c":
 __thiscall void CrewMemberFactory::GetCloneReadyList(CrewMemberFactory *this, std::vector<CrewMember*>& vec, bool player);
-// TODO: AMBIGUOUS (181 hits)
-".578d7c240883e4f0ff77fc5589f889e5":
+".578d7c240883e4f0ff77fc5589f889e557565389cf????????00008b08":
 __thiscall BattleDrone* CrewMemberFactory::CreateBattleDrone(CrewMemberFactory *this, int shipId, const DroneBlueprint* bp);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565383ec2c0f":
 __thiscall void CrewMemberFactory::GetCrewList(CrewMemberFactory *this, std::vector<CrewMember*>* vec, int unk, bool unk2);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e5":
+".578d7c240883e4f0ff77fc5589e557565389cb????????00008b77":
 __thiscall BoarderDrone* CrewMemberFactory::CreateBoarderDrone(CrewMemberFactory *this, int shipId, const DroneBlueprint* bp);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e5":
+".578d7c240883e4f0ff77fc5589e557568d45bc":
 __thiscall void CrewMemberFactory::OnLoop(CrewMemberFactory *this);
-// TODO: AMBIGUOUS (29 hits)
-".5589e557565331db":
+".5589e557565331db89cf83e4f083ec20":
 __thiscall void CrewMemberFactory::RemoveExcessCrew(CrewMemberFactory *this);
 // TODO: AMBIGUOUS (1805 hits)
 ".578d7c240883e4f0ff77fc5589e557":

@@ -50,8 +50,7 @@ __thiscall void ShipManager::RemoveItem(ShipManager *this, const std::string& na
 __thiscall bool ShipManager::DamageArea(ShipManager *this, Pointf location, Damage dmg, bool forceHit);
 "578d7c240883e4f0ff77fc5589e557565381eccc0000008b07807910008b570889459c8b47048945988b470c":
 __thiscall bool ShipManager::DamageBeam(ShipManager *this, Pointf location1, Pointf location2, Damage dmg);
-// TODO: AMBIGUOUS (2 hits)
-"578d????0883e4f0ff????5589e557565389ce83ec6c8b01":
+"578d7c240883e4f0ff77fc5589e557565389ce83ec6c8b018b":
 __thiscall void ShipManager::PulsarDamage(ShipManager *this);
 "578d7c240883e4f0ff77fc5589e557565383ec5c8b47048b7708894da883f8ff":
 __thiscall CrewBlueprint ShipManager::SelectRandomCrew(ShipManager *this, int seed, const std::string& racePref);
@@ -65,23 +64,19 @@ __thiscall void ShipManager::JumpLeave(ShipManager *this);
 __thiscall void ShipManager::ModifyScrapCount(ShipManager *this, int scrap, bool income);
 "578d7c240883e4f0ff77fc5589e55783ec148b81c80400008b1783780cff75300191040800008b7dfc8b810408000085c0b800000000":
 __thiscall void ShipManager::ModifyMissileCount(ShipManager *this, int missiles);
-// TODO: AMBIGUOUS (6 hits)
-".8b81c804000083780cff":
+".8b81c804000083780cff74148b41":
 __thiscall int ShipManager::GetMissileCount(ShipManager *this);
 "578d7c240883e4f0ff77fc5589e55783ec148b81c80400008b17837810ff75300191000800008b7dfc8b8100080000":
 __thiscall void ShipManager::ModifyDroneCount(ShipManager *this, int drones);
-// TODO: AMBIGUOUS (1805 hits)
-".578d????0883e4f0ff????5589e557":
+".578d7c240883e4f0ff77fc5589e55783ec148b81c80400008b17837808":
 __thiscall float ShipManager::GetOxygenLevel(ShipManager *this, int roomId);
-// TODO: AMBIGUOUS (31 hits)
-".5589e557565389cb83e4f083ec20":
+".5589e557565389cb83e4f083ec208b45088b90c8040000837a08":
 __thiscall std::vector<float> ShipManager::GetOxygenLevels(ShipManager *this);
 "578d7c240883e4f0ff77fc5589e557565383ec1c8b81c80400008b3f8b701c83feff74??":
 __thiscall bool ShipManager::DoSensorsProvide(ShipManager *this, int vision);
 "5731c08d7c240883e4f0ff77fc5589e5575389cb83ec108b5104b9????????85d20f95c0890424e8????????83ec04837b0401b9????????19d2":
 __thiscall bool ShipManager::IsCrewFull(ShipManager *this);
-// TODO: AMBIGUOUS (19 hits)
-".5731c08d????0883e4f0ff????5589e5":
+".5731c08d7c240883e4f0ff77fc5589e55783ec148b1783faff742a8bb9c80400008b149783faff741c8b49188b0c9185c974128b01c7042401000000ff9088":
 __thiscall bool ShipManager::ForceIncreaseSystemPower(ShipManager *this, int systemId);
 "5731c08d7c240883e4f0ff77fc5589e5575389cb83ec108b5104b9????????85d20f95c0890424e8????????83ec04837b040119d283e2fe":
 __thiscall bool ShipManager::IsCrewOverFull(ShipManager *this);
@@ -101,13 +96,11 @@ __thiscall Drone* ShipManager::AddDrone(ShipManager *this, const DroneBlueprint 
 __thiscall void ShipManager::Restart(ShipManager *this);
 "558b81c804000089e583e4f08b55088b049083f8ff74??8b51188b0c82e8????????":
 __thiscall int ShipManager::GetSystemPower(ShipManager *this, int systemId);
-// TODO: AMBIGUOUS (4 hits)
-".558b81c804000089e583e4f0":
+".558b81c804000089e583e4f08b55088b149031c083faff740b8b41188b0c90e8":
 __thiscall bool ShipManager::SystemLocked(ShipManager *this, int systemId);
 "5589e557565383e4f083ec108b41688b51648944240c29d0c1f80285c074??894c240431db31ffeb??8db4260000000001c78b44240c":
 __thiscall int ShipManager::CountCrewShipId(ShipManager *this, int roomId, int shipId);
-// TODO: AMBIGUOUS (11 hits)
-".5589e557568b????":
+".5589e557568b5508":
 __thiscall int ShipManager::GetSystemAvailablePower(ShipManager *this, int systemId);
 "8b44240483f8ff74??8b91c80400008b048283f8ff74??8b51188b0482":
 __thiscall ShipSystem* ShipManager::GetSystem(ShipManager *this, int systemId);
@@ -139,17 +132,13 @@ __thiscall void ShipManager::ResetScrapLevel(ShipManager *this);
 __thiscall void ShipManager::JumpArrive(ShipManager *this);
 "578d7c240883e4f0ff77fc5589e557565383ec4c8b51188b411cc745b80000000029d0c1f80285c00f84????????89cf":
 __thiscall void ShipManager::CheckSpreadDamage(ShipManager *this);
-// TODO: AMBIGUOUS (1993 hits)
-".578d????0883e4f0ff????55":
+".578d7c240883e4f0ff77fc5589e55783ec148b078b7f0483f811743483f8ff74238b91c80400008b048283f8ff74158b51188b0c8285c9740b893c24e83f46":
 __thiscall void ShipManager::SetSystemPowerLimit(ShipManager *this, int systemId, int limit);
-// TODO: AMBIGUOUS (3 hits)
-".578d7c240883e4f0ff77fc5589e55783ec148b078b7f0483f81174??83f8ff74??8b91c8040000":
+".578d7c240883e4f0ff77fc5589e55783ec148b078b7f0483f811743483f8ff74238b91c80400008b048283f8ff74158b51188b0c8285c9740b893c24e8bf":
 __thiscall void ShipManager::SetSystemPowerLoss(ShipManager *this, int systemId, int powerLoss);
-// TODO: AMBIGUOUS (3 hits)
-".578d????0883e4f0ff????5589e55783ec148b??8b????83f81174??":
+".578d7c240883e4f0ff77fc5589e55783ec148b078b7f0483f811743483f8ff74238b91c80400008b048283f8ff74158b51188b0c8285c9740b893c24e83f47":
 __thiscall void ShipManager::SetSystemDividePower(ShipManager *this, int systemId, int amount);
-// TODO: AMBIGUOUS (2 hits)
-"5731c08d7c240883e4f0ff77fc5589e55783ec148b1783faff74??8bb9c80400008b149783faff74??8b4918":
+"5731c08d7c240883e4f0ff77fc5589e55783ec148b1783faff742a8bb9c80400008b149783faff741c8b49188b0c9185c974128b01c7042401000000ff9084":
 __thiscall bool ShipManager::ForceDecreaseSystemPower(ShipManager *this, int sys);
 "5589c889e58b55088b524485d274??8b8aec0100005d89088b8af00100008948048b8af40100008b92f801000089480889500c":
 __thiscall ShieldPower ShipManager::GetShieldPower(ShipManager *this);
@@ -165,13 +154,11 @@ __thiscall void ShipManager::ExportBattleState(ShipManager *this, int file);
 __thiscall void ShipManager::ImportBattleState(ShipManager *this, int file);
 "558b81c804000089e583e4f08b55088b149031c083faff74??8b41188b0c908b01ff502c":
 __thiscall bool ShipManager::SystemFunctions(ShipManager *this, int systemId);
-// TODO: AMBIGUOUS (5 hits)
-".558b81c804000089e5":
+".558b81c804000089e583e4f08b55088b049083f8ff7429":
 __thiscall int ShipManager::SystemRoom(ShipManager *this, int systemId);
 "5589e557565383e4f083ec108b450883f8050f84????????83f80d74??8b791c8b511889f829d0":
 __thiscall bool ShipManager::CanFitSystem(ShipManager *this, int systemId);
-// TODO: AMBIGUOUS (3 hits)
-"5589e557565383e4f083ec108b791c8b511889f829d0c1f80285c074??894c240c31db31f6eb??":
+"5589e557565383e4f083ec108b791c8b511889f829d0c1f80285c07461":
 cleanup bool ShipManager::CanFitSubsystem(ShipManager *this<ecx>, int systemId);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b018b378b57048b40403d????????75??0fb681d804000038d0":
 __thiscall int ShipManager::DamageHull(ShipManager *this, int dmg, bool force);
@@ -231,8 +218,7 @@ __thiscall void ShipManager::UpgradeSystem(ShipManager *this, int id, int amount
 __thiscall int ShipManager::CountPlayerCrew(ShipManager *this);
 "578d????0883e4f0ff????5589e557565389cb83ec1c8b81c8040000":
 __thiscall void ShipManager::Wait(ShipManager *this);
-// TODO: AMBIGUOUS (3 hits)
-"578d7c240883e4f0ff77fc5589e557565389cf83ec4c8b":
+"578d7c240883e4f0ff77fc5589e557565389cf83ec4c8b81":
 __thiscall void ShipManager::CreateArmory(ShipManager *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b37893424e8????????83ec0485c074??8d65f405":
 __thiscall Drone *ShipManager::CreateDrone(ShipManager *this, DroneBlueprint *drone);

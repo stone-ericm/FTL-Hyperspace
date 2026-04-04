@@ -1,7 +1,6 @@
 "578d????0883e4f0ff????5589f889e557565331db89cf83ec2c8b??":
 __thiscall std::pair<int, int> Ship::ContainsHullBreach(Ship *this, int roomId);
-// TODO: AMBIGUOUS (2 hits)
-"578d7c240883e4f0ff77fc5589e557565383ec2c8b41048b57048b378b5f08":
+"578d7c240883e4f0ff77fc5589e557565383ec2c8b41048b57048b378b5f088904248955e4e8b6":
 __thiscall int Ship::GetSelectedRoomId(Ship *this, int x, int y, bool unk);
 "578d7c240883e4f0ff77fc5589e557565389cb81ec????????8b078b570889c68985d0feffff8b47048995ccfeffff8985c8feffff8b4104890424":
 __thiscall void Ship::LockdownRoom(Ship *this, int roomId, Pointf pos);
@@ -13,8 +12,7 @@ __thiscall bool Ship::DestroyedDone(Ship *this);
 __thiscall bool Ship::FullRoom(Ship *this, int roomId, bool intruder);
 "578d7c240883e4f0ff77fc5589f889e557565389cf83ec1c8b008b51088b0c828d1c85????????8b5134":
 __thiscall int Ship::EmptySlots(Ship *this, int roomId);
-// TODO: AMBIGUOUS (3 hits)
-"578d7c240883e4f0ff77fc5589e55783ec148b178b41088b0c900fb64704":
+"578d7c240883e4f0ff77fc5589e55783ec148b178b41088b0c900fb64704890424e86a":
 __thiscall int Ship::GetAvailableRoomSlot(Ship *this, int roomId, bool intruder);
 "8b51208b412429d0c1f80285c074??5589e557565389ce31db83e4f0eb??66908b462483c301":
 __thiscall void Ship::OnRenderBreaches(Ship *this);
@@ -22,11 +20,9 @@ __thiscall void Ship::OnRenderBreaches(Ship *this);
 __thiscall void Ship::OnRenderWalls(Ship *this, bool forceView, bool doorControlMode);
 "57b8????????8d7c240883e4f0ff77fc5589e5575653e8????????29c48b0789cb8db5a4fffeff898544fefeffa1????????85c00f84????????8b3d????????85ff":
 __thiscall void Ship::OnInit(Ship *this, ShipBlueprint& bp);
-// TODO: AMBIGUOUS (3 hits)
-"8b51088b410c29d0c1f80285c074??5589e5565389ce31db83e4f0908d7426008b0c9a83c301":
+"8b51088b410c29d0c1f80285c074315589e5565389ce31db83e4f0908d7426008b0c9a83c301e8357c":
 __thiscall void Ship::OnRenderSparks(Ship *this);
-// TODO: AMBIGUOUS (3 hits)
-"578d7c240883e4f0ff77fc5589e55783ec148b178b41088b0c900fb64704890424e8????????8b7dfc":
+"578d7c240883e4f0ff77fc5589e55783ec148b178b41088b0c900fb64704890424e84a":
 __thiscall void Ship::SetRoomBlackout(Ship *this, int roomId, bool blackout);
 "578d7c240883e4f0ff77fc5589f889e557565389cf83ec5c8b008945d08b4104890424e8????????":
 __thiscall void Ship::OnRenderBase(Ship *this, bool unk);

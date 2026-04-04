@@ -6,8 +6,7 @@ __thiscall bool MainMenu::Open(MainMenu *this);
 __thiscall void MainMenu::OnLoop(MainMenu *this);
 "578d412c8d7c240883e4f0ff77fc5589e557565389cb8dbb040100008db37001000083ec4cc60100":
 __thiscall void MainMenu::constructor(MainMenu *this);
-// TODO: MISSING
-"578d7c240883e4f0ff77fc5589e557565383ec4c80b910340000008b078b57040f85????????80b9d03100000089cb":
+"578d7c240883e4f0ff77fc5589e557565389cb83ec4c80b910":
 __thiscall void MainMenu::MouseClick(MainMenu *this, int x, int y);
 "578d7c240883e4f0ff77fc5589e557565383ec5c80b910340000008b078b77048945b40f85????????80b95c2f00000089cf0f85????????80b9d031000000":
 __thiscall void MainMenu::MouseMove(MainMenu *this, int x, int y);

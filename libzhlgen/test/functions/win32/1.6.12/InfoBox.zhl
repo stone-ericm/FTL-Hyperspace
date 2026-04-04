@@ -10,8 +10,7 @@ __thiscall void InfoBox::SetText(InfoBox *this, const std::string& title, const 
 __thiscall void InfoBox::SetBlueprintWeapon(InfoBox *this, const WeaponBlueprint* bp, int status, bool hasWeaponSystem, int yShift); 
 ".578d7c240883e4f0ff77fc5589f889e557565389cf83c10c81ec????????8b50048b30899558fdffff8b50088b400c89b544fdffff899548fdffff898554fdffff8d461c":
 __thiscall void InfoBox::SetBlueprintDrone(InfoBox *this, const DroneBlueprint* bp, int status, bool hasDroneSystem, int yShift); 
-// TODO: AMBIGUOUS (2 hits)
-"578d7c240883e4f0ff77fc5589e557565389cb83c10c83ec1c8b378d461c890424":
+"578d7c240883e4f0ff77fc5589e557565389cb8d4d9c":
 __thiscall void InfoBox::SetBlueprint(InfoBox *this, const ItemBlueprint* bp);
 ".5789ca8d7c240883e4f0ff77fc5589e55756538d720c81ec????????8b078b5f08898d78fdffffc782c000000031010000c782c4000000b6000000c7821c0100004300000089c1":
 __thiscall void InfoBox::SetBlueprintCrew(InfoBox *this, const CrewBlueprint* bp, int yShift, bool detailedCrew);

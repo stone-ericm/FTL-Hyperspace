@@ -38,8 +38,7 @@ __thiscall void CombatControl::DisarmTeleporter(CombatControl *this);
 __thiscall void CombatControl::constructor(CombatControl *this);
 "578d7c240883e4f0ff77fc5589e5575389cb83c11483ec30e8????????8b4b04c70424????????e8????????83ec0484c00f84????????8b4b04":
 __thiscall void CombatControl::OnRenderSelfAiming(CombatControl *this);
-// TODO: MISSING
-"578d7c240883e4f0ff77fc5589f889e557565389cf81ec????????8b188b7004898564ffffffe8????????89742404891c248d75d0c744240800000000":
+"578d7c240883e4f0ff77fc5589f889e557565389cf81ecdc":
 __thiscall void CombatControl::RenderShipStatus(CombatControl *this, Pointf pos, GL_Color color);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b178b4f048b77088b825c07000085c074??2bb2680700002bb27807000089742408":
 __thiscall std::string CombatControl::GetCrewTooltip(CombatControl *this, int x, int y);

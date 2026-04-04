@@ -1,5 +1,4 @@
-// TODO: AMBIGUOUS (2 hits)
-".0fb68198000000":
+".0f????????0000c3909090909090909031c0c3":
 virtual __thiscall bool CrewMember::CanSabotage(CrewMember *this);
 "80b9980000000074??31c0c38d7426008b015589e55389cb8b8088000000":
 virtual __thiscall bool CrewMember::CanRepair(CrewMember *this);
@@ -34,16 +33,13 @@ __thiscall void CrewMember::destructor(CrewMember *this);
 __thiscall void CrewMember::Cleanup(CrewMember *this);
 ".578d7c240883e4f0ff77fc5589f889e557565389cf83ec2c8b30893424e8????????d95de48b45e4893424":
 __thiscall void CrewMember::LoadState(CrewMember *this, int fileHelper);
-// TODO: AMBIGUOUS (81 hits)
-".578d7c240883e4f0ff77fc5589e557565389cb83ec1c":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b378b01":
 __thiscall void CrewMember::SetCurrentSystem(CrewMember *this, ShipSystem *sys);
 ".83797c0b0f94c0":
 __thiscall bool CrewMember::IsManningArtillery(CrewMember *this);
-// TODO: AMBIGUOUS (1993 hits)
-".578d7c240883e4f0ff77fc55":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b018b37":
 __thiscall void CrewMember::IncreaseSkill(CrewMember *this, int skillId);
-// TODO: AMBIGUOUS (1993 hits)
-".578d7c240883e4f0ff77fc55":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b89":
 __thiscall void CrewMember::CheckSkills(CrewMember *this);
 ".8b81140300008b5424048d04d08b5004":
 __thiscall void CrewMember::MasterSkill(CrewMember *this, int skillId);
@@ -59,11 +55,9 @@ __thiscall void CrewMember::SetSkillProgress(CrewMember *this, int skillId, int 
 __thiscall int CrewMember::GetSkillLevel(CrewMember *this, int skillId);
 ".558b811403000089e58b55085d8d14d08b02":
 __thiscall std::pair<int, int> CrewMember::GetSkillProgress(CrewMember *this, int skillId);
-// TODO: AMBIGUOUS (7 hits)
-".55b8????????89e55383e4f083ec10":
+".55b80100000089e55383e4f083ec108b":
 __thiscall float CrewMember::GetSkillModifier(CrewMember *this, int skillId);
-// TODO: AMBIGUOUS (3 hits)
-".5589e55389cb83e4f083ec108b01":
+".5589e55389cb83e4f083ec108b01ff":
 __thiscall bool CrewMember::BadAtCombat(CrewMember *this);
 ".8b818800000085c00f88????????578d7c240883e4f0":
 __thiscall void CrewMember::EmptySlot(CrewMember *this);
@@ -71,11 +65,9 @@ __thiscall void CrewMember::EmptySlot(CrewMember *this);
 __thiscall bool CrewMember::NeedsSlot(CrewMember *this);
 ".57660fefc98d7c240883e4f0ff77fc5589e557565383ec4cf30f1041280f2ec8f30f10170f83????????f30f2cf0f30f58c2":
 __thiscall bool CrewMember::DirectModifyHealth(CrewMember *this, float health);
-// TODO: AMBIGUOUS (249 hits)
-".578d7c240883e4f0ff77fc5589e55753":
+".578d7c240883e4f0ff77fc5589e5575389cbb9????????83ec20":
 __thiscall void CrewMember::ModifyHealth(CrewMember *this, float health);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e5":
+".578d7c240883e4f0ff77fc5589e5575389cb83ec20f30f1007":
 __thiscall bool CrewMember::ApplyDamage(CrewMember *this, float damage);
 ".8b516885d274??8b810002000085c0":
 __thiscall bool CrewMember::RepairingSystem(CrewMember *this);
@@ -83,8 +75,7 @@ __thiscall bool CrewMember::RepairingSystem(CrewMember *this);
 __thiscall bool CrewMember::Sabotaging(CrewMember *this);
 ".8b516831c085d274??8b9100020000":
 __thiscall bool CrewMember::RepairingFire(CrewMember *this);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e5":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b4968":
 __thiscall Pointf CrewMember::SelectSabotageTarget(CrewMember *this);
 ".8b81880000008981f80600008b818c0000008981fc0600008b8190000000898100070000":
 __thiscall void CrewMember::SavePosition(CrewMember *this);
@@ -104,21 +95,17 @@ __thiscall void CrewMember::SetFrozen(CrewMember *this, bool frozen);
 __thiscall void CrewMember::SetFrozenLocation(CrewMember *this, bool frozenLocation);
 ".8b4424048981a40100008b4424088981a8010000":
 __thiscall void CrewMember::SetTask(CrewMember *this, CrewTask task);
-// TODO: AMBIGUOUS (181 hits)
-".578d7c240883e4f0ff77fc5589f889e557":
+".578d7c240883e4f0ff77fc5589f889e557565389cb83ec3c":
 __thiscall Slot CrewMember::FindSlot(CrewMember *this, int roomId, int slotId, bool closeEnough);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b3789":
 __thiscall bool CrewMember::CheckRoomPath(CrewMember *this, int roomId);
 ".57660fefc9660fefc08d7c240883e4f0ff77fc5589e5":
 __thiscall void CrewMember::SetPosition(CrewMember *this, Point pos);
 ".8b4178c781ac010000ffffffffc781a401000004000000":
 __thiscall void CrewMember::ClearTask(CrewMember *this);
-// TODO: AMBIGUOUS (1411 hits)
-".578d7c240883e4f0ff77fc5589e5575653":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b018b4008":
 __thiscall void CrewMember::ClearPath(CrewMember *this);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e5":
+".578d7c240883e4f0ff77fc5589e557565383ec3c8b81c8":
 __thiscall void CrewMember::SetRoom(CrewMember *this, int roomId);
 ".8b5168b8????????85d274??f3c3":
 __thiscall bool CrewMember::IsBusy(CrewMember *this);
@@ -126,29 +113,23 @@ __thiscall bool CrewMember::IsBusy(CrewMember *this);
 __thiscall bool CrewMember::OnInit(CrewMember *this);
 ".f30f1005????????0f2e41547a??74??8b414c8b5150":
 __thiscall Point CrewMember::GetFinalGoal(CrewMember *this);
-// TODO: AMBIGUOUS (249 hits)
-".578d7c240883e4f0ff77fc5589e55753":
+".578d7c240883e4f0ff77fc5589e5575389cb83ec30f30f10411c":
 __thiscall Point CrewMember::GetNextGoal(CrewMember *this);
 ".8b442404894164":
 __thiscall void CrewMember::CloseDoorBehind(CrewMember *this, Door *door);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e55756538d75d08d7dd889":
 __thiscall float CrewMember::GetMoveSpeed(CrewMember *this);
-// TODO: AMBIGUOUS (1411 hits)
-".578d7c240883e4f0ff77fc5589e5575653":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b01ff":
 __thiscall void CrewMember::Restart(CrewMember *this);
 ".f30f10442404f30f1181ec060000":
 __thiscall void CrewMember::SetDamageBoost(CrewMember *this, float damageBoost);
 ".558b81e806000089e5538b550883e4f039d074??":
 __thiscall void CrewMember::SetHealthBoost(CrewMember *this, int healthBoost);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565389cf31f631":
 __thiscall void CrewMember::InitializeSkills(CrewMember *this);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565383ec3c8b073a":
 __thiscall void CrewMember::SetCloneReady(CrewMember *this, bool cloneReady);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b41":
 __thiscall void CrewMember::Kill(CrewMember *this, bool noClone);
 ".0fb681a00100005589e584c074??660fefc9":
 __thiscall bool CrewMember::NeedFrozenLocation(CrewMember *this);
@@ -162,22 +143,17 @@ __thiscall void CrewMember::SetDeathNumber(CrewMember *this, int deathNum);
 __thiscall void CrewMember::ForceMindControl(CrewMember *this, bool force);
 ".578d7c240883e4f0ff77fc5589e557565383ec7c8b17":
 __thiscall void CrewMember::RenderSkillUpAnimation(CrewMember *this, Point pos);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e5":
+".578d7c240883e4f0ff77fc5589e557565389ce83ec3cc6":
 __thiscall void CrewMember::Clone(CrewMember *this);
-// TODO: AMBIGUOUS (1993 hits)
-".578d7c240883e4f0ff77fc55":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec5c8bb100":
 __thiscall void CrewMember::UpdateHealth(CrewMember *this);
 ".8b410485c00f85????????660fefc9f30f104108f30f1015????????":
 __thiscall void CrewMember::OnRenderPath(CrewMember *this);
-// TODO: AMBIGUOUS (566 hits)
-".578d7c240883e4f0ff77fc5589e557565389cb":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b37f3":
 __thiscall bool CrewMember::SetPath(CrewMember *this, Path *path);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b89":
 __thiscall void CrewMember::SetRoomPath(CrewMember *this, int slotId, int roomId);
-// TODO: AMBIGUOUS (20 hits)
-".578d7c240883e4f0ff77fc5589e5575389cb83ec30":
+".578d7c240883e4f0ff77fc5589e5575389cb83ec30f30f10410c":
 __thiscall Point CrewMember::GetLocation(CrewMember *this);
 ".f30f104918f30f101d????????f30f10410855f30f5cc1f30f1015????????":
 __thiscall bool CrewMember::AtGoal(CrewMember *this);
@@ -191,30 +167,23 @@ __thiscall int CrewMember::GetIntegerHealth(CrewMember *this);
 __thiscall int CrewMember::GetRepairingId(CrewMember *this);
 ".538b4424108b5c24088b54241485c078??85d278??":
 __thiscall bool CrewMember::WithinRect(CrewMember *this, int x, int y, int w, int h);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e5575389cb83ec108b1780ba00":
 __thiscall std::string CrewMember::GetLongName(CrewMember *this);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565389ce81c1e8":
 __thiscall void CrewMember::SetName(CrewMember *this, TextString *name, bool force);
-// TODO: AMBIGUOUS (98 hits)
-".578d7c240883e4f0ff77fc5589e5575389cb83ec10":
+".578d7c240883e4f0ff77fc5589e5575389cb83ec108b1780bae4":
 __thiscall std::string CrewMember::GetName(CrewMember *this);
 ".5589e55756538b0189cb8b75088b7d0c83e4f08b40643d????????75??":
 __thiscall void CrewMember::SetCurrentTarget(CrewMember *this, CrewTarget *target, bool unk);
-// TODO: AMBIGUOUS (37 hits)
-".578d7c240883e4f0ff77fc5589e557565383ec1c":
+".578d7c240883e4f0ff77fc5589e557565383ec1c8bb1":
 __thiscall void CrewMember::CheckForTeleport(CrewMember *this);
 ".578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b496485c974??e8????????f30f1005????????":
 __thiscall bool CrewMember::GetNewGoal(CrewMember *this);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565383ec7c8b47048b37f3":
 __thiscall bool CrewMember::MoveToRoom(CrewMember *this, int roomId, int slotId, bool forceMove);
-// TODO: AMBIGUOUS (249 hits)
-".578d7c240883e4f0ff77fc5589e55753":
+".578d7c240883e4f0ff77fc5589e5575389cb83ec308b17":
 __thiscall void CrewMember::SetMindControl(CrewMember *this, bool controlled);
-// TODO: AMBIGUOUS (1805 hits)
-".578d7c240883e4f0ff77fc5589e557":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec7c8b01":
 __thiscall bool CrewMember::RestorePosition(CrewMember *this);
 ".f30f1005????????f30f594114f30f104908660fefd20f28d9f30f2a542404":
 __thiscall bool CrewMember::ContainsPoint(CrewMember *this, int x, int y);
@@ -228,26 +197,22 @@ __thiscall void CrewMember::StartTeleport(CrewMember *this);
 __thiscall void CrewMember::StartTeleportArrive(CrewMember *this);
 ".57660fefc98d7c240883e4f0ff77fc5589e5575383ec308b3ff30f2a8990000000":
 __thiscall void CrewMember::StartRepair(CrewMember *this, Repairable* toRepair);
-// TODO: AMBIGUOUS (5 hits)
-".57660fefc98d7c240883e4f0ff77fc5589e557":
+".57660fefc98d7c240883e4f0ff77fc5589e5575389":
 __thiscall void CrewMember::UpdateRepair(CrewMember *this);
 ".8b819c0000008b403883f8060f84????????660fefc00f2e41280f83????????578d7c2408":
 __thiscall void CrewMember::UpdateMovement(CrewMember *this);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565389cb????????000080b9fc":
 __thiscall void CrewMember::OnLoop(CrewMember *this);
 ".5589e556538b750889cb8b899c00000083e4f089f08881c4090000e8????????89f08883100300008d65f85b":
 __thiscall void CrewMember::SetSex(CrewMember *this, bool male);
-// TODO: AMBIGUOUS (1431 hits)
-".578d7c240883e4f0ff77fc5589e55756":
+".578d7c240883e4f0ff77fc5589e557565383ec4c8b1f8b81":
 __thiscall void CrewMember::CycleColorLayer(CrewMember *this, int unk);
 "8b018b80880000003d????????75??0fb681fc01000083f001c38db6000000005589e583e4f0ffd0c9":
 __thiscall bool CrewMember::Functional(CrewMember *this);
 ".8b4424043941780f94c0":
 __thiscall bool CrewMember::InsideRoom(CrewMember *this, int roomId);
 
-// TODO: AMBIGUOUS (2 hits)
-".578d????0883e4f0ff????5589e55783ec14f30f10??f30f1104??e8????????8b????83ec04c98d??f85fc204009090":
+".578d7c240883e4f0ff77fc5589e55783ec14f30f1007f30f110424e880":
 __thiscall bool CrewMember::ShipDamage(CrewMember *this, float amount);
 
 "8b410485c074??31c0c38db6000000008b015589e55389cb8b808800000083e4f0":

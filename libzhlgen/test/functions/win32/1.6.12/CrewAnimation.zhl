@@ -2,8 +2,7 @@
 __thiscall void CrewAnimation::constructor(CrewAnimation *this, int shipId, const std::string& race, Pointf unk, bool hostile);
 "578d7c240883e4f0ff77fc5589e5575389cb83ec308b0780b8c40900000074??803d??????????0f85????????":
 __thiscall std::string CrewAnimation::GetDeathSound(CrewAnimation *this);
-// TODO: AMBIGUOUS (3 hits)
-"578d7c240883e4f0ff77fc5589e557565389cb83ec3c803d??????????0f84????????e8????????89c189c8ba????????8d75d0f7ea":
+"578d7c240883e4f0ff77fc5589e557565389cb83ec3c803d????????00????????0000e850":
 __thiscall std::string CrewAnimation::GetShootingSound(CrewAnimation *this);
 "578d7c240883e4f0ff77fc5589f889e557565383ec7c8b59048b7008f30f102f8b7f04":
 __thiscall void CrewAnimation::OnRender(CrewAnimation *this, float scale, int selectedState, bool outlineOnly);

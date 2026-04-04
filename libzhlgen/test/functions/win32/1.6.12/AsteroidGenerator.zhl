@@ -2,8 +2,7 @@
 __thiscall void AsteroidGenerator::constructor(AsteroidGenerator *this);
 ".5589e55389cb8b550c8b451083e4f089918c00000089d1c1e91f01cad1fa":
 __thiscall float AsteroidGenerator::Initialize(AsteroidGenerator *this, int numberOfShips, int shieldCount, bool defense);
-// TODO: AMBIGUOUS (2 hits)
-".8b442404894170":
+".8b442404894170c204008d":
 __thiscall void AsteroidGenerator::SetNumShips(AsteroidGenerator *this, int ships);
 ".8b41083b41180f84????????578d7c240883e4f0ff77fc5589e557":
 __thiscall Projectile* AsteroidGenerator::GetNextAsteroid(AsteroidGenerator *this);
@@ -11,12 +10,9 @@ __thiscall Projectile* AsteroidGenerator::GetNextAsteroid(AsteroidGenerator *thi
 __thiscall void AsteroidGenerator::OnLoop(AsteroidGenerator *this);
 ".5589e5538b417489cb83e4f085c075??803d??????????":
 __thiscall void AsteroidGenerator::GetNextState(AsteroidGenerator *this);
-// TODO: AMBIGUOUS (4 hits)
-".5589e55389cbb9????????83e4f083ec10e8????????d95c240c":
+".5589e55389cbb9????????83e4f083ec10e8ba":
 __thiscall void AsteroidGenerator::UpdateState(AsteroidGenerator *this);
-// TODO: AMBIGUOUS (6 hits)
-".5589e5565389ce83e4f083ec108b5d08":
+".5589e5565389ce83e4f083ec108b5d08f30f1005":
 __thiscall bool AsteroidGenerator::SaveAsteroids(AsteroidGenerator *this, void* file);
-// TODO: AMBIGUOUS (2 hits)
-".5589e5565389cb83e4f083ec108b7508":
+".5589e5565389cb83e4f083ec108b7508893424e8c8":
 __thiscall void AsteroidGenerator::LoadAsteroids(AsteroidGenerator *this, void* file);

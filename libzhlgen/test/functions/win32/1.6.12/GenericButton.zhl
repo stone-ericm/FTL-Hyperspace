@@ -7,11 +7,9 @@ virtual __thiscall void GenericButton::MouseMove(GenericButton *this, int x, int
 // TODO: AMBIGUOUS (100 hits)
 "f3c39090909090909090909090909090":
 virtual __thiscall void GenericButton::OnRightClick(GenericButton *this);
-// TODO: AMBIGUOUS (100 hits)
-".f3c39090909090909090909090909090":
+".f3c39090909090909090909090909090f3c39090909090909090909090909090f3c390909090909090909090909090905589e553":
 virtual __thiscall void GenericButton::ResetPrimitives(GenericButton *this);
-// TODO: AMBIGUOUS (100 hits)
-".f3c39090909090909090909090909090":
+".f3c39090909090909090909090909090f3c390909090909090909090909090905589e553":
 virtual __thiscall void GenericButton::OnClick(GenericButton *this);
 
 struct GenericButton

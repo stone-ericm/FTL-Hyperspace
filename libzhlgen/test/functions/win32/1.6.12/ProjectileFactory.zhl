@@ -1,12 +1,10 @@
 "578d7c240883e4f0ff77fc5589e557565389ce83c12081ec????????8b07c741e800000000":
 __thiscall void ProjectileFactory::constructor(ProjectileFactory *this, const WeaponBlueprint* bp, int shipId);
-// TODO: AMBIGUOUS (2 hits)
-".5589e55389cb83e4f0803d??????????75??e8????????":
+".5589e55389cb83e4f0803d????????00751e":
 __thiscall void ProjectileFactory::SelectChargeGoal(ProjectileFactory *this);
 ".8b411c8b80d801000085c07e??":
 __thiscall bool ProjectileFactory::IsChargedGoal(ProjectileFactory *this);
-// TODO: AMBIGUOUS (28 hits)
-".5781c1????????8d7c240883e4f0ff77fc5589e5":
+".5781c1480100008d7c240883e4f0ff77fc5589e55783ec148b":
 __thiscall void ProjectileFactory::SetHacked(ProjectileFactory *this, int hacked);
 ".8b44240439814001000074??85c074??c7811c06000000000000":
 __thiscall void ProjectileFactory::SetCurrentShip(ProjectileFactory *this, Targetable *ship);
@@ -14,11 +12,9 @@ __thiscall void ProjectileFactory::SetCurrentShip(ProjectileFactory *this, Targe
 __thiscall void ProjectileFactory::SetCooldownModifier(ProjectileFactory *this, float mod);
 ".80b9f60000000074??8b411cf30f10410cf30f114108c7812c06000001000000":
 __thiscall void ProjectileFactory::ForceCoolup(ProjectileFactory *this);
-// TODO: AMBIGUOUS (28 hits)
-".5781c1????????8d7c240883e4f0ff77fc5589e5":
+".5781c1480100008d7c240883e4f0ff77fc5589e55783ec14f3":
 __thiscall void ProjectileFactory::RenderChargeBar(ProjectileFactory *this, float unk);
-// TODO: AMBIGUOUS (3 hits)
-".8d4c240483e4f0ff71fc5589e5535183ec108b19c70424????????89d9e8????????83ec0485c075??8d65f8":
+".8d4c240483e4f0ff71fc5589e5535183ec108b19c704246c":
 static cleanup __cdecl int ProjectileFactory::StringToWeapon(const std::string& str);
 ".8b8100060000398104060000":
 __thiscall bool ProjectileFactory::QueuedShots(ProjectileFactory *this);
