@@ -39,6 +39,19 @@ static volatile ShipManager* s_current_enemy = nullptr;
 //   [83]    store_buy                (25 options)
 //   [84]    store_sell               (12 options)
 
+// Observation spec slot → FTL SystemId mapping (same as bridge_state.cpp).
+// Declared here (before applyWeaponFire) so system-slot targeting can use it.
+static constexpr int SLOT_TO_SYSID[] = {
+    0, 1, 2, 3, 4, 5,  // shields, engines, oxygen, weapons, drones, medbay
+    9, 10, 14, 15,      // teleporter, cloaking, mind_control, hacking
+    6, 7, 8,            // piloting, sensors, doors
+    12, 11,             // battery, artillery
+};
+
+// System-slot targeting: weapon fire values 42-56 encode "target system slot N".
+// Used by command action space. Bridge resolves slot → room via enemy ShipGraph.
+static constexpr int SYSTEM_TARGET_BASE = 42;
+
 // ============================================================================
 // WEAPON FIRE (heads 0-3)
 // ============================================================================
@@ -54,6 +67,34 @@ static void applyWeaponFire(int weapon_idx, int32_t action, ShipManager* player)
     // Action 41: toggle autofire (mirrors the player's autofire button)
     if (action == 41) {
         wpn->SetAutoFire(!wpn->autoFiring);
+        return;
+    }
+
+    // Action 42-56: target system slot (bridge resolves slot → room)
+    if (action >= SYSTEM_TARGET_BASE && action < SYSTEM_TARGET_BASE + 15) {
+        int slot = action - SYSTEM_TARGET_BASE;
+        int sysId = SLOT_TO_SYSID[slot];
+
+        ShipManager* enemy = Bridge::cached_enemy_;
+        if (!enemy) return;
+
+        ShipSystem* sys = enemy->GetSystem(sysId);
+        // Slot 5: medbay/clonebay fallback
+        if (slot == 5 && !sys) sys = enemy->GetSystem(13);
+        if (!sys) return;
+
+        int target_room = sys->roomId;
+
+        wpn->SetCurrentShip(&enemy->_targetable);
+        wpn->targetId = target_room;
+
+        ShipGraph* graphE = ShipGraph::GetShipInfo(enemy->iShipId);
+        if (!graphE) return;
+
+        Pointf roomCenter = graphE->GetRoomCenter(target_room);
+        wpn->targets.clear();
+        wpn->targets.push_back(roomCenter);
+        wpn->autoFiring = true;
         return;
     }
 
@@ -112,14 +153,6 @@ static void applyBeamPath(int weapon_idx, int32_t action, int32_t* persistent) {
 // artillery, battery, hacking
 static constexpr int DEPRIORITY_ORDER[] = {
     14, 13, 2, 5, 6, 4, 7, 10, 8, 1, 0, 3, 11, 12, 9
-};
-
-// Observation spec slot → FTL SystemId mapping (same as bridge_state.cpp).
-static constexpr int SLOT_TO_SYSID[] = {
-    0, 1, 2, 3, 4, 5,  // shields, engines, oxygen, weapons, drones, medbay
-    9, 10, 14, 15,      // teleporter, cloaking, mind_control, hacking
-    6, 7, 8,            // piloting, sensors, doors
-    12, 11,             // battery, artillery
 };
 
 void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
