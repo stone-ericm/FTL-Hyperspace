@@ -336,12 +336,11 @@ void Bridge::doStep() {
         return;
     }
 
-    // Force weapons to 3 power bars — override agent's action BEFORE
-    // applyActions so the budget deprioritization logic handles conflicts.
-    // Action head 11 = power_weapons_target. Option 4 = level 3 (3 bars).
-    // Weapons are highest priority in deprioritization order, so shields/
-    // engines get reduced if total exceeds reactor capacity.
-    action_buffer_[11] = 4;
+    // Clear power heads (8-22) and FTL head (28) — bridge manages power
+    // via priorityAllocatePower(). Prevents allocatePower() from acting
+    // on stale or unexpected values in the buffer.
+    for (int i = 8; i < 23; i++) action_buffer_[i] = 0;
+    action_buffer_[28] = 0;  // no FTL commands
 
     // Phase 3: Resolve persistent actions + apply
     for (int i = 0; i < ACTION_HEAD_COUNT; i++) {
@@ -350,6 +349,10 @@ void Bridge::doStep() {
         }
     }
     applyActions(action_buffer_, player, enemy);
+
+    // Bridge-managed power: priority allocator runs AFTER applyActions.
+    // Zeroes all systems, then reallocates in priority order every step.
+    priorityAllocatePower();
 
     g_perf.mark(3);
 

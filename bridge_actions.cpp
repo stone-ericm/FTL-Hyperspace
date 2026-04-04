@@ -252,6 +252,53 @@ void Bridge::allocatePower(const int32_t* power_targets, ShipManager* ship) {
 }
 
 // ============================================================================
+// PRIORITY POWER ALLOCATION (bridge-managed, replaces agent power commands)
+// ============================================================================
+
+// Called every step. Zeroes all systems, then allocates power in priority
+// order. IncreaseSystemPower respects damage limits and reactor capacity,
+// so we just call it N times per priority level.
+//
+// Priority: weapons > shields > oxygen(1) > engines > piloting(1) > medbay(1) > sensors(1)
+void Bridge::priorityAllocatePower() {
+    ShipManager* player = Global::GetInstance()->GetShipManager(0);
+    if (!player) return;
+
+    // Step 1: Zero all systems to free all reactor bars
+    for (int slot = 0; slot < 15; slot++) {
+        int sysId = SLOT_TO_SYSID[slot];
+        ShipSystem* sys = player->GetSystem(sysId);
+        if (slot == 5 && !sys) { sysId = 13; sys = player->GetSystem(13); }
+        if (!sys) continue;
+        int current = sys->GetEffectivePower();
+        for (int i = 0; i < current; i++)
+            player->ForceDecreaseSystemPower(sysId);
+    }
+
+    // Step 2: Allocate in priority order.
+    // want = 99 means "give max available", 1 means "give exactly 1 bar".
+    struct PriorityEntry { int slot; int want; };
+    static constexpr PriorityEntry PRIORITIES[] = {
+        {3, 99},   // weapons → max
+        {0, 99},   // shields → max
+        {2, 1},    // oxygen → 1
+        {1, 99},   // engines → fill remaining
+        {10, 1},   // piloting → 1  (slot 10 = piloting in SLOT_TO_SYSID)
+        {5, 1},    // medbay → 1
+        {11, 1},   // sensors → 1   (slot 11 = sensors)
+    };
+
+    for (const auto& p : PRIORITIES) {
+        int sysId = SLOT_TO_SYSID[p.slot];
+        ShipSystem* sys = player->GetSystem(sysId);
+        if (p.slot == 5 && !sys) { sysId = 13; sys = player->GetSystem(13); }
+        if (!sys) continue;
+        for (int i = 0; i < p.want; i++)
+            player->IncreaseSystemPower(sysId);
+    }
+}
+
+// ============================================================================
 // SYSTEM ACTIVATIONS (heads 23-28)
 // ============================================================================
 static void applySystemActivations(const int32_t* actions, ShipManager* player) {
