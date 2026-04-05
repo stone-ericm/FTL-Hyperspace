@@ -1564,7 +1564,7 @@ namespace _func112
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("BossShip::LoadBoss", typeid(void (BossShip::*)(int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b0789", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("BossShip::LoadBoss", typeid(void (BossShip::*)(int )), ".578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b07890424", argdata, 2, 5, &func);
 }
 
 void BossShip::LoadBoss(int file)
@@ -1620,7 +1620,7 @@ namespace _func116
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("BossShip::StartStage", typeid(void (BossShip::*)()), "578d7c240883e4f0ff77fc5589e557565389ce8dbd", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("BossShip::StartStage", typeid(void (BossShip::*)()), ".578d7c240883e4f0ff77fc5589e557565389ce8dbd20ffffff", argdata, 1, 5, &func);
 }
 
 void BossShip::StartStage()
