@@ -10,3 +10,13 @@ __thiscall void ScoreKeeper::AddScrapCollected(ScoreKeeper *this, int scrap);
 __thiscall void ScoreKeeper::SaveGame(ScoreKeeper *this, int fd);
 "8b442404c7412400000000????????00":
 __thiscall void ScoreKeeper::SetSector(ScoreKeeper *this, int sector);
+"578d7c240883e4f0ff77fc5589e557565383ec5c8b37c7":
+__thiscall std::pair<int, int> ScoreKeeper::GetShipId(ScoreKeeper *this, const std::string& blueprintName);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec3c80b9c4":
+__thiscall void ScoreKeeper::Open(ScoreKeeper *this, bool fromGameOver);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b47048d":
+__thiscall std::string ScoreKeeper::GetShipBlueprint(ScoreKeeper *this, int index);
+"578d7c240883e4f0ff77fc5589e557565381ec4c05000089":
+__thiscall void ScoreKeeper::LoadGame(ScoreKeeper *this, int fd);
+"578d7c240883e4f0ff77fc5589e557565383ec1c8b17":
+__thiscall void ScoreKeeper::UnlockShip(ScoreKeeper *this, int shipType, int shipVariant, bool save, bool hidePopup);

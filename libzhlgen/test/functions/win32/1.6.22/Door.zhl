@@ -10,3 +10,5 @@ __thiscall void Door::LoadState(Door *this, int fd); //00465590
 __thiscall void Door::FakeClose(Door *this); //00465860
 "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b77":
 __thiscall void Door::OnRender(Door *this, float alpha, bool bForceView, bool useLargeSprites); //00466bb0
+"80b92c020000008b4424040f85a30000":
+__thiscall void Door::SetBlastDoor(Door *this, int val); //00465950

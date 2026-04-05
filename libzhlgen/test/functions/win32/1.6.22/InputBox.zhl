@@ -1,0 +1,2 @@
+"578d7c240883e4f0ff77fc5589e557565383ec3c8b0783":
+__thiscall void InputBox::TextEvent(InputBox *this, CEvent::TextEvent event);

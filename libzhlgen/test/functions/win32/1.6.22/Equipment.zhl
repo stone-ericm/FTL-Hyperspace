@@ -14,3 +14,5 @@ __thiscall bool Equipment::IsCompletelyFull(Equipment *this, int type); // 00528
 __thiscall void Equipment::AddDrone(Equipment *this, DroneBlueprint *bp, bool free, bool forceCargo); // 00528470
 "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b4708":
 __thiscall void Equipment::AddWeapon(Equipment *this, WeaponBlueprint *bp, bool free, bool forceCargo); // 00529030
+"578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b5704":
+__thiscall void Equipment::SetPosition(Equipment *this, Point p); // 00524a80

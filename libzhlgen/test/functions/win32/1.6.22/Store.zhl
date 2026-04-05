@@ -12,5 +12,9 @@ static __cdecl void Store::DrawBuySellTabText();
 __thiscall void Store::MouseClick(Store *this, int x, int y);
 "578d7c240883e4f0ff77fc5589e557565389cb81ec3c02":
 __thiscall void Store::OnRender(Store *this);
-"578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b570489042489542404e86a":
-__thiscall void Store::SetPosition(Store *this, Point pos);
+"578d7c240883e4f0ff77fc5589e557565389cb31f683ec2c":
+__thiscall void Store::OnInit(Store *this, ShipManager *shopper, Equipment *equip, int worldLevel);
+"5589e557565389cf83e4f083ec208b8164":
+__thiscall void Store::SaveStore(Store *this, int file);
+"578d7c240883e4f0ff77fc5589e557565389ce31db81":
+__thiscall void Store::SetPositions(Store *this);

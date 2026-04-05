@@ -1,2 +1,10 @@
 "578d7c240883e4f0ff77fc5589e557565389cb8d4da0":
 __thiscall RandomAmount EventsParser::PullMinMax(EventsParser *this, rapidxml::xml_node<char>* node, const std::string& name);
+"578d7c240883e4f0ff77fc5589e55756538d5dd08d7dd883ec5c":
+__thiscall void EventsParser::AddAllEvents(EventsParser *this);
+"578d7c240883e4f0ff77fc5589e5575653befc5e870081ec6c":
+__thiscall void EventsParser::ProcessBaseNode(EventsParser *this, rapidxml::xml_node<char>* node, EventGenerator& generator);
+"578d7c240883e4f0ff77fc5589e557565389cb81ecec0100008b0789":
+__thiscall std::string EventsParser::ProcessEvent(EventsParser *this, rapidxml::xml_node<char>* node, const std::string& eventName);
+"5789c88d7c240883e4f0ff77fc5589e557565383ec5c":
+__thiscall std::vector<std::string> EventsParser::ProcessEventList(EventsParser *this, rapidxml::xml_node<char>* node, const std::string& listName);

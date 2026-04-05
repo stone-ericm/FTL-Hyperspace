@@ -1,2 +1,4 @@
 "8b15f03f87008d420185????????0000":
 static __cdecl int Globals::GetNextSpaceId();
+"8d4c240483e4f0ff71fc5589e55183ec44f3":
+static cleanup __cdecl Pointf Globals::GetNextPoint(Pointf current, float mag_speed, Pointf dest);

@@ -30,3 +30,11 @@ __thiscall void ShipSystem::LoadState(ShipSystem *this, int file);
 __thiscall bool ShipSystem::UpgradeSystem(ShipSystem *this, int amount);
 "8b54240489c88b8a2c01000089088b8a":
 __thiscall TimerHelper ShipSystem::GetLockTimer(ShipSystem *this);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b178b5f0485d2750485db757329d383fb0f895de4772683fb018b06755c0fb61288108b5de48b06895e04c60418008d65f45b5e5f5d8d67f85fc208008d45e489f1c7442404000000008955d4890424e8d5":
+__thiscall bool ShipSystem::DecreasePower(ShipSystem *this, bool force);
+"8b912801000085d20f9fc083faff0f94":
+__thiscall bool ShipSystem::GetLocked(ShipSystem *this);
+"578d7c240883e4f0ff77fc5589e557565383ec2c8b3785f67e":
+__thiscall void ShipSystem::IonDamage(ShipSystem *this, int amount);
+"578d7c240883e4f0ff77fc5589e557565389ce81ec9c0000008b07":
+__thiscall int ShipSystem::RenderPowerBoxes(ShipSystem *this, int x, int y, int width, int height, int gap, int heightMod, bool flash);

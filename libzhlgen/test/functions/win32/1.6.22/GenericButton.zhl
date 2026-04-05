@@ -2,3 +2,5 @@
 virtual __thiscall void GenericButton::SetActive(GenericButton *this, bool active);
 "578d7c240883e4f0ff77fc5589e5575383ec108b178b41":
 virtual __thiscall void GenericButton::MouseMove(GenericButton *this, int x, int y, bool silent);
+"5589e557568b4508538b59048b550c83":
+virtual __thiscall void GenericButton::SetLocation(GenericButton *this, Point pos);

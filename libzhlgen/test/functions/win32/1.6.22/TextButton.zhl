@@ -6,3 +6,7 @@ __thiscall void TextButton::destructor(TextButton *this);
 __int64 TextButton::GetSize_DO_NOT_USE_DIRECTLY(TextButton *this<ecx>);
 "8b5424048b4424108891b40000008b54":
 __thiscall void TextButton::SetAutoWidth(TextButton *this, bool autoWidth, bool autoRightAlign, int margin, int min);
+"80b9b4000000007507f3c3908d742600":
+__thiscall void TextButton::UpdateAutoWidth(TextButton *this);
+"578d7c240883e4f0ff77fc5589e557565389cf81ecbc":
+__thiscall int TextButton::GetIdealButtonWidth(TextButton *this);

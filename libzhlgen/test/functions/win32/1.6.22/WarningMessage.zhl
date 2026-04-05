@@ -12,7 +12,7 @@ __thiscall void WarningMessage::SetPosition(WarningMessage *this, Point position
 __thiscall void WarningMessage::SetLoop(WarningMessage *this, bool loop);
 "5781c1c80000008d7c240883e4f0ff77":
 __thiscall void WarningMessage::SetSound(WarningMessage *this, const std::string& sound);
-"578d7c240883e4f0ff77fc5589e557565389fe89cb83ec":
-__thiscall void WarningMessage::InitImage(WarningMessage *this, const std::string& imageName, Point position, float time, bool flash);
+"80791600754a807914007444578d7c24":
+__thiscall void WarningMessage::OnRender(WarningMessage *this);
 "578d7c240883e4f0ff77fc5589e557565389cb8d492c":
 __thiscall void WarningMessage::InitText(WarningMessage *this, const TextString& text, Point position, float time, GL_Color textColor, bool centerText, bool flash);

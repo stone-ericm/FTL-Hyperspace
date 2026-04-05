@@ -8,3 +8,7 @@ __thiscall void BossShip::constructor(BossShip *this, SpaceManager *space);
 __thiscall void BossShip::LoadBoss(BossShip *this, int file);
 "578d7c240883e4f0ff77fc5589e557565389ce8dbd":
 __thiscall void BossShip::StartStage(BossShip *this);
+"578d7c240883e4f0ff77fc5589e557565389cb8db338":
+__thiscall LocationEvent* BossShip::GetEvent(BossShip *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec4ce805":
+__thiscall LocationEvent* BossShip::GetSubEvent(BossShip *this);

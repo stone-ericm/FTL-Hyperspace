@@ -6,3 +6,5 @@ __thiscall void Shields::SetHackingLevel(Shields *this, int hackingLevel);
 __thiscall void Shields::InstantCharge(Shields *this);
 "57ba050000008d7c240883e4f0ff77fc":
 __thiscall void Shields::AddSuperShield(Shields *this, Point pos);
+"578d7c240883e4f0ff77fc5589e557565389cb8db564":
+__thiscall void Shields::OnLoop(Shields *this);

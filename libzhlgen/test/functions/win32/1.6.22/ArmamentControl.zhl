@@ -1,0 +1,4 @@
+"578d7c240883e4f0ff77fc5589e557565331f689cb81":
+__thiscall void ArmamentControl::LinkShip(ArmamentControl *this, ShipManager *ship);
+"578d7c240883e4f0ff77fc5589e55756538d7dc88d45":
+__thiscall void ArmamentControl::CreateHolderTab(ArmamentControl *this);

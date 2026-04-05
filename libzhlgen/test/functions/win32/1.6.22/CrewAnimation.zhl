@@ -4,3 +4,5 @@ __thiscall void CrewAnimation::OnRender(CrewAnimation *this, float scale, int se
 __thiscall void CrewAnimation::SetupStrips(CrewAnimation *this);
 "5589e5538d999c08000083e4f089d9e8":
 __thiscall bool CrewAnimation::FireShot(CrewAnimation *this);
+"578d7c240883e4f0ff77fc5589e55756538db51c":
+__thiscall void CrewAnimation::RenderIcon(CrewAnimation *this, bool border);

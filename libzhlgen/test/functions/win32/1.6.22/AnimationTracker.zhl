@@ -10,3 +10,5 @@ __thiscall void AnimationTracker::Start(AnimationTracker *this, float time);
 __thiscall void AnimationTracker::StartReverse(AnimationTracker *this, float time);
 "f30f104104f30f59442404f30f11410c":
 __thiscall void AnimationTracker::SetProgress(AnimationTracker *this, float time);
+"83ec0480791000f30f104c2408660fef":
+__thiscall float AnimationTracker::Progress(AnimationTracker *this, float speed);

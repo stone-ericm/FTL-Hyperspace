@@ -1,2 +1,4 @@
 "5781c16c0100008d7c240883e4f0ff77fc5589e55783":
 __thiscall void WeaponBlueprint::RenderIcon(WeaponBlueprint *this, float scale);
+"5781c16c0100008d7c240883e4f0ff77fc5589e55756":
+__thiscall Point WeaponBlueprint::GetDimensions(WeaponBlueprint *this);

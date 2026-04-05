@@ -6,3 +6,5 @@ __thiscall void OxygenSystem::UpdateAirlock(OxygenSystem *this, int roomId, int 
 __thiscall void OxygenSystem::EmptyOxygen(OxygenSystem *this, int roomId);
 "8b81c40100008b5424048d0490f30f10":
 __thiscall void OxygenSystem::ModifyRoomOxygen(OxygenSystem *this, int roomId, float value);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec3c0f":
+__thiscall void OxygenSystem::ComputeAirLoss(OxygenSystem *this, int roomId, float base_loss, bool silent);

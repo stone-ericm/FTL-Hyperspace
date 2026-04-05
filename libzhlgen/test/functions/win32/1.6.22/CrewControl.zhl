@@ -2,3 +2,5 @@
 __thiscall void CrewControl::OnLoop(CrewControl *this);
 "5589e55389cb8b450883e4f08901e8dd":
 __thiscall void CrewControl::LinkShip(CrewControl *this, ShipManager *ship);
+"578d7c240883e4f0ff77fc5589e55756538d45dc":
+__thiscall void CrewControl::UpdateCrewBoxes(CrewControl *this);

@@ -1,0 +1,4 @@
+"57660fefc9660fefc08d7c240883e4f0":
+__thiscall void OptionsScreen::OnLoop(OptionsScreen *this);
+"578d7c240883e4f0ff77fc5589e557565389cbb9e0":
+__thiscall void OptionsScreen::OnInit(OptionsScreen *this);

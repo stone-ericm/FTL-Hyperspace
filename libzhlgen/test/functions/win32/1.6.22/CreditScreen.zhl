@@ -1,0 +1,2 @@
+"55660fefc089e553bbabaaaaaa83e4f0":
+__thiscall bool CreditScreen::Done(CreditScreen *this);

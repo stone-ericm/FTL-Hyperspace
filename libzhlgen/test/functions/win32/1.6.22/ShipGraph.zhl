@@ -28,3 +28,13 @@ __thiscall float ShipGraph::GetRoomOxygen(ShipGraph *this, int room);
 __thiscall bool ShipGraph::GetRoomBlackedOut(ShipGraph *this, int room);
 "578d7c240883e4f0ff77fc5589e557565383ec3c8b57048b01":
 __thiscall Point ShipGraph::GetSlotWorldPosition(ShipGraph *this, int slotId, int roomId);
+"578d7c240883e4f0ff77fc5589e5575383ec108b5f088b078b57048b7f0c895c2408890424897c240c89542404e84e":
+__thiscall Door* ShipGraph::ConnectingDoor(ShipGraph *this, Point p1, Point p2);
+"578d7c240883e4f0ff77fc5589e5575383ec108b5f088b078b57048b7f0c895c2408890424897c240c89542404e84e":
+__thiscall int ShipGraph::ConnectedGridSquares(ShipGraph *this, int x1, int y1, int x2, int y2);
+"8d4c240483e4f0ff71fc5589e55756535181ec88000000a130":
+static cleanup __cdecl void ShipGraph::Restart();
+"578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b7f":
+__thiscall std::vector<int> ShipGraph::ConnectivityDFS(ShipGraph *this, int roomId);
+"578d7c240883e4f0ff77fc5589f889e557565389ce83ec2c8b09":
+__thiscall int ShipGraph::GetSelectedRoom(ShipGraph *this, int x, int y, bool unk);

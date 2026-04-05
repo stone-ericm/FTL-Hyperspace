@@ -12,5 +12,13 @@ __thiscall TextString WeaponControl::HolderLabel(WeaponControl *this);
 __thiscall void WeaponControl::OnLoop(WeaponControl *this);
 "578d7c240883e4f0ff77fc5589e557565389cf8d75b0":
 __thiscall void WeaponControl::OnLanguageChange(WeaponControl *this);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec5c8b078b7f":
+__thiscall void WeaponControl::SetAutofiring(WeaponControl *this, bool on, bool simple);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec308b0789":
+__thiscall void WeaponControl::LinkShip(WeaponControl *this, ShipManager *ship);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b378b7f04893424897c2404e819":
 __thiscall void WeaponControl::MouseMove(WeaponControl *this, int x, int y);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b490c":
+__thiscall void WeaponControl::OnRender(WeaponControl *this, bool unk);
+"8d4c240483e4f0ff71fc5589e55756535189cf81":
+static cleanup __cdecl void WeaponControl::RenderBeamAiming(Pointf one, Pointf two, bool bAutoFire);

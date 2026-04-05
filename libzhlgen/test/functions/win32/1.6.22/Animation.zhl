@@ -14,3 +14,5 @@ __thiscall void Animation::SaveState(Animation *this, int fd);
 __thiscall void Animation::LoadState(Animation *this, int fd);
 "0fb6413284c0740e660fefc00f2e8194":
 __thiscall bool Animation::Done(Animation *this);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec20803f000f":
+__thiscall void Animation::Start(Animation *this, bool reset);

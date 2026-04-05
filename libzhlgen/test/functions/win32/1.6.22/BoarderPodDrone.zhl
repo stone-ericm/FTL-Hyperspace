@@ -2,5 +2,3 @@
 __thiscall void BoarderPodDrone::SetMovementTarget(BoarderPodDrone *this, Targetable *target);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec2c807914":
 __thiscall void BoarderPodDrone::SetDeployed(BoarderPodDrone *this, bool _deployed);
-"578d7c240883e4f0ff77fc5589e557565389cb81eccc000000e8":
-__thiscall void BoarderPodDrone::OnLoop(BoarderPodDrone *this);

@@ -18,5 +18,9 @@ static cleanup __cdecl Projectile *ProjectileFactory::LoadProjectile(int fd);
 static cleanup __cdecl void ProjectileFactory::SaveProjectile(Projectile *p, int fd);
 "8b44240484c0751e80b9f40000000074":
 __thiscall void ProjectileFactory::SetAutoFire(ProjectileFactory *this, bool autoFire);
+"5781c1480100008d7c240883e4f0ff77fc5589e55783ec14f3":
+__thiscall void ProjectileFactory::RenderChargeBar(ProjectileFactory *this, float unk);
+"8d4c240483e4f0ff71fc5589e5535183ec108b19c7042470":
+static cleanup __cdecl int ProjectileFactory::StringToWeapon(const std::string& str);
 "5589e55389cb83e4f0803d6098910000751e":
 __thiscall void ProjectileFactory::SelectChargeGoal(ProjectileFactory *this);

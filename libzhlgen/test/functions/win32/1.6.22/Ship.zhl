@@ -12,3 +12,11 @@ __thiscall Point Ship::GetShipCorner(Ship *this);
 __thiscall Globals::Ellipse Ship::GetBaseEllipse(Ship *this);
 "578d7c240883e4f0ff77fc5589e5575383ec2080b9":
 __thiscall float Ship::GetCloakAlpha(Ship *this, bool complete);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b41":
+__thiscall void Ship::OnRenderJump(Ship *this, float progress);
+"57b81c0201008d7c240883e4f0ff77fc":
+__thiscall void Ship::OnInit(Ship *this, ShipBlueprint& bp);
+"578d7c240883e4f0ff77fc5589e557565383ec2c8b41048b57048b378b5f088904248955e4e8a6":
+__thiscall int Ship::GetSelectedRoomId(Ship *this, int x, int y, bool unk);
+"578d7c240883e4f0ff77fc5589f889e557565389cf83ec6c":
+__thiscall void Ship::OnRenderBase(Ship *this, bool unk);

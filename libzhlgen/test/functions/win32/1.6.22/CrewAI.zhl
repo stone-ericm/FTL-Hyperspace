@@ -2,3 +2,9 @@
 __thiscall int CrewAI::PrioritizeTask(CrewAI *this, CrewTask task, int crewId);
 "578d7c240883e4f0ff77fc5589e557565389cf83ec7c8b":
 __thiscall void CrewAI::CheckForProblems(CrewAI *this);
+"8b510c3b5110c64107000f840b020000":
+__thiscall void CrewAI::CheckForHealing(CrewAI *this);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec5c8b47048b1f89":
+__thiscall int CrewAI::DangerRating(CrewAI *this,int roomId,int crewId);
+"8b411839411c0f8434020000578d7c24":
+__thiscall void CrewAI::UpdateIntruders(CrewAI *this);

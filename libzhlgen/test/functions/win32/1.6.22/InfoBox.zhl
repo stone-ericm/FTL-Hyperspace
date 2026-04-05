@@ -10,3 +10,5 @@ __thiscall bool InfoBox::IsEmpty(InfoBox *this);
 __thiscall void InfoBox::constructor(InfoBox *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b378b47":
 __thiscall void InfoBox::SetSystem(InfoBox *this, ShipSystem *system, int upgrade, int yShift, int forceSystemWidth);
+"8b442404398140010000742485c07420":
+__thiscall void InfoBox::SetBlueprint(InfoBox *this, const ItemBlueprint* bp);

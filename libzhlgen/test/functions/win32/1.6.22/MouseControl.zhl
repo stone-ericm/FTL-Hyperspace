@@ -10,5 +10,9 @@ __thiscall void MouseControl::SetValid(MouseControl *this, bool valid, bool newV
 __thiscall void MouseControl::LoadTooltip(MouseControl *this, const std::string& tooltipName);
 "5589e55389cb83e4f083ec1080b91801":
 __thiscall void MouseControl::OnLoop(MouseControl *this);
+"80b919010000000f8563030000578d7c":
+__thiscall void MouseControl::OnRender(MouseControl *this);
+"578d7c240883e4f0ff77fc5589e5575389cb8d89fc":
+__thiscall void MouseControl::Reset(MouseControl *this);
 "578d7c240883e4f0ff77fc5589e55783ec148b912c":
 __thiscall void MouseControl::SetTooltipTitle(MouseControl *this, const std::string& tooltip);

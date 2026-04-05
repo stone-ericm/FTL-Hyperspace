@@ -2,3 +2,5 @@
 __thiscall float CloneSystem::GetProgress(CloneSystem *this);
 "5589e5538b99c4010000c781c4010000":
 __thiscall CrewMember* CloneSystem::CloneReady(CloneSystem *this);
+"578d7c240883e4f0ff77fc5589e557565381ec5c02":
+__thiscall void CloneSystem::OnRenderFloor(CloneSystem *this);

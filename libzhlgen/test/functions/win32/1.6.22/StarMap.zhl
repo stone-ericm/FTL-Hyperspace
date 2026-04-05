@@ -26,11 +26,39 @@ __thiscall void StarMap::CheckGameOver(StarMap *this);
 __thiscall void StarMap::PushSectorColumn(StarMap *this);
 "578d7c240883e4f0ff77fc5589e55756538d85d0":
 __thiscall void StarMap::RenderSectorName(StarMap *this, Sector * unk0, GL_Color unk1);
-"578d7c240883e4f0ff77fc5589e557565389ce8d7d":
-__thiscall void StarMap::InitMapTitle(StarMap *this);
+"578d7c240883e4f0ff77fc5589e557565389cb81ec9c0000008b7708":
+__thiscall void StarMap::RenderLeftInsetButton(StarMap *this, float unk0, float unk1, bool unk2);
+"80b9b4000000007507f3c3908d742600":
+__thiscall void StarMap::OnLoop(StarMap *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8bb1":
 __thiscall void StarMap::InitBossMessageBox(StarMap *this);
-"5589e55389cb83e4f0e8f2f7ffff89d9":
-__thiscall void StarMap::OnLanguageChange(StarMap *this);
+"578d7c240883e4f0ff77fc5589f889e557565383ec2c0f":
+__thiscall std::vector<Location*> StarMap::Dijkstra(StarMap *this, Location * start, Location * finish, bool include_unknown);
 "578d7c240883e4f0ff77fc5589e55756538d75d08d5dd883ec3c":
 __thiscall void StarMap::StartSecretSector(StarMap *this);
+"578d7c240883e4f0ff77fc5589e5578d4df083ec34":
+__thiscall Point StarMap::PointToGrid(StarMap *this, float x, float y);
+"578d41148d7c240883e4f0ff77fc5589e557565389cf83":
+__thiscall std::string StarMap::GetLocationText(StarMap *this, const Location* loc);
+"578d7c240883e4f0ff77fc5589f889e557565389cf83ec3c8b89":
+__thiscall void StarMap::SaveGame(StarMap *this, int file);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b7f":
+__thiscall void StarMap::GenerateSectorMap(StarMap *this);
+"578d7c240883e4f0ff77fc5589e557565389cb81ec9c00000080b9":
+__thiscall void StarMap::MouseClick(StarMap *this, int unk0, int unk1);
+"578d7c240883e4f0ff77fc5589e55756538d712c8d":
+__thiscall void StarMap::ConnectLocations(StarMap *this, Point unk0, Point unk1);
+"8b819004000083c00183f80389819004":
+__thiscall void StarMap::AdvanceWorldLevel(StarMap *this);
+"578d7c240883e4f0ff77fc5589e557565389cb8d7dc88d75d083":
+__thiscall void StarMap::InitNoFuelText(StarMap *this);
+"578d7c240883e4f0ff77fc5589e55756538d7dc889":
+__thiscall void StarMap::RenderDistressButtons(StarMap *this);
+"578d7c240883e4f0ff77fc5589f889e557565389cf83ec3c8b300f":
+__thiscall bool StarMap::AddQuest(StarMap *this, const std::string& questEvent, bool force);
+"578d7c240883e4f0ff77fc5589e557565389ce8d7d":
+__thiscall void StarMap::InitMapTitle(StarMap *this);
+"5589e583e4f0803d60989100007431e84c":
+__thiscall int StarMap::GetRandomSectorChoice(StarMap *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec2c807f04":
+__thiscall void StarMap::SetupNoFuel(StarMap *this, int seed, const std::string& forceEscape);

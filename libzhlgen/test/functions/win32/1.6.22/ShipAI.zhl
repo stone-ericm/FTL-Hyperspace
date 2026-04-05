@@ -1,2 +1,4 @@
 "8b44240484c0740980b9ec0000000075":
 __thiscall void ShipAI::SetStalemate(ShipAI *this, bool stalemate);
+"8b410485c074498b0185c07443578d7c":
+__thiscall std::pair<int, int> ShipAI::GetTeleportCommand(ShipAI *this);

@@ -2,3 +2,9 @@
 __thiscall void AchievementTracker::LoadAchievementDescriptions(AchievementTracker *this);
 "578d7c240883e4f0ff77fc5589e55756538d7dc0":
 __thiscall void AchievementTracker::SetVictoryAchievement(AchievementTracker *this);
+"578d7c240883e4f0ff77fc5589e557565383ec4c8b4704894dc40f":
+__thiscall void AchievementTracker::SetAchievement(AchievementTracker *this, const std::string& achievement, bool noPopup, bool sendToServer);
+"57ba050000008d7c240883e4f0ff77fc":
+__thiscall void AchievementTracker::SetFlag(AchievementTracker *this, const std::string& flagName);
+"578d7c240883e4f0ff77fc5589e55756538d45d08d5d":
+__thiscall void AchievementTracker::SetSectorEight(AchievementTracker *this);

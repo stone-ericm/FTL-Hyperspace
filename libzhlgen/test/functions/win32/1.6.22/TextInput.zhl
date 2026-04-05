@@ -6,3 +6,5 @@ __thiscall bool TextInput::GetActive(TextInput *this);
 __thiscall void TextInput::Stop(TextInput *this);
 "578d7c240883e4f0ff77fc5589e557565389ce8d5de0":
 __thiscall int TextInput::SetText(TextInput *this, const std::string& text);
+"807938000f8466010000578d7c240883":
+__thiscall void TextInput::OnTextInput(TextInput *this, int asciiChar);

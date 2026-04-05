@@ -22,3 +22,21 @@ __thiscall void WorldManager::Restart(WorldManager *this);
 __thiscall void WorldManager::PauseLoop(WorldManager *this);
 "5589e55389cb83c10883e4f0e8bf5be0":
 __thiscall bool WorldManager::HostileEnvironment(WorldManager *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b018b378b48088b018b40443d????????7527":
+__thiscall void WorldManager::UpdateLocation(WorldManager *this, LocationEvent* event);
+"578d7c240883e4f0ff77fc5589e557565383ec4c8b3785":
+__thiscall bool WorldManager::CheckRequirements(WorldManager *this, LocationEvent* event, bool hidden);
+"578d7c240883e4f0ff77fc5589e557565389ce81ecfc04":
+__thiscall void WorldManager::CreateLocation(WorldManager *this, Location *loc);
+"578d7c240883e4f0ff77fc5589e557565381ec5c0100008b07":
+__thiscall bool WorldManager::AddBoarders(WorldManager *this, BoardingEvent& boardingEvent);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b018b378b48088b018b40443d????????752a":
+__thiscall void WorldManager::CreateChoiceBox(WorldManager *this, LocationEvent* event);
+"578d7c240883e4f0ff77fc5589e557565389ce81eccc00":
+__thiscall void WorldManager::OnLoop(WorldManager *this);
+"578d911c1200008d7c240883e4f0ff77":
+__thiscall void WorldManager::CheckStatusEffects(WorldManager *this, std::vector<StatusEffect>& vec);
+"578d7c240883e4f0ff77fc5589e557565389ce8d5dd8":
+__thiscall void WorldManager::CreateNewGame(WorldManager *this);
+"578d7c240883e4f0ff77fc5589e557565389cb8d8d2c":
+__thiscall LocationEvent *WorldManager::ModifyResources(WorldManager *this, LocationEvent *event);
