@@ -1137,7 +1137,7 @@ namespace _func81
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("BlueprintManager::SetRarity", typeid(void (BlueprintManager::*)(const std::string &, int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b378b47048d7964", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("BlueprintManager::SetRarity", typeid(void (BlueprintManager::*)(const std::string &, int )), ".578d????0883e4f0ff????5589e557565389cb83ec2c8b??8b????8d79648934??89f9", argdata, 3, 5, &func);
 }
 
 void BlueprintManager::SetRarity(const std::string &name, int rarity)
@@ -1263,7 +1263,7 @@ namespace _func90
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("BlueprintManager::GetSystemBlueprint", typeid(SystemBlueprint *(BlueprintManager::*)(const std::string &)), "578d91e00000008d7c240883e4f0ff77", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("BlueprintManager::GetSystemBlueprint", typeid(SystemBlueprint *(BlueprintManager::*)(const std::string &)), "578d91e00000008d7c240883e4f0ff77fc5589e557565383ec3c8b99e4000000894dcc8b378955d085db0f84????????8955d489df", argdata, 2, 1, &func);
 }
 
 SystemBlueprint *BlueprintManager::GetSystemBlueprint(const std::string &name)
@@ -1536,7 +1536,7 @@ namespace _func110
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("BossShip::constructor", typeid(void (BossShip::*)(SpaceManager *)), "578d7c240883e4f0ff77fc5589e5575389cb83ec108b0783", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("BossShip::constructor", typeid(void (BossShip::*)(SpaceManager *)), ".578d7c240883e4f0ff77fc5589e5575389cb83ec108b0783c318c744240801000000c744240400000000", argdata, 2, 5, &func);
 }
 
 void BossShip::constructor(SpaceManager *space)
@@ -1564,7 +1564,7 @@ namespace _func112
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("BossShip::LoadBoss", typeid(void (BossShip::*)(int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b0789", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("BossShip::LoadBoss", typeid(void (BossShip::*)(int )), ".578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b07890424", argdata, 2, 5, &func);
 }
 
 void BossShip::LoadBoss(int file)
@@ -1606,7 +1606,7 @@ namespace _func115
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("BossShip::GetSubEvent", typeid(LocationEvent *(BossShip::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec4ce805", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("BossShip::GetSubEvent", typeid(LocationEvent *(BossShip::*)()), ".578d7c240883e4f0ff77fc5589e557565389cb83ec4c", argdata, 1, 1, &func);
 }
 
 LocationEvent *BossShip::GetSubEvent()
@@ -1620,7 +1620,7 @@ namespace _func116
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("BossShip::StartStage", typeid(void (BossShip::*)()), "578d7c240883e4f0ff77fc5589e557565389ce8dbd", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("BossShip::StartStage", typeid(void (BossShip::*)()), ".578d7c240883e4f0ff77fc5589e557565389ce8dbd20ffffff", argdata, 1, 5, &func);
 }
 
 void BossShip::StartStage()
@@ -1676,7 +1676,7 @@ namespace _func120
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x2ff};
-	static FunctionDefinition funcObj("Button::OnInit", typeid(void (Button::*)(const std::string &, Point )), "57ba????????8d7c240883e4f0ff77fc5589e557565389ce", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("Button::OnInit", typeid(void (Button::*)(const std::string &, Point )), "578d7c240883e4f0ff77fc5589e55756538d55a881ec????????8b47048b1f894d948955a08945908b47088b3b", argdata, 3, 5, &func);
 }
 
 void Button::OnInit(const std::string &img, Point pos)
@@ -1746,7 +1746,7 @@ namespace _func125
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Button::SetImageBase", typeid(void (Button::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e55756538d45a889cb83ec7c8b3f", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("Button::SetImageBase", typeid(void (Button::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e55756538d45a889cb83ec7c8b3f8945a08b178b770489d0", argdata, 2, 5, &func);
 }
 
 void Button::SetImageBase(const std::string &imageBase)
@@ -1760,7 +1760,7 @@ namespace _func126
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CAchievement::OnRender", typeid(void (CAchievement::*)(Point , int , bool )), "578d7c240883e4f0ff77fc5589e557565389cb81ecac0000008b078b57", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("CAchievement::OnRender", typeid(void (CAchievement::*)(Point , int , bool )), "578d7c240883e4f0ff77fc5589e557565389cb81ec????????8b078b57048b77088b7f0c898568ffffff895584", argdata, 4, 5, &func);
 }
 
 void CAchievement::OnRender(Point pos, int selected, bool showNew)
@@ -1774,7 +1774,7 @@ namespace _func127
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CAchievement::constructor", typeid(void (CAchievement::*)()), "578d41088d7c240883e4f0ff77fc5589e557565389cf", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CAchievement::constructor", typeid(void (CAchievement::*)()), "578d41088d7c240883e4f0ff77fc5589e557565389cf8d75d08d5dd883ec3c8901", argdata, 1, 5, &func);
 }
 
 void CAchievement::constructor()
@@ -2026,7 +2026,7 @@ namespace _func145
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnLoop", typeid(void (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec4c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::OnLoop", typeid(void (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec4ce8????????", argdata, 1, 5, &func);
 }
 
 void CApp::OnLoop()
@@ -2040,7 +2040,7 @@ namespace _func146
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::SetupWindow", typeid(int (CApp::*)()), "5589e55389cb83e4f083ec3080b93936", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CApp::SetupWindow", typeid(int (CApp::*)()), ".5589e55389cb83e4f0", argdata, 1, 1, &func);
 }
 
 int CApp::SetupWindow()
@@ -2068,7 +2068,7 @@ namespace _func148
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::GenInputEvents", typeid(void (CApp::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec20e836", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::GenInputEvents", typeid(void (CApp::*)()), ".578d7c240883e4f0ff77fc5589e5575389cb", argdata, 1, 5, &func);
 }
 
 void CApp::GenInputEvents()
@@ -2124,7 +2124,7 @@ namespace _func152
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::UpdateFullScreen", typeid(void (CApp::*)()), "803d????????007407f3c3908d7426005589e557", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::UpdateFullScreen", typeid(void (CApp::*)()), ".803d??????????74??c38db6000000005589e5575653", argdata, 1, 5, &func);
 }
 
 void CApp::UpdateFullScreen()
@@ -2152,7 +2152,7 @@ namespace _func154
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnRender", typeid(void (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5ce825", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::OnRender", typeid(void (CApp::*)()), ".578d7c240883e4f0ff77fc5589e55756", argdata, 1, 5, &func);
 }
 
 void CApp::OnRender()
@@ -2166,7 +2166,7 @@ namespace _func155
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnInit", typeid(int (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec4cc7", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CApp::OnInit", typeid(int (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557", argdata, 1, 1, &func);
 }
 
 int CApp::OnInit()
@@ -2180,7 +2180,7 @@ namespace _func156
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnExecute", typeid(int (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389ceb9????????81ec2c", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CApp::OnExecute", typeid(int (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557565389cfb9????????81ec????????c70424????????e8????????89f9", argdata, 1, 1, &func);
 }
 
 int CApp::OnExecute()
@@ -2194,7 +2194,7 @@ namespace _func157
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CEvent::OnEvent", typeid(void (CEvent::*)(const InputEvent *)), "578d7c240883e4f0ff77fc5589e557565383ec4c8b1f8b43", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CEvent::OnEvent", typeid(void (CEvent::*)(const InputEvent *)), "578d7c240883e4f0ff77fc5589e557565383ec4c8b1f8b4304f20f104308f20f1105????????83e80783f81b77??", argdata, 2, 5, &func);
 }
 
 void CEvent::OnEvent(const InputEvent *event)
@@ -2208,7 +2208,7 @@ namespace _func158
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CFPS::GetSpeedFactor", typeid(float (CFPS::*)()), "83ec04f30f104118f30f110424d90424", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CFPS::GetSpeedFactor", typeid(float (CFPS::*)()), "83ec04f30f104118f30f110424d9042483c404c39090909090909090909090905589e583e4f083ec10a1????????85c074??890424e8????????a1????????85c074??", argdata, 1, 1, &func);
 }
 
 float CFPS::GetSpeedFactor()
@@ -2243,7 +2243,7 @@ namespace _func161
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_GetColor", typeid(GL_Color (*)()), "8b4424048b15????????89108b15????", argdata, 1, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_GetColor", typeid(GL_Color (*)()), "8b4424048b15????????89108b15????????8950048b15????????8950088b15????????89500cc3908db42600000000a1????????3b05????????74??83e810a3????????f3c390908db426000000008b15????????8b0d????????55", argdata, 1, 2, &func);
 }
 
 GL_Color CSurface::GL_GetColor()
@@ -2411,7 +2411,7 @@ namespace _func173
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_OrthoProjection", typeid(int (*)(float , float , float , float , float , float )), "5589e583e4f083ec20f30f10451cf30f", argdata, 6, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_OrthoProjection", typeid(int (*)(float , float , float , float , float , float )), ".5589e583e4f083ec20f30f10451cf30f11442414f30f104518f30f11442410f30f104514f30f1144240c", argdata, 6, 2, &func);
 }
 
 int CSurface::GL_OrthoProjection(float mx1, float mx2, float mx3, float mx4, float mx5, float mx6)
@@ -2439,7 +2439,7 @@ namespace _func175
 {
     static void *func = 0;
 	static const short *argdata = NULL;
-	static FunctionDefinition funcObj("CSurface::GL_PushMatrix", typeid(int (*)()), "a1????????83f80f774689c10f2805??", argdata, 0, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_PushMatrix", typeid(int (*)()), ".a1????????83f80f77??89c10f2805????????c1e106", argdata, 0, 2, &func);
 }
 
 int CSurface::GL_PushMatrix()
@@ -2467,7 +2467,7 @@ namespace _func177
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_Rotate", typeid(void (*)(float , float , float , float )), "55660fefe489e5565383e4f081ec0001", argdata, 4, 6, &func);
+	static FunctionDefinition funcObj("CSurface::GL_Rotate", typeid(void (*)(float , float , float , float )), ".55660fefe489e5565383e4f081ec????????f30f1055080f2ed4f30f104d0cf30f104510f30f105d147a??", argdata, 4, 6, &func);
 }
 
 void CSurface::GL_Rotate(float angle, float x, float y, float z)
@@ -2481,7 +2481,7 @@ namespace _func178
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_Scale", typeid(void (*)(float , float , float )), "55b90000000089e583e4f083ec10f30f", argdata, 3, 6, &func);
+	static FunctionDefinition funcObj("CSurface::GL_Scale", typeid(void (*)(float , float , float )), ".55b9????????89e583e4f083ec10f30f1005????????f30f10550c0f2ed0f30f104d10f30f105d080f9bc20f45d10f2ec80f9bc00f45c1", argdata, 3, 6, &func);
 }
 
 void CSurface::GL_Scale(float x, float y, float z)
@@ -2509,7 +2509,7 @@ namespace _func180
 {
     static void *func = 0;
 	static short argdata[] = {0x4ff};
-	static FunctionDefinition funcObj("CSurface::GL_SetColor", typeid(int (*)(GL_Color )), "5589e583e4f083ec208b4508f30f1045", argdata, 1, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_SetColor", typeid(int (*)(GL_Color )), ".5589e583e4f083ec208b4508f30f104508f30f11442410", argdata, 1, 2, &func);
 }
 
 int CSurface::GL_SetColor(GL_Color color)
@@ -2523,7 +2523,7 @@ namespace _func181
 {
     static void *func = 0;
 	static const short *argdata = NULL;
-	static FunctionDefinition funcObj("CSurface::GL_RemoveColorTint", typeid(void (*)()), "a1????????3b05????????740883e810", argdata, 0, 6, &func);
+	static FunctionDefinition funcObj("CSurface::GL_RemoveColorTint", typeid(void (*)()), ".a1????????3b05????????74??83e810a3????????", argdata, 0, 6, &func);
 }
 
 void CSurface::GL_RemoveColorTint()
@@ -2551,7 +2551,7 @@ namespace _func183
 {
     static void *func = 0;
 	static const short *argdata = NULL;
-	static FunctionDefinition funcObj("CSurface::GL_EnableBlend", typeid(bool (*)()), "5589e583e4f083ec10c7442408040000", argdata, 0, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_EnableBlend", typeid(bool (*)()), ".5589e583e4f083ec10c744240804000000", argdata, 0, 2, &func);
 }
 
 bool CSurface::GL_EnableBlend()
@@ -2607,7 +2607,7 @@ namespace _func187
 {
     static void *func = 0;
 	static short argdata[] = {0x2ff, 0x2ff, 0x2ff, 0x4ff};
-	static FunctionDefinition funcObj("CSurface::GL_DrawTriangle", typeid(bool (*)(Point , Point , Point , GL_Color )), "5589e557565383e4f083ec608b45088b", argdata, 4, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_DrawTriangle", typeid(bool (*)(Point , Point , Point , GL_Color )), ".5589e557565383e4f081ec????????", argdata, 4, 2, &func);
 }
 
 bool CSurface::GL_DrawTriangle(Point vertex1, Point vertex2, Point vertex3, GL_Color color)
@@ -2621,7 +2621,7 @@ namespace _func188
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x4ff};
-	static FunctionDefinition funcObj("CSurface::GL_DrawRect", typeid(bool (*)(float , float , float , float , GL_Color )), "5589e583e4f081ec90000000a1??????", argdata, 5, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_DrawRect", typeid(bool (*)(float , float , float , float , GL_Color )), ".5589e583e4f081ec????????a1????????8b15????????f30f106d08f30f10650c", argdata, 5, 2, &func);
 }
 
 bool CSurface::GL_DrawRect(float x1, float y1, float x2, float y2, GL_Color color)
@@ -2635,7 +2635,7 @@ namespace _func189
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x4ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_DrawRectOutline", typeid(bool (*)(int , int , int , int , GL_Color , float )), "5589e583e4f081ecc00100008b55108b", argdata, 6, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_DrawRectOutline", typeid(bool (*)(int , int , int , int , GL_Color , float )), ".5589e583e4f081ec????????8b55108b4514f30f106520f30f11642424", argdata, 6, 2, &func);
 }
 
 bool CSurface::GL_DrawRectOutline(int x1, int y1, int x2, int y2, GL_Color color, float lineWidth)
@@ -2677,7 +2677,7 @@ namespace _func192
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x4ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_BlitImagePartial", typeid(bool (*)(GL_Texture *, float , float , float , float , float , float , float , float , float , GL_Color , bool )), "5589e557565383e4f083ec60????????8b", argdata, 12, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_BlitImagePartial", typeid(bool (*)(GL_Texture *, float , float , float , float , float , float , float , float , float , GL_Color , bool )), ".5589e557565383e4f083ec60807d4000", argdata, 12, 2, &func);
 }
 
 bool CSurface::GL_BlitImagePartial(GL_Texture *tex, float x, float y, float size_x, float size_y, float start_x, float end_x, float start_y, float end_y, float alpha, GL_Color color, bool mirror)
@@ -2747,7 +2747,7 @@ namespace _func197
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_DestroyPrimitive", typeid(void (*)(GL_Primitive *)), "5589e55383e4f083ec108b5d0885db74138b4324", argdata, 1, 6, &func);
+	static FunctionDefinition funcObj("CSurface::GL_DestroyPrimitive", typeid(void (*)(GL_Primitive *)), ".5589e55383e4f083ec108b5d0885db74??8b4324890424e8????????891c24e8????????", argdata, 1, 6, &func);
 }
 
 void CSurface::GL_DestroyPrimitive(GL_Primitive *primitive)
@@ -2761,7 +2761,7 @@ namespace _func198
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x4ff};
-	static FunctionDefinition funcObj("CSurface::GL_CreateRectPrimitive", typeid(GL_Primitive *(*)(float , float , float , float , GL_Color )), "5589e55383e4f083ec50f30f10450cc7", argdata, 5, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_CreateRectPrimitive", typeid(GL_Primitive *(*)(float , float , float , float , GL_Color )), ".5589e55383e4f083ec50f30f10450cc70424????????f30f11442434f30f1144243cf30f584514f30f104d08f30f105510f30f58d1", argdata, 5, 2, &func);
 }
 
 GL_Primitive *CSurface::GL_CreateRectPrimitive(float x, float y, float w, float h, GL_Color color)
@@ -2775,7 +2775,7 @@ namespace _func199
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x4ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_CreateRectOutlinePrimitive", typeid(GL_Primitive *(*)(int , int , int , int , GL_Color , float )), "55660fefdb660fefe489e553660fefd2", argdata, 6, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_CreateRectOutlinePrimitive", typeid(GL_Primitive *(*)(int , int , int , int , GL_Color , float )), "55660fefdb660fefc089e553660fefd2660fefed83e4f081ecb0000000f30f2a5d08f30f2a450cf30f2a6d14f30f2a5510f30f104d28f30f115c2430f30f114424340f28e0", argdata, 6, 2, &func);
 }
 
 GL_Primitive *CSurface::GL_CreateRectOutlinePrimitive(int x, int y, int w, int h, GL_Color color, float lineWidth)
@@ -2789,7 +2789,7 @@ namespace _func200
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::AddTexVertices", typeid(void (*)(std::vector<GL_TexVertex> *, float , float , float , float , float , float , float , float )), "8d4c240483e4f0ff71fc5589e55756535183ec388b39f3", argdata, 9, 6, &func);
+	static FunctionDefinition funcObj("CSurface::AddTexVertices", typeid(void (*)(std::vector<GL_TexVertex> *, float , float , float , float , float , float , float , float )), "8d4c240483e4f0ff71fc5589e55756535183ec388b39f30f105104f30f1059088b17", argdata, 9, 6, &func);
 }
 
 void CSurface::AddTexVertices(std::vector<GL_TexVertex> *vec, float x1, float y1, float u1, float v1, float x2, float y2, float u2, float v2)
@@ -2845,7 +2845,7 @@ namespace _func204
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x4ff};
-	static FunctionDefinition funcObj("CSurface::GL_CreateMultiImagePrimitive", typeid(GL_Primitive *(*)(GL_Texture *, std::vector<GL_TexVertex> *, GL_Color )), "8d4c240483e4f0ff71fc5589e55756535183ec588b71", argdata, 3, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_CreateMultiImagePrimitive", typeid(GL_Primitive *(*)(GL_Texture *, std::vector<GL_TexVertex> *, GL_Color )), "8d4c240483e4f0ff71fc5589e55756535183ec588b71048b198b4604", argdata, 3, 2, &func);
 }
 
 GL_Primitive *CSurface::GL_CreateMultiImagePrimitive(GL_Texture *tex, std::vector<GL_TexVertex> *vec, GL_Color color)
@@ -2901,7 +2901,7 @@ namespace _func208
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x4ff};
-	static FunctionDefinition funcObj("CSurface::GL_DrawEllipse", typeid(bool (*)(int , int , int , int , GL_Color )), "8d4c240483e4f0ff71fc5589e55756535181ece80000008b41", argdata, 5, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_DrawEllipse", typeid(bool (*)(int , int , int , int , GL_Color )), "8d????0483e4f0ff????5589e55756535181ec880000008b??8b????8b", argdata, 5, 2, &func);
 }
 
 bool CSurface::GL_DrawEllipse(int x, int y, int a1, int b1, GL_Color color)
@@ -2929,7 +2929,7 @@ namespace _func210
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_BlitMultiImage", typeid(void (*)(GL_Texture *, const std::vector<GL_TexVertex> &, bool )), "5589e557565383e4f083ec508b45108b15????????8b5d088b7d0c89442434", argdata, 3, 6, &func);
+	static FunctionDefinition funcObj("CSurface::GL_BlitMultiImage", typeid(void (*)(GL_Texture *, const std::vector<GL_TexVertex> &, bool )), "5589e557565383e4f083ec508b45108b15????????8b5d088b750c89442420a1????????39d00f84????????29d083e0f08d4402f0f30f1020f30f106804f30f107008f30f10780cf30f1164242c", argdata, 3, 6, &func);
 }
 
 void CSurface::GL_BlitMultiImage(GL_Texture *tex, const std::vector<GL_TexVertex> &texVertices, bool antialias)
@@ -2957,7 +2957,7 @@ namespace _func212
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x4ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_CreateImagePartialPrimitive", typeid(GL_Primitive *(*)(GL_Texture *, float , float , float , float , float , float , float , float , float , GL_Color , bool )), "8d4c240483e4f0ff71fc5589e55756535183ec7880", argdata, 12, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_CreateImagePartialPrimitive", typeid(GL_Primitive *(*)(GL_Texture *, float , float , float , float , float , float , float , float , float , GL_Color , bool )), "8d4c240483e4f0ff71fc5589e55756535183ec78807938008b19f30f107910f30f117dc4f30f107924f30f106104f30f104108", argdata, 12, 2, &func);
 }
 
 GL_Primitive *CSurface::GL_CreateImagePartialPrimitive(GL_Texture *tex, float x, float y, float size_x, float size_y, float start_x, float end_x, float start_y, float end_y, float alpha, GL_Color color, bool mirror)
