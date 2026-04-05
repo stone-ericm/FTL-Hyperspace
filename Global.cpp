@@ -93,11 +93,12 @@ std::wstring ConvertToUtf16(const char *str, UINT codepage)
 
 void ErrorMessage(const char *msg)
 {
+    // Log to file instead of showing modal dialog (blocks forever on headless)
+    FILE* f = fopen("zhl_errors.log", "a");
+    if (f) { fprintf(f, "ErrorMessage: %s\n", msg); fflush(f); fclose(f); }
     #ifdef _WIN32
-        std::wstring utf16String = ConvertToUtf16(msg, CP_UTF8);
-        MessageBoxW(NULL, utf16String.c_str(), L"Error", MB_ICONERROR | MB_SETFOREGROUND);
+        // MessageBox suppressed for headless RL training
     #elif defined(__linux__)
-        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error", msg, NULL);
         fprintf(stderr, "%s", msg);
     #endif
 }

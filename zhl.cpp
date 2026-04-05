@@ -42,10 +42,9 @@ void ZHL::Init()
 
 	if(!Definition::Init())
 	{
-        // TODO: Maybe change this over to SDL_ShowSimpleMessageBox for all systems; however, we'll have to add libsdl to the build & maybe the sdl.dll runtime DLL on Windows
-        // SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error", FunctionDefinition::GetLastError(), NULL);
 #ifdef _WIN32
-		MessageBox(0, FunctionDefinition::GetLastError(), "Error", MB_ICONERROR);
+		FILE* f = fopen("zhl_errors.log", "a");
+		if (f) { fprintf(f, "FATAL: Definition::Init failed: %s\n", FunctionDefinition::GetLastError()); fclose(f); }
 		ExitProcess(1);
 #elif defined(__linux__)
         fprintf(stderr, "Fatal Error %s:", FunctionDefinition::GetLastError());
@@ -56,7 +55,8 @@ void ZHL::Init()
 	if(!FunctionHook_private::Init())
 	{
 #ifdef _WIN32
-		MessageBox(0, FunctionHook_private::GetLastError(), "Error", MB_ICONERROR);
+		FILE* f = fopen("zhl_errors.log", "a");
+		if (f) { fprintf(f, "FATAL: FunctionHook_private::Init failed: %s\n", FunctionHook_private::GetLastError()); fclose(f); }
 		ExitProcess(1);
 #elif defined(__linux__)
         fprintf(stderr, "Fatal Error %s:", FunctionHook_private::GetLastError());
@@ -141,9 +141,26 @@ int Definition::Init()
 {
 	SigScan::Init();
 
+	int failed = 0;
 	for(auto it = Defs().begin() ; it != Defs().end() ; ++it)
 	{
-		if(!(*it)->Load()) return 0;
+		if(!(*it)->Load()) {
+			failed++;
+			FILE* f = fopen("zhl_errors.log", "a");
+			if (f) {
+				fprintf(f, "SKIP: %s\n", FunctionDefinition::GetLastError());
+				fflush(f);
+				fclose(f);
+			}
+		}
+	}
+	if (failed > 0) {
+		FILE* f = fopen("zhl_errors.log", "a");
+		if (f) {
+			fprintf(f, "ZHL: %d definitions failed to load (skipped)\n", failed);
+			fflush(f);
+			fclose(f);
+		}
 	}
 	return 1;
 }
@@ -331,9 +348,26 @@ void FunctionHook_private::SetName(const char *name, const char *type)
 
 int FunctionHook_private::Init()
 {
+	int failed = 0;
 	for(auto it = FuncHooks().begin() ; it != FuncHooks().end() ; ++it)
 	{
-		if(!it->second->Install()) return 0;
+		if(!it->second->Install()) {
+			failed++;
+			FILE* f = fopen("zhl_errors.log", "a");
+			if (f) {
+				fprintf(f, "HOOK_SKIP: %s\n", FunctionHook_private::GetLastError());
+				fflush(f);
+				fclose(f);
+			}
+		}
+	}
+	if (failed > 0) {
+		FILE* f = fopen("zhl_errors.log", "a");
+		if (f) {
+			fprintf(f, "ZHL: %d hooks failed to install (skipped)\n", failed);
+			fflush(f);
+			fclose(f);
+		}
 	}
 	return 1;
 }
@@ -359,6 +393,11 @@ int FunctionHook_private::Install()
 	if(!def)
 	{
 		snprintf(g_hookLastError, 1024, "Failed to install hook for %s: Function not found", _name);
+		return 0;
+	}
+	if(!def->GetAddress())
+	{
+		snprintf(g_hookLastError, 1024, "Failed to install hook for %s: Address is null (signature not found)", _name);
 		return 0;
 	}
 

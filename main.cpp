@@ -29,10 +29,21 @@ extern "C" BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpv
             ZHL::SetLogPath("zhl.log");
             ZHL::Init();
 
-            G_->Initialize();
-
-
-
+            // Skip G_->Initialize() if flag file exists next to the DLL
+            {
+                char dllPath[MAX_PATH];
+                GetModuleFileNameA(hinstDLL, dllPath, MAX_PATH);
+                // Replace DLL filename with flag filename
+                char* lastSlash = strrchr(dllPath, '\\');
+                if (lastSlash) strcpy(lastSlash + 1, "skip_init.flag");
+                else strcpy(dllPath, "skip_init.flag");
+                FILE* flagFile = fopen(dllPath, "r");
+                if (flagFile) {
+                    fclose(flagFile);
+                } else {
+                    G_->Initialize();
+                }
+            }
 
             break;
             }
