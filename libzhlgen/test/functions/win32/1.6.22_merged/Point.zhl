@@ -1,0 +1,41 @@
+"558b018b510489e52b45082b550c5d0f":
+__thiscall int Point::RelativeDistance(Point *this, Point other);
+"55660fefc089e583e4f083ec208b118b41042b55082b450c0fafd20fafc001d0f30f2ac0f30f51c80f2ec97a??f30f2cc1c9":
+__thiscall int Point::Distance(Point *this, Point other);
+
+
+struct Point
+{{
+	Point(int xx, int yy) : x(xx), y(yy)  { }
+	Point() { }
+
+	Point operator+(const Point& other)
+	{
+		return Point(x + other.x, y + other.y);
+	}
+
+	Point operator-(const Point& other)
+	{
+		return Point(x - other.x, y - other.y);
+	}
+
+	Point operator/(int amount)
+	{
+		return Point(x / amount, y / amount);
+	}
+
+	Point operator*(int amount)
+	{
+		return Point(x * amount, y * amount);
+	}
+
+	//Required for std::map with Point keys to function properly
+    bool operator<(const Point& other) const
+    {
+        if (x == other.x) return y < other.y;
+        return x < other.x;
+    }
+
+	friend bool operator==(const Point &a, const Point &b) {return a.x==b.x && a.y==b.y;}
+	friend bool operator!=(const Point &a, const Point &b) {return a.x!=b.x || a.y!=b.y;}
+}};

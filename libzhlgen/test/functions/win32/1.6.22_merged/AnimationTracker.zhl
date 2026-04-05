@@ -1,0 +1,35 @@
+"807910000f84f80000005589e55389cb":
+__thiscall void AnimationTracker::Update(AnimationTracker *this);
+"8b442404f30f10442408f30f114114c7":
+__thiscall void AnimationTracker::SetLoop(AnimationTracker *this, bool loop, float loopDelay);
+"807c240400c6411000660fefc07405f3":
+__thiscall void AnimationTracker::Stop(AnimationTracker *this, bool resetTime);
+"f30f10442404c6411200c6411001f30f":
+__thiscall void AnimationTracker::Start(AnimationTracker *this, float time);
+"660fefc9c6411200f30f10442404c641":
+__thiscall void AnimationTracker::StartReverse(AnimationTracker *this, float time);
+"83ec0480791000f30f104c2408660fef":
+__thiscall float AnimationTracker::Progress(AnimationTracker *this, float speed);
+"f30f104104f30f59442404f30f11410c":
+__thiscall void AnimationTracker::SetProgress(AnimationTracker *this, float time);
+".5589e583ec04f30f1005????????f30f1015????????807d0800f30f594104f30f10490cf30f5cc80f28d8":
+__thiscall float AnimationTracker::GetAlphaLevel(AnimationTracker *this, bool reverse);
+
+
+struct AnimationTracker 
+{{
+	AnimationTracker()
+	{
+	
+	}
+	void LoadState(int fd);
+	void SaveState(int fd);
+
+	//Restored inlined vanilla method
+	inline void SetCurrentTime(float newTime)
+	{
+		newTime = std::max(newTime, 0.f);
+		newTime = std::min(newTime, time);
+		current_time = newTime;
+	}
+}};

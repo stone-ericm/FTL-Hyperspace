@@ -1,0 +1,55 @@
+"578d7c240883e4f0ff77fc5589e557565383ec4c83b9":
+__thiscall void LocationEvent::ClearEvent(LocationEvent *this, bool force);
+"558d410889e55389018d4128c7410400000000c6410800c6411801c6411c0089cb8941208d4140c7412400000000c6412800c7413c00000000":
+__thiscall void LocationEvent::constructor(LocationEvent *this);
+
+struct LocationEvent depends (LocationEvent::Choice)
+{{
+    struct Choice
+    {
+        LocationEvent *event;
+        TextString text;
+        ChoiceReq requirement;
+        bool hiddenReward;
+    };
+
+    LocationEvent()
+    {
+        this->constructor();
+    }
+
+    std::vector<Choice*> GetChoices()
+    {
+        std::vector<Choice*> ret = std::vector<Choice*>();
+        for (int i=0; i < (int)this->choices.size(); ++i)
+        {
+            ret.push_back(&this->choices[i]);
+        }
+
+        return ret;
+    }
+
+    void AddChoice(LocationEvent* newEvent, const std::string& text, ChoiceReq requirement, bool hiddenReward)
+    {
+        if (newEvent != nullptr) {
+            Choice newChoice;
+            newChoice.event = newEvent;
+            newChoice.text.data = text;
+            newChoice.text.isLiteral = true;
+            newChoice.requirement = requirement;
+            newChoice.hiddenReward = hiddenReward;
+
+            this->choices.push_back(newChoice);
+        }
+    }
+
+    bool RemoveChoice(int index)
+    {
+        if (index >= 0 && index < this->choices.size())
+        {
+            this->choices.erase(this->choices.begin() + index);
+            return true;
+        }
+        return false;
+    }
+}};
