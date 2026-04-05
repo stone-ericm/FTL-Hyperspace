@@ -11805,7 +11805,7 @@ namespace _func853
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff};
-	static FunctionDefinition funcObj("Projectile::RandomSidePoint", typeid(Pointf (*)(int )), "8d4c240483e4f0ff71fc5589e5535183ec208b198d", argdata, 1, 10, &func);
+	static FunctionDefinition funcObj("Projectile::RandomSidePoint", typeid(Pointf (*)(int )), "8d4c240483e4f0ff71fc5589e5535183ec208b198d4df0c7442404ffffffffc70424ffffffff", argdata, 1, 10, &func);
 }
 
 Pointf Projectile::RandomSidePoint(int side)
@@ -11833,7 +11833,7 @@ namespace _func855
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ProjectileFactory::SelectChargeGoal", typeid(void (ProjectileFactory::*)()), "5589e55389cb83e4f0803d????????00751e", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::SelectChargeGoal", typeid(void (ProjectileFactory::*)()), ".5589e55389cb83e4f0803d??????????75??e8????????", argdata, 1, 5, &func);
 }
 
 void ProjectileFactory::SelectChargeGoal()
@@ -11889,7 +11889,7 @@ namespace _func859
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ProjectileFactory::SetCooldownModifier", typeid(void (ProjectileFactory::*)(float )), "f30f1041080f28c8f30f10542404f30f", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::SetCooldownModifier", typeid(void (ProjectileFactory::*)(float )), ".f30f1041080f28c8f30f10542404f30f104118", argdata, 2, 5, &func);
 }
 
 void ProjectileFactory::SetCooldownModifier(float mod)
@@ -11903,7 +11903,7 @@ namespace _func860
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ProjectileFactory::ForceCoolup", typeid(void (ProjectileFactory::*)()), "80b9f600000000745c8b411cf30f1041", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::ForceCoolup", typeid(void (ProjectileFactory::*)()), ".80b9f60000000074??8b411cf30f10410cf30f114108c7812c06000001000000", argdata, 1, 5, &func);
 }
 
 void ProjectileFactory::ForceCoolup()
@@ -11917,7 +11917,7 @@ namespace _func861
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ProjectileFactory::RenderChargeBar", typeid(void (ProjectileFactory::*)(float )), "5781c1480100008d7c240883e4f0ff77fc5589e55783ec14f3", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::RenderChargeBar", typeid(void (ProjectileFactory::*)(float )), ".5781c1????????8d7c240883e4f0ff77fc5589e5", argdata, 2, 5, &func);
 }
 
 void ProjectileFactory::RenderChargeBar(float unk)
@@ -11931,7 +11931,7 @@ namespace _func862
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff};
-	static FunctionDefinition funcObj("ProjectileFactory::StringToWeapon", typeid(int (*)(const std::string &)), "8d4c240483e4f0ff71fc5589e5535183ec108b19c70424????????89d9e80e", argdata, 1, 2, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::StringToWeapon", typeid(int (*)(const std::string &)), ".8d4c240483e4f0ff71fc5589e5535183ec108b19c70424????????89d9e8????????83ec0485c075??8d65f8", argdata, 1, 2, &func);
 }
 
 int ProjectileFactory::StringToWeapon(const std::string &str)
@@ -11945,7 +11945,7 @@ namespace _func863
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ProjectileFactory::QueuedShots", typeid(bool (ProjectileFactory::*)()), "8b81000600003981040600000f95c0c3", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::QueuedShots", typeid(bool (ProjectileFactory::*)()), ".8b8100060000398104060000", argdata, 1, 1, &func);
 }
 
 bool ProjectileFactory::QueuedShots()
@@ -12043,7 +12043,7 @@ namespace _func870
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ProjectileFactory::NumTargetsRequired", typeid(int (ProjectileFactory::*)()), "8b411c83b8d8010000017e158b812c06", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::NumTargetsRequired", typeid(int (ProjectileFactory::*)()), "8b411c83b8d8010000017e??8b812c06000085c0b8????????0f4f812c060000c38b8134010000", argdata, 1, 1, &func);
 }
 
 int ProjectileFactory::NumTargetsRequired()
@@ -12071,7 +12071,7 @@ namespace _func872
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ProjectileFactory::GetProjectile", typeid(Projectile *(ProjectileFactory::*)()), "578d7c240883e4f0ff77fc5589e557565389cf81c148", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::GetProjectile", typeid(Projectile *(ProjectileFactory::*)()), "578d7c240883e4f0ff77fc5589e557565389cf81c14801000083ec5c", argdata, 1, 1, &func);
 }
 
 Projectile *ProjectileFactory::GetProjectile()
@@ -12099,7 +12099,7 @@ namespace _func874
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ProjectileFactory::ClearProjectiles", typeid(void (ProjectileFactory::*)()), "8b8100060000898104060000c3906690", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::ClearProjectiles", typeid(void (ProjectileFactory::*)()), "8b8100060000898104060000c3", argdata, 1, 5, &func);
 }
 
 void ProjectileFactory::ClearProjectiles()
@@ -12127,7 +12127,7 @@ namespace _func876
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff};
-	static FunctionDefinition funcObj("ProjectileFactory::LoadProjectile", typeid(Projectile *(*)(int )), "8d4c240483e4f0ff71fc5589e556535183ec6c8b", argdata, 1, 2, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::LoadProjectile", typeid(Projectile *(*)(int )), "8d4c240483e4f0ff71fc5589e556535183ec6c8b19891c24", argdata, 1, 2, &func);
 }
 
 Projectile *ProjectileFactory::LoadProjectile(int fd)
@@ -12141,7 +12141,7 @@ namespace _func877
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ProjectileFactory::SaveProjectile", typeid(void (*)(Projectile *, int )), "8d4c240483e4f0ff71fc5589e556535183ec1c8b198b71048b", argdata, 2, 6, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::SaveProjectile", typeid(void (*)(Projectile *, int )), "8d4c240483e4f0ff71fc5589e556535183ec1c8b198b71048b0389d9ff507c89342489442404", argdata, 2, 6, &func);
 }
 
 void ProjectileFactory::SaveProjectile(Projectile *p, int fd)
@@ -12169,7 +12169,7 @@ namespace _func879
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ProjectileFactory::SetAutoFire", typeid(void (ProjectileFactory::*)(bool )), "8b44240484c0751e80b9f40000000074", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ProjectileFactory::SetAutoFire", typeid(void (ProjectileFactory::*)(bool )), "8b44240484c075", argdata, 2, 5, &func);
 }
 
 void ProjectileFactory::SetAutoFire(bool autoFire)
@@ -12197,7 +12197,7 @@ namespace _func881
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ReactorButton::OnClick", typeid(void (ReactorButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b4970", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ReactorButton::OnClick", typeid(void (ReactorButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b4970e8????????03536c83fa180f8f????????807b40000f84????????", argdata, 1, 5, &func);
 }
 
 void ReactorButton::OnClick()
@@ -12225,7 +12225,7 @@ namespace _func883
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ReactorButton::OnRender", typeid(void (ReactorButton::*)()), "578d7c240883e4f0ff77fc5589e557565389ce81ec6c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ReactorButton::OnRender", typeid(void (ReactorButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cf81ec????????898db4fbffffe8????????807f410074??807f40000f85????????", argdata, 1, 5, &func);
 }
 
 void ReactorButton::OnRender()
@@ -12260,7 +12260,7 @@ namespace _func886
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ResourceControl::constructor", typeid(void (ResourceControl::*)()), "8d4118f30f1005????????c741040100", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ResourceControl::constructor", typeid(void (ResourceControl::*)()), "8d4118f30f1005????????c7410401000000c7410800000000f30f11411089018d4134c7410c00000000c7411400000000f30f11412c89411c8d4150c7411800000000c7412001000000f30f1141488941388d4164c7412400000000c741280000000089415c", argdata, 1, 5, &func);
 }
 
 void ResourceControl::constructor()
@@ -12288,7 +12288,7 @@ namespace _func888
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ResourceControl::OnInit", typeid(void (ResourceControl::*)(int )), "5589e55389cb83e4f083ec108b4508c781", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ResourceControl::OnInit", typeid(void (ResourceControl::*)(int )), ".5589e55389cb", argdata, 2, 5, &func);
 }
 
 void ResourceControl::OnInit(int imageSwappingMode)
@@ -12330,7 +12330,7 @@ namespace _func891
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ResourceControl::GetImageId", typeid(GL_Texture *(ResourceControl::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e55756538d459081ecac", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ResourceControl::GetImageId", typeid(GL_Texture *(ResourceControl::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e55756538d459081ec????????8b1f8b3d????????", argdata, 2, 1, &func);
 }
 
 GL_Texture *ResourceControl::GetImageId(const std::string &dir)
@@ -12344,7 +12344,7 @@ namespace _func892
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x4ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ResourceControl::RenderImage", typeid(int (ResourceControl::*)(GL_Texture *, int , int , int , GL_Color , float , bool )), "578d7c240883e4f0ff77fc5589e557565383ec5c8b570c", argdata, 8, 1, &func);
+	static FunctionDefinition funcObj("ResourceControl::RenderImage", typeid(int (ResourceControl::*)(GL_Texture *, int , int , int , GL_Color , float , bool )), "5589e583e4f083ec408b45088b552c85c00f84????????660fefd289c185c9f30f104d20f30f106d1cf30f104518", argdata, 8, 1, &func);
 }
 
 int ResourceControl::RenderImage(GL_Texture *tex, int x, int y, int rotation, GL_Color color, float opacity, bool mirror)
@@ -12386,7 +12386,7 @@ namespace _func895
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ResourceControl::GetFontData", typeid(freetype::font_data &(ResourceControl::*)(int , bool )), "578d7c240883e4f0ff77fc5589e557565389fe83", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ResourceControl::GetFontData", typeid(freetype::font_data &(ResourceControl::*)(int , bool )), "57????????83e4f0ff77fc5589e557565389cb83ec4c8b37897dc08b4f048d46fa83f8020f87????????c70709000000b809000000ba01000000be09000000", argdata, 3, 1, &func);
 }
 
 freetype::font_data &ResourceControl::GetFontData(int size, bool ignoreLanguage)
@@ -12414,7 +12414,7 @@ namespace _func897
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ResourceControl::PreloadResources", typeid(bool (ResourceControl::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389ce81ec1c02", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ResourceControl::PreloadResources", typeid(bool (ResourceControl::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389ce81ec1c0200000fb6078885effdffffe8????????8b86cc000000", argdata, 2, 1, &func);
 }
 
 bool ResourceControl::PreloadResources(bool unk)
@@ -12561,7 +12561,7 @@ namespace _func910
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("Room::OnRenderFloor", typeid(void (Room::*)(float , bool )), "5589e55383e4f083ec308b517cf30f10", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("Room::OnRenderFloor", typeid(void (Room::*)(float , bool )), "5589e55383e4f083ec308b517cf30f1005????????f30f5c4178f30f100d????????891424f30f5905????????f30f2cc0660fefc08d1c0005????????f30f2ac0b8????????", argdata, 3, 5, &func);
 }
 
 void Room::OnRenderFloor(float alpha, bool experimental)
@@ -12575,7 +12575,7 @@ namespace _func911
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Room::OnRenderWalls", typeid(void (Room::*)(float )), "????????7406807924007404c2040090", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("Room::OnRenderWalls", typeid(void (Room::*)(float )), "8079400074??8079240074??c20400905589e55389cb83e4f083ec108b819c000000f30f105d08f30f115c2404", argdata, 2, 5, &func);
 }
 
 void Room::OnRenderWalls(float alpha)
@@ -12638,7 +12638,7 @@ namespace _func916
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("Room::FillSlot", typeid(void (Room::*)(int , bool )), "565389cb0fb64424108b73348b4c240c????????00000001d08d048689cec1ee058b008d34b0b801000000d3e08b0e85c175", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("Room::FillSlot", typeid(void (Room::*)(int , bool )), "565389cb0fb64424108b73348b4c240c8d14850000000001d08d048689cec1ee058b008d34b0b801000000d3e08b0e85c175??03532809c88906830201", argdata, 3, 5, &func);
 }
 
 void Room::FillSlot(int slot, bool intruder)
@@ -12652,7 +12652,7 @@ namespace _func917
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("Room::OnLoop", typeid(void (Room::*)()), "578d7c240883e4f0ff77fc5589e55756538d9960", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("Room::OnLoop", typeid(void (Room::*)()), "578d????0883e4f0ff????5589e55756538d9960020000", argdata, 1, 5, &func);
 }
 
 void Room::OnLoop()
@@ -12680,7 +12680,7 @@ namespace _func919
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ScoreKeeper::GetShipBlueprint", typeid(std::string (ScoreKeeper::*)(int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b47048d", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::GetShipBlueprint", typeid(std::string (ScoreKeeper::*)(int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b4704", argdata, 3, 1, &func);
 }
 
 std::string ScoreKeeper::GetShipBlueprint(int index)
@@ -12736,7 +12736,7 @@ namespace _func923
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ScoreKeeper::UnlockShip", typeid(void (ScoreKeeper::*)(int , int , bool , bool )), "578d7c240883e4f0ff77fc5589e557565383ec1c8b17", argdata, 5, 5, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::UnlockShip", typeid(void (ScoreKeeper::*)(int , int , bool , bool )), "5789c88d7c240883e4f0ff77fc5589e557565383ec5c8b57048b1f8955c48b570885db8b7f0c8955bc", argdata, 5, 5, &func);
 }
 
 void ScoreKeeper::UnlockShip(int shipType, int shipVariant, bool save, bool hidePopup)
@@ -12750,7 +12750,7 @@ namespace _func924
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ScoreKeeper::SetVictory", typeid(void (ScoreKeeper::*)(bool )), "8b44240484c088818802000074078381", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::SetVictory", typeid(void (ScoreKeeper::*)(bool )), "8b44240484c088818802000074??83814802000001c20400", argdata, 2, 5, &func);
 }
 
 void ScoreKeeper::SetVictory(bool victory)
@@ -12778,7 +12778,7 @@ namespace _func926
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ScoreKeeper::GetShipId", typeid(std::pair<int, int> (ScoreKeeper::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e557565383ec5c8b37c7", argdata, 2, 9, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::GetShipId", typeid(std::pair<int, int> (ScoreKeeper::*)(const std::string &)), ".578d7c240883e4f0ff77fc5589e5575653", argdata, 2, 9, &func);
 }
 
 std::pair<int, int> ScoreKeeper::GetShipId(const std::string &blueprintName)
@@ -12820,7 +12820,7 @@ namespace _func929
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ScoreKeeper::MouseClick", typeid(void (ScoreKeeper::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c80b9c4", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::MouseClick", typeid(void (ScoreKeeper::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c80b9c40b0000000f85????????0fb6812c06000084c0", argdata, 3, 5, &func);
 }
 
 void ScoreKeeper::MouseClick(int x, int y)
@@ -12848,7 +12848,7 @@ namespace _func931
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ScoreKeeper::CheckTypes", typeid(void (ScoreKeeper::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8db3cc", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::CheckTypes", typeid(void (ScoreKeeper::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8db3cc07000083ec3cc7442404010000008b81800b0000890424", argdata, 1, 5, &func);
 }
 
 void ScoreKeeper::CheckTypes()
@@ -12932,7 +12932,7 @@ namespace _func937
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ScoreKeeper::Open", typeid(void (ScoreKeeper::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec3c80b9c4", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::Open", typeid(void (ScoreKeeper::*)(bool )), ".578d7c240883e4f0ff77fc5589e557565389ce83c10c", argdata, 2, 5, &func);
 }
 
 void ScoreKeeper::Open(bool fromGameOver)
@@ -12960,7 +12960,7 @@ namespace _func939
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ScoreKeeper::AddScrapCollected", typeid(void (ScoreKeeper::*)(int )), "578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec3c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::AddScrapCollected", typeid(void (ScoreKeeper::*)(int )), "578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec3c8b37e8????????84c0", argdata, 2, 5, &func);
 }
 
 void ScoreKeeper::AddScrapCollected(int scrap)
@@ -12988,7 +12988,7 @@ namespace _func941
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ScoreKeeper::SaveGame", typeid(void (ScoreKeeper::*)(int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b1fa1", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::SaveGame", typeid(void (ScoreKeeper::*)(int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b1fa1????????8d7e0889442404891c24", argdata, 2, 5, &func);
 }
 
 void ScoreKeeper::SaveGame(int fd)
@@ -13030,7 +13030,7 @@ namespace _func944
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ScoreKeeper::SetSector", typeid(void (ScoreKeeper::*)(int )), "8b442404c7412400000000????????00", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ScoreKeeper::SetSector", typeid(void (ScoreKeeper::*)(int )), "8b442404c7412400000000c7414c00000000c7417400000000c7819c00000000000000898180020000", argdata, 2, 5, &func);
 }
 
 void ScoreKeeper::SetSector(int sector)
@@ -13051,7 +13051,7 @@ namespace _func946
 {
     static void *func = 0;
 	static const short *argdata = NULL;
-	static FunctionDefinition funcObj("Settings::GetCommandConsole", typeid(char (*)()), "0fb605????????c3908db426000000005589e583e4f083ec100f", argdata, 0, 0, &func);
+	static FunctionDefinition funcObj("Settings::GetCommandConsole", typeid(char (*)()), "0fb605????????c3908db426000000005589e583e4f083ec100fb605????????c70424????????83f001a2????????", argdata, 0, 0, &func);
 }
 
 char Settings::GetCommandConsole()
@@ -13079,7 +13079,7 @@ namespace _func948
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("Settings::GetHotkeyName", typeid(std::string (*)(const std::string &)), "8d4c240483e4f0ff71fc5589e5575653518db5e0", argdata, 2, 2, &func);
+	static FunctionDefinition funcObj("Settings::GetHotkeyName", typeid(std::string (*)(const std::string &)), "8d4c240483e4f0ff71fc5589e5575653518d75cc8d7dd483ec788b01", argdata, 2, 2, &func);
 }
 
 std::string Settings::GetHotkeyName(const std::string &name)
@@ -13093,7 +13093,7 @@ namespace _func949
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff};
-	static FunctionDefinition funcObj("Settings::GetHotkey", typeid(SDLKey (*)(const std::string &)), "5589e557565331f689cb83e4f083ec108b9148", argdata, 1, 2, &func);
+	static FunctionDefinition funcObj("Settings::GetHotkey", typeid(SDLKey (*)(const std::string &)), ".5589e557565383e4f0", argdata, 1, 2, &func);
 }
 
 SDLKey Settings::GetHotkey(const std::string &hotkeyName)
@@ -13135,7 +13135,7 @@ namespace _func952
 {
     static void *func = 0;
 	static const short *argdata = NULL;
-	static FunctionDefinition funcObj("Settings::ResetHotkeys", typeid(void (*)()), "8d4c240483e4f0ff71fc5589e557565351be", argdata, 0, 6, &func);
+	static FunctionDefinition funcObj("Settings::ResetHotkeys", typeid(void (*)()), ".8d4c240483e4f0ff71fc5589e557565351be????????83ec688b465c8b5e6039d88945a489c774??90", argdata, 0, 6, &func);
 }
 
 void Settings::ResetHotkeys()
@@ -13149,7 +13149,7 @@ namespace _func953
 {
     static void *func = 0;
 	static const short *argdata = NULL;
-	static FunctionDefinition funcObj("Settings::LoadSettings", typeid(void (*)()), "8d4c240483e4f0ff71fc5589e5575653518d9d", argdata, 0, 6, &func);
+	static FunctionDefinition funcObj("Settings::LoadSettings", typeid(void (*)()), ".8d4c240483e4f0ff71fc5589e5575653518d9d24ffffff81ec????????e8????????8d8d60ffffffe8????????a1????????c645d400", argdata, 0, 6, &func);
 }
 
 void Settings::LoadSettings()
@@ -13198,7 +13198,7 @@ namespace _func957
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x4ff};
-	static FunctionDefinition funcObj("Shields::SetBaseEllipse", typeid(void (Shields::*)(Globals::Ellipse )), "5589e5f30f104d108b4508f30f104514", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("Shields::SetBaseEllipse", typeid(void (Shields::*)(Globals::Ellipse )), "5589e5f30f104d108b4508f30f1045148b550cf30f1181d8010000f30f5ec1f30f1189d40100008981cc0100008991d00100005df30f1181c0010000", argdata, 2, 5, &func);
 }
 
 void Shields::SetBaseEllipse(Globals::Ellipse ellipse)
@@ -13212,7 +13212,7 @@ namespace _func958
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Shields::SetHackingLevel", typeid(void (Shields::*)(int )), "538b44240883f8017e0983b9a8010000", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("Shields::SetHackingLevel", typeid(void (Shields::*)(int )), "538b44????83f8017e??83b9a801000001", argdata, 2, 5, &func);
 }
 
 void Shields::SetHackingLevel(int hackingLevel)
@@ -13254,7 +13254,7 @@ namespace _func961
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("Shields::OnLoop", typeid(void (Shields::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8db564", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("Shields::OnLoop", typeid(void (Shields::*)()), "578d7c240883e4f0ff77fc5589e557565389ce8d7dd083ec4ce8????????8d45d8893c24c745d8454e4552c745dc47595f53c745e04849454c8945d0", argdata, 1, 5, &func);
 }
 
 void Shields::OnLoop()
@@ -13317,7 +13317,7 @@ namespace _func966
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Ship::ContainsHullBreach", typeid(std::pair<int, int> (Ship::*)(int )), "578d7c240883e4f0ff77fc5589f889e557565331db89cf83ec2c", argdata, 2, 9, &func);
+	static FunctionDefinition funcObj("Ship::ContainsHullBreach", typeid(std::pair<int, int> (Ship::*)(int )), "578d????0883e4f0ff????5589f889e557565331db89cf83ec2c8b??", argdata, 2, 9, &func);
 }
 
 std::pair<int, int> Ship::ContainsHullBreach(int roomId)
@@ -13331,7 +13331,7 @@ namespace _func967
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("Ship::GetSelectedRoomId", typeid(int (Ship::*)(int , int , bool )), "578d7c240883e4f0ff77fc5589e557565383ec2c8b41048b57048b378b5f088904248955e4e8a6", argdata, 4, 1, &func);
+	static FunctionDefinition funcObj("Ship::GetSelectedRoomId", typeid(int (Ship::*)(int , int , bool )), "578d7c240883e4f0ff77fc5589e557565383ec2c8b41048b57048b378b5f08", argdata, 4, 1, &func);
 }
 
 int Ship::GetSelectedRoomId(int x, int y, bool unk)
@@ -13359,7 +13359,7 @@ namespace _func969
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Ship::RoomLocked", typeid(bool (Ship::*)(int )), "538b81bc0300008b89c00300008b5c24", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("Ship::RoomLocked", typeid(bool (Ship::*)(int )), "538b81bc0300008b89c00300008b5c240829c1c1f90469c9????????85c974??3b98ec00000074??05????????31d2eb??05????????3b9810ffffff", argdata, 2, 1, &func);
 }
 
 bool Ship::RoomLocked(int roomId)
@@ -13373,7 +13373,7 @@ namespace _func970
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("Ship::DestroyedDone", typeid(bool (Ship::*)()), "0fb681f001000084c074070fb6815201", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("Ship::DestroyedDone", typeid(bool (Ship::*)()), "0fb681f001000084c0", argdata, 1, 1, &func);
 }
 
 bool Ship::DestroyedDone()
@@ -13387,7 +13387,7 @@ namespace _func971
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("Ship::FullRoom", typeid(bool (Ship::*)(int , bool )), "578d7c240883e4f0ff77fc5589e557565383ec1c8b5908", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("Ship::FullRoom", typeid(bool (Ship::*)(int , bool )), "578d7c240883e4f0ff77fc5589e557565383ec1c8b59088b410c8b178b770429d8", argdata, 3, 1, &func);
 }
 
 bool Ship::FullRoom(int roomId, bool intruder)
@@ -13457,7 +13457,7 @@ namespace _func976
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Ship::OnInit", typeid(void (Ship::*)(ShipBlueprint &)), "57b81c0201008d7c240883e4f0ff77fc", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("Ship::OnInit", typeid(void (Ship::*)(ShipBlueprint &)), "57b8????????8d7c240883e4f0ff77fc5589e5575653e8????????29c48b0789cb8db5a4fffeff898544fefeffa1????????85c00f84????????8b3d????????85ff", argdata, 2, 5, &func);
 }
 
 void Ship::OnInit(ShipBlueprint &bp)
@@ -13499,7 +13499,7 @@ namespace _func979
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Ship::OnRenderBase", typeid(void (Ship::*)(bool )), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec6c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("Ship::OnRenderBase", typeid(void (Ship::*)(bool )), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec5c8b008945d08b4104890424e8????????", argdata, 2, 5, &func);
 }
 
 void Ship::OnRenderBase(bool unk)
@@ -13527,7 +13527,7 @@ namespace _func981
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Ship::OnRenderJump", typeid(void (Ship::*)(float )), "578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b41", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("Ship::OnRenderJump", typeid(void (Ship::*)(float )), "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b4104f30f1027f30f1165d4890424", argdata, 2, 5, &func);
 }
 
 void Ship::OnRenderJump(float progress)
@@ -13555,7 +13555,7 @@ namespace _func983
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Ship::GetBaseEllipse", typeid(Globals::Ellipse (Ship::*)()), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b1f8b83", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("Ship::GetBaseEllipse", typeid(Globals::Ellipse (Ship::*)()), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b1f8b83f401000089018b83f80100008941048b83fc0100008941088b830002000089410c", argdata, 2, 1, &func);
 }
 
 Globals::Ellipse Ship::GetBaseEllipse()
@@ -13653,7 +13653,7 @@ namespace _func990
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Ship::GetCloakAlpha", typeid(float (Ship::*)(bool )), "578d7c240883e4f0ff77fc5589e5575383ec2080b9", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("Ship::GetCloakAlpha", typeid(float (Ship::*)(bool )), "578d????0883e4f0ff????5589e5575383ec2080b9b8030000008b??f30f1005????????", argdata, 2, 1, &func);
 }
 
 float Ship::GetCloakAlpha(bool complete)
@@ -13729,7 +13729,7 @@ namespace _func998
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipAI::SetStalemate", typeid(void (ShipAI::*)(bool )), "8b44240484c0740980b9ec0000000075", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipAI::SetStalemate", typeid(void (ShipAI::*)(bool )), ".8b44240484c074??80b9ec0000000075??c781f0000000000000008881ec000000", argdata, 2, 5, &func);
 }
 
 void ShipAI::SetStalemate(bool stalemate)
@@ -13757,7 +13757,7 @@ namespace _func1000
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipAI::GetTeleportCommand", typeid(std::pair<int, int> (ShipAI::*)()), "8b410485c074498b0185c07443578d7c", argdata, 1, 9, &func);
+	static FunctionDefinition funcObj("ShipAI::GetTeleportCommand", typeid(std::pair<int, int> (ShipAI::*)()), "8b410485c00f84????????8b0185c00f84????????578d7c240883e4f0ff77fc5589e5575389cb89c1", argdata, 1, 9, &func);
 }
 
 std::pair<int, int> ShipAI::GetTeleportCommand()
@@ -13785,7 +13785,7 @@ namespace _func1002
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipBuilder::CheckTypes", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8db32c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipBuilder::CheckTypes", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8db32c0a000083ec3cc7442404010000008b8124110000b9????????890424e8????????83ec0884c00f85????????c70424????????89f1e8????????c6834a0a000000", argdata, 1, 5, &func);
 }
 
 void ShipBuilder::CheckTypes()
@@ -13813,7 +13813,7 @@ namespace _func1004
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipBuilder::SwitchShip", typeid(void (ShipBuilder::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b17", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ShipBuilder::SwitchShip", typeid(void (ShipBuilder::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b178b7f0489b9001c0000", argdata, 3, 5, &func);
 }
 
 void ShipBuilder::SwitchShip(int shipType, int shipVariant)
@@ -13855,7 +13855,7 @@ namespace _func1007
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipBuilder::SetupShipAchievements", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b816c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipBuilder::SetupShipAchievements", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565389ce83ec5c8b816c1c0000c781781c0000ffffffff8981701c0000", argdata, 1, 5, &func);
 }
 
 void ShipBuilder::SetupShipAchievements()
@@ -13883,7 +13883,7 @@ namespace _func1009
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipBuilder::SwapType", typeid(void (ShipBuilder::*)(int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b09", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipBuilder::SwapType", typeid(void (ShipBuilder::*)(int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b098b3785c9", argdata, 2, 5, &func);
 }
 
 void ShipBuilder::SwapType(int variant)
@@ -13925,7 +13925,7 @@ namespace _func1012
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipBuilder::Open", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565381ec4c05000089", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipBuilder::Open", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565381ec????????898d38fbffff", argdata, 1, 5, &func);
 }
 
 void ShipBuilder::Open()
@@ -13953,7 +13953,7 @@ namespace _func1014
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipBuilder::OnLoop", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565389cbb9????????81ec8c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipBuilder::OnLoop", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565389cbb9????????81ec????????e8????????84c0", argdata, 1, 5, &func);
 }
 
 void ShipBuilder::OnLoop()
@@ -13967,7 +13967,7 @@ namespace _func1015
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipBuilder::constructor", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83c10c8d", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipBuilder::constructor", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83c10c8d7dd08d75d883ec3cc741f800000000c741fc00000000", argdata, 1, 5, &func);
 }
 
 void ShipBuilder::constructor()
@@ -13981,7 +13981,7 @@ namespace _func1016
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipBuilder::MouseMove", typeid(void (ShipBuilder::*)(int , int )), "578d7c240883e4f0ff77fc5589f889e557565389cf81ecac01", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ShipBuilder::MouseMove", typeid(void (ShipBuilder::*)(int , int )), "578d7c240883e4f0ff77fc5589f889e557565389cf81ec????????8b308b4004898570feffff8d81540f000089b574feffff", argdata, 3, 5, &func);
 }
 
 void ShipBuilder::MouseMove(int x, int y)
@@ -14009,7 +14009,7 @@ namespace _func1018
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipBuilder::GetShip", typeid(ShipManager *(ShipBuilder::*)()), "80b9a810000000744b578d7c240883e4", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipBuilder::GetShip", typeid(ShipManager *(ShipBuilder::*)()), "80??????????0074??57", argdata, 1, 1, &func);
 }
 
 ShipManager *ShipBuilder::GetShip()
@@ -14023,7 +14023,7 @@ namespace _func1019
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipBuilder::CycleTypeNext", typeid(void (ShipBuilder::*)()), "578d7c240883e4f0ff77fc5589e557565389cf31f683ec1c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipBuilder::CycleTypeNext", typeid(void (ShipBuilder::*)()), "578d????0883e4f0ff????5589e557565389cf31f683ec1c8b81001c0000", argdata, 1, 5, &func);
 }
 
 void ShipBuilder::CycleTypeNext()
@@ -14135,7 +14135,7 @@ namespace _func1027
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGenerator::CreateShip", typeid(ShipManager *(*)(const std::string &, int , ShipEvent &)), "8d4c240483e4f0ff71fc5589e55756535131f6", argdata, 3, 2, &func);
+	static FunctionDefinition funcObj("ShipGenerator::CreateShip", typeid(ShipManager *(*)(const std::string &, int , ShipEvent &)), "8d4c240483e4f0ff71fc5589e55756535131db81ec????????8b01c7850cfbffff00000000c78510fbffff00000000c78514fbffff000000008985f0faffff8b4104898500fbffff8b4108", argdata, 3, 2, &func);
 }
 
 ShipManager *ShipGenerator::CreateShip(const std::string &name, int sector, ShipEvent &event)
@@ -14163,7 +14163,7 @@ namespace _func1029
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGenerator::UpgradeSystem", typeid(bool (*)(ShipManager *, std::vector<int> &, unsigned int )), "8d4c240483e4f0ff71fc5589e55756535183ec288b7908", argdata, 3, 2, &func);
+	static FunctionDefinition funcObj("ShipGenerator::UpgradeSystem", typeid(bool (*)(ShipManager *, std::vector<int> &, unsigned int )), "8d4c240483e4f0ff71fc5589e55756535183ec388b41088b318b790489042489f18945e4", argdata, 3, 2, &func);
 }
 
 bool ShipGenerator::UpgradeSystem(ShipManager *ship, std::vector<int> &systemMaxes, unsigned int sysId)
@@ -14177,7 +14177,7 @@ namespace _func1030
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGenerator::GetPossibleSystemUpgrades", typeid(std::vector<int> (*)(ShipManager *, std::vector<int> &, int , int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec6c8945c0c70000000000c7400400000000c740080000000031c08955bcc745c8000000008db426000000008944", argdata, 5, 2, &func);
+	static FunctionDefinition funcObj("ShipGenerator::GetPossibleSystemUpgrades", typeid(std::vector<int> (*)(ShipManager *, std::vector<int> &, int , int )), "8d4c240483e4f0ff71fc5589e55756535183ec688b018b71048b7910c745c8000000008945c08975b8c70000000000c7400400000000c74008000000008b710831c0897dbc", argdata, 5, 2, &func);
 }
 
 std::vector<int> ShipGenerator::GetPossibleSystemUpgrades(ShipManager *ship, std::vector<int> &systemMaxes, int scrap, int type)
@@ -14336,7 +14336,7 @@ namespace _func1040
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::DoorCount", typeid(int (ShipGraph::*)(int )), "538b411c8b59188b54240829d8c1f802", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::DoorCount", typeid(int (ShipGraph::*)(int )), ".538b411c8b59188b54240829d8c1f80239c27d??85d278??8b04935bc20400", argdata, 2, 1, &func);
 }
 
 int ShipGraph::DoorCount(int roomId)
@@ -14350,7 +14350,7 @@ namespace _func1041
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::GetDoors", typeid(std::vector<Door*> (ShipGraph::*)(int )), "578d7c240883e4f0ff77fc5589e557565383ec3c8b37c7", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::GetDoors", typeid(std::vector<Door*> (ShipGraph::*)(int )), ".578d7c240883e4f0ff77fc5589e557565383ec3c8b37c701????????c7410400000000", argdata, 3, 1, &func);
 }
 
 std::vector<Door*> ShipGraph::GetDoors(int roomId)
@@ -14378,7 +14378,7 @@ namespace _func1043
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::ConnectingDoor", typeid(Door *(ShipGraph::*)(int , int , int , int )), "578d7c240883e4f0ff77fc5589e5575383ec108b5f088b078b57048b7f0c895c2408890424897c240c89542404e84e", argdata, 5, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::ConnectingDoor", typeid(Door *(ShipGraph::*)(int , int , int , int )), ".578d7c240883e4f0ff77fc5589f889e557565389cb8d4de083ec5c8b378b7f048b50088b400c", argdata, 5, 1, &func);
 }
 
 Door *ShipGraph::ConnectingDoor(int x1, int y1, int x2, int y2)
@@ -14420,7 +14420,7 @@ namespace _func1046
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x2ff};
-	static FunctionDefinition funcObj("ShipGraph::ConnectingDoor", typeid(Door *(ShipGraph::*)(Point , Point )), "578d7c240883e4f0ff77fc5589e5575383ec108b5f088b078b57048b7f0c895c2408890424897c240c89542404e84e", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::ConnectingDoor", typeid(Door *(ShipGraph::*)(Point , Point )), ".578d7c240883e4f0ff77fc5589e5575383ec108b5f088b078b57048b7f0c895c2408890424", argdata, 3, 1, &func);
 }
 
 Door *ShipGraph::ConnectingDoor(Point p1, Point p2)
@@ -14434,7 +14434,7 @@ namespace _func1047
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::GetNumSlots", typeid(int (ShipGraph::*)(int )), "8b5424048b018b04908b50348b421c2b", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::GetNumSlots", typeid(int (ShipGraph::*)(int )), ".8b5424048b018b04908b50348b421c2b4214c1f802c1e005", argdata, 2, 1, &func);
 }
 
 int ShipGraph::GetNumSlots(int room)
@@ -14476,7 +14476,7 @@ namespace _func1050
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x2ff, 0x2ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::FindPath", typeid(Path (ShipGraph::*)(Point , Point , int )), "578d7c240883e4f0ff77fc5589f889e557565383ec6c8b50", argdata, 5, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::FindPath", typeid(Path (ShipGraph::*)(Point , Point , int )), ".578d7c240883e4f0ff77fc5589f889e557565383ec6c8b500c", argdata, 5, 1, &func);
 }
 
 Path ShipGraph::FindPath(Point p1, Point p2, int shipId)
@@ -14583,7 +14583,7 @@ namespace _func1055
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipGraph::ComputeCenter", typeid(void (ShipGraph::*)()), "578d7c240883e4f0ff77fc5589e557565383ec4c8b79", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipGraph::ComputeCenter", typeid(void (ShipGraph::*)()), ".578d7c240883e4f0ff77fc5589e557565383ec4c8b79048b01", argdata, 1, 5, &func);
 }
 
 void ShipGraph::ComputeCenter()
@@ -14611,7 +14611,7 @@ namespace _func1057
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::GetSelectedRoom", typeid(int (ShipGraph::*)(int , int , bool )), "578d7c240883e4f0ff77fc5589f889e557565389ce83ec2c8b09", argdata, 4, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::GetSelectedRoom", typeid(int (ShipGraph::*)(int , int , bool )), ".578d7c240883e4f0ff77fc5589e557565389fb89ce83ec2c8b43040fb6530831db", argdata, 4, 1, &func);
 }
 
 int ShipGraph::GetSelectedRoom(int x, int y, bool unk)
@@ -14625,7 +14625,7 @@ namespace _func1058
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipGraph::RoomCount", typeid(int (ShipGraph::*)()), "8b41042b01c1f802c3908db600000000", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::RoomCount", typeid(int (ShipGraph::*)()), ".8b41042b01c1f802", argdata, 1, 1, &func);
 }
 
 int ShipGraph::RoomCount()
@@ -14639,7 +14639,7 @@ namespace _func1059
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::GetRoomShape", typeid(Globals::Rect (ShipGraph::*)(int )), "5789c88d7c240883e4f0ff77fc5589e557565383ec2c8b17", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::GetRoomShape", typeid(Globals::Rect (ShipGraph::*)(int )), ".5789c88d7c240883e4f0ff77fc5589e557565383ec2c8b178b7f04", argdata, 3, 1, &func);
 }
 
 Globals::Rect ShipGraph::GetRoomShape(int room)
@@ -14667,7 +14667,7 @@ namespace _func1061
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::GetRoomBlackedOut", typeid(bool (ShipGraph::*)(int )), "5653b8010000008b5c240c85db78158b", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::GetRoomBlackedOut", typeid(bool (ShipGraph::*)(int )), ".5653b8????????8b5c240c85db78??8b318b510429f2c1fa02", argdata, 2, 1, &func);
 }
 
 bool ShipGraph::GetRoomBlackedOut(int room)
@@ -14695,7 +14695,7 @@ namespace _func1063
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::GetSlotWorldPosition", typeid(Point (ShipGraph::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565383ec3c8b57048b01", argdata, 3, 9, &func);
+	static FunctionDefinition funcObj("ShipGraph::GetSlotWorldPosition", typeid(Point (ShipGraph::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565383ec3c8b57048b018d4dd88b1f8b0490890424", argdata, 3, 9, &func);
 }
 
 Point ShipGraph::GetSlotWorldPosition(int slotId, int roomId)
@@ -14709,7 +14709,7 @@ namespace _func1064
 {
     static void *func = 0;
 	static const short *argdata = NULL;
-	static FunctionDefinition funcObj("ShipGraph::Restart", typeid(void (*)()), "8d4c240483e4f0ff71fc5589e55756535181ec88000000a1????????8b15", argdata, 0, 6, &func);
+	static FunctionDefinition funcObj("ShipGraph::Restart", typeid(void (*)()), "8d4c240483e4f0ff71fc5589e55756535183ec188b", argdata, 0, 6, &func);
 }
 
 void ShipGraph::Restart()
@@ -14793,7 +14793,7 @@ namespace _func1070
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::GetDodgeFactor", typeid(int (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565381ec5c02", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetDodgeFactor", typeid(int (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565383ec2c8bb1c8040000837e04ff74??c70424????????89cb", argdata, 1, 1, &func);
 }
 
 int ShipManager::GetDodgeFactor()
@@ -14807,7 +14807,7 @@ namespace _func1071
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::GetNetDodgeFactor", typeid(int (ShipManager::*)()), "5589e5565389cb83e4f0e801feffff89", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetNetDodgeFactor", typeid(int (ShipManager::*)()), ".5589e5565389cb83e4f0e8????????89c68b038b4010", argdata, 1, 1, &func);
 }
 
 int ShipManager::GetNetDodgeFactor()
@@ -14877,7 +14877,7 @@ namespace _func1076
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::HasSystem", typeid(bool (ShipManager::*)(int )), "8b542404b80100000083fa11740d8b81", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::HasSystem", typeid(bool (ShipManager::*)(int )), "8b44240483f81174??8b91c8040000833c82ff0f95c0c204008db42600000000b8????????", argdata, 2, 1, &func);
 }
 
 bool ShipManager::HasSystem(int systemId)
@@ -14891,7 +14891,7 @@ namespace _func1077
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetSystemInRoom", typeid(ShipSystem *(ShipManager::*)(int )), "8b511839511c74685589e557565389ce", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetSystemInRoom", typeid(ShipSystem *(ShipManager::*)(int )), "8b51188b411c29d0c1f80285c074??5589e557565389ce31db83e4f0eb??66908b41383b450874??8b461c83c301", argdata, 2, 1, &func);
 }
 
 ShipSystem *ShipManager::GetSystemInRoom(int roomId)
@@ -14905,7 +14905,7 @@ namespace _func1078
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::OnLoop", typeid(void (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565389ce8d8d1c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::OnLoop", typeid(void (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565389ce8d8d1cffffff81ec????????", argdata, 1, 5, &func);
 }
 
 void ShipManager::OnLoop()
@@ -14919,7 +14919,7 @@ namespace _func1079
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::IncreaseSystemPower", typeid(bool (ShipManager::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec148b81c80400008b178b", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::IncreaseSystemPower", typeid(bool (ShipManager::*)(int )), "578d????0883e4f0ff????5589e55783ec148b81c80400008b??8b149031c0", argdata, 2, 1, &func);
 }
 
 bool ShipManager::IncreaseSystemPower(int systemId)
@@ -14933,7 +14933,7 @@ namespace _func1080
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::CreateSystems", typeid(int (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b8108", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::CreateSystems", typeid(int (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b810807000085c0", argdata, 1, 1, &func);
 }
 
 int ShipManager::CreateSystems()
@@ -15003,7 +15003,7 @@ namespace _func1085
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::UpdateEnvironment", typeid(void (ShipManager::*)()), "578d41708d7c240883e4f0ff77fc5589e557565389cf89", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::UpdateEnvironment", typeid(void (ShipManager::*)()), "578d41708d7c240883e4f0ff77fc5589e557565389cf89c1", argdata, 1, 5, &func);
 }
 
 void ShipManager::UpdateEnvironment()
@@ -15045,7 +15045,7 @@ namespace _func1088
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::AddCrewMember", typeid(void (ShipManager::*)(CrewMember *, int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b41048b77", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::AddCrewMember", typeid(void (ShipManager::*)(CrewMember *, int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b41048b77048904248b0f", argdata, 3, 5, &func);
 }
 
 void ShipManager::AddCrewMember(CrewMember *crew, int roomId)
@@ -15073,7 +15073,7 @@ namespace _func1090
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0xdff};
-	static FunctionDefinition funcObj("ShipManager::DamageCrew", typeid(bool (ShipManager::*)(CrewMember *, Damage )), "578d7c240883e4f0ff77fc5589f889e557565383ec2c80", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::DamageCrew", typeid(bool (ShipManager::*)(CrewMember *, Damage )), "578d7c240883e4f0ff77fc5589f889e557565383ec2c807832008b1f8b7f2875??3b7b04", argdata, 3, 1, &func);
 }
 
 bool ShipManager::DamageCrew(CrewMember *crew, Damage dmg)
@@ -15129,7 +15129,7 @@ namespace _func1094
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::PulsarDamage", typeid(void (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565389ce83ec6c8b01", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::PulsarDamage", typeid(void (ShipManager::*)()), "578d????0883e4f0ff????5589e557565389ce83ec6c8b01", argdata, 1, 5, &func);
 }
 
 void ShipManager::PulsarDamage()
@@ -15171,7 +15171,7 @@ namespace _func1097
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::PrepareSuperDrones", typeid(void (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565389ce83ec7c8b91", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::PrepareSuperDrones", typeid(void (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565389ce83ec7c8b816c0800003b81700800000f84????????8b0d????????ba????????83f90274??83f901", argdata, 1, 5, &func);
 }
 
 void ShipManager::PrepareSuperDrones()
@@ -15199,7 +15199,7 @@ namespace _func1099
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::ModifyScrapCount", typeid(void (ShipManager::*)(int , bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b378b47", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::ModifyScrapCount", typeid(void (ShipManager::*)(int , bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b378b470485f6", argdata, 3, 5, &func);
 }
 
 void ShipManager::ModifyScrapCount(int scrap, bool income)
@@ -15213,7 +15213,7 @@ namespace _func1100
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::ModifyMissileCount", typeid(void (ShipManager::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec148b81c80400008b1783780cff7530", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::ModifyMissileCount", typeid(void (ShipManager::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec148b81c80400008b1783780cff75300191040800008b7dfc8b810408000085c0b800000000", argdata, 2, 5, &func);
 }
 
 void ShipManager::ModifyMissileCount(int missiles)
@@ -15241,7 +15241,7 @@ namespace _func1102
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::ModifyDroneCount", typeid(void (ShipManager::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec148b81c80400008b17837810ff7530", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::ModifyDroneCount", typeid(void (ShipManager::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec148b81c80400008b17837810ff75300191000800008b7dfc8b8100080000", argdata, 2, 5, &func);
 }
 
 void ShipManager::ModifyDroneCount(int drones)
@@ -15269,7 +15269,7 @@ namespace _func1104
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetOxygenLevels", typeid(std::vector<float> (ShipManager::*)()), "5589e557565389cb83e4f083ec208b45088b90c8040000837a10", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetOxygenLevels", typeid(std::vector<float> (ShipManager::*)()), ".5589e557565389cb83e4f083ec20", argdata, 2, 1, &func);
 }
 
 std::vector<float> ShipManager::GetOxygenLevels()
@@ -15297,7 +15297,7 @@ namespace _func1106
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::IsCrewFull", typeid(bool (ShipManager::*)()), "5731c08d7c240883e4f0ff77fc5589e5575389cb83ec108b5104b9????????85d20f95c0890424e804", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::IsCrewFull", typeid(bool (ShipManager::*)()), "5731c08d7c240883e4f0ff77fc5589e5575389cb83ec108b5104b9????????85d20f95c0890424e8????????83ec04837b0401b9????????19d2", argdata, 1, 1, &func);
 }
 
 bool ShipManager::IsCrewFull()
@@ -15311,7 +15311,7 @@ namespace _func1107
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::ForceIncreaseSystemPower", typeid(bool (ShipManager::*)(int )), "5731c08d7c240883e4f0ff77fc5589e55783ec148b1783faff742a8bb9c80400008b149783faff741c8b49188b0c9185c974128b01c7042401000000ff9084", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::ForceIncreaseSystemPower", typeid(bool (ShipManager::*)(int )), ".5731c08d????0883e4f0ff????5589e5", argdata, 2, 1, &func);
 }
 
 bool ShipManager::ForceIncreaseSystemPower(int systemId)
@@ -15325,7 +15325,7 @@ namespace _func1108
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::IsCrewOverFull", typeid(bool (ShipManager::*)()), "5731c08d7c240883e4f0ff77fc5589e5575389cb83ec108b5104b9????????85d20f95c0890424e854", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::IsCrewOverFull", typeid(bool (ShipManager::*)()), "5731c08d7c240883e4f0ff77fc5589e5575389cb83ec108b5104b9????????85d20f95c0890424e8????????83ec04837b040119d283e2fe", argdata, 1, 1, &func);
 }
 
 bool ShipManager::IsCrewOverFull()
@@ -15339,7 +15339,7 @@ namespace _func1109
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::CreateCrewDrone", typeid(CrewDrone *(ShipManager::*)(const DroneBlueprint *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b178b82", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::CreateCrewDrone", typeid(CrewDrone *(ShipManager::*)(const DroneBlueprint *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b178b82b800000083f8020f84????????83f8030f85????????89542404", argdata, 2, 1, &func);
 }
 
 CrewDrone *ShipManager::CreateCrewDrone(const DroneBlueprint *bp)
@@ -15353,7 +15353,7 @@ namespace _func1110
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::CreateSpaceDrone", typeid(SpaceDrone *(ShipManager::*)(const DroneBlueprint *)), "578d7c240883e4f0ff77fc5589e557565383ec3c8b3f", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::CreateSpaceDrone", typeid(SpaceDrone *(ShipManager::*)(const DroneBlueprint *)), "578d7c240883e4f0ff77fc5589e557565383ec3c8b3fc745dc0000000083bfb8000000070f87????????8b87b800000089cbff2485????????8db42600000000e8????????c70424????????8945d4", argdata, 2, 1, &func);
 }
 
 SpaceDrone *ShipManager::CreateSpaceDrone(const DroneBlueprint *bp)
@@ -15367,7 +15367,7 @@ namespace _func1111
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::CommandCrewMoveRoom", typeid(bool (ShipManager::*)(CrewMember *, int )), "578d7c240883e4f0ff77fc5589e55783ec148b47048b0fc7", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::CommandCrewMoveRoom", typeid(bool (ShipManager::*)(CrewMember *, int )), "578d7c240883e4f0ff77fc5589e55783ec148b47048b0fc744240800000000c7442404ffffffff890424", argdata, 3, 1, &func);
 }
 
 bool ShipManager::CommandCrewMoveRoom(CrewMember *crew, int roomId)
@@ -15395,7 +15395,7 @@ namespace _func1113
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetWeaponList", typeid(std::vector<ProjectileFactory*> (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec308b018b400c", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetWeaponList", typeid(std::vector<ProjectileFactory*> (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b90c8040000837a0cff75??c701????????c741040000000089d8c7410800000000", argdata, 2, 1, &func);
 }
 
 std::vector<ProjectileFactory*> ShipManager::GetWeaponList()
@@ -15409,7 +15409,7 @@ namespace _func1114
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::AddDrone", typeid(Drone *(ShipManager::*)(const DroneBlueprint *, int )), "578d7c240883e4f0ff77fc5589e557565383ec1c8b81c80400008b37", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::AddDrone", typeid(Drone *(ShipManager::*)(const DroneBlueprint *, int )), "578d7c240883e4f0ff77fc5589e557565383ec1c8b81c80400008b1f8b7704837810ff", argdata, 3, 1, &func);
 }
 
 Drone *ShipManager::AddDrone(const DroneBlueprint *bp, int slot)
@@ -15437,7 +15437,7 @@ namespace _func1116
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetSystemPower", typeid(int (ShipManager::*)(int )), "558b81c804000089e583e4f08b55088b049083f8ff740b", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetSystemPower", typeid(int (ShipManager::*)(int )), "558b81c804000089e583e4f08b55088b049083f8ff74??8b51188b0c82e8????????", argdata, 2, 1, &func);
 }
 
 int ShipManager::GetSystemPower(int systemId)
@@ -15479,7 +15479,7 @@ namespace _func1119
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetSystemAvailablePower", typeid(int (ShipManager::*)(int )), "5589e557568b5508538b81c804000083", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetSystemAvailablePower", typeid(int (ShipManager::*)(int )), ".5589e557568b????", argdata, 2, 1, &func);
 }
 
 int ShipManager::GetSystemAvailablePower(int systemId)
@@ -15493,7 +15493,7 @@ namespace _func1120
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetSystem", typeid(ShipSystem *(ShipManager::*)(int )), "8b44240483f8ff74178b91c80400008b", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetSystem", typeid(ShipSystem *(ShipManager::*)(int )), "8b44240483f8ff74??8b91c80400008b048283f8ff74??8b51188b0482", argdata, 2, 1, &func);
 }
 
 ShipSystem *ShipManager::GetSystem(int systemId)
@@ -15591,7 +15591,7 @@ namespace _func1127
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::IsSystemHacked2", typeid(int (ShipManager::*)(int )), "538b5424088b81c804000083fa118b1c", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::IsSystemHacked2", typeid(int (ShipManager::*)(int )), "538b54????8b81c8040000", argdata, 2, 1, &func);
 }
 
 int ShipManager::IsSystemHacked2(int systemId)
@@ -15633,7 +15633,7 @@ namespace _func1130
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::ClearStatusSystem", typeid(void (ShipManager::*)(int )), "5589e583e4f083ec108b450883f811742f", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::ClearStatusSystem", typeid(void (ShipManager::*)(int )), "5589e583e4f083ec108b450883f81174??83f8ff74??8b91c80400008b048283f8ff74??8b51188b0c8285c974??e8????????c9", argdata, 2, 5, &func);
 }
 
 void ShipManager::ClearStatusSystem(int system)
@@ -15647,7 +15647,7 @@ namespace _func1131
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::ResetScrapLevel", typeid(void (ShipManager::*)()), "a1????????c781d40400001e00000083", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::ResetScrapLevel", typeid(void (ShipManager::*)()), "a1????????c781d40400001e00000083f80174??83f80274??f3c3908d742600c781d404000000000000c3908d742600c781d40400000a000000", argdata, 1, 5, &func);
 }
 
 void ShipManager::ResetScrapLevel()
@@ -15759,7 +15759,7 @@ namespace _func1139
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::AddWeapon", typeid(int (ShipManager::*)(const WeaponBlueprint *, int )), "5731c08d7c240883e4f0ff77fc5589e5575383ec10", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::AddWeapon", typeid(int (ShipManager::*)(const WeaponBlueprint *, int )), "5731c08d7c240883e4f0ff77fc5589e5575383ec108b91c80400008b1f8b7f04837a0cff74??8b4948", argdata, 3, 1, &func);
 }
 
 int ShipManager::AddWeapon(const WeaponBlueprint *bp, int slot)
@@ -15829,7 +15829,7 @@ namespace _func1144
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::SystemFunctions", typeid(bool (ShipManager::*)(int )), "558b81c804000089e583e4f08b55088b149031c083faff740b8b41188b0c908b", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::SystemFunctions", typeid(bool (ShipManager::*)(int )), "558b81c804000089e583e4f08b55088b149031c083faff74??8b41188b0c908b01ff502c", argdata, 2, 1, &func);
 }
 
 bool ShipManager::SystemFunctions(int systemId)
@@ -15843,7 +15843,7 @@ namespace _func1145
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::SystemRoom", typeid(int (ShipManager::*)(int )), "558b81c804000089e583e4f08b55088b049083f8ff7415", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::SystemRoom", typeid(int (ShipManager::*)(int )), ".558b81c804000089e5", argdata, 2, 1, &func);
 }
 
 int ShipManager::SystemRoom(int systemId)
@@ -15933,7 +15933,7 @@ namespace _func1150
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::StartFire", typeid(void (ShipManager::*)(int )), "5783c1708d7c240883e4f0ff77fc5589e55783ec148b07c7", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::StartFire", typeid(void (ShipManager::*)(int )), "5783c1708d7c240883e4f0ff77fc5589e55783ec148b07c744240402000000890424e8????????8b7dfc83ec08c9", argdata, 2, 5, &func);
 }
 
 void ShipManager::StartFire(int roomId)
@@ -15989,7 +15989,7 @@ namespace _func1154
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetTooltip", typeid(std::string (ShipManager::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565383ec7c8b47048b37", argdata, 4, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetTooltip", typeid(std::string (ShipManager::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565383ec7c8b47048b1f894d8c8945948b4708c70424????????894590e8????????8b53648b436883ec0429d0", argdata, 4, 1, &func);
 }
 
 std::string ShipManager::GetTooltip(int x, int y)
@@ -16003,7 +16003,7 @@ namespace _func1155
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::RestoreCrewPositions", typeid(bool (ShipManager::*)()), "57b9????????8d7c240883e4f0ff77fc5589e55756538d45b0", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::RestoreCrewPositions", typeid(bool (ShipManager::*)()), "57b9????????8d7c240883e4f0ff77fc5589e55756538d45ac31db83ec6cc745ac00000000c745b000000000890424c744240400000000c745b400000000", argdata, 1, 1, &func);
 }
 
 bool ShipManager::RestoreCrewPositions()
@@ -16059,7 +16059,7 @@ namespace _func1159
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::SaveToBlueprint", typeid(ShipBlueprint (ShipManager::*)(bool )), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec4c8b188b40", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::SaveToBlueprint", typeid(ShipBlueprint (ShipManager::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb83c10483ec6c8b078b7704", argdata, 3, 1, &func);
 }
 
 ShipBlueprint ShipManager::SaveToBlueprint(bool overwrite)
@@ -16073,7 +16073,7 @@ namespace _func1160
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff};
-	static FunctionDefinition funcObj("ShipManager::CheckCrystalAugment", typeid(void (ShipManager::*)(Pointf )), "578d7c240883e4f0ff77fc5589e55756538d5dd089ce83ec7c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::CheckCrystalAugment", typeid(void (ShipManager::*)(Pointf )), "578d7c240883e4f0ff77fc5589e55756538d5dd089ce83ec7c8b078b570489d9", argdata, 2, 5, &func);
 }
 
 void ShipManager::CheckCrystalAugment(Pointf pos)
@@ -16101,7 +16101,7 @@ namespace _func1162
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetSystemPowerMax", typeid(int (ShipManager::*)(int )), "8b81c80400008b5424048b149031c083", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetSystemPowerMax", typeid(int (ShipManager::*)(int )), "8b81c80400008b5424048b049083f8ff740e8b51188b04828b4054c20400", argdata, 2, 1, &func);
 }
 
 int ShipManager::GetSystemPowerMax(int systemId)
@@ -16143,7 +16143,7 @@ namespace _func1165
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::InstantPowerShields", typeid(void (ShipManager::*)()), "8b81c80400008b0083f8ff7455578d7c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::InstantPowerShields", typeid(void (ShipManager::*)()), "8b81c80400008b0083f8ff7455578d7c240883e4f0ff77fc5589e5575389cb83ec10", argdata, 1, 5, &func);
 }
 
 void ShipManager::InstantPowerShields()
@@ -16157,7 +16157,7 @@ namespace _func1166
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetSystemDamage", typeid(int (ShipManager::*)(int )), "8b81c80400008b5424048b049083f8ff7412", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetSystemDamage", typeid(int (ShipManager::*)(int )), ".8b81c80400008b54????8b049083f8ff74??8b51188b14828b8204010000", argdata, 2, 1, &func);
 }
 
 int ShipManager::GetSystemDamage(int systemId)
@@ -16171,7 +16171,7 @@ namespace _func1167
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetSystemHealth", typeid(int (ShipManager::*)(int )), "8b81c80400008b5424048b049083f8ff740c", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetSystemHealth", typeid(int (ShipManager::*)(int )), ".8b81c80400008b54????8b049083f8ff74??8b51188b04828b8000010000", argdata, 2, 1, &func);
 }
 
 int ShipManager::GetSystemHealth(int systemId)
@@ -16199,7 +16199,7 @@ namespace _func1169
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::GetFireCount", typeid(int (ShipManager::*)(int )), "5783c1708d7c240883e4f0ff77fc5589e55783ec148b0789", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::GetFireCount", typeid(int (ShipManager::*)(int )), "5783c1708d7c240883e4f0ff77fc5589e55783ec148b07890424e8????????8b7dfc83ec04c98d67f85fc20400", argdata, 2, 1, &func);
 }
 
 int ShipManager::GetFireCount(int roomId)
@@ -16213,7 +16213,7 @@ namespace _func1170
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::DoorsFunction", typeid(bool (ShipManager::*)()), "8b81c80400008b402083f8ff74525589", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::DoorsFunction", typeid(bool (ShipManager::*)()), "8b81c80400008b402083f8ff74??5589e5538b511889cb83e4f08b0c828b01ff502c84c074??", argdata, 1, 1, &func);
 }
 
 bool ShipManager::DoorsFunction()
@@ -16241,7 +16241,7 @@ namespace _func1172
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x2ff, 0x2ff, 0xdff, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::CollisionShield", typeid(CollisionResponse (ShipManager::*)(Pointf , Pointf , Damage , bool )), "578d7c240883e4f0ff77fc5589e557565389ce8d4d9c81ecdc", argdata, 6, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::CollisionShield", typeid(CollisionResponse (ShipManager::*)(Pointf , Pointf , Damage , bool )), "578d7c240883e4f0ff77fc5589e557565389ce8d4d9c81ecdc0000008b47048b1fc7442404000000cf", argdata, 6, 1, &func);
 }
 
 CollisionResponse ShipManager::CollisionShield(Pointf start, Pointf finish, Damage damage, bool raytrace)
@@ -16269,7 +16269,7 @@ namespace _func1174
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::UpgradeSystem", typeid(void (ShipManager::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec1c8b1f8b47", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::UpgradeSystem", typeid(void (ShipManager::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec1c8b1f8b4704891c2489442404", argdata, 3, 5, &func);
 }
 
 void ShipManager::UpgradeSystem(int id, int amount)
@@ -16297,7 +16297,7 @@ namespace _func1176
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::Wait", typeid(void (ShipManager::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b81c8", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::Wait", typeid(void (ShipManager::*)()), "578d????0883e4f0ff????5589e557565389cb83ec1c8b81c8040000", argdata, 1, 5, &func);
 }
 
 void ShipManager::Wait()
@@ -16325,7 +16325,7 @@ namespace _func1178
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipManager::CreateDrone", typeid(Drone *(ShipManager::*)(DroneBlueprint *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b37893424e8e0", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipManager::CreateDrone", typeid(Drone *(ShipManager::*)(DroneBlueprint *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b37893424e8????????83ec0485c074??8d65f405", argdata, 2, 1, &func);
 }
 
 Drone *ShipManager::CreateDrone(DroneBlueprint *drone)
@@ -16353,7 +16353,7 @@ namespace _func1180
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipManager::SaveCrewPositions", typeid(void (ShipManager::*)()), "57b9????????8d7c240883e4f0ff77fc5589e55753", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipManager::SaveCrewPositions", typeid(void (ShipManager::*)()), ".57b9????????8d????0883e4f0ff????5589e557538d??ec", argdata, 1, 5, &func);
 }
 
 void ShipManager::SaveCrewPositions()
@@ -16367,7 +16367,7 @@ namespace _func1181
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipObject::HasAugmentation", typeid(int (ShipObject::*)(const std::string &)), "5731c08d7c240883e4f0ff77fc5589e557565383ec5c", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipObject::HasAugmentation", typeid(int (ShipObject::*)(const std::string &)), "5789ca8d7c240883e4f0ff77fc5589e55756538d4dd883ec5c8b07894dd08b308b580489f0", argdata, 2, 1, &func);
 }
 
 int ShipObject::HasAugmentation(const std::string &augment)
@@ -16381,7 +16381,7 @@ namespace _func1182
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipObject::GetAugmentationValue", typeid(float (ShipObject::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b178b5f0485d2750485db757329d383fb0f895de4772683fb018b06755c0fb61288108b5de48b06895e04c60418008d65f45b5e5f5d8d67f85fc208008d45e489f1c7442404000000008955d4890424e885a5", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipObject::GetAugmentationValue", typeid(float (ShipObject::*)(const std::string &)), "5789ca8d7c240883e4f0ff77fc5589e55756538d4d9081ec????????8b07894d888b308b5804", argdata, 2, 1, &func);
 }
 
 float ShipObject::GetAugmentationValue(const std::string &augment)
@@ -16423,7 +16423,7 @@ namespace _func1185
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipObject::HasEquipment", typeid(int (ShipObject::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e55756538d75a8", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipObject::HasEquipment", typeid(int (ShipObject::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e55756538d75a881ec????????8b3f898d70ffffff8975a0", argdata, 2, 1, &func);
 }
 
 int ShipObject::HasEquipment(const std::string &equip)
@@ -16437,7 +16437,7 @@ namespace _func1186
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipObject::GetAugmentationList", typeid(std::vector<std::string> (ShipObject::*)()), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec4c8b008b40", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipObject::GetAugmentationList", typeid(std::vector<std::string> (ShipObject::*)()), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec4c8b008b400485c0", argdata, 2, 1, &func);
 }
 
 std::vector<std::string> ShipObject::GetAugmentationList()
@@ -16472,7 +16472,7 @@ namespace _func1189
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipObject::GetAugmentationCount", typeid(int (ShipObject::*)()), "8b510431c085d20f94c06bc0340305??", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipObject::GetAugmentationCount", typeid(int (ShipObject::*)()), ".8b510431c085d20f94c06bc0340305????????8b4030", argdata, 1, 1, &func);
 }
 
 int ShipObject::GetAugmentationCount()
@@ -16486,7 +16486,7 @@ namespace _func1190
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipObject::ClearShipInfo", typeid(void (ShipObject::*)()), "578d7c240883e4f0ff77fc5589e557565331db83ec2c8b41", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipObject::ClearShipInfo", typeid(void (ShipObject::*)()), "578d7c240883e4f0ff77fc5589e557565331db83ec2c8b410485c00f94c36bdb34", argdata, 1, 5, &func);
 }
 
 void ShipObject::ClearShipInfo()
@@ -16563,7 +16563,7 @@ namespace _func1196
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSelect::OnLoop", typeid(void (ShipSelect::*)()), "80b948050000007507f3c3908d742600", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipSelect::OnLoop", typeid(void (ShipSelect::*)()), ".80b9480500000075??f3c3908d742600578d7c240883e4f0ff77fc5589e557568db144050000", argdata, 1, 5, &func);
 }
 
 void ShipSelect::OnLoop()
@@ -16591,7 +16591,7 @@ namespace _func1198
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSelect::MouseClick", typeid(void (ShipSelect::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec1080b948", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipSelect::MouseClick", typeid(void (ShipSelect::*)()), ".578d7c240883e4f0ff77fc5589e5575389cb83ec1080b948050000000f85????????80b9bc01000000", argdata, 1, 5, &func);
 }
 
 void ShipSelect::MouseClick()
@@ -16619,7 +16619,7 @@ namespace _func1200
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSelect::Close", typeid(void (ShipSelect::*)()), "5581c144050000c681f0faffff0089e5", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipSelect::Close", typeid(void (ShipSelect::*)()), ".5581c1????????c681f0faffff0089e583e4f0", argdata, 1, 5, &func);
 }
 
 void ShipSelect::Close()
@@ -16675,7 +16675,7 @@ namespace _func1204
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipStatus::RenderHealth", typeid(void (ShipStatus::*)(bool )), "578d7c240883e4f0ff77fc5589e557565381ecbc00000080", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipStatus::RenderHealth", typeid(void (ShipStatus::*)(bool )), "578d7c240883e4f0ff77fc5589e557565381ec????????803f000f85????????89cb8b79148bb180000000", argdata, 2, 5, &func);
 }
 
 void ShipStatus::RenderHealth(bool renderText)
@@ -16689,7 +16689,7 @@ namespace _func1205
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipStatus::OnInit", typeid(void (ShipStatus::*)(Point , float )), "578d7c240883e4f0ff77fc5589e55756538db5c0", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ShipStatus::OnInit", typeid(void (ShipStatus::*)(Point , float )), "578d7c240883e4f0ff77fc5589e55756538db5c0feffff81ec????????8b078b5704f30f104708", argdata, 3, 5, &func);
 }
 
 void ShipStatus::OnInit(Point location, float size)
@@ -16703,7 +16703,7 @@ namespace _func1206
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipStatus::RenderResources", typeid(void (ShipStatus::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c80792c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipStatus::RenderResources", typeid(void (ShipStatus::*)(bool )), ".578d7c240883e4f0ff77fc5589e557565389cb81ecac040000", argdata, 2, 5, &func);
 }
 
 void ShipStatus::RenderResources(bool renderText)
@@ -16717,7 +16717,7 @@ namespace _func1207
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipStatus::RenderEvadeOxygen", typeid(void (ShipStatus::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb81ec8c02", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipStatus::RenderEvadeOxygen", typeid(void (ShipStatus::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb81ec????????803f008b490c0f84????????e8????????", argdata, 2, 5, &func);
 }
 
 void ShipStatus::RenderEvadeOxygen(bool renderText)
@@ -16731,7 +16731,7 @@ namespace _func1208
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipStatus::OnRender", typeid(void (ShipStatus::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec10e8269b", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipStatus::OnRender", typeid(void (ShipStatus::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec10e8????????660fefc0c744240800000000f30f2a4304f30f11442404660fefc0f30f2a03", argdata, 1, 5, &func);
 }
 
 void ShipStatus::OnRender()
@@ -16781,7 +16781,7 @@ namespace _func1210
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipStatus::OnLoop", typeid(void (ShipStatus::*)()), "578d7c240883e4f0ff77fc5589e557565331db89ce83ec2c8b3f", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipStatus::OnLoop", typeid(void (ShipStatus::*)()), "578d7c240883e4f0ff77fc5589e557565331db89ce83ec7c8b91100100008b811401000029d0c1f80285c0", argdata, 1, 5, &func);
 }
 
 void ShipStatus::OnLoop()
@@ -16837,7 +16837,7 @@ namespace _func1214
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSystem::IsMannedBoost", typeid(int (ShipSystem::*)()), "8b414885c07e1b????????74158b9104", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipSystem::IsMannedBoost", typeid(int (ShipSystem::*)()), "8b414885c07e??80794c0074??8b9104010000399100010000ba????????", argdata, 1, 1, &func);
 }
 
 int ShipSystem::IsMannedBoost()
@@ -16851,7 +16851,7 @@ namespace _func1215
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::SystemIdToName", typeid(std::string (*)(int )), "8d4c240483e4f0ff71fc5589e5535183ec108b41048b1983f811", argdata, 2, 2, &func);
+	static FunctionDefinition funcObj("ShipSystem::SystemIdToName", typeid(std::string (*)(int )), "8d4c240483e4f0ff71fc5589e5535183ec108b41048b1983f8110f87????????ff2485????????89f68dbc2700000000c70424????????89d9e8????????83ec048d65f8", argdata, 2, 2, &func);
 }
 
 std::string ShipSystem::SystemIdToName(int systemId)
@@ -16865,7 +16865,7 @@ namespace _func1216
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSystem::OnLoop", typeid(void (ShipSystem::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b8128", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipSystem::OnLoop", typeid(void (ShipSystem::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b812801000085c0", argdata, 1, 5, &func);
 }
 
 void ShipSystem::OnLoop()
@@ -16907,7 +16907,7 @@ namespace _func1219
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::SetDividePower", typeid(void (ShipSystem::*)(int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b0783", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipSystem::SetDividePower", typeid(void (ShipSystem::*)(int )), ".578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b0783f8", argdata, 2, 5, &func);
 }
 
 void ShipSystem::SetDividePower(int val)
@@ -16949,7 +16949,7 @@ namespace _func1222
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSystem::GetPowerCap", typeid(int (ShipSystem::*)()), "8b811c01000083f8077f1585c0ba0000", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipSystem::GetPowerCap", typeid(int (ShipSystem::*)()), "8b811c01000083f8077f??85c0ba????????0f48c2c38d76008dbc27000000008b415485c0", argdata, 1, 1, &func);
 }
 
 int ShipSystem::GetPowerCap()
@@ -16977,7 +16977,7 @@ namespace _func1224
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::LockSystem", typeid(void (ShipSystem::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec148b0783", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipSystem::LockSystem", typeid(void (ShipSystem::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec148b0783f80075??8b812801000085c0", argdata, 2, 5, &func);
 }
 
 void ShipSystem::LockSystem(int lock)
@@ -17005,7 +17005,7 @@ namespace _func1226
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSystem::GetEffectivePower", typeid(int (ShipSystem::*)()), "8b414831d285c07e14????????740e8b", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipSystem::GetEffectivePower", typeid(int (ShipSystem::*)()), "8b414831d285c07e??80794c0074??8b810401000039810001000074??8b8170010000034150", argdata, 1, 1, &func);
 }
 
 int ShipSystem::GetEffectivePower()
@@ -17110,7 +17110,7 @@ namespace _func1234
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSystem::ClearStatus", typeid(void (ShipSystem::*)()), "83b91c010000077e0a8b812001000085", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipSystem::ClearStatus", typeid(void (ShipSystem::*)()), "83b91c010000077e??8b812001000085c07e??8b4140c7811c010000e8030000c7812001000000000000c781240100000100000083e80383f80176??55", argdata, 1, 5, &func);
 }
 
 void ShipSystem::ClearStatus()
@@ -17124,7 +17124,7 @@ namespace _func1235
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::GetLevelDescription", typeid(std::string (*)(int , int , bool )), "8d4c240483e4f0ff71fc5589e55756535181eca801", argdata, 4, 2, &func);
+	static FunctionDefinition funcObj("ShipSystem::GetLevelDescription", typeid(std::string (*)(int , int , bool )), "8d4c240483e4f0ff71fc5589e55756535181ec????????8b41048b398b59088b510c83f80f0f87????????85db", argdata, 4, 2, &func);
 }
 
 std::string ShipSystem::GetLevelDescription(int systemId, int level, bool tooltip)
@@ -17138,7 +17138,7 @@ namespace _func1236
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSystem::GetLocked", typeid(bool (ShipSystem::*)()), "8b912801000085d20f9fc083faff0f94", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("ShipSystem::GetLocked", typeid(bool (ShipSystem::*)()), "8b812801000085c00f9fc283f8ff0f94c008d075??83b9a8010000010f9fc0", argdata, 1, 1, &func);
 }
 
 bool ShipSystem::GetLocked()
@@ -17152,7 +17152,7 @@ namespace _func1237
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::AddLock", typeid(void (ShipSystem::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec148b8128", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipSystem::AddLock", typeid(void (ShipSystem::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec148b81280100008b1785c07f??83f8ff74??85c074??85d2", argdata, 2, 5, &func);
 }
 
 void ShipSystem::AddLock(int lock)
@@ -17166,7 +17166,7 @@ namespace _func1238
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ShipSystem::StopHacking", typeid(void (ShipSystem::*)()), "8b01c681ac010000008b40643d??????", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ShipSystem::StopHacking", typeid(void (ShipSystem::*)()), "8b01c681ac010000008b40643d????????75??c781a801000000000000c36690578d7c240883e4f0ff77fc5589e55783ec14", argdata, 1, 5, &func);
 }
 
 void ShipSystem::StopHacking()
@@ -17180,7 +17180,7 @@ namespace _func1239
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::SaveState", typeid(void (ShipSystem::*)(int )), "5589e5565389ce83e4f083ec108b5d088b811c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipSystem::SaveState", typeid(void (ShipSystem::*)(int )), "5589e5565389ce83e4f083ec108b5d088b811c010000891c2489442404e8????????8b8620010000891c2489442404e8????????8b8624010000891c2489442404e8????????", argdata, 2, 5, &func);
 }
 
 void ShipSystem::SaveState(int file)
@@ -17194,7 +17194,7 @@ namespace _func1240
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::LoadState", typeid(void (ShipSystem::*)(int )), "5589e5565389cb83e4f083ec108b7508893424e868", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipSystem::LoadState", typeid(void (ShipSystem::*)(int )), "5589e5565389cb83e4f083ec108b7508893424e8????????89342489831c010000e8????????893424898320010000e8????????8983240100008d65f85b", argdata, 2, 5, &func);
 }
 
 void ShipSystem::LoadState(int file)
@@ -17208,7 +17208,7 @@ namespace _func1241
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::UpgradeSystem", typeid(bool (ShipSystem::*)(int )), "8b015589e556538b401089cb8b750883", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipSystem::UpgradeSystem", typeid(bool (ShipSystem::*)(int )), "8b015589e556538b401089cb8b750883e4f03d????????75??8b810001000085c00f94c001735401b304010000", argdata, 2, 1, &func);
 }
 
 bool ShipSystem::UpgradeSystem(int amount)
@@ -17236,7 +17236,7 @@ namespace _func1243
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::DecreasePower", typeid(bool (ShipSystem::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b178b5f0485d2750485db757329d383fb0f895de4772683fb018b06755c0fb61288108b5de48b06895e04c60418008d65f45b5e5f5d8d67f85fc208008d45e489f1c7442404000000008955d4890424e8d5", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipSystem::DecreasePower", typeid(bool (ShipSystem::*)(bool )), "578d7c240883e4f0ff77fc5589e557565383ec1c0fb681180100008b1f84c074??8b812801000085c00f9fc283f8ff0f94c008d075??83b9a8010000017f??", argdata, 2, 1, &func);
 }
 
 bool ShipSystem::DecreasePower(bool force)
@@ -17264,7 +17264,7 @@ namespace _func1245
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::RenderPowerBoxes", typeid(int (ShipSystem::*)(int , int , int , int , int , int , bool )), "578d7c240883e4f0ff77fc5589e557565389ce81ec9c0000008b07", argdata, 8, 1, &func);
+	static FunctionDefinition funcObj("ShipSystem::RenderPowerBoxes", typeid(int (ShipSystem::*)(int , int , int , int , int , int , bool )), "578d7c240883e4f0ff77fc5589f889e557565389cf81ec????????8b70088b188975a08b700c895d848b5804", argdata, 8, 1, &func);
 }
 
 int ShipSystem::RenderPowerBoxes(int x, int y, int width, int height, int gap, int heightMod, bool flash)
@@ -17348,7 +17348,7 @@ namespace _func1251
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::GetLockTimer", typeid(TimerHelper (ShipSystem::*)()), "8b54240489c88b8a2c01000089088b8a", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("ShipSystem::GetLockTimer", typeid(TimerHelper (ShipSystem::*)()), "8b54????89c88b8a2c010000", argdata, 2, 1, &func);
 }
 
 TimerHelper ShipSystem::GetLockTimer()
@@ -17362,7 +17362,7 @@ namespace _func1252
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("ShipSystem::IonDamage", typeid(void (ShipSystem::*)(int )), "578d7c240883e4f0ff77fc5589e557565383ec2c8b3785f67e", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ShipSystem::IonDamage", typeid(void (ShipSystem::*)(int )), "578d7c240883e4f0ff77fc5589e557565383ec2c8b1f85", argdata, 2, 5, &func);
 }
 
 void ShipSystem::IonDamage(int amount)
@@ -17481,7 +17481,7 @@ namespace _func1268
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("SoundControl::PlaySoundMix", typeid(int (SoundControl::*)(const std::string &, float , bool )), "578d7c240883e4f0ff77fc5589e557565381ec9c0000008039", argdata, 4, 1, &func);
+	static FunctionDefinition funcObj("SoundControl::PlaySoundMix", typeid(int (SoundControl::*)(const std::string &, float , bool )), "578d7c240883e4f0ff77fc5589e557565331db81ec????????8039008b07f30f104704f30f11458889458c74??80b9b80000000075??", argdata, 4, 1, &func);
 }
 
 int SoundControl::PlaySoundMix(const std::string &soundName, float volume, bool loop)
@@ -17523,7 +17523,7 @@ namespace _func1271
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("SoundControl::UpdateSoundLoop", typeid(void (SoundControl::*)(const std::string &, float )), "578d7c240883e4f0ff77fc5589e557565383ec4c8039", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("SoundControl::UpdateSoundLoop", typeid(void (SoundControl::*)(const std::string &, float )), "578d????0883e4??ff????5589e557565383ec??8039??8b??f30f10????", argdata, 3, 5, &func);
 }
 
 void SoundControl::UpdateSoundLoop(const std::string &loopId, float count)
@@ -17572,7 +17572,7 @@ namespace _func1275
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SpaceDrone::SetDeployed", typeid(void (SpaceDrone::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b018b378b50", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SpaceDrone::SetDeployed", typeid(void (SpaceDrone::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b018b378b5030", argdata, 2, 5, &func);
 }
 
 void SpaceDrone::SetDeployed(bool deployed)
@@ -17670,7 +17670,7 @@ namespace _func1282
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SpaceManager::GetScreenShake", typeid(int (SpaceManager::*)()), "0fb68188030000c6818803000000c390", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("SpaceManager::GetScreenShake", typeid(int (SpaceManager::*)()), ".0fb68188030000c6818803000000", argdata, 1, 1, &func);
 }
 
 int SpaceManager::GetScreenShake()
@@ -17684,7 +17684,7 @@ namespace _func1283
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SpaceManager::SaveSpace", typeid(void (SpaceManager::*)(int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c0fb681", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::SaveSpace", typeid(void (SpaceManager::*)(int )), ".578d7c240883e4f0ff77fc", argdata, 2, 5, &func);
 }
 
 void SpaceManager::SaveSpace(int fileHelper)
@@ -17726,7 +17726,7 @@ namespace _func1286
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SpaceManager::UpdatePlanetImage", typeid(void (SpaceManager::*)()), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b59", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::UpdatePlanetImage", typeid(void (SpaceManager::*)()), ".578d7c240883e4f0ff77fc5589e557", argdata, 1, 5, &func);
 }
 
 void SpaceManager::UpdatePlanetImage()
@@ -17768,7 +17768,7 @@ namespace _func1289
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("SpaceManager::StartAsteroids", typeid(void (SpaceManager::*)(int , bool )), "5789ca83c10c8d7c240883e4f0ff77fc", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::StartAsteroids", typeid(void (SpaceManager::*)(int , bool )), ".5789ca83c10c8d7c2408", argdata, 3, 5, &func);
 }
 
 void SpaceManager::StartAsteroids(int shieldCount, bool unk)
@@ -17782,7 +17782,7 @@ namespace _func1290
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("SpaceManager::SetPlanetaryDefense", typeid(void (SpaceManager::*)(char , int )), "578d7c240883e4f0ff77fc5589e557565389cb81ecbc0000008b47", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::SetPlanetaryDefense", typeid(void (SpaceManager::*)(char , int )), ".578d7c240883e4f0ff77fc5589e557565389cb81ec????????", argdata, 3, 5, &func);
 }
 
 void SpaceManager::SetPlanetaryDefense(char state, int target)
@@ -17796,7 +17796,7 @@ namespace _func1291
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SpaceManager::SetPulsarLevel", typeid(void (SpaceManager::*)(bool )), "578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083ec3c8b00888189", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::SetPulsarLevel", typeid(void (SpaceManager::*)(bool )), ".578d7c240883e4f0ff77fc5589f889e557", argdata, 2, 5, &func);
 }
 
 void SpaceManager::SetPulsarLevel(bool pulsarLevel)
@@ -17852,7 +17852,7 @@ namespace _func1295
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SpaceManager::GetFlashOpacity", typeid(float (SpaceManager::*)()), "57660fefc08d7c240883e4f0ff77fc5589e5575383", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("SpaceManager::GetFlashOpacity", typeid(float (SpaceManager::*)()), ".57660fefc08d7c240883e4f0ff77fc5589e5575383ec2080b9dc02000000", argdata, 1, 1, &func);
 }
 
 float SpaceManager::GetFlashOpacity()
@@ -17908,7 +17908,7 @@ namespace _func1299
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SpaceManager::OnRenderForeground", typeid(void (SpaceManager::*)()), "578d7c240883e4f0ff77fc5589e557565389cf81ec9c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::OnRenderForeground", typeid(void (SpaceManager::*)()), ".578d7c240883e4f0ff77fc5589e557", argdata, 1, 5, &func);
 }
 
 void SpaceManager::OnRenderForeground()
@@ -17922,7 +17922,7 @@ namespace _func1300
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SpaceManager::SetDangerZone", typeid(void (SpaceManager::*)(int )), "578d7c240883e4f0ff77fc5589e557565383ec3c8b0785c08945d0", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::SetDangerZone", typeid(void (SpaceManager::*)(int )), ".578d7c240883e4f0ff77fc5589e557", argdata, 2, 5, &func);
 }
 
 void SpaceManager::SetDangerZone(int fleetType)
@@ -17964,7 +17964,7 @@ namespace _func1303
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SpaceManager::OnInit", typeid(void (SpaceManager::*)()), "578d7c240883e4f0ff77fc5589e557568d45d8", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::OnInit", typeid(void (SpaceManager::*)()), ".578d7c240883e4f0ff77fc5589e557568d45d8", argdata, 1, 5, &func);
 }
 
 void SpaceManager::OnInit()
@@ -17992,7 +17992,7 @@ namespace _func1305
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SpaceManager::ClearEnvironment", typeid(void (SpaceManager::*)()), "c6818802000000c6818902000000c681", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::ClearEnvironment", typeid(void (SpaceManager::*)()), ".c6818802000000c6818902000000c6819802000000c7819c02000002000000", argdata, 1, 5, &func);
 }
 
 void SpaceManager::ClearEnvironment()
@@ -18090,7 +18090,7 @@ namespace _func1312
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SpaceManager::LoadSpace", typeid(void (SpaceManager::*)(int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec4c8b078904248945c8", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::LoadSpace", typeid(void (SpaceManager::*)(int )), ".578d7c240883e4f0ff77fc5589e5575653", argdata, 2, 5, &func);
 }
 
 void SpaceManager::LoadSpace(int fileHelper)
@@ -18132,7 +18132,7 @@ namespace _func1315
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SpaceManager::OnLoop", typeid(void (SpaceManager::*)()), "578d7c240883e4f0ff77fc5589e557565389cf81c120", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::OnLoop", typeid(void (SpaceManager::*)()), ".578d7c240883e4f0ff77fc5589e557", argdata, 1, 5, &func);
 }
 
 void SpaceManager::OnLoop()
@@ -18146,7 +18146,7 @@ namespace _func1316
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SpaceManager::SetNebula", typeid(void (SpaceManager::*)(bool )), "578d7c240883e4f0ff77fc5589e55756538d5dac", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::SetNebula", typeid(void (SpaceManager::*)(bool )), ".578d7c240883e4f0ff77fc5589e55756", argdata, 2, 5, &func);
 }
 
 void SpaceManager::SetNebula(bool state)
@@ -18160,7 +18160,7 @@ namespace _func1317
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SpaceManager::SetStorm", typeid(void (SpaceManager::*)(bool )), "578d7c240883e4f0ff77fc5589e557538d5d", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::SetStorm", typeid(void (SpaceManager::*)(bool )), ".578d7c240883e4f0ff77fc5589e5", argdata, 2, 5, &func);
 }
 
 void SpaceManager::SetStorm(bool state)
@@ -18174,7 +18174,7 @@ namespace _func1318
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SpaceManager::SetFireLevel", typeid(void (SpaceManager::*)(bool )), "578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083ec3c8b00888188", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SpaceManager::SetFireLevel", typeid(void (SpaceManager::*)(bool )), "578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083ec3c8b0088818802000089d9", argdata, 2, 5, &func);
 }
 
 void SpaceManager::SetFireLevel(bool state)
@@ -18188,7 +18188,7 @@ namespace _func1319
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x2ff};
-	static FunctionDefinition funcObj("SpaceStatus::OnInit", typeid(void (SpaceStatus::*)(SpaceManager *, Point )), "578d7c240883e4f0ff77fc5589e557565389cb89", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("SpaceStatus::OnInit", typeid(void (SpaceStatus::*)(SpaceManager *, Point )), "578d????0883e4??ff????5589e557565389cb89de81ec????????", argdata, 3, 5, &func);
 }
 
 void SpaceStatus::OnInit(SpaceManager *space, Point pos)
@@ -18216,7 +18216,7 @@ namespace _func1321
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SpaceStatus::OnRender", typeid(void (SpaceStatus::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b492c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("SpaceStatus::OnRender", typeid(void (SpaceStatus::*)()), "578d????0883e4f0ff????5589e557565389cb83ec2c8b492c", argdata, 1, 5, &func);
 }
 
 void SpaceStatus::OnRender()
@@ -18230,7 +18230,7 @@ namespace _func1322
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("SpaceStatus::MouseMove", typeid(void (SpaceStatus::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b378b41", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("SpaceStatus::MouseMove", typeid(void (SpaceStatus::*)(int , int )), "578d????0883e4f0ff????5589e557565389cb83ec4c8b??8b4130", argdata, 3, 5, &func);
 }
 
 void SpaceStatus::MouseMove(int mX, int mY)
@@ -18244,7 +18244,7 @@ namespace _func1323
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SpaceStatus::OnLoop", typeid(void (SpaceStatus::*)()), "578d7c240883e4f0ff77fc5589e557565389cb81eccc0000008b41", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("SpaceStatus::OnLoop", typeid(void (SpaceStatus::*)()), "578d7c240883e4f0ff77fc5589e557565389cb81eccc0000008b4158", argdata, 1, 5, &func);
 }
 
 void SpaceStatus::OnLoop()
@@ -18370,7 +18370,7 @@ namespace _func1332
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::InitMapTitle", typeid(void (StarMap::*)()), "578d7c240883e4f0ff77fc5589e557565389ce8d7d", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::InitMapTitle", typeid(void (StarMap::*)()), ".578d7c240883e4f0ff77fc5589e557565389ce8d", argdata, 1, 5, &func);
 }
 
 void StarMap::InitMapTitle()
@@ -18384,7 +18384,7 @@ namespace _func1333
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::InitNoFuelText", typeid(void (StarMap::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8d7dc88d75d083", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::InitNoFuelText", typeid(void (StarMap::*)()), ".578d7c240883e4f0ff77fc5589e557565389cb8d", argdata, 1, 5, &func);
 }
 
 void StarMap::InitNoFuelText()
@@ -18398,7 +18398,7 @@ namespace _func1334
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::InitBossMessageBox", typeid(void (StarMap::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8bb1", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::InitBossMessageBox", typeid(void (StarMap::*)()), ".578d7c240883e4f0ff77fc5589e557565389cb83", argdata, 1, 5, &func);
 }
 
 void StarMap::InitBossMessageBox()
@@ -18426,7 +18426,7 @@ namespace _func1336
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::GetRandomSectorChoice", typeid(int (StarMap::*)()), "5589e583e4f0803d????????007431e84c", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("StarMap::GetRandomSectorChoice", typeid(int (StarMap::*)()), ".5589e583e4f0803d????????007435e8a46e1500", argdata, 1, 1, &func);
 }
 
 int StarMap::GetRandomSectorChoice()
@@ -18468,7 +18468,7 @@ namespace _func1339
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::StartSecretSector", typeid(void (StarMap::*)()), "578d7c240883e4f0ff77fc5589e55756538d75d08d5dd883ec3c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::StartSecretSector", typeid(void (StarMap::*)()), ".578d7c240883e4f0ff77fc5589e55756538d75d0", argdata, 1, 5, &func);
 }
 
 void StarMap::StartSecretSector()
@@ -18510,7 +18510,7 @@ namespace _func1342
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::SaveGame", typeid(void (StarMap::*)(int )), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec3c8b89", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("StarMap::SaveGame", typeid(void (StarMap::*)(int )), ".578d7c240883e4f0ff77fc5589f889e557565389", argdata, 2, 5, &func);
 }
 
 void StarMap::SaveGame(int file)
@@ -18566,7 +18566,7 @@ namespace _func1346
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::ModifyPursuit", typeid(void (StarMap::*)(int )), "8b442404018198040000c20400906690", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("StarMap::ModifyPursuit", typeid(void (StarMap::*)(int )), ".8b442404018198040000c2040090669031c083b9", argdata, 2, 5, &func);
 }
 
 void StarMap::ModifyPursuit(int unk0)
@@ -18594,7 +18594,7 @@ namespace _func1348
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::GetWaitLocation", typeid(void (StarMap::*)()), "????????741a80b9ac060000007411c6", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::GetWaitLocation", typeid(void (StarMap::*)()), ".80797c00741a80b9ac060000007411c6417c00c6", argdata, 1, 5, &func);
 }
 
 void StarMap::GetWaitLocation()
@@ -18636,7 +18636,7 @@ namespace _func1351
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::PointToGrid", typeid(Point (StarMap::*)(float , float )), "578d7c240883e4f0ff77fc5589e5578d4df083ec34", argdata, 3, 9, &func);
+	static FunctionDefinition funcObj("StarMap::PointToGrid", typeid(Point (StarMap::*)(float , float )), ".578d7c240883e4f0ff77fc5589e5578d4df083ec", argdata, 3, 9, &func);
 }
 
 Point StarMap::PointToGrid(float x, float y)
@@ -18664,7 +18664,7 @@ namespace _func1353
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::ForceExitBeacon", typeid(void (StarMap::*)()), "8b4150c6401401c3908db42600000000", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::ForceExitBeacon", typeid(void (StarMap::*)()), ".8b4150c6401401c3908db42600000000f3c38db4", argdata, 1, 5, &func);
 }
 
 void StarMap::ForceExitBeacon()
@@ -18734,7 +18734,7 @@ namespace _func1358
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::AdvanceWorldLevel", typeid(void (StarMap::*)()), "8b819004000083c00183f80389819004", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::AdvanceWorldLevel", typeid(void (StarMap::*)()), ".8b819004000083c00183f8038981900400007f01", argdata, 1, 5, &func);
 }
 
 void StarMap::AdvanceWorldLevel()
@@ -18762,7 +18762,7 @@ namespace _func1360
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::ForceBossJump", typeid(void (StarMap::*)()), "80b97008000000c6817108000001751a", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::ForceBossJump", typeid(void (StarMap::*)()), ".80b97008000000c6817108000001751a8b817808", argdata, 1, 5, &func);
 }
 
 void StarMap::ForceBossJump()
@@ -18790,7 +18790,7 @@ namespace _func1362
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::SetBossStage", typeid(void (StarMap::*)(int )), "8b4424048981e4090000c20400906690", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("StarMap::SetBossStage", typeid(void (StarMap::*)(int )), ".8b4424048981e4090000c2040090669031c083b9", argdata, 2, 5, &func);
 }
 
 void StarMap::SetBossStage(int stage)
@@ -18804,7 +18804,7 @@ namespace _func1363
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::CheckGameOver", typeid(void (StarMap::*)()), "31c083b96c080000047405f3????????", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::CheckGameOver", typeid(void (StarMap::*)()), ".31c083b96c080000047405f3c38d76008b817408", argdata, 1, 5, &func);
 }
 
 void StarMap::CheckGameOver()
@@ -18860,7 +18860,7 @@ namespace _func1367
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::MouseClick", typeid(void (StarMap::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb81ec9c00000080b9", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("StarMap::MouseClick", typeid(void (StarMap::*)(int , int )), ".578d7c240883e4f0ff77fc5589e557565389cb83", argdata, 3, 5, &func);
 }
 
 void StarMap::MouseClick(int unk0, int unk1)
@@ -18888,7 +18888,7 @@ namespace _func1369
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::PushSectorColumn", typeid(void (StarMap::*)()), "5589e557565389cf83e4f083ec208b81fc", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::PushSectorColumn", typeid(void (StarMap::*)()), ".5589e557565389cf83e4f083ec208b81fc060000", argdata, 1, 5, &func);
 }
 
 void StarMap::PushSectorColumn()
@@ -18916,7 +18916,7 @@ namespace _func1371
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::GenerateSectorMap", typeid(void (StarMap::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b7f", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::GenerateSectorMap", typeid(void (StarMap::*)()), ".578d7c240883e4f0ff77fc5589e557565389cb81", argdata, 1, 5, &func);
 }
 
 void StarMap::GenerateSectorMap()
@@ -18944,7 +18944,7 @@ namespace _func1373
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x4ff};
-	static FunctionDefinition funcObj("StarMap::RenderSectorName", typeid(void (StarMap::*)(Sector *, GL_Color )), "578d7c240883e4f0ff77fc5589e55756538d85d0", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("StarMap::RenderSectorName", typeid(void (StarMap::*)(Sector *, GL_Color )), ".578d7c240883e4f0ff77fc5589e55756538d85d0", argdata, 3, 5, &func);
 }
 
 void StarMap::RenderSectorName(Sector *unk0, GL_Color unk1)
@@ -19042,7 +19042,7 @@ namespace _func1380
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x2ff};
-	static FunctionDefinition funcObj("StarMap::ConnectLocations", typeid(void (StarMap::*)(Point , Point )), "578d7c240883e4f0ff77fc5589e55756538d712c8d", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("StarMap::ConnectLocations", typeid(void (StarMap::*)(Point , Point )), ".578d7c240883e4f0ff77fc5589e5575653", argdata, 3, 5, &func);
 }
 
 void StarMap::ConnectLocations(Point unk0, Point unk1)
@@ -19084,7 +19084,7 @@ namespace _func1383
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::AddQuest", typeid(bool (StarMap::*)(const std::string &, bool )), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec3c8b300f", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("StarMap::AddQuest", typeid(bool (StarMap::*)(const std::string &, bool )), ".578d7c240883e4f0ff77fc5589f889e557565389cf83ec5c8b100fb64004", argdata, 3, 1, &func);
 }
 
 bool StarMap::AddQuest(const std::string &questEvent, bool force)
@@ -19126,7 +19126,7 @@ namespace _func1386
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::Dijkstra", typeid(std::vector<Location*> (StarMap::*)(Location *, Location *, bool )), "578d7c240883e4f0ff77fc5589f889e557565383ec2c0f", argdata, 5, 1, &func);
+	static FunctionDefinition funcObj("StarMap::Dijkstra", typeid(std::vector<Location*> (StarMap::*)(Location *, Location *, bool )), ".578d7c240883e4f0ff77fc5589f889e557565381", argdata, 5, 1, &func);
 }
 
 std::vector<Location*> StarMap::Dijkstra(Location *start, Location *finish, bool include_unknown)
@@ -19182,7 +19182,7 @@ namespace _func1390
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::RenderLeftInsetButton", typeid(void (StarMap::*)(float , float , bool )), "578d7c240883e4f0ff77fc5589e557565389cb81ec9c0000008b7708", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("StarMap::RenderLeftInsetButton", typeid(void (StarMap::*)(float , float , bool )), ".578d7c240883e4f0ff77fc5589e557565389cb83", argdata, 4, 5, &func);
 }
 
 void StarMap::RenderLeftInsetButton(float unk0, float unk1, bool unk2)
@@ -19196,7 +19196,7 @@ namespace _func1391
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StarMap::RenderDistressButtons", typeid(void (StarMap::*)()), "578d7c240883e4f0ff77fc5589e55756538d7dc889", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StarMap::RenderDistressButtons", typeid(void (StarMap::*)()), ".578d7c240883e4f0ff77fc5589e55756538d7dc8", argdata, 1, 5, &func);
 }
 
 void StarMap::RenderDistressButtons()
@@ -19252,7 +19252,7 @@ namespace _func1395
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::GetLocationText", typeid(std::string (StarMap::*)(const Location *)), "578d41148d7c240883e4f0ff77fc5589e557565389cf83", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("StarMap::GetLocationText", typeid(std::string (StarMap::*)(const Location *)), "578d41088d7c240883e4f0ff77fc5589e557565389ce83ec7c8b1f8d7dd08901", argdata, 3, 1, &func);
 }
 
 std::string StarMap::GetLocationText(const Location *loc)
@@ -19266,7 +19266,7 @@ namespace _func1396
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("StarMap::SetupNoFuel", typeid(void (StarMap::*)(int , const std::string &)), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c807f04", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("StarMap::SetupNoFuel", typeid(void (StarMap::*)(int , const std::string &)), "578d7c240883e4f0ff77fc5589e557565389cb81ec????????833fff8b77040f84????????8b81ac090000c68543ffffff00803d??????????c683c8090000018983ac090000", argdata, 3, 5, &func);
 }
 
 void StarMap::SetupNoFuel(int seed, const std::string &forceEscape)
@@ -19322,7 +19322,7 @@ namespace _func1400
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("Store::OnInit", typeid(void (Store::*)(ShipManager *, Equipment *, int )), "578d7c240883e4f0ff77fc5589e557565389cb31f683ec2c", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("Store::OnInit", typeid(void (Store::*)(ShipManager *, Equipment *, int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b078b918c0400008945e48b47048945dc8b4708", argdata, 4, 5, &func);
 }
 
 void Store::OnInit(ShipManager *shopper, Equipment *equip, int worldLevel)
@@ -19406,7 +19406,7 @@ namespace _func1406
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("Store::constructor", typeid(void (Store::*)()), "5589e55389cb83e4f0e872080b008d43", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("Store::constructor", typeid(void (Store::*)()), "5589e55389cb83e4f0e8????????8d43288d8b90000000c703????????c7432400000000c64328008943208d4344c6433801c7434000000000", argdata, 1, 5, &func);
 }
 
 void Store::constructor()
@@ -19420,7 +19420,7 @@ namespace _func1407
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Store::SaveStore", typeid(void (Store::*)(int )), "5589e557565389cf83e4f083ec208b8164", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("Store::SaveStore", typeid(void (Store::*)(int )), "5589e557565389cb83e4f083ec208b8164060000894424048b4508890424e8????????8b836406000085c00f8e????????31f68b84b3680600008d3c76", argdata, 2, 5, &func);
 }
 
 void Store::SaveStore(int file)
@@ -19490,7 +19490,7 @@ namespace _func1412
 {
     static void *func = 0;
 	static const short *argdata = NULL;
-	static FunctionDefinition funcObj("Store::DrawBuySellTabText", typeid(void (*)()), "8d4c240483e4f0ff71fc5589e5575653518d45d0", argdata, 0, 4, &func);
+	static FunctionDefinition funcObj("Store::DrawBuySellTabText", typeid(void (*)()), "8d4c240483e4f0ff71fc5589e5575653518d45d08d75a08d5dd881ec????????c745d873746f72c745dc655f746189442404", argdata, 0, 4, &func);
 }
 
 void Store::DrawBuySellTabText()
@@ -19532,7 +19532,7 @@ namespace _func1415
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("Store::SetPositions", typeid(void (Store::*)()), "578d7c240883e4f0ff77fc5589e557565389ce31db81", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("Store::SetPositions", typeid(void (Store::*)()), "578d7c240883e4f0ff77fc5589e557565389cf31f683ec7cc64105018d4dd0c74424042a000000c70424????????e8????????83ec088b45d08b55d489f9", argdata, 1, 5, &func);
 }
 
 void Store::SetPositions()
@@ -19658,7 +19658,7 @@ namespace _func1424
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff};
-	static FunctionDefinition funcObj("StoreBox::SetPosition", typeid(void (StoreBox::*)(Point )), "578d7c240883e4f0ff77fc5589e5575389cb8d4df083ec208b078b570489042489542404e8f7", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("StoreBox::SetPosition", typeid(void (StoreBox::*)(Point )), "578d7c240883e4f0ff77fc5589e5575389cb8d4df083ec208b078b570489042489542404e8????????8b45f08b55f483ec08", argdata, 2, 5, &func);
 }
 
 void StoreBox::SetPosition(Point pos)
@@ -19686,7 +19686,7 @@ namespace _func1426
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("StoreBox::Purchase", typeid(void (StoreBox::*)()), "57????????008d7c240883e4f0ff77fc5589e55756538d7dd08d75d889cbb9????????83ec3c8975d0668955d8c744240800000000c7442404000080bf893c24c645da79c745d403000000c645db00e8fc", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("StoreBox::Purchase", typeid(void (StoreBox::*)()), "57ba????????8d7c240883e4f0ff77fc5589e55756538d7dd08d75d889cbb9????????83ec3c8975d0", argdata, 1, 5, &func);
 }
 
 void StoreBox::Purchase()
@@ -19742,7 +19742,7 @@ namespace _func1430
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SystemBox::OnRender", typeid(void (SystemBox::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389ce83ec7c0f", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SystemBox::OnRender", typeid(void (SystemBox::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389ce83ec7c0fb641508b1fc781b401000000000000", argdata, 2, 5, &func);
 }
 
 void SystemBox::OnRender(bool ignoreStatus)
@@ -19770,7 +19770,7 @@ namespace _func1432
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("SystemBox::constructor", typeid(void (SystemBox::*)(Point , ShipSystem *, bool )), "578d7c240883e4f0ff77fc5589e557565389ce8d9e", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("SystemBox::constructor", typeid(void (SystemBox::*)(Point , ShipSystem *, bool )), "578d7c240883e4f0ff77fc5589e557565389ce8d9e8000000081ec????????8b4f088b57048b078b7f0cc706????????", argdata, 4, 5, &func);
 }
 
 void SystemBox::constructor(Point pos, ShipSystem *sys, bool playerUI)
@@ -19784,7 +19784,7 @@ namespace _func1433
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("SystemBox::MouseMove", typeid(void (SystemBox::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b378b81", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("SystemBox::MouseMove", typeid(void (SystemBox::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b378b81800100008b7f0439c67e??03818801000039c6", argdata, 3, 5, &func);
 }
 
 void SystemBox::MouseMove(int x, int y)
@@ -19798,7 +19798,7 @@ namespace _func1434
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SystemBox::MouseClick", typeid(bool (SystemBox::*)(bool )), "5589e5565389cb8b494c8b750883e4f0", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("SystemBox::MouseClick", typeid(bool (SystemBox::*)(bool )), "5589e5565389cb8b494c8b750883e4f0e8????????84c075??807b580075??89f084c075??8d65f831c0", argdata, 2, 1, &func);
 }
 
 bool SystemBox::MouseClick(bool shift)
@@ -19812,7 +19812,7 @@ namespace _func1435
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("SystemBox::KeyDown", typeid(void (SystemBox::*)(SDLKey , bool )), "578d7c240883e4f0ff77fc5589e557565389ce8d5db8", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("SystemBox::KeyDown", typeid(void (SystemBox::*)(SDLKey , bool )), "578d7c240883e4f0ff77fc5589e557565389ce8d5db883ec6c8b078945a48b470489459c8b414c8b10", argdata, 3, 5, &func);
 }
 
 void SystemBox::KeyDown(SDLKey key, bool shift)
@@ -19826,7 +19826,7 @@ namespace _func1436
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SystemBox::destructor", typeid(void (SystemBox::*)()), "5589e55756538d79348d591089ce83e4", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("SystemBox::destructor", typeid(void (SystemBox::*)()), "5589e55756538d79348d591089ce", argdata, 1, 5, &func);
 }
 
 void SystemBox::destructor()
@@ -19882,7 +19882,7 @@ namespace _func1440
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("SystemControl::OnRender", typeid(void (SystemControl::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389ce83ec6c8b09", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("SystemControl::OnRender", typeid(void (SystemControl::*)(bool )), ".578d????0883e4f0ff????5589e557565389ce83ec6c8b??e8????????", argdata, 2, 5, &func);
 }
 
 void SystemControl::OnRender(bool front)
@@ -19938,7 +19938,7 @@ namespace _func1445
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("SystemCustomBox::constructor", typeid(void (SystemCustomBox::*)(Point , ShipSystem *, ShipManager *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b77", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("SystemCustomBox::constructor", typeid(void (SystemCustomBox::*)(Point , ShipSystem *, ShipManager *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b77048b57088b7f0cc744240c000000008904248974240489542408", argdata, 4, 5, &func);
 }
 
 void SystemCustomBox::constructor(Point pos, ShipSystem *sys, ShipManager *ship)
@@ -20022,7 +20022,7 @@ namespace _func1451
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("SystemStoreBox::Purchase", typeid(void (SystemStoreBox::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8db338", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("SystemStoreBox::Purchase", typeid(void (SystemStoreBox::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8d75d883ec4c", argdata, 1, 5, &func);
 }
 
 void SystemStoreBox::Purchase()
@@ -20064,7 +20064,7 @@ namespace _func1454
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TabbedWindow::Close", typeid(void (TabbedWindow::*)()), "5589e5538b51408b412889cb83e4f08b", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TabbedWindow::Close", typeid(void (TabbedWindow::*)()), "5589e5538b51408b412889cb83e4f08b0c908b01ff501089d9e8????????8b5dfcc9c3", argdata, 1, 5, &func);
 }
 
 void TabbedWindow::Close()
@@ -20092,7 +20092,7 @@ namespace _func1456
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("TabbedWindow::SetTab", typeid(void (TabbedWindow::*)(unsigned int )), "578d7c240883e4f0ff77fc5589f889e557565389cf81ecac00", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("TabbedWindow::SetTab", typeid(void (TabbedWindow::*)(unsigned int )), "578d????0883e4f0ff????5589f889e557565389cf81ecac0000008b??8b", argdata, 2, 5, &func);
 }
 
 void TabbedWindow::SetTab(unsigned int tab)
@@ -20134,7 +20134,7 @@ namespace _func1459
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x1ff};
-	static FunctionDefinition funcObj("TeleportBox::constructor", typeid(void (TeleportBox::*)(Point , TeleportSystem *)), "578d7c240883e4f0ff77fc5589e557565389cb81ecbc0000008b57", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("TeleportBox::constructor", typeid(void (TeleportBox::*)(Point , TeleportSystem *)), "578d7c240883e4f0ff77fc5589e557565389cb81ec????????8b57048b77088b07c744240c010000008954240489742408890424e8????????8d8304020000", argdata, 3, 5, &func);
 }
 
 void TeleportBox::constructor(Point pos, TeleportSystem *sys)
@@ -20148,7 +20148,7 @@ namespace _func1460
 {
     static void *func = 0;
 	static const short *argdata = NULL;
-	static FunctionDefinition funcObj("TeleportSystem::__DO_NOT_HOOK", typeid(void (TeleportSystem::*)()), "8d4c240483e4f0ff71fc5589e5535183ec40", argdata, 0, 4, &func);
+	static FunctionDefinition funcObj("TeleportSystem::__DO_NOT_HOOK", typeid(void (TeleportSystem::*)()), "8d????0483e4f0ff????5589e5535183ec408b15????????a1????????", argdata, 0, 4, &func);
 }
 
 namespace _func1461
@@ -20183,7 +20183,7 @@ namespace _func1463
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("TeleportSystem::constructor", typeid(void (TeleportSystem::*)(int , int , int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b7704", argdata, 5, 5, &func);
+	static FunctionDefinition funcObj("TeleportSystem::constructor", typeid(void (TeleportSystem::*)(int , int , int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b77048b57088b078b4f0c8954240889742404894c240c890424", argdata, 5, 5, &func);
 }
 
 void TeleportSystem::constructor(int systemId, int roomId, int shipId, int startingPower)
@@ -20267,7 +20267,7 @@ namespace _func1469
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TeleportSystem::ForceReady", typeid(void (TeleportSystem::*)()), "578d7c240883e4f0ff77fc5589e55783ec14c781", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TeleportSystem::ForceReady", typeid(void (TeleportSystem::*)()), ".578d7c240883e4f0ff77fc5589e55783ec14c781c00100000000c842c70424????????e8????????8b7dfc", argdata, 1, 5, &func);
 }
 
 void TeleportSystem::ForceReady()
@@ -20295,7 +20295,7 @@ namespace _func1471
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TeleportSystem::CanReceive", typeid(bool (TeleportSystem::*)()), "5589e556538b750883e4f080b9c50100", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("TeleportSystem::CanReceive", typeid(bool (TeleportSystem::*)()), ".5589e556538b750883e4f080b9c50100000075??8b410c85c074??8b0189cbff502c84c0", argdata, 1, 1, &func);
 }
 
 bool TeleportSystem::CanReceive()
@@ -20309,7 +20309,7 @@ namespace _func1472
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TeleportSystem::InitiateTeleport", typeid(void (TeleportSystem::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec30e8c6", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TeleportSystem::InitiateTeleport", typeid(void (TeleportSystem::*)()), ".578d7c240883e4f0ff77fc5589e5575389cb83ec30e8????????83e80131d283f80277??", argdata, 1, 5, &func);
 }
 
 void TeleportSystem::InitiateTeleport()
@@ -20365,7 +20365,7 @@ namespace _func1476
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TextButton::GetIdealButtonWidth", typeid(int (TextButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cf81ecbc", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("TextButton::GetIdealButtonWidth", typeid(int (TextButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5c80b9dc000000000f85????????8d81c40000008d7dd0", argdata, 1, 1, &func);
 }
 
 int TextButton::GetIdealButtonWidth()
@@ -20414,7 +20414,7 @@ namespace _func1480
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TextButton::OnRender", typeid(void (TextButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cf81ecac00000080", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TextButton::OnRender", typeid(void (TextButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cf81ec????????80b9b4000000000f85????????8b474885c0", argdata, 1, 5, &func);
 }
 
 void TextButton::OnRender()
@@ -20428,7 +20428,7 @@ namespace _func1481
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TextButton::destructor", typeid(void (TextButton::*)()), "5589e55389cb81c3cc00000083e4f083", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TextButton::destructor", typeid(void (TextButton::*)()), "5589e55389cb81c3????????83e4f083ec108b4148c701????????890424e8????????8b4380890424e8????????8b4384890424e8????????8b4394890424", argdata, 1, 5, &func);
 }
 
 void TextButton::destructor()
@@ -20442,7 +20442,7 @@ namespace _func1482
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TextButton::GetSize_DO_NOT_USE_DIRECTLY", typeid(__int64 (TextButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5c80b9b4", argdata, 1, 9, &func);
+	static FunctionDefinition funcObj("TextButton::GetSize_DO_NOT_USE_DIRECTLY", typeid(__int64 (TextButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5c80b9b40000000075??8b83a80000008b93ac000000", argdata, 1, 9, &func);
 }
 
 FUNC_NAKED __int64 TextButton::GetSize_DO_NOT_USE_DIRECTLY()
@@ -20500,7 +20500,7 @@ namespace _func1485
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("TextButton::SetAutoWidth", typeid(void (TextButton::*)(bool , bool , int , int )), "8b5424048b4424108891b40000008b54", argdata, 5, 5, &func);
+	static FunctionDefinition funcObj("TextButton::SetAutoWidth", typeid(void (TextButton::*)(bool , bool , int , int )), "8b5424048b4424108891b40000008b54240885c08891c00000008b54240c8991b80000007e??8981bc000000", argdata, 5, 5, &func);
 }
 
 void TextButton::SetAutoWidth(bool autoWidth, bool autoRightAlign, int margin, int min)
@@ -20514,7 +20514,7 @@ namespace _func1486
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TextButton::UpdateAutoWidth", typeid(void (TextButton::*)()), "80b9b4000000007507f3c3908d742600", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TextButton::UpdateAutoWidth", typeid(void (TextButton::*)()), ".80b9b400000000", argdata, 1, 5, &func);
 }
 
 void TextButton::UpdateAutoWidth()
@@ -20626,7 +20626,7 @@ namespace _func1494
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TextInput::OnLoop", typeid(void (TextInput::*)()), "5589e5538b413083e4f03941347407c7", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TextInput::OnLoop", typeid(void (TextInput::*)()), ".5589e5538b413083e4f039413474??c7414c000000008d5944", argdata, 1, 5, &func);
 }
 
 void TextInput::OnLoop()
@@ -20654,7 +20654,7 @@ namespace _func1496
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TextInput::GetActive", typeid(bool (TextInput::*)()), "0fb64138c3????????8dbc2700000000", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("TextInput::GetActive", typeid(bool (TextInput::*)()), ".0fb64138c3", argdata, 1, 1, &func);
 }
 
 bool TextInput::GetActive()
@@ -20696,7 +20696,7 @@ namespace _func1499
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TextInput::Stop", typeid(void (TextInput::*)()), "55c641380089e583e4f0e851351500c9", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TextInput::Stop", typeid(void (TextInput::*)()), ".55c641380089e583e4f0e8????????", argdata, 1, 5, &func);
 }
 
 void TextInput::Stop()
@@ -20738,7 +20738,7 @@ namespace _func1502
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("TextLibrary::GetText", typeid(std::string (TextLibrary::*)(const std::string &, const std::string &)), "578d7c240883e4f0ff77fc5589e557565383ec5c8b178b", argdata, 4, 1, &func);
+	static FunctionDefinition funcObj("TextLibrary::GetText", typeid(std::string (TextLibrary::*)(const std::string &, const std::string &)), "578d7c240883e4f0ff77fc5589e557565383ec4c8b07894dc889c18945bc8b47048b59208d511c", argdata, 4, 1, &func);
 }
 
 std::string TextLibrary::GetText(const std::string &name, const std::string &lang)
@@ -20752,7 +20752,7 @@ namespace _func1503
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("TextString::GetText", typeid(std::string (TextString::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b17807a18", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("TextString::GetText", typeid(std::string (TextString::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b17807a1800", argdata, 2, 1, &func);
 }
 
 std::string TextString::GetText()
@@ -20766,7 +20766,7 @@ namespace _func1504
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("TimerHelper::Start", typeid(void (TimerHelper::*)(int )), "5589e55653c6411101c7410800000000", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("TimerHelper::Start", typeid(void (TimerHelper::*)(int )), "5589e55653c6411101c741080000000083e4f0837d08ff74??660fefc0f30f2a4508f30f11410c", argdata, 2, 5, &func);
 }
 
 void TimerHelper::Start(int goal)
@@ -20780,7 +20780,7 @@ namespace _func1505
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TimerHelper::Running", typeid(bool (TimerHelper::*)()), "0fb64111c3????????8dbc2700000000", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("TimerHelper::Running", typeid(bool (TimerHelper::*)()), ".0fb64111", argdata, 1, 1, &func);
 }
 
 bool TimerHelper::Running()
@@ -20794,7 +20794,7 @@ namespace _func1506
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("TimerHelper::ResetMinMax", typeid(void (TimerHelper::*)(int , int )), "8b44240889018b442404894104c20800", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("TimerHelper::ResetMinMax", typeid(void (TimerHelper::*)(int , int )), ".8b44240889018b442404894104", argdata, 3, 5, &func);
 }
 
 void TimerHelper::ResetMinMax(int min, int max)
@@ -20808,7 +20808,7 @@ namespace _func1507
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("TimerHelper::SetMaxTime", typeid(void (TimerHelper::*)(float )), "f30f104908f30f5e490cf30f10442404", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("TimerHelper::SetMaxTime", typeid(void (TimerHelper::*)(float )), ".f30f104108f30f5e410cf30f104c2404f30f11490cf30f59c1", argdata, 2, 5, &func);
 }
 
 void TimerHelper::SetMaxTime(float max)
@@ -20836,7 +20836,7 @@ namespace _func1509
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TimerHelper::Update", typeid(void (TimerHelper::*)()), "80791100750af3c3908db42600000000", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TimerHelper::Update", typeid(void (TimerHelper::*)()), ".8079110075??c389f68dbc27000000005589e55389cbb9????????83e4f0", argdata, 1, 5, &func);
 }
 
 void TimerHelper::Update()
@@ -20850,7 +20850,7 @@ namespace _func1510
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TimerHelper::Done", typeid(bool (TimerHelper::*)()), "0fb6411184c0746bf30f1041080f2e41", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("TimerHelper::Done", typeid(bool (TimerHelper::*)()), ".0fb6411184c074??f30f1041080f2e410c76??5589e55756530fb6711083e4f0", argdata, 1, 1, &func);
 }
 
 bool TimerHelper::Done()
@@ -20864,7 +20864,7 @@ namespace _func1511
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("TopScore::copy_constructor", typeid(void (TopScore::*)(const TopScore &)), "578d41088d7c240883e4f0ff77fc5589e557565389cb83ec3c8b37", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("TopScore::copy_constructor", typeid(void (TopScore::*)(const TopScore &)), "578d41088d7c240883e4f0ff77fc5589e557565389cb83ec3c8b3789018b16", argdata, 2, 5, &func);
 }
 
 void TopScore::copy_constructor(const TopScore &other)
@@ -20892,7 +20892,7 @@ namespace _func1513
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TutorialManager::Running", typeid(bool (TutorialManager::*)()), "0fb601c38db6000000008dbf00000000", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("TutorialManager::Running", typeid(bool (TutorialManager::*)()), ".0fb601", argdata, 1, 1, &func);
 }
 
 bool TutorialManager::Running()
@@ -20906,7 +20906,7 @@ namespace _func1514
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("TutorialManager::OnInit", typeid(void (TutorialManager::*)(ShipManager *, CommandGui *, CrewControl *, Upgrades *, CombatControl *, SystemControl *, TabbedWindow *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec7c8b470c", argdata, 8, 5, &func);
+	static FunctionDefinition funcObj("TutorialManager::OnInit", typeid(void (TutorialManager::*)(ShipManager *, CommandGui *, CrewControl *, Upgrades *, CombatControl *, SystemControl *, TabbedWindow *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec7c8b470c8b378b4f048b5708c745b412000000", argdata, 8, 5, &func);
 }
 
 void TutorialManager::OnInit(ShipManager *ship, CommandGui *gui, CrewControl *crewControl, Upgrades *upgradesScreen, CombatControl *combatControl, SystemControl *sysControl, TabbedWindow *unk)
@@ -20948,7 +20948,7 @@ namespace _func1517
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("TutorialManager::MouseMove", typeid(void (TutorialManager::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565383ec4c8b0780", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("TutorialManager::MouseMove", typeid(void (TutorialManager::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565383ec4c8b078039", argdata, 3, 5, &func);
 }
 
 void TutorialManager::MouseMove(int mX, int mY)
@@ -20976,7 +20976,7 @@ namespace _func1519
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TutorialManager::OnRender", typeid(void (TutorialManager::*)()), "803900750bf3c389f68dbc2700000000578d7c240883e4f0ff77fc5589e557565389cf", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("TutorialManager::OnRender", typeid(void (TutorialManager::*)()), "80390075??f3c3", argdata, 1, 5, &func);
 }
 
 void TutorialManager::OnRender()
@@ -20990,7 +20990,7 @@ namespace _func1520
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TutorialManager::AllowJumping", typeid(bool (TutorialManager::*)()), "57????????008d7c240883e4f0ff77fc5589e55756538d45d08d5dd889ce83ec4c89", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("TutorialManager::AllowJumping", typeid(bool (TutorialManager::*)()), "57ba4d5f0000", argdata, 1, 1, &func);
 }
 
 bool TutorialManager::AllowJumping()
@@ -21004,7 +21004,7 @@ namespace _func1521
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("TutorialManager::AllowUpgrades", typeid(bool (TutorialManager::*)()), "578d7c240883e4f0ff77fc5589e557565389cb81ec9c0000008079", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("TutorialManager::AllowUpgrades", typeid(bool (TutorialManager::*)()), "578d7c240883e4f0ff77fc5589e5575653be01000000", argdata, 1, 1, &func);
 }
 
 bool TutorialManager::AllowUpgrades()
@@ -21025,7 +21025,7 @@ namespace _func1523
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("UnlockArrow::constructor", typeid(void (UnlockArrow::*)(Point , int , int )), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec4c8b1080", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("UnlockArrow::constructor", typeid(void (UnlockArrow::*)(Point , int , int )), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec4c8b10803d??????????8b4808c74708ffffffffc7470cffffffffc74710000000008955c4", argdata, 4, 5, &func);
 }
 
 void UnlockArrow::constructor(Point pos, int unk1, int unk2)
@@ -21067,7 +21067,7 @@ namespace _func1526
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x1ff};
-	static FunctionDefinition funcObj("UpgradeBox::constructorEmpty", typeid(void (UpgradeBox::*)(Point , bool )), "578d51248d7c240883e4f0ff77fc5589f8", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("UpgradeBox::constructorEmpty", typeid(void (UpgradeBox::*)(Point , bool )), "578d51248d7c240883e4f0ff77fc5589f889e557565389cb83c13481ec????????8b378b7f048b40088951e8", argdata, 3, 5, &func);
 }
 
 void UpgradeBox::constructorEmpty(Point pos, bool subsystem)
@@ -21081,7 +21081,7 @@ namespace _func1527
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x2ff, 0x1ff};
-	static FunctionDefinition funcObj("UpgradeBox::constructorSystem", typeid(void (UpgradeBox::*)(ShipManager *, ShipSystem *, Point , bool )), "578d7c240883e4f0ff77fc5589fa89e557565389cb83ec5c", argdata, 5, 5, &func);
+	static FunctionDefinition funcObj("UpgradeBox::constructorSystem", typeid(void (UpgradeBox::*)(ShipManager *, ShipSystem *, Point , bool )), "578d7c240883e4f0ff77fc5589fa89e557565389cb83ec5c8b47048b720c8b52108b0f8b7f08c743140000000089038945ac8d83a0000000", argdata, 5, 5, &func);
 }
 
 void UpgradeBox::constructorSystem(ShipManager *ship, ShipSystem *sys, Point pos, bool subsystem)
@@ -21193,7 +21193,7 @@ namespace _func1535
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("Upgrades::OnInit", typeid(void (Upgrades::*)(ShipManager *)), "578d7c240883e4f0ff77fc5589e557565389ce8d5de0", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("Upgrades::OnInit", typeid(void (Upgrades::*)(ShipManager *)), "578d7c240883e4f0ff77fc5589e557565389cb8d75bc81ec????????8b07c64105018d7dd489412c8945888b4118894424048b41148d4dcc", argdata, 2, 5, &func);
 }
 
 void Upgrades::OnInit(ShipManager *ship)
@@ -21235,7 +21235,7 @@ namespace _func1538
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("Upgrades::OnLoop", typeid(void (Upgrades::*)()), "807938000f8466010000578d7c240883", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("Upgrades::OnLoop", typeid(void (Upgrades::*)()), "807904000f84????????578d7c240883e4f0ff77fc5589e557565381ec????????8b818c0100008b71208b592485c00f9fc2", argdata, 1, 5, &func);
 }
 
 void Upgrades::OnLoop()
@@ -21333,7 +21333,7 @@ namespace _func1545
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WarningMessage::Start", typeid(void (WarningMessage::*)()), "80791400755a578d7c240883e4f0ff77", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WarningMessage::Start", typeid(void (WarningMessage::*)()), "8079140075??578d7c240883e4f0ff77fc5589e5575389cb", argdata, 1, 5, &func);
 }
 
 void WarningMessage::Start()
@@ -21347,7 +21347,7 @@ namespace _func1546
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WarningMessage::OnRender", typeid(void (WarningMessage::*)()), "80791600754a807914007444578d7c24", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WarningMessage::OnRender", typeid(void (WarningMessage::*)()), "807916000f85????????807914000f84????????578d7c240883e4f0ff77fc5589e55753", argdata, 1, 5, &func);
 }
 
 void WarningMessage::OnRender()
@@ -21361,7 +21361,7 @@ namespace _func1547
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WarningMessage::RenderWithAlpha", typeid(void (WarningMessage::*)(float )), "578d7c240883e4f0ff77fc5589e557565389cb81ec8c0000008079", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WarningMessage::RenderWithAlpha", typeid(void (WarningMessage::*)(float )), "578d7c240883e4f0ff77fc5589e557565389cb81ec8c00000080792800f30f100f744d", argdata, 2, 5, &func);
 }
 
 void WarningMessage::RenderWithAlpha(float alpha)
@@ -21403,7 +21403,7 @@ namespace _func1550
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x2ff, 0x1ff, 0x4ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WarningMessage::InitText", typeid(void (WarningMessage::*)(const TextString &, Point , float , GL_Color , bool , bool )), "578d7c240883e4f0ff77fc5589e557565389cb8d492c", argdata, 7, 5, &func);
+	static FunctionDefinition funcObj("WarningMessage::InitText", typeid(void (WarningMessage::*)(const TextString &, Point , float , GL_Color , bool , bool )), "578d7c240883e4f0ff77fc5589e557565389cb8d492c83ec2c8b57208b47248b37c641fc00f30f105f0c8955e08945e4f30f115ddc8b47048b57088941f48951f8893424", argdata, 7, 5, &func);
 }
 
 void WarningMessage::InitText(const TextString &text, Point position, float time, GL_Color textColor, bool centerText, bool flash)
@@ -21417,7 +21417,7 @@ namespace _func1551
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WarningMessage::OnLoop", typeid(void (WarningMessage::*)()), "578d7c240883e4f0ff77fc5589e557568d7104", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WarningMessage::OnLoop", typeid(void (WarningMessage::*)()), "578d7c240883e4f0ff77fc5589e557568d71045389cb83ec1c89f1", argdata, 1, 5, &func);
 }
 
 void WarningMessage::OnLoop()
@@ -21473,7 +21473,7 @@ namespace _func1555
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff};
-	static FunctionDefinition funcObj("WarningMessage::SetPosition", typeid(void (WarningMessage::*)(Point )), "578d7c240883e4f0ff77fc5589e55783ec14807928", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WarningMessage::SetPosition", typeid(void (WarningMessage::*)(Point )), "578d7c240883e4f0ff77fc5589e55783ec14807928008b078b5704894120895124741283c16089542404890424", argdata, 2, 5, &func);
 }
 
 void WarningMessage::SetPosition(Point position)
@@ -21487,7 +21487,7 @@ namespace _func1556
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WarningMessage::SetLoop", typeid(void (WarningMessage::*)(bool )), "5783c1048d7c240883e4f0ff77fc5589", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WarningMessage::SetLoop", typeid(void (WarningMessage::*)(bool )), "5783c1048d7c240883e4f0ff77fc5589e55783ec148b07c7442404000000000fb6c0890424", argdata, 2, 5, &func);
 }
 
 void WarningMessage::SetLoop(bool loop)
@@ -21501,7 +21501,7 @@ namespace _func1557
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WarningMessage::SetSound", typeid(void (WarningMessage::*)(const std::string &)), "5781c1c80000008d7c240883e4f0ff77", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WarningMessage::SetSound", typeid(void (WarningMessage::*)(const std::string &)), "5781c1c80000008d7c240883e4f0ff77fc5589e55783ec148b07890424", argdata, 2, 5, &func);
 }
 
 void WarningMessage::SetSound(const std::string &sound)
@@ -21515,7 +21515,7 @@ namespace _func1558
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponAnimation::SaveState", typeid(void (WeaponAnimation::*)(int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b37893424e890af15008d", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponAnimation::SaveState", typeid(void (WeaponAnimation::*)(int )), "578d????0883e4f0ff????5589e557565389cb83ec2c8b??8934??e8????????8d", argdata, 2, 5, &func);
 }
 
 void WeaponAnimation::SaveState(int fd)
@@ -21529,7 +21529,7 @@ namespace _func1559
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponAnimation::SetBoostLevel", typeid(void (WeaponAnimation::*)(int )), "578d7c240883e4f0ff77fc5589e55783ec1480b9cd000000008b", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponAnimation::SetBoostLevel", typeid(void (WeaponAnimation::*)(int )), ".578d????0883e4f0ff????5589e55783ec1480b9cd000000008b??75??898120030000", argdata, 2, 5, &func);
 }
 
 void WeaponAnimation::SetBoostLevel(int value)
@@ -21557,7 +21557,7 @@ namespace _func1561
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponAnimation::SetFireTime", typeid(void (WeaponAnimation::*)(float )), "8b5104660fefc0660fefc989d02b81d4", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponAnimation::SetFireTime", typeid(void (WeaponAnimation::*)(float )), "8b5104660fefc0660fefc989d02b81d4000000f30f2acaf30f2ac0f30f5ec1f30f104c2404f30f5ec8f30f114924", argdata, 2, 5, &func);
 }
 
 void WeaponAnimation::SetFireTime(float time)
@@ -21571,7 +21571,7 @@ namespace _func1562
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WeaponAnimation::GetSlide", typeid(Pointf (WeaponAnimation::*)()), "578d7c240883e4f0ff77fc5589e5575389cb81c104", argdata, 1, 9, &func);
+	static FunctionDefinition funcObj("WeaponAnimation::GetSlide", typeid(Pointf (WeaponAnimation::*)()), "578d??????83e4??ff????5589e5575389cb81c1????????83ec??c704", argdata, 1, 9, &func);
 }
 
 Pointf WeaponAnimation::GetSlide()
@@ -21585,7 +21585,7 @@ namespace _func1563
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponAnimation::SetPowered", typeid(void (WeaponAnimation::*)(bool )), "578d7c240883e4f0ff77fc5589e5575389cb83ec2080b9e8", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponAnimation::SetPowered", typeid(void (WeaponAnimation::*)(bool )), ".578d????0883e4f0ff????5589e5575389cb83ec2080b9e800000000", argdata, 2, 5, &func);
 }
 
 void WeaponAnimation::SetPowered(bool powered)
@@ -21599,7 +21599,7 @@ namespace _func1564
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponAnimation::SetChargedLevel", typeid(void (WeaponAnimation::*)(float )), "578d7c240883e4f0ff77fc5589e55783ec1480b9cd00000000f3", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponAnimation::SetChargedLevel", typeid(void (WeaponAnimation::*)(float )), ".578d????0883e4f0ff????5589e55783ec1480b9cd00000000f30f10??", argdata, 2, 5, &func);
 }
 
 void WeaponAnimation::SetChargedLevel(float charged)
@@ -21627,7 +21627,7 @@ namespace _func1566
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WeaponAnimation::GetFireLocation", typeid(Point (WeaponAnimation::*)()), "578d7c240883e4f0ff77fc5589e55783ec248b81f8", argdata, 1, 9, &func);
+	static FunctionDefinition funcObj("WeaponAnimation::GetFireLocation", typeid(Point (WeaponAnimation::*)()), ".578d????0883e4f0ff????5589e55783ec248b81f8000000", argdata, 1, 9, &func);
 }
 
 Point WeaponAnimation::GetFireLocation()
@@ -21641,7 +21641,7 @@ namespace _func1567
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponAnimation::OnRender", typeid(void (WeaponAnimation::*)(float )), "578d7c240883e4f0ff77fc5589e557565389cb83ec5cf3", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponAnimation::OnRender", typeid(void (WeaponAnimation::*)(float )), "578d????0883e4f0ff????5589e557565389cb83ec5cf30f10??", argdata, 2, 5, &func);
 }
 
 void WeaponAnimation::OnRender(float alpha)
@@ -21655,7 +21655,7 @@ namespace _func1568
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponAnimation::RenderChargeBar", typeid(void (WeaponAnimation::*)(float )), "578d7c240883e4f0ff77fc5589e557565389cb83ec3ce835", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponAnimation::RenderChargeBar", typeid(void (WeaponAnimation::*)(float )), "578d7c240883e4f0ff77fc5589e557565389cb83ec3ce8????????80", argdata, 2, 5, &func);
 }
 
 void WeaponAnimation::RenderChargeBar(float alpha)
@@ -21732,7 +21732,7 @@ namespace _func1574
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WeaponBlueprint::GetDimensions", typeid(Point (WeaponBlueprint::*)()), "5781c16c0100008d7c240883e4f0ff77fc5589e55756", argdata, 1, 9, &func);
+	static FunctionDefinition funcObj("WeaponBlueprint::GetDimensions", typeid(Point (WeaponBlueprint::*)()), ".5781c16c0100008d7c2408", argdata, 1, 9, &func);
 }
 
 Point WeaponBlueprint::GetDimensions()
@@ -21788,7 +21788,7 @@ namespace _func1578
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponControl::OnRender", typeid(void (WeaponControl::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b490c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponControl::OnRender", typeid(void (WeaponControl::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b490c8b37c70424????????e8????????83ec0484c00f84????????", argdata, 2, 5, &func);
 }
 
 void WeaponControl::OnRender(bool unk)
@@ -21802,7 +21802,7 @@ namespace _func1579
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WeaponControl::LButton", typeid(bool (WeaponControl::*)(int , int , bool )), "578d7c240883e4f0ff77fc5589e557565383ec2c80b9d8000000008b1f", argdata, 4, 1, &func);
+	static FunctionDefinition funcObj("WeaponControl::LButton", typeid(bool (WeaponControl::*)(int , int , bool )), "578d7c240883e4f0ff77fc5589e557565383ec2c80b9d8000000008b1f8b77048b570874??0fb681d900000084c0", argdata, 4, 1, &func);
 }
 
 bool WeaponControl::LButton(int x, int y, bool holdingShift)
@@ -21816,7 +21816,7 @@ namespace _func1580
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WeaponControl::MouseMove", typeid(void (WeaponControl::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b378b7f04893424897c2404e819", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("WeaponControl::MouseMove", typeid(void (WeaponControl::*)(int , int )), ".578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b378b7f04893424897c2404", argdata, 3, 5, &func);
 }
 
 void WeaponControl::MouseMove(int x, int y)
@@ -21830,7 +21830,7 @@ namespace _func1581
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponControl::LinkShip", typeid(void (WeaponControl::*)(ShipManager *)), "578d7c240883e4f0ff77fc5589e5575389cb83ec308b0789", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponControl::LinkShip", typeid(void (WeaponControl::*)(ShipManager *)), ".578d7c240883e4f0ff77fc5589e5575389cb83ec108b07890424e8????????8b0383ec04", argdata, 2, 5, &func);
 }
 
 void WeaponControl::LinkShip(ShipManager *ship)
@@ -21858,7 +21858,7 @@ namespace _func1583
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WeaponControl::SetAutofiring", typeid(void (WeaponControl::*)(bool , bool )), "578d7c240883e4f0ff77fc5589e557565389ce83ec5c8b078b7f", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("WeaponControl::SetAutofiring", typeid(void (WeaponControl::*)(bool , bool )), "578d7c240883e4f0ff77fc5589e557565389ce83ec5c8b078b7f04f30f101d????????84c08881940000000f84????????f30f1005????????f30f100d????????", argdata, 3, 5, &func);
 }
 
 void WeaponControl::SetAutofiring(bool on, bool simple)
@@ -21872,7 +21872,7 @@ namespace _func1584
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponControl::KeyDown", typeid(bool (WeaponControl::*)(SDLKey )), "578d7c240883e4f0ff77fc5589e557565389ce83ec4c8b3f", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("WeaponControl::KeyDown", typeid(bool (WeaponControl::*)(SDLKey )), "578d7c240883e4f0ff77fc5589e557565389ce83ec4c8b3f893c24e8????????83ec0484c0", argdata, 2, 1, &func);
 }
 
 bool WeaponControl::KeyDown(SDLKey key)
@@ -21914,7 +21914,7 @@ namespace _func1587
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WeaponControl::SelectArmament", typeid(void (WeaponControl::*)(unsigned int )), "578d7c240883e4f0ff77fc5589e557565389ce81ecdc00", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WeaponControl::SelectArmament", typeid(void (WeaponControl::*)(unsigned int )), "578d????0883e4f0ff????5589e557565389ce81ecdc000000", argdata, 2, 5, &func);
 }
 
 void WeaponControl::SelectArmament(unsigned int armamentSlot)
@@ -21928,7 +21928,7 @@ namespace _func1588
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WeaponControl::OnLanguageChange", typeid(void (WeaponControl::*)()), "578d7c240883e4f0ff77fc5589e557565389cf8d75b0", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WeaponControl::OnLanguageChange", typeid(void (WeaponControl::*)()), "578d7c240883e4f0ff77fc5589e557565389cf8d75b48d5dd481ecac0000008b8188010000890424", argdata, 1, 5, &func);
 }
 
 void WeaponControl::OnLanguageChange()
@@ -21942,7 +21942,7 @@ namespace _func1589
 {
     static void *func = 0;
 	static short argdata[] = {0x2ff, 0x2ff, 0x1ff};
-	static FunctionDefinition funcObj("WeaponControl::RenderBeamAiming", typeid(void (*)(Pointf , Pointf , bool )), "8d4c240483e4f0ff71fc5589e55756535189cf81", argdata, 3, 6, &func);
+	static FunctionDefinition funcObj("WeaponControl::RenderBeamAiming", typeid(void (*)(Pointf , Pointf , bool )), "8d4c240483e4f0ff71fc5589e55756535189cb81ec880000008b018b7910f30f10410c", argdata, 3, 6, &func);
 }
 
 void WeaponControl::RenderBeamAiming(Pointf one, Pointf two, bool bAutoFire)
@@ -21956,7 +21956,7 @@ namespace _func1590
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WeaponControl::RenderWarnings", typeid(void (WeaponControl::*)()), "5589e55389cb83e4f083ec10e88f9104", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WeaponControl::RenderWarnings", typeid(void (WeaponControl::*)()), "5589e55389cb83e4f083ec10e8????????660fefc0c744????00000000f30f2a4320f30f1144????660fefc0f30f2a431cf30f1104??e8????????8d8bb4010000e8????????", argdata, 1, 5, &func);
 }
 
 void WeaponControl::RenderWarnings()
@@ -22145,7 +22145,7 @@ namespace _func1604
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WeaponSystemBox::constructor", typeid(void (WeaponSystemBox::*)(Point , ShipSystem *, WeaponControl *)), "578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b57048b4f088b7f0cc7", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("WeaponSystemBox::constructor", typeid(void (WeaponSystemBox::*)(Point , ShipSystem *, WeaponControl *)), "578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b57048b4f088b7f0cc744240c0100000089042489542404894c2408", argdata, 4, 5, &func);
 }
 
 void WeaponSystemBox::constructor(Point pos, ShipSystem *sys, WeaponControl *weapCtrl)
@@ -22159,7 +22159,7 @@ namespace _func1605
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WindowFrame::Draw", typeid(void (WindowFrame::*)(int , int )), "5589e55389cb83e4f083ec10e89fd501", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("WindowFrame::Draw", typeid(void (WindowFrame::*)(int , int )), "5589e55389cb83e4f083ec10e8????????660fefc0c744240800000000f30f2a450cf30f11442404", argdata, 3, 5, &func);
 }
 
 void WindowFrame::Draw(int x, int y)
@@ -22173,7 +22173,7 @@ namespace _func1606
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WindowFrame::DrawMask", typeid(void (WindowFrame::*)(int )), "5589e55389cb83e4f083ec108b4508c7042401", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WindowFrame::DrawMask", typeid(void (WindowFrame::*)(int )), "5589e55389cb83e4f083ec108b4508c70424????????8944240889442404e8????????8b4314890424e8????????", argdata, 2, 5, &func);
 }
 
 void WindowFrame::DrawMask(int unk)
@@ -22201,7 +22201,7 @@ namespace _func1608
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WindowFrame::destructor", typeid(void (WindowFrame::*)()), "5589e55389cb83e4f083ec108b411089", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WindowFrame::destructor", typeid(void (WindowFrame::*)()), "5589e55389cb83e4f083ec108b4110890424e8????????8b4314890424e8????????8b4318890424e8????????8b5dfc", argdata, 1, 5, &func);
 }
 
 void WindowFrame::destructor()
@@ -22215,7 +22215,7 @@ namespace _func1609
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WorldManager::constructor", typeid(void (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e5575389cb8d490883ec10c741f800", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::constructor", typeid(void (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e5575389cb8d490883ec10c741f800000000c741fc00000000", argdata, 1, 5, &func);
 }
 
 void WorldManager::constructor()
@@ -22229,7 +22229,7 @@ namespace _func1610
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WorldManager::OnInit", typeid(int (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e557568d7108", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("WorldManager::OnInit", typeid(int (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e557568d71085389cb83ec1c89f1e8????????c70424????????e8????????", argdata, 1, 1, &func);
 }
 
 int WorldManager::OnInit()
@@ -22243,7 +22243,7 @@ namespace _func1611
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::CreateShip", typeid(CompleteShip *(WorldManager::*)(ShipEvent *, bool )), "578d7c240883e4f0ff77fc5589e557565389ce81ec8c04", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("WorldManager::CreateShip", typeid(CompleteShip *(WorldManager::*)(ShipEvent *, bool )), "578d7c240883e4f0ff77fc5589e557565389ce81ec????????807f04008b1f0f85????????c70424????????e8????????89c7", argdata, 3, 1, &func);
 }
 
 CompleteShip *WorldManager::CreateShip(ShipEvent *shipEvent, bool boss)
@@ -22257,7 +22257,7 @@ namespace _func1612
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::CreateLocation", typeid(void (WorldManager::*)(Location *)), "578d7c240883e4f0ff77fc5589e557565389ce81ecfc04", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::CreateLocation", typeid(void (WorldManager::*)(Location *)), "578d7c240883e4f0ff77fc5589e557565389ce81ec????????898d54fbffffc6814612000000b9????????8b3f", argdata, 2, 5, &func);
 }
 
 void WorldManager::CreateLocation(Location *loc)
@@ -22271,7 +22271,7 @@ namespace _func1613
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WorldManager::ClearLocation", typeid(void (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83c10881", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::ClearLocation", typeid(void (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83c10881ec5c030000", argdata, 1, 5, &func);
 }
 
 void WorldManager::ClearLocation()
@@ -22299,7 +22299,7 @@ namespace _func1615
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::CreateChoiceBox", typeid(void (WorldManager::*)(LocationEvent *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b018b378b48088b018b40443d????????752a", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::CreateChoiceBox", typeid(void (WorldManager::*)(LocationEvent *)), "5789c805????????8d7c240883e4f0ff77fc5589e557565389cb89c681ec????????8b3f", argdata, 2, 5, &func);
 }
 
 void WorldManager::CreateChoiceBox(LocationEvent *event)
@@ -22327,7 +22327,7 @@ namespace _func1617
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::UpdateLocation", typeid(void (WorldManager::*)(LocationEvent *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b018b378b48088b018b40443d????????7527", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::UpdateLocation", typeid(void (WorldManager::*)(LocationEvent *)), "578d7c240883e4f0ff77fc5589e557565381ec????????8b3f898d70fbffff807f1c000f85????????8d85bcfbffff89ce898568fbffff8d85c4fbffff898564fbffff8d874406000089f1890424", argdata, 2, 5, &func);
 }
 
 void WorldManager::UpdateLocation(LocationEvent *event)
@@ -22355,7 +22355,7 @@ namespace _func1619
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::ModifyResources", typeid(LocationEvent *(WorldManager::*)(LocationEvent *)), "578d7c240883e4f0ff77fc5589e557565389cb8d8d2c", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("WorldManager::ModifyResources", typeid(LocationEvent *(WorldManager::*)(LocationEvent *)), "578d7c240883e4f0ff77fc5589e557565389ce8d8d2cfeffff81ec????????8b078985d8fcffff", argdata, 2, 1, &func);
 }
 
 LocationEvent *WorldManager::ModifyResources(LocationEvent *event)
@@ -22369,7 +22369,7 @@ namespace _func1620
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::ModifyEnvironment", typeid(void (WorldManager::*)(int , int )), "578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b570483", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::ModifyEnvironment", typeid(void (WorldManager::*)(int , int )), "578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b570483f801", argdata, 3, 5, &func);
 }
 
 void WorldManager::ModifyEnvironment(int envFlag, int envTarget)
@@ -22383,7 +22383,7 @@ namespace _func1621
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::CheckStatusEffects", typeid(void (WorldManager::*)(std::vector<StatusEffect> &)), "578d911c1200008d7c240883e4f0ff77", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::CheckStatusEffects", typeid(void (WorldManager::*)(std::vector<StatusEffect> &)), "5789ca81c2????????8d7c240883e4f0ff77fc5589e5575653", argdata, 2, 5, &func);
 }
 
 void WorldManager::CheckStatusEffects(std::vector<StatusEffect> &vec)
@@ -22397,7 +22397,7 @@ namespace _func1622
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x4ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::ModifyStatusEffect", typeid(void (WorldManager::*)(StatusEffect , ShipManager *, int )), "578d7c240883e4f0ff77fc5589f889e557565383ec5c8b70", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::ModifyStatusEffect", typeid(void (WorldManager::*)(StatusEffect , ShipManager *, int )), "578d7c240883e4f0ff77fc5589f889e557565383ec5c8b70148b500c8b7f1039d6", argdata, 4, 5, &func);
 }
 
 void WorldManager::ModifyStatusEffect(StatusEffect effect, ShipManager *target, int targetType)
@@ -22411,7 +22411,7 @@ namespace _func1623
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::StartGame", typeid(void (WorldManager::*)(ShipManager *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b09", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::StartGame", typeid(void (WorldManager::*)(ShipManager *)), "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b098b3785c9", argdata, 2, 5, &func);
 }
 
 void WorldManager::StartGame(ShipManager *ship)
@@ -22425,7 +22425,7 @@ namespace _func1624
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WorldManager::Restart", typeid(void (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec10e816a2", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::Restart", typeid(void (WorldManager::*)()), ".578d7c240883e4f0ff77fc5589e5575389cb83ec10e8????????e8????????", argdata, 1, 5, &func);
 }
 
 void WorldManager::Restart()
@@ -22453,7 +22453,7 @@ namespace _func1626
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WorldManager::OnLoop", typeid(void (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e557565389ce81eccc00", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::OnLoop", typeid(void (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e557565389cf81ec????????c70424????????e8????????83ec0484c074??8d65f45b5e5f5d8d67f85f", argdata, 1, 5, &func);
 }
 
 void WorldManager::OnLoop()
@@ -22481,7 +22481,7 @@ namespace _func1628
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WorldManager::CreateNewGame", typeid(void (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e557565389ce8d5dd8", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("WorldManager::CreateNewGame", typeid(void (WorldManager::*)()), "578d7c240883e4f0ff77fc5589e557565389ce8d5dd88d7dd083ec3c8b018b480881c1????????e8????????8b068b5008895dd08b8aa4060000", argdata, 1, 5, &func);
 }
 
 void WorldManager::CreateNewGame()
@@ -22495,7 +22495,7 @@ namespace _func1629
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("WorldManager::HostileEnvironment", typeid(bool (WorldManager::*)()), "5589e55389cb83c10883e4f0e8bf5be0", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("WorldManager::HostileEnvironment", typeid(bool (WorldManager::*)()), "5589e55389cb83c10883e4f0e8????????84c075??8b038b4808b8????????8b91f007000085d274??", argdata, 1, 1, &func);
 }
 
 bool WorldManager::HostileEnvironment()
@@ -22509,7 +22509,7 @@ namespace _func1630
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::AddBoarders", typeid(bool (WorldManager::*)(BoardingEvent &)), "578d7c240883e4f0ff77fc5589e557565381ec5c0100008b07", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("WorldManager::AddBoarders", typeid(bool (WorldManager::*)(BoardingEvent &)), "578d7c240883e4f0ff77fc5589e557565383ec4c8b018b1f8b500831c083baf00700000e7f??", argdata, 2, 1, &func);
 }
 
 bool WorldManager::AddBoarders(BoardingEvent &boardingEvent)
@@ -22537,7 +22537,7 @@ namespace _func1632
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("WorldManager::CheckRequirements", typeid(bool (WorldManager::*)(LocationEvent *, bool )), "578d7c240883e4f0ff77fc5589e557565383ec4c8b3785", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("WorldManager::CheckRequirements", typeid(bool (WorldManager::*)(LocationEvent *, bool )), "578d7c240883e4f0ff77fc5589e557565383ec4c8b1f85db0f84120100000fb693d405000084d20f85030100008b834c04000085c00f880a010000", argdata, 3, 1, &func);
 }
 
 bool WorldManager::CheckRequirements(LocationEvent *event, bool hidden)
