@@ -32,5 +32,5 @@ __thiscall void AchievementTracker::ResetFlags(AchievementTracker *this);
 __thiscall void AchievementTracker::OnLoop(AchievementTracker *this);
 
 
-"!b9(???????\?)e8????????c744240c00000000":
+"00000000000000000000000000000000":
 AchievementTracker* Global_AchievementTracker_Tracker;

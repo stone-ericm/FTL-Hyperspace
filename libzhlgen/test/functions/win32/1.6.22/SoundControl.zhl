@@ -9,5 +9,5 @@ __thiscall void SoundControl::UpdateSoundLoop(SoundControl *this, const std::str
 "578d7c240883e4f0ff77fc5589e55783ec148039008b07f30f1047047453":
 __thiscall void SoundControl::StopChannel(SoundControl *this, int channel, float fade);
 
-"!8b4b08e8????????0fb6c0b9(???????\?)890424e8????????b9":
+"00000000000000000000000000000000":
 SoundControl* Global_SoundControl_Sounds;

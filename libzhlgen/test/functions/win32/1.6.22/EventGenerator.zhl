@@ -12,7 +12,7 @@ __thiscall SectorDescription EventGenerator::GetSectorDescription(EventGenerator
 __thiscall ShipEvent EventGenerator::GetShipEvent(EventGenerator *this, const std::string& event);
 "00000000000000000000000000000000":
 __thiscall void EventGenerator::Clear(EventGenerator *this);
-"!8b8318120000c744240800000000b9(???????\?)8944240c8b8334080000":
+"00000000000000000000000000000000":
 EventGenerator* Global_EventGenerator_Generator;
 
 

@@ -43,7 +43,7 @@ __thiscall DroneBlueprint BlueprintManager::ProcessDroneBlueprint(BlueprintManag
 "00000000000000000000000000000000":
 static cleanup __cdecl GL_Texture* BlueprintManager::GetSkillIcon(int skill, bool outline);
 
-"!8b85c0feffff83ec04b9(???????\?)83b83401000003":
+"00000000000000000000000000000000":
 BlueprintManager* Global_BlueprintManager_Blueprints;
 
 

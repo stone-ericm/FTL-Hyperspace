@@ -22,13 +22,13 @@ __thiscall freetype::font_data &ResourceControl::GetFontData(ResourceControl *th
 __thiscall ImageDesc ResourceControl::GetImageData(ResourceControl *this, GL_Texture *tex);
 "578d7c240883e4f0ff77fc5589e557565389ce81ec1c02":
 __thiscall bool ResourceControl::PreloadResources(ResourceControl *this, bool unk);
-"578d7c240883e4f0ff77fc5589e557565389ce8d5dd0":
+"00000000000000000000000000000000":
 __thiscall void ResourceControl::RenderLoadingBar(ResourceControl *this, float initialProgress, float finalProgress);
 "578d7c240883e4f0ff77fc5589e55756538d5dd083":
 __thiscall bool ResourceControl::ImageExists(ResourceControl *this, const std::string& name);
 
 
-"!8b45b8890424e8????????b9(???????\?)":
+"00000000000000000000000000000000":
 ResourceControl* Global_ResourceControl_GlobalResources;
 
 

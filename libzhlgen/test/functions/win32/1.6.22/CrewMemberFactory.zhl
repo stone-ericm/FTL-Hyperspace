@@ -37,7 +37,7 @@ __thiscall void CrewMemberFactory::RemoveExcessCrew(CrewMemberFactory *this);
 "00000000000000000000000000000000":
 __thiscall CrewMember* CrewMemberFactory::CreateCrewMember(CrewMemberFactory *this, CrewBlueprint* bp, int shipId, bool intruder);
 
-"!b9(???????\?)e8????????29c6":
+"00000000000000000000000000000000":
 CrewMemberFactory* Global_CrewMemberFactory_Factory;
 
 

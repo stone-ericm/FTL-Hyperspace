@@ -29,7 +29,7 @@ __thiscall void InfoBox::SetSystemId(InfoBox *this, int systemId, int maxPower, 
 "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b378b47":
 __thiscall void InfoBox::SetSystem(InfoBox *this, ShipSystem *system, int upgrade, int yShift, int forceSystemWidth);
 
-"!83ec083bb514fdffffba(???????\?)b8(???????\?)":
+"00000000000000000000000000000000":
 GL_Color *Global_InfoBox_detailsBarOn;
 GL_Color *Global_InfoBox_detailsBarOff;
 

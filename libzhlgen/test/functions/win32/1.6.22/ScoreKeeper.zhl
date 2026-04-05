@@ -53,7 +53,7 @@ __thiscall void ScoreKeeper::MouseMove(ScoreKeeper *this, int mX, int mY);
 "8b442404c7412400000000????????00":
 __thiscall void ScoreKeeper::SetSector(ScoreKeeper *this, int sector);
 
-"!8b430cb9(???????\?)c6804412000000c7042401000000":
+"00000000000000000000000000000000":
 ScoreKeeper* Global_ScoreKeeper_Keeper;
 
 
