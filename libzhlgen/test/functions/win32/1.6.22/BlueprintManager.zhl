@@ -1,0 +1,16 @@
+"578d7c240883e4f0ff77fc5589e55756538d45d883ec5c":
+__thiscall ShipBlueprint* BlueprintManager::GetShipBlueprint(BlueprintManager *this, const std::string& name, int sector);
+"578d7c240883e4f0ff77fc5589e55756538d714c":
+__thiscall float BlueprintManager::GetAugmentValue(BlueprintManager *this, const std::string& name);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b378b47048d7964":
+__thiscall void BlueprintManager::SetRarity(BlueprintManager *this, const std::string& name, int rarity);
+"578d91c80000008d7c240883e4f0ff77":
+__thiscall ItemBlueprint* BlueprintManager::GetItemBlueprint(BlueprintManager *this, const std::string& name);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b57040fb64f08895424088d504c":
+__thiscall std::vector<AugmentBlueprint*> BlueprintManager::GetRandomAugment(BlueprintManager* this, int count, bool demo_lock);
+"578d91e00000008d7c240883e4f0ff77":
+__thiscall SystemBlueprint* BlueprintManager::GetSystemBlueprint(BlueprintManager *this, const std::string& name);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b57040fb64f08895424088d501c":
+__thiscall std::vector<WeaponBlueprint*> BlueprintManager::GetRandomWeapon(BlueprintManager* this, int count, bool demo_lock);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b57040fb64f08895424088d5034":
+__thiscall std::vector<DroneBlueprint*> BlueprintManager::GetRandomDrone(BlueprintManager* this, int count, bool demo_lock);

@@ -1,0 +1,16 @@
+"5589e5565389ce83e4f0e8915603008d":
+__thiscall void Equipment::Open(Equipment *this); // 00524970
+"578d7c240883e4f0ff77fc5589e5575389cb83ec108b078b570489042489542404e80a":
+__thiscall void Equipment::MouseClick(Equipment *this, int mX, int mY); // 00524a00
+"578d7c240883e4f0ff77fc5589e557565389cb81ecbc000000e8d26a":
+__thiscall void Equipment::OnRender(Equipment *this); // 00525dd0
+"578d7c240883e4f0ff77fc5589e5575389cb83ec10e8761c":
+__thiscall void Equipment::constructor(Equipment *this); // 00527ed0
+"5589e55389cb8b895402000083e4f08b":
+__thiscall void Equipment::Jump(Equipment *this); // 00528210
+"5589e557565389cf83e4f083ec108b89":
+__thiscall bool Equipment::IsCompletelyFull(Equipment *this, int type); // 005282e0
+"578d7c240883e4f0ff77fc5589e557565389cb83ec2c807f08":
+__thiscall void Equipment::AddDrone(Equipment *this, DroneBlueprint *bp, bool free, bool forceCargo); // 00528470
+"578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b4708":
+__thiscall void Equipment::AddWeapon(Equipment *this, WeaponBlueprint *bp, bool free, bool forceCargo); // 00529030

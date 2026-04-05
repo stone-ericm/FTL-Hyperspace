@@ -1,0 +1,4 @@
+"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b470489":
+__thiscall void ChoiceBox::MouseMove(ChoiceBox *this, int x, int y);
+"578d7c240883e4f0ff77fc5589e55783ec14833d":
+__thiscall void ChoiceBox::MouseClick(ChoiceBox *this, int mX, int mY);

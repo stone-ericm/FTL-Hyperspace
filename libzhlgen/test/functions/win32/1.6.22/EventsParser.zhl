@@ -1,0 +1,2 @@
+"578d7c240883e4f0ff77fc5589e557565389cb8d4da0":
+__thiscall RandomAmount EventsParser::PullMinMax(EventsParser *this, rapidxml::xml_node<char>* node, const std::string& name);

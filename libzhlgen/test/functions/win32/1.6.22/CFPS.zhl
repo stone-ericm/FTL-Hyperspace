@@ -1,0 +1,2 @@
+"83ec04f30f104118f30f110424d90424":
+__thiscall float CFPS::GetSpeedFactor(CFPS *this);

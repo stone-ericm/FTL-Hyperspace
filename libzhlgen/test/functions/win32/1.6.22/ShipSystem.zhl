@@ -1,0 +1,32 @@
+"8b414083e80383f80176155589e583e4":
+__thiscall void ShipSystem::CheckForRepower(ShipSystem *this);
+"8b414885c07e1b????????74158b9104":
+__thiscall int ShipSystem::IsMannedBoost(ShipSystem *this);
+"8d4c240483e4f0ff71fc5589e5535183ec108b41048b1983f811":
+static cleanup __cdecl std::string ShipSystem::SystemIdToName(int systemId);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b8128":
+__thiscall void ShipSystem::OnLoop(ShipSystem *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b0783":
+__thiscall void ShipSystem::SetDividePower(ShipSystem *this, int val);
+"8b811c01000083f8077f1585c0ba0000":
+__thiscall int ShipSystem::GetPowerCap(ShipSystem *this);
+"578d7c240883e4f0ff77fc5589e55783ec148b0783":
+__thiscall void ShipSystem::LockSystem(ShipSystem *this, int lock);
+"8b414831d285c07e14????????740e8b":
+__thiscall int ShipSystem::GetEffectivePower(ShipSystem *this);
+"83b91c010000077e0a8b812001000085":
+__thiscall void ShipSystem::ClearStatus(ShipSystem *this);
+"8d4c240483e4f0ff71fc5589e55756535181eca801":
+static cleanup __cdecl std::string ShipSystem::GetLevelDescription(int systemId, int level, bool tooltip);
+"578d7c240883e4f0ff77fc5589e55783ec148b8128":
+__thiscall void ShipSystem::AddLock(ShipSystem *this, int lock);
+"8b01c681ac010000008b40643de06875":
+__thiscall void ShipSystem::StopHacking(ShipSystem *this);
+"5589e5565389ce83e4f083ec108b5d088b811c":
+__thiscall void ShipSystem::SaveState(ShipSystem *this, int file);
+"5589e5565389cb83e4f083ec108b7508893424e868":
+__thiscall void ShipSystem::LoadState(ShipSystem *this, int file);
+"8b015589e556538b401089cb8b750883":
+__thiscall bool ShipSystem::UpgradeSystem(ShipSystem *this, int amount);
+"8b54240489c88b8a2c01000089088b8a":
+__thiscall TimerHelper ShipSystem::GetLockTimer(ShipSystem *this);

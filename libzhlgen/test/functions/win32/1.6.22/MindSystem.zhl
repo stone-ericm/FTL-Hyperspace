@@ -1,0 +1,4 @@
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b3783":
+__thiscall void MindSystem::SetHackingLevel(MindSystem *this, int hackingLevel);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec4ce875":
+__thiscall void MindSystem::OnLoop(MindSystem *this);

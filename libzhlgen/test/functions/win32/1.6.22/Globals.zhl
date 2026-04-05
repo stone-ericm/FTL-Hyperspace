@@ -1,0 +1,2 @@
+"8b15f03f87008d420185????????0000":
+static __cdecl int Globals::GetNextSpaceId();

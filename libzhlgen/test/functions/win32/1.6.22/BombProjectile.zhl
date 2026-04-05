@@ -1,0 +1,2 @@
+"5589e556538db14c01000089cb83e4f0":
+__thiscall void BombProjectile::OnUpdate(BombProjectile *this);

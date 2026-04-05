@@ -1,0 +1,2 @@
+"8d510883ec2089c8c7410864726f6ec7":
+__thiscall TextString DroneControl::HolderLabel(DroneControl *this);

@@ -1,0 +1,2 @@
+"5589e55389cb83e4f0e8d23d08008d8b":
+__thiscall void CrewManifest::Open(CrewManifest *this);

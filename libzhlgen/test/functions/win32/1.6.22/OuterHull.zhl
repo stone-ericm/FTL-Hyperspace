@@ -1,0 +1,2 @@
+"578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b018b4028":
+__thiscall void OuterHull::OnLoop(OuterHull *this); //00618c40

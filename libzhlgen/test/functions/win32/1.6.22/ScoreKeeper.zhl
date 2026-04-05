@@ -1,0 +1,12 @@
+"8b44240484c088818802000074078381":
+__thiscall void ScoreKeeper::SetVictory(ScoreKeeper *this, bool victory);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c80b9c4":
+__thiscall void ScoreKeeper::MouseClick(ScoreKeeper *this, int x, int y);
+"578d7c240883e4f0ff77fc5589e557565389cb8db3cc":
+__thiscall void ScoreKeeper::CheckTypes(ScoreKeeper *this);
+"578d7c240883e4f0ff77fc5589e557565389cbb94033910083ec3c":
+__thiscall void ScoreKeeper::AddScrapCollected(ScoreKeeper *this, int scrap);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b1fa1":
+__thiscall void ScoreKeeper::SaveGame(ScoreKeeper *this, int fd);
+"8b442404c7412400000000????????00":
+__thiscall void ScoreKeeper::SetSector(ScoreKeeper *this, int sector);

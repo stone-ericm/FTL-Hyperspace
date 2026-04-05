@@ -1,0 +1,4 @@
+"5589e55389cb83e4f083ec10e85f69ff":
+__thiscall float CloneSystem::GetProgress(CloneSystem *this);
+"5589e5538b99c4010000c781c4010000":
+__thiscall CrewMember* CloneSystem::CloneReady(CloneSystem *this);

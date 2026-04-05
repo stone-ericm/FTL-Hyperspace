@@ -1,0 +1,4 @@
+"5589e5538b51408b412889cb83e4f08b":
+__thiscall void TabbedWindow::Close(TabbedWindow *this);
+"578d7c240883e4f0ff77fc5589f889e557565389cf81ecac00":
+__thiscall void TabbedWindow::SetTab(TabbedWindow *this, unsigned int tab);

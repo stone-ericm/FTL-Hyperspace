@@ -1,0 +1,2 @@
+"0fb605386d9100c3908db42600000000":
+static __cdecl char Settings::GetCommandConsole();

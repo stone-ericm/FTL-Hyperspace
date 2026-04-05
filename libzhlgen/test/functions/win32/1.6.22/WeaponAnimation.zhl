@@ -1,0 +1,18 @@
+"578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b37893424e890af15008d":
+__thiscall void WeaponAnimation::SaveState(WeaponAnimation *this, int fd);
+"578d7c240883e4f0ff77fc5589e55783ec1480b9cd000000008b":
+__thiscall void WeaponAnimation::SetBoostLevel(WeaponAnimation *this, int value);
+"8b5104660fefc0660fefc989d02b81d4":
+__thiscall void WeaponAnimation::SetFireTime(WeaponAnimation *this, float time);
+"578d7c240883e4f0ff77fc5589e5575389cb81c104":
+__thiscall Pointf WeaponAnimation::GetSlide(WeaponAnimation *this);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec2080b9e8":
+__thiscall void WeaponAnimation::SetPowered(WeaponAnimation *this, bool powered);
+"578d7c240883e4f0ff77fc5589e55783ec1480b9cd00000000f3":
+__thiscall void WeaponAnimation::SetChargedLevel(WeaponAnimation *this, float charged);
+"578d7c240883e4f0ff77fc5589e55783ec248b81f8":
+__thiscall Point WeaponAnimation::GetFireLocation(WeaponAnimation *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec5cf3":
+__thiscall void WeaponAnimation::OnRender(WeaponAnimation *this, float alpha);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec3ce835":
+__thiscall void WeaponAnimation::RenderChargeBar(WeaponAnimation *this, float alpha);

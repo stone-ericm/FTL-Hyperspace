@@ -1,0 +1,4 @@
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b7708":
+__thiscall void ArtilleryBox::constructor(ArtilleryBox *this, Point pos, ArtillerySystem* sys);
+"578d7c240883e4f0ff77fc5589e557565389cb81ec4c":
+__thiscall void ArtilleryBox::OnRender(ArtilleryBox *this, bool ignoreStatus);

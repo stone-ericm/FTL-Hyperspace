@@ -1,0 +1,2 @@
+"8b44240484c0740980b9ec0000000075":
+__thiscall void ShipAI::SetStalemate(ShipAI *this, bool stalemate);

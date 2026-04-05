@@ -1,0 +1,36 @@
+"578d7c240883e4f0ff77fc5589e5575389cb83ec108b4908e8":
+virtual __thiscall void CompleteShip::Restart(CompleteShip *this);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec108b47":
+__thiscall void CompleteShip::constructor(CompleteShip *this, SpaceManager *space, bool unk, int unk2);
+"5783c1188d7c240883e4f0ff77fc5589e55783ec148b078b":
+__thiscall void CompleteShip::SetShip(CompleteShip *this, ShipManager *ship);
+"578d7c240883e4f0ff77fc5589f889e557565389cb83ec2c8b50":
+__thiscall void CompleteShip::OnInit(CompleteShip *this, const ShipBlueprint* blueprint, int unk);
+"578d7c240883e4f0ff77fc5589e557565381ec8c02":
+__thiscall CrewMember *CompleteShip::AddCrewMember1(CompleteShip *this, const std::string& race, const std::string& name, bool hostile);
+"578d7c240883e4f0ff77fc5589e557565383ec1c8b378b7f0485":
+__thiscall CrewMember *CompleteShip::AddCrewMember2(CompleteShip *this, CrewMember *member, int unk);
+"5589e583e4f083ec108b813001000089":
+__thiscall void CompleteShip::SaveState(CompleteShip *this, int unk);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec208b078904":
+__thiscall void CompleteShip::LoadState(CompleteShip *this, int unk);
+"578d7c240883e4f0ff77fc5589e557565383ec4c8b811c":
+__thiscall void CompleteShip::InitiateTeleport(CompleteShip *this, int targetRoom, int command);
+"578d7c240883e4f0ff77fc5589e557565389cf31db83ec2c":
+virtual __thiscall void CompleteShip::OnLoop(CompleteShip *this);
+"578d7c240883e4f0ff77fc5589e55783ec140f":
+__thiscall int CompleteShip::CountCrew(CompleteShip *this, bool boarders);
+"8b811801000089811c0100008b812401":
+__thiscall void CompleteShip::Jump(CompleteShip *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c0fb641":
+__thiscall bool CompleteShip::DeadCrew(CompleteShip *this);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec108b4304":
+__thiscall void CompleteShip::OnRender(CompleteShip *this);
+"578d7c240883e4f0ff77fc5589e55783ec148b078b57048b49":
+__thiscall Drone *CompleteShip::AddDrone(CompleteShip *this, const DroneBlueprint *blueprint, int unk);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec100f":
+__thiscall std::vector<CrewMember*> CompleteShip::TeleportCrew(CompleteShip *this, int roomId, bool intruders);
+"578d7c240883e4f0ff77fc5589e55783ec148b490c":
+__thiscall void CompleteShip::OnRenderSpace(CompleteShip *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b43048b37":
+__thiscall void CompleteShip::OnRenderShip(CompleteShip *this, bool unk1, bool unk2);

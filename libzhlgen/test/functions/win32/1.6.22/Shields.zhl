@@ -1,0 +1,8 @@
+"5589e5f30f104d108b4508f30f104514":
+__thiscall void Shields::SetBaseEllipse(Shields *this, Globals::Ellipse ellipse);
+"538b44240883f8017e0983b9a8010000":
+__thiscall void Shields::SetHackingLevel(Shields *this, int hackingLevel);
+"578d7c240883e4f0ff77fc5589e557565389cb8db338":
+__thiscall void Shields::InstantCharge(Shields *this);
+"57ba050000008d7c240883e4f0ff77fc":
+__thiscall void Shields::AddSuperShield(Shields *this, Point pos);

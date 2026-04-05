@@ -1,0 +1,2 @@
+"578d7c240883e4f0ff77fc5589e557565389cb81ecbc0000008b07":
+__thiscall void MindBox::constructor(MindBox *this, Point pos, MindSystem* sys);

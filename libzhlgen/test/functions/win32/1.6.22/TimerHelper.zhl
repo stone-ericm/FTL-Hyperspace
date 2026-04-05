@@ -1,0 +1,6 @@
+"5589e55653c6411101c7410800000000":
+__thiscall void TimerHelper::Start(TimerHelper *this, int goal);
+"8b44240889018b442404894104c20800":
+__thiscall void TimerHelper::ResetMinMax(TimerHelper *this, int min, int max);
+"0fb6411184c0746bf30f1041080f2e41":
+__thiscall bool TimerHelper::Done(TimerHelper *this);

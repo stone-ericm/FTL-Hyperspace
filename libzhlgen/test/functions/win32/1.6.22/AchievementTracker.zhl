@@ -1,0 +1,4 @@
+"57b87c0201008d7c240883e4f0ff77fc":
+__thiscall void AchievementTracker::LoadAchievementDescriptions(AchievementTracker *this);
+"578d7c240883e4f0ff77fc5589e55756538d7dc0":
+__thiscall void AchievementTracker::SetVictoryAchievement(AchievementTracker *this);

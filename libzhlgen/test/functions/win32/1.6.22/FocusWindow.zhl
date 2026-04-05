@@ -1,0 +1,6 @@
+"80791000750ac208008db42600000000":
+__thiscall void FocusWindow::MouseClick(FocusWindow *this, int x, int y);
+"578d7c240883e4f0ff77fc5589e5575389cb8d490883ec10c741f818":
+__thiscall void FocusWindow::constructor(FocusWindow *this);
+"5589e58b45088b550c5d894114895118":
+__thiscall void FocusWindow::SetPosition(FocusWindow *this, Point p);

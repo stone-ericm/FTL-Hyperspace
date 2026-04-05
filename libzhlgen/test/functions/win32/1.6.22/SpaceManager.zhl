@@ -1,0 +1,22 @@
+"0fb68188030000c6818803000000c390":
+__thiscall int SpaceManager::GetScreenShake(SpaceManager *this);
+"8b54240489c88b8ae802000089088b8a":
+__thiscall ImageDesc SpaceManager::SwitchBeacon(SpaceManager *this);
+"5789ca83c10c8d7c240883e4f0ff77fc":
+__thiscall void SpaceManager::StartAsteroids(SpaceManager *this, int shieldCount, bool unk);
+"57660fefc08d7c240883e4f0ff77fc5589e5575383":
+__thiscall float SpaceManager::GetFlashOpacity(SpaceManager *this);
+"578d7c240883e4f0ff77fc5589e557568d45d8":
+__thiscall void SpaceManager::OnInit(SpaceManager *this);
+"c6818802000000c6818902000000c681":
+__thiscall void SpaceManager::ClearEnvironment(SpaceManager *this);
+"5589e556538b5d0883e4f08b138b7370":
+__thiscall void SpaceManager::TransferProjectile(SpaceManager *this, Projectile *proj);
+"578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083ec3c8b00888188":
+__thiscall void SpaceManager::SetFireLevel(SpaceManager *this, bool state);
+"578d7c240883e4f0ff77fc5589e557565389cb81ecbc0000008b47":
+__thiscall void SpaceManager::SetPlanetaryDefense(SpaceManager *this, char state, int target);
+"578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083ec3c8b00888189":
+__thiscall void SpaceManager::SetPulsarLevel(SpaceManager *this, bool pulsarLevel);
+"578d7c240883e4f0ff77fc5589e557538d5d":
+__thiscall void SpaceManager::SetStorm(SpaceManager *this, bool state);

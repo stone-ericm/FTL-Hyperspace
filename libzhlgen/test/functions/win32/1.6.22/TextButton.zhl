@@ -1,0 +1,8 @@
+"578d7c240883e4f0ff77fc5589e557565389cf81ecac00000080":
+__thiscall void TextButton::OnRender(TextButton *this);
+"5589e55389cb81c3cc00000083e4f083":
+__thiscall void TextButton::destructor(TextButton *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec5c80b9b4":
+__int64 TextButton::GetSize_DO_NOT_USE_DIRECTLY(TextButton *this<ecx>);
+"8b5424048b4424108891b40000008b54":
+__thiscall void TextButton::SetAutoWidth(TextButton *this, bool autoWidth, bool autoRightAlign, int margin, int min);

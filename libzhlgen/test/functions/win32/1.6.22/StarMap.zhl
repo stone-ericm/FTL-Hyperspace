@@ -1,0 +1,36 @@
+"5589e58b45088b550c5d89415c895160":
+__thiscall void StarMap::SetPosition(StarMap *this, Point unk0);
+"80b9c0060000000f85b6000000578d7c":
+__thiscall void StarMap::Close(StarMap *this);
+"565331c08b5c240c85db78438bb1fc06":
+__thiscall bool StarMap::NeighboringSector(StarMap *this, int potentialSector);
+"8b442404018198040000c20400906690":
+__thiscall void StarMap::ModifyPursuit(StarMap *this, int unk0);
+"????????741a80b9ac060000007411c6":
+__thiscall void StarMap::GetWaitLocation(StarMap *this);
+"538b4424088b5c240c8b48088b500c29":
+__thiscall void StarMap::LocationsConnected(StarMap *this, Location * unk0, Location * unk1);
+"8b4150c6401401c3908db42600000000":
+__thiscall void StarMap::ForceExitBeacon(StarMap *this);
+"f3c38db426000000008dbc2700000000568b":
+__thiscall void StarMap::OnRenderFogEffect(StarMap *this);
+"568b917408000031c0538b9968080000":
+__thiscall void StarMap::LocationHasBoss(StarMap *this, Location * unk0);
+"80b97008000000c6817108000001751a":
+__thiscall void StarMap::ForceBossJump(StarMap *this);
+"8b4424048981e4090000c20400906690":
+__thiscall void StarMap::SetBossStage(StarMap *this, int stage);
+"31c083b96c080000047405f3????????":
+__thiscall void StarMap::CheckGameOver(StarMap *this);
+"5589e557565389cf83e4f083ec208b81fc":
+__thiscall void StarMap::PushSectorColumn(StarMap *this);
+"578d7c240883e4f0ff77fc5589e55756538d85d0":
+__thiscall void StarMap::RenderSectorName(StarMap *this, Sector * unk0, GL_Color unk1);
+"578d7c240883e4f0ff77fc5589e557565389ce8d7d":
+__thiscall void StarMap::InitMapTitle(StarMap *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec5c8bb1":
+__thiscall void StarMap::InitBossMessageBox(StarMap *this);
+"5589e55389cb83e4f0e8f2f7ffff89d9":
+__thiscall void StarMap::OnLanguageChange(StarMap *this);
+"578d7c240883e4f0ff77fc5589e55756538d75d08d5dd883ec3c":
+__thiscall void StarMap::StartSecretSector(StarMap *this);

@@ -1,0 +1,2 @@
+"5589e5565389cb83e4f083ec108b018b":
+__thiscall void Fire::UpdateStartTimer(Fire *this, int doorLevel);

@@ -1,0 +1,12 @@
+"578d7c240883e4f0ff77fc5589e55783ec248b8144020000894424048b81400200008d4df0890424e8b3":
+__thiscall Point Door::GetPosition(Door *this); //00463ed0
+"80b9e801000000740731c0c204006690":
+__thiscall bool Door::ApplyDamage(Door *this, float amount); //00463f30
+"5589e5565389ce83e4f083ec108b5d088b81d0":
+__thiscall void Door::SaveState(Door *this, int fd); //004654f0
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b37893424e870":
+__thiscall void Door::LoadState(Door *this, int fd); //00465590
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c80791800c6":
+__thiscall void Door::FakeClose(Door *this); //00465860
+"578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b77":
+__thiscall void Door::OnRender(Door *this, float alpha, bool bForceView, bool useLargeSprites); //00466bb0

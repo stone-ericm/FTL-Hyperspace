@@ -1,0 +1,6 @@
+"578d7c240883e4f0ff77fc5589f889e557565383ec7c8b59":
+__thiscall void CrewAnimation::OnRender(CrewAnimation *this, float scale, int selectedState, bool outlineOnly);
+"578d7c240883e4f0ff77fc5589e557568d8578":
+__thiscall void CrewAnimation::SetupStrips(CrewAnimation *this);
+"5589e5538d999c08000083e4f089d9e8":
+__thiscall bool CrewAnimation::FireShot(CrewAnimation *this);

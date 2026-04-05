@@ -1,0 +1,4 @@
+"8b893801000085c974165589e583e4f0":
+__thiscall bool CrewStoreBox::CanHold(CrewStoreBox *this);
+"578d7c240883e4f0ff77fc5589e5575389cb83c12483ec408b078b5704c74424080000000089542404890424e86f":
+__thiscall void CrewStoreBox::MouseMove(CrewStoreBox *this, int mX, int mY);

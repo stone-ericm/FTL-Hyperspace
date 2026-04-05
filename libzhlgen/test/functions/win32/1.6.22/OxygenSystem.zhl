@@ -1,0 +1,8 @@
+"578d7c240883e4f0ff77fc5589e5575383ec108b47":
+__thiscall void OxygenSystem::UpdateBreach(OxygenSystem *this, int roomId, int count, bool silent);
+"578d7c240883e4f0ff77fc5589e557565383ec4c8b5f048b17":
+__thiscall void OxygenSystem::UpdateAirlock(OxygenSystem *this, int roomId, int count);
+"8b81c40100008b542404c70490000000":
+__thiscall void OxygenSystem::EmptyOxygen(OxygenSystem *this, int roomId);
+"8b81c40100008b5424048d0490f30f10":
+__thiscall void OxygenSystem::ModifyRoomOxygen(OxygenSystem *this, int roomId, float value);

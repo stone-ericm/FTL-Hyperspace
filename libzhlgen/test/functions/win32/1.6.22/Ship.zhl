@@ -1,0 +1,14 @@
+"578d7c240883e4f0ff77fc5589f889e557565331db89cf83ec2c":
+__thiscall std::pair<int, int> Ship::ContainsHullBreach(Ship *this, int roomId);
+"538b81bc0300008b89c00300008b5c24":
+__thiscall bool Ship::RoomLocked(Ship *this, int roomId);
+"0fb681f001000084c074070fb6815201":
+__thiscall bool Ship::DestroyedDone(Ship *this);
+"578d7c240883e4f0ff77fc5589e557565383ec1c8b5908":
+__thiscall bool Ship::FullRoom(Ship *this, int roomId, bool intruder);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec208b410489":
+__thiscall Point Ship::GetShipCorner(Ship *this);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b1f8b83":
+__thiscall Globals::Ellipse Ship::GetBaseEllipse(Ship *this);
+"578d7c240883e4f0ff77fc5589e5575383ec2080b9":
+__thiscall float Ship::GetCloakAlpha(Ship *this, bool complete);

@@ -1,0 +1,10 @@
+"578d51248d7c240883e4f0ff77fc5589f8":
+__thiscall void UpgradeBox::constructorEmpty(UpgradeBox *this, Point pos, bool subsystem);
+"578d7c240883e4f0ff77fc5589fa89e557565389cb83ec5c":
+__thiscall void UpgradeBox::constructorSystem(UpgradeBox *this, ShipManager *ship, ShipSystem *sys, Point pos, bool subsystem);
+"5589e55389cb83e4f083ec108b811001":
+__thiscall void UpgradeBox::destructor(UpgradeBox *this);
+"5589e583e4f083ec1080b90d01000000":
+__thiscall void UpgradeBox::OnRender(UpgradeBox *this);
+"578d7c240883e4f0ff77fc5589e55783ec148b078b57048b39":
+__thiscall void UpgradeBox::MouseMove(UpgradeBox *this, int mX, int mY);

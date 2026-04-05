@@ -1,0 +1,6 @@
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b018b378b50":
+virtual __thiscall void SpaceDrone::SetDeployed(SpaceDrone *this, bool deployed);
+"5589e556538b750883e4f085f674418b":
+virtual __thiscall void SpaceDrone::SetMovementTarget(SpaceDrone *this, Targetable *target);
+"578d7c240883e4f0ff77fc5589e557565389cb81ec8c0000008b01ff":
+virtual __thiscall Projectile* SpaceDrone::GetNextProjectile(SpaceDrone *this);

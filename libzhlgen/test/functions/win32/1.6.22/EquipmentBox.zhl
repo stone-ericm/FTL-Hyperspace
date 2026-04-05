@@ -1,0 +1,18 @@
+"5731c08d7c240883e4f0ff77fc5589e557565389cb":
+__thiscall void EquipmentBox::SetBlueprint(EquipmentBox *this, InfoBox *infoBox, bool detailedBox); // 0052ccc0
+"578d7c240883e4f0ff77fc5589e55756538db560":
+virtual __thiscall void EquipmentBox::UpdateBoxImage(EquipmentBox *this, bool unk); // 0052b790
+"578d7c240883e4f0ff77fc5589e557565389cb81ec8c0000008b4160":
+virtual __thiscall void EquipmentBox::RenderLabels(EquipmentBox *this, bool unk); // 0052c0f0
+"538b415031db8b54240839c27e1a0341":
+virtual __thiscall void EquipmentBox::MouseMove(EquipmentBox *this, int x, int y); // 0052aa50
+"8b4424048941608b4424088941648b44":
+virtual __thiscall void EquipmentBox::AddItem(EquipmentBox *this, EquipmentBoxItem item); // 0052aac0
+"660fefc05589e50f1141605dc3906690":
+virtual __thiscall void EquipmentBox::Restart(EquipmentBox *this); // 0052aae0 original name: RemoveItem
+"5589e58b55088b450c5d89514889414c":
+virtual __thiscall void EquipmentBox::SetPosition(EquipmentBox *this, Point pos); // 0052aa30
+"578d7c240883e4f0ff77fc5589e55783ec248b4160":
+virtual __thiscall void EquipmentBox::RenderIcon(EquipmentBox *this); // 0052af90
+"8b4424048b108951508b50048951548b":
+__thiscall void EquipmentBox::ForceHitBox(EquipmentBox *this, Globals::Rect *newBox); // 0052cc00

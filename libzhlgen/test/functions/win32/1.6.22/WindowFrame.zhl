@@ -1,0 +1,6 @@
+"5589e55389cb83e4f083ec10e89fd501":
+__thiscall void WindowFrame::Draw(WindowFrame *this, int x, int y);
+"5589e55389cb83e4f083ec108b4508c7042401":
+__thiscall void WindowFrame::DrawMask(WindowFrame *this, int unk);
+"5589e55389cb83e4f083ec108b411089":
+__thiscall void WindowFrame::destructor(WindowFrame *this);

@@ -1,0 +1,4 @@
+"578d7c240883e4f0ff77fc5589e557565383ec4c8039":
+__thiscall void SoundControl::UpdateSoundLoop(SoundControl *this, const std::string& loopId, float count);
+"578d7c240883e4f0ff77fc5589e55783ec148039008b07f30f1047047453":
+__thiscall void SoundControl::StopChannel(SoundControl *this, int channel, float fade);

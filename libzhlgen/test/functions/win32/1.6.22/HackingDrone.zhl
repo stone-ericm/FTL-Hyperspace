@@ -1,0 +1,4 @@
+"578d7c240883e4f0ff77fc5589e557565383ec2c8b3785f60f":
+__thiscall void HackingDrone::SetMovementTarget(HackingDrone *this, Targetable *target);
+"578d7c240883e4f0ff77fc5589e557565389cb81ec9c0000008b37":
+__thiscall CollisionResponse HackingDrone::CollisionMoving(HackingDrone *this, Pointf start, Pointf finish, Damage damage, bool raytrace);

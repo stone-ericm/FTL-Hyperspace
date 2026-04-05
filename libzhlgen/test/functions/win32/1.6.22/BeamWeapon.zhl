@@ -1,0 +1,4 @@
+"578d7c240883e4f0ff77fc5589e557565381ec9c00000080b9":
+__thiscall void BeamWeapon::OnRenderSpecific(BeamWeapon *this, int spaceId);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b57":
+__thiscall void BeamWeapon::constructor(BeamWeapon *this, Pointf _position, int _ownerId, int _targetId, Pointf _target, Pointf _target2, int _length, Targetable *_targetable, float heading);

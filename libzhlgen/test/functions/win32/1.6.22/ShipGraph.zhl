@@ -1,0 +1,30 @@
+"8d4c240483e4f0ff71fc5589e55756535181ec88000000a130":
+static cleanup __cdecl ShipGraph* ShipGraph::GetShipInfo(int shipId);
+"578d7c240883e4f0ff77fc5589f889e557565389cf83ec4c8b188b70":
+__int64 ShipGraph::GetSlotRenderPosition_DO_NOT_USE_DIRECTLY(ShipGraph *this<ecx>, int slotId, int roomId, bool intruder);
+"538b411c8b59188b54240829d8c1f802":
+__thiscall int ShipGraph::DoorCount(ShipGraph *this, int roomId);
+"578d7c240883e4f0ff77fc5589e557565383ec3c8b37c7":
+__thiscall std::vector<Door*> ShipGraph::GetDoors(ShipGraph *this, int roomId);
+"8b5424048b018b04908b50348b421c2b":
+__thiscall int ShipGraph::GetNumSlots(ShipGraph *this, int room);
+"578d7c240883e4f0ff77fc5589f889e557565383ec6c8b50":
+__thiscall Path ShipGraph::FindPath(ShipGraph *this, Point p1, Point p2, int shipId);
+"83ec04f30f10442408f30f584134f30f":
+__thiscall float ShipGraph::ConvertToWorldAngle(ShipGraph *this, float ang);
+"83ec04f30f10442408f30f5c4134f30f":
+__thiscall float ShipGraph::ConvertToLocalAngle(ShipGraph *this, float ang);
+"578d7c240883e4f0ff77fc5589e55783ec14807f":
+__int64 ShipGraph::ConvertToLocalPosition_DO_NOT_USE_DIRECTLY(ShipGraph *this<ecx>, Pointf world, bool past);
+"578d7c240883e4f0ff77fc5589e557565383ec4c8b79":
+__thiscall void ShipGraph::ComputeCenter(ShipGraph *this);
+"8b41042b01c1f802c3908db600000000":
+__thiscall int ShipGraph::RoomCount(ShipGraph *this);
+"5789c88d7c240883e4f0ff77fc5589e557565383ec2c8b17":
+__thiscall Globals::Rect ShipGraph::GetRoomShape(ShipGraph *this, int room);
+"53660fefc083ec048b54240c85d27816":
+__thiscall float ShipGraph::GetRoomOxygen(ShipGraph *this, int room);
+"5653b8010000008b5c240c85db78158b":
+__thiscall bool ShipGraph::GetRoomBlackedOut(ShipGraph *this, int room);
+"578d7c240883e4f0ff77fc5589e557565383ec3c8b57048b01":
+__thiscall Point ShipGraph::GetSlotWorldPosition(ShipGraph *this, int slotId, int roomId);

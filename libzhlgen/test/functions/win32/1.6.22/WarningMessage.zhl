@@ -1,0 +1,18 @@
+"80791400755a578d7c240883e4f0ff77":
+__thiscall void WarningMessage::Start(WarningMessage *this);
+"578d7c240883e4f0ff77fc5589e557565389cb81ec8c0000008079":
+__thiscall void WarningMessage::RenderWithAlpha(WarningMessage *this, float alpha);
+"578d7c240883e4f0ff77fc5589e557568d7104":
+__thiscall void WarningMessage::OnLoop(WarningMessage *this);
+"578d7c240883e4f0ff77fc5589e557565383ec2c807928008b3774":
+__thiscall void WarningMessage::SetImage(WarningMessage *this, const std::string& imageName);
+"578d7c240883e4f0ff77fc5589e55783ec14807928":
+__thiscall void WarningMessage::SetPosition(WarningMessage *this, Point position);
+"5783c1048d7c240883e4f0ff77fc5589":
+__thiscall void WarningMessage::SetLoop(WarningMessage *this, bool loop);
+"5781c1c80000008d7c240883e4f0ff77":
+__thiscall void WarningMessage::SetSound(WarningMessage *this, const std::string& sound);
+"578d7c240883e4f0ff77fc5589e557565389fe89cb83ec":
+__thiscall void WarningMessage::InitImage(WarningMessage *this, const std::string& imageName, Point position, float time, bool flash);
+"578d7c240883e4f0ff77fc5589e557565389cb8d492c":
+__thiscall void WarningMessage::InitText(WarningMessage *this, const TextString& text, Point position, float time, GL_Color textColor, bool centerText, bool flash);

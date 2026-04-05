@@ -1,0 +1,16 @@
+"578d7c240883e4f0ff77fc5589e557565389cb8db32c":
+__thiscall void ShipBuilder::CheckTypes(ShipBuilder *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b17":
+__thiscall void ShipBuilder::SwitchShip(ShipBuilder *this, int shipType, int shipVariant);
+"8b816c1c0000c781781c0000ffffffff8981701c0000c3":
+__thiscall void ShipBuilder::ClearShipAchievements(ShipBuilder *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b09":
+__thiscall void ShipBuilder::SwapType(ShipBuilder *this, int variant);
+"578d7c240883e4f0ff77fc5589e557565389cbb94033910081ec8c":
+__thiscall void ShipBuilder::OnLoop(ShipBuilder *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83c10c8d":
+__thiscall void ShipBuilder::constructor(ShipBuilder *this);
+"578d7c240883e4f0ff77fc5589e557565389cf31f683ec1c":
+__thiscall void ShipBuilder::CycleTypeNext(ShipBuilder *this);
+"578d7c240883e4f0ff77fc5589e557565389cfbe02":
+__thiscall void ShipBuilder::CycleTypePrev(ShipBuilder *this);

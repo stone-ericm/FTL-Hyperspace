@@ -1,0 +1,2 @@
+"5589e583e4f083ec108b4104c701ccbe":
+__thiscall void CachedPrimitive::destructor(CachedPrimitive *this);

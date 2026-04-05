@@ -1,0 +1,2 @@
+"558b018b510489e52b45082b550c5d0f":
+__thiscall int Point::RelativeDistance(Point *this, Point other);

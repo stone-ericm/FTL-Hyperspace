@@ -1,0 +1,4 @@
+"578d7c240883e4f0ff77fc5589e557565389ce81c194":
+__thiscall void StoreBox::InitBlueprint(StoreBox *this, Blueprint* bp);
+"578d7c240883e4f0ff77fc5589e5575389cb8d4df083ec208b078b570489042489542404e8f7":
+__thiscall void StoreBox::SetPosition(StoreBox *this, Point pos);

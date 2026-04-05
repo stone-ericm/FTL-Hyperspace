@@ -1,0 +1,2 @@
+"578d7c240883e4f0ff77fc5589e557565389fe89cb81":
+__thiscall void HackBox::constructor(HackBox *this, Point pos, HackingSystem* sys, ShipManager* ship);

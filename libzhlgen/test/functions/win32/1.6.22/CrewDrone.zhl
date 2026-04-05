@@ -1,0 +1,6 @@
+"57660fefc931c08d7c240883e4f0ff77fc5589e55783":
+__thiscall bool CrewDrone::ShipDamage(CrewDrone *this, float amount);
+"578d7c240883e4f0ff77fc5589e557568db15c":
+virtual __thiscall void CrewDrone::OnLoop(CrewDrone *this);
+"8b410485c0740b0fb6813d05000084c0":
+virtual __thiscall bool CrewDrone::ProvidesVision(CrewDrone *this);

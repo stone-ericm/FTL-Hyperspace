@@ -1,0 +1,8 @@
+"5589e5538b413083e4f03941347407c7":
+__thiscall void TextInput::OnLoop(TextInput *this);
+"0fb64138c3????????8dbc2700000000":
+__thiscall bool TextInput::GetActive(TextInput *this);
+"55c641380089e583e4f0e851351500c9":
+__thiscall void TextInput::Stop(TextInput *this);
+"578d7c240883e4f0ff77fc5589e557565389ce8d5de0":
+__thiscall int TextInput::SetText(TextInput *this, const std::string& text);

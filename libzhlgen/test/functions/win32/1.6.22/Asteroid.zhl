@@ -1,0 +1,2 @@
+"578d7c240883e4f0ff77fc5589e5575389cb83ec4080b9b0000000007415":
+__thiscall void Asteroid::OnUpdate(Asteroid *this);

@@ -1,0 +1,14 @@
+"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b3f8b":
+__thiscall void MouseControl::SetTooltip(MouseControl *this, const std::string& tooltip);
+"c6812801000001c78130010000000000":
+__thiscall void MouseControl::InstantTooltip(MouseControl *this);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec1c8b1f83":
+__thiscall void MouseControl::SetDoor(MouseControl *this, int state);
+"807c2408008b44240488411d7404c641":
+__thiscall void MouseControl::SetValid(MouseControl *this, bool valid, bool newValid);
+"578d7c240883e4f0ff77fc5589e55756538d75c089":
+__thiscall void MouseControl::LoadTooltip(MouseControl *this, const std::string& tooltipName);
+"5589e55389cb83e4f083ec1080b91801":
+__thiscall void MouseControl::OnLoop(MouseControl *this);
+"578d7c240883e4f0ff77fc5589e55783ec148b912c":
+__thiscall void MouseControl::SetTooltipTitle(MouseControl *this, const std::string& tooltip);

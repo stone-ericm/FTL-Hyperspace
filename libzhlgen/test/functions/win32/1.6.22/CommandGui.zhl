@@ -1,0 +1,16 @@
+"578d7c240883e4f0ff77fc5589e55756538d459081ec9c":
+__thiscall void CommandGui::RunCommand(CommandGui *this, std::string& command);
+"578d7c240883e4f0ff77fc5589e557565389cb8d4dd883ec3c8b07":
+__thiscall Point CommandGui::GetWorldCoordinates(CommandGui *this, Point point, bool fromTarget);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec6c803d":
+__thiscall void CommandGui::RenderStatic(CommandGui *this);
+"578d7c240883e4f0ff77fc5589e557565389cb8d4dd883ec3c8b37":
+__thiscall void CommandGui::RenderPlayerShip(CommandGui *this, Point &shipCenter, float jumpScale);
+"578d7c240883e4f0ff77fc5589e557565389ceb940":
+__thiscall void CommandGui::MouseMove(CommandGui *this, int mX, int mY);
+"578d7c240883e4f0ff77fc5589e557565389cb8d45":
+__thiscall void CommandGui::CheckGameover(CommandGui *this);
+"803d083c91000075695589e55389cb8b":
+__thiscall bool CommandGui::IsGameOver(CommandGui *this);
+"5589e5538b8108170000c78154170000":
+__thiscall void CommandGui::ClearLocation(CommandGui *this);

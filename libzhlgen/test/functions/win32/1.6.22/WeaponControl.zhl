@@ -1,0 +1,16 @@
+"578d7c240883e4f0ff77fc5589e557565383ec2c80b9d8000000008b1f":
+__thiscall bool WeaponControl::LButton(WeaponControl *this, int x, int y, bool holdingShift);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec4c8b3f":
+__thiscall bool WeaponControl::KeyDown(WeaponControl *this, SDLKey key);
+"578d7c240883e4f0ff77fc5589e557565389ce81ecdc00":
+__thiscall void WeaponControl::SelectArmament(WeaponControl *this, unsigned int armamentSlot);
+"5589e55389cb83e4f083ec10e88f9104":
+__thiscall void WeaponControl::RenderWarnings(WeaponControl *this);
+"8d510883ec2089c8c7410877656170c7":
+__thiscall TextString WeaponControl::HolderLabel(WeaponControl *this);
+"578d7c240883e4f0ff77fc5589e557565389cf81ec9c":
+__thiscall void WeaponControl::OnLoop(WeaponControl *this);
+"578d7c240883e4f0ff77fc5589e557565389cf8d75b0":
+__thiscall void WeaponControl::OnLanguageChange(WeaponControl *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b378b7f04893424897c2404e819":
+__thiscall void WeaponControl::MouseMove(WeaponControl *this, int x, int y);

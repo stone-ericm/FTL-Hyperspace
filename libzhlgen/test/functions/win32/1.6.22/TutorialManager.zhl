@@ -1,0 +1,8 @@
+"578d7c240883e4f0ff77fc5589e557565389cb83ec7c8b470c":
+__thiscall void TutorialManager::OnInit(TutorialManager *this, ShipManager *ship, CommandGui *gui, CrewControl *crewControl, Upgrades *upgradesScreen, CombatControl *combatControl, SystemControl *sysControl, TabbedWindow *unk);
+"8039000f84e30000008079020089c874":
+__thiscall bool TutorialManager::MouseClick(TutorialManager *this);
+"578d7c240883e4f0ff77fc5589e557565383ec4c8b0780":
+__thiscall void TutorialManager::MouseMove(TutorialManager *this, int mX, int mY);
+"57????????008d7c240883e4f0ff77fc5589e55756538d45d08d5dd889ce83ec4c89":
+__thiscall bool TutorialManager::AllowJumping(TutorialManager *this);

@@ -1,0 +1,6 @@
+"578d7c240883e4f0ff77fc5589e5575389cb83ec108b4968":
+__thiscall void CrewEquipBox::RemoveItem(CrewEquipBox *this);
+"578d7c240883e4f0ff77fc5589e557565389cb8d4d98":
+__thiscall void CrewEquipBox::constructor(CrewEquipBox *this, Point pos, ShipManager *ship, int slot);
+"0fb681d0020000c681d002000000c390":
+__thiscall bool CrewEquipBox::GetConfirmDelete(CrewEquipBox *this);

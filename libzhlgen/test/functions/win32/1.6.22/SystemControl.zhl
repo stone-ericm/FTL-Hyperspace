@@ -1,0 +1,2 @@
+"578d7c240883e4f0ff77fc5589e557565389ce83ec6c8b09":
+__thiscall void SystemControl::OnRender(SystemControl *this, bool front);

@@ -1,0 +1,36 @@
+"8b4424048b15f091910089108b15f491":
+static cleanup __cdecl GL_Color CSurface::GL_GetColor();
+"8d4c240483e4f0ff71fc5589e55183ec14a1e8":
+static cleanup __cdecl void CSurface::GL_SetColorTint(GL_Color color);
+"5589e5565383e4f083ec108b45088b5d0c8b751083":
+static cleanup __cdecl void CSurface::GL_SetStencilMode(GL_StencilMode stencilMode, int ref, int mask);
+"5589e583e4f083ec20f30f10451cf30f":
+static cleanup __cdecl int CSurface::GL_OrthoProjection(float mx1, float mx2, float mx3, float mx4, float mx5, float mx6);
+"a10092910083f80f774689c10f280520":
+static cleanup __cdecl int CSurface::GL_PushMatrix();
+"55b90000000089e583e4f083ec10f30f":
+static cleanup __cdecl void CSurface::GL_Scale(float x, float y, float z);
+"55660fefc0b90000000089e583e4f083":
+static cleanup __cdecl bool CSurface::GL_Translate(float x, float y, float z=0.f);
+"5589e583e4f083ec208b4508f30f1045":
+static cleanup __cdecl int CSurface::GL_SetColor(GL_Color color);
+"a1e89191003b05e4919100740883e810":
+static cleanup __cdecl void CSurface::GL_RemoveColorTint();
+"8b15e89191008b0de49191005539d189":
+static cleanup __cdecl GL_Color CSurface::GetColorTint();
+"5589e583e4f083ec10c7442408040000":
+static cleanup __cdecl bool CSurface::GL_EnableBlend();
+"8b442404a2e0919100c38db600000000":
+static cleanup __cdecl void CSurface::GL_ForceAntialias(bool on);
+"5589e557565383e4f083ec60????????8b":
+static cleanup __cdecl bool CSurface::GL_BlitImagePartial(GL_Texture *tex, float x, float y, float size_x, float size_y, float start_x, float end_x, float start_y, float end_y, float alpha, GL_Color color, bool mirror);
+"5589e55383e4f083ec108b5d0885db74138b4324":
+static cleanup __cdecl void CSurface::GL_DestroyPrimitive(GL_Primitive *primitive);
+"5589e55383e4f083ec50f30f10450cc7":
+static cleanup __cdecl GL_Primitive* CSurface::GL_CreateRectPrimitive(float x, float y, float w, float h, GL_Color color);
+"8d4c240483e4f0ff71fc5589e55756535183ec588b71":
+static cleanup __cdecl GL_Primitive* CSurface::GL_CreateMultiImagePrimitive(GL_Texture* tex, std::vector<GL_TexVertex>* vec, GL_Color color);
+"5589e583e4f0e835bc090085c0c90f95":
+static cleanup __cdecl bool CSurface::IsFrameBufferSupported();
+"5589e583e4f0e87538feffe880b80900":
+static cleanup __cdecl void CSurface::StartFrame();

@@ -1,0 +1,2 @@
+"8b81c0010000c7400800000000c7802c":
+__thiscall void ArtillerySystem::Jump(ArtillerySystem *this);

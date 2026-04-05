@@ -1,0 +1,2 @@
+"578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b496c":
+__thiscall void ReactorButton::Accept(ReactorButton *this);

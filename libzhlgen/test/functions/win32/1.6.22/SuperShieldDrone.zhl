@@ -1,0 +1,2 @@
+"578d7c240883e4f0ff77fc5589e55783ec34":
+__thiscall float SuperShieldDrone::GetWeaponCooldown(SuperShieldDrone *this);

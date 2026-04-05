@@ -1,0 +1,6 @@
+"80b948050000007507f3c3908d742600":
+__thiscall void ShipSelect::OnLoop(ShipSelect *this);
+"578d7c240883e4f0ff77fc5589e5575389cb83ec1080b948":
+__thiscall void ShipSelect::MouseClick(ShipSelect *this);
+"5581c144050000c681f0faffff0089e5":
+__thiscall void ShipSelect::Close(ShipSelect *this);

@@ -1,0 +1,6 @@
+"578d7c240883e4f0ff77fc5589f889e557565389cf83ec4c8b008b40":
+__thiscall std::vector<std::string> ShipObject::GetAugmentationList(ShipObject *this);
+"8b510431c085d20f94c06bc034030580":
+__thiscall int ShipObject::GetAugmentationCount(ShipObject *this);
+"578d7c240883e4f0ff77fc5589e557565331db83ec2c8b41":
+__thiscall void ShipObject::ClearShipInfo(ShipObject *this);

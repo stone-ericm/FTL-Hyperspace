@@ -1,0 +1,2 @@
+"807c2404008b41040f4401c204006690":
+__thiscall int CrewMemberFactory::GetCrewCount(CrewMemberFactory *this, bool enemy);

@@ -1,0 +1,4 @@
+"578d7c240883e4f0ff77fc5589fa89e557565389cb83ec3c":
+__thiscall void CrewBlueprint::RandomSkills(CrewBlueprint *this, int worldLevel);
+"8b54240489c88b4c2408660fefc0660f":
+__thiscall GL_Color CrewBlueprint::GetCurrentSkillColor(CrewBlueprint *this, int skill);
