@@ -1774,7 +1774,7 @@ namespace _func127
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CAchievement::constructor", typeid(void (CAchievement::*)()), "578d41088d7c240883e4f0ff77fc5589e557565389cf", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CAchievement::constructor", typeid(void (CAchievement::*)()), "578d41088d7c240883e4f0ff77fc5589e557565389cf8d75d08d5dd883ec3c8901", argdata, 1, 5, &func);
 }
 
 void CAchievement::constructor()
@@ -2026,7 +2026,7 @@ namespace _func145
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnLoop", typeid(void (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec4c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::OnLoop", typeid(void (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec4ce8????????", argdata, 1, 5, &func);
 }
 
 void CApp::OnLoop()
@@ -2040,7 +2040,7 @@ namespace _func146
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::SetupWindow", typeid(int (CApp::*)()), "5589e55389cb83e4f083ec3080b93936", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CApp::SetupWindow", typeid(int (CApp::*)()), ".5589e55389cb83e4f0", argdata, 1, 1, &func);
 }
 
 int CApp::SetupWindow()
@@ -2068,7 +2068,7 @@ namespace _func148
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::GenInputEvents", typeid(void (CApp::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec20e836", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::GenInputEvents", typeid(void (CApp::*)()), ".578d7c240883e4f0ff77fc5589e5575389cb", argdata, 1, 5, &func);
 }
 
 void CApp::GenInputEvents()
@@ -2124,7 +2124,7 @@ namespace _func152
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::UpdateFullScreen", typeid(void (CApp::*)()), "803d????????007407f3c3908d7426005589e557", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::UpdateFullScreen", typeid(void (CApp::*)()), ".803d??????????74??c38db6000000005589e5575653", argdata, 1, 5, &func);
 }
 
 void CApp::UpdateFullScreen()
@@ -2152,7 +2152,7 @@ namespace _func154
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnRender", typeid(void (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5ce825", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::OnRender", typeid(void (CApp::*)()), ".578d7c240883e4f0ff77fc5589e55756", argdata, 1, 5, &func);
 }
 
 void CApp::OnRender()
@@ -2166,7 +2166,7 @@ namespace _func155
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnInit", typeid(int (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec4cc7", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CApp::OnInit", typeid(int (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557", argdata, 1, 1, &func);
 }
 
 int CApp::OnInit()
@@ -2180,7 +2180,7 @@ namespace _func156
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnExecute", typeid(int (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389ceb9????????81ec2c", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CApp::OnExecute", typeid(int (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557565389cfb9????????81ec????????c70424????????e8????????89f9", argdata, 1, 1, &func);
 }
 
 int CApp::OnExecute()
@@ -2194,7 +2194,7 @@ namespace _func157
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CEvent::OnEvent", typeid(void (CEvent::*)(const InputEvent *)), "578d7c240883e4f0ff77fc5589e557565383ec4c8b1f8b43", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CEvent::OnEvent", typeid(void (CEvent::*)(const InputEvent *)), "578d7c240883e4f0ff77fc5589e557565383ec4c8b1f8b4304f20f104308f20f1105????????83e80783f81b77??", argdata, 2, 5, &func);
 }
 
 void CEvent::OnEvent(const InputEvent *event)
@@ -2208,7 +2208,7 @@ namespace _func158
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CFPS::GetSpeedFactor", typeid(float (CFPS::*)()), "83ec04f30f104118f30f110424d90424", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CFPS::GetSpeedFactor", typeid(float (CFPS::*)()), "83ec04f30f104118f30f110424d9042483c404c39090909090909090909090905589e583e4f083ec10a1????????85c074??890424e8????????a1????????85c074??", argdata, 1, 1, &func);
 }
 
 float CFPS::GetSpeedFactor()
