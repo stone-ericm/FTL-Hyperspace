@@ -1,2 +1,11 @@
 "578d7c240883e4f0ff77fc5589e557565389cb81ecbc0000008b57":
 __thiscall void TeleportBox::constructor(TeleportBox *this, Point pos, TeleportSystem* sys);
+
+
+struct TeleportBox
+{{
+	TeleportBox(Point pos, TeleportSystem* sys)
+	{
+		this->constructor(pos, sys);
+	}
+}};

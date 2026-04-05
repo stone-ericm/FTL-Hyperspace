@@ -1,10 +1,40 @@
+"00000000000000000000000000000000":
+__thiscall void TextInput::constructor(TextInput *this, int maxChars, TextInput::AllowedCharType allowedCharType, const std::string& prompt);
+"00000000000000000000000000000000":
+__thiscall void TextInput::OnRender(TextInput *this, int font, Point pos);
 "5589e5538b413083e4f03941347407c7":
 __thiscall void TextInput::OnLoop(TextInput *this);
+"00000000000000000000000000000000":
+__thiscall void TextInput::OnTextEvent(TextInput *this, CEvent::TextEvent event);
 "0fb64138c3????????8dbc2700000000":
 __thiscall bool TextInput::GetActive(TextInput *this);
+"00000000000000000000000000000000":
+__thiscall std::string TextInput::GetText(TextInput *this);
+"00000000000000000000000000000000":
+__thiscall void TextInput::Start(TextInput *this);
 "55c641380089e583e4f0e851351500c9":
 __thiscall void TextInput::Stop(TextInput *this);
 "578d7c240883e4f0ff77fc5589e557565389ce8d5de0":
 __thiscall int TextInput::SetText(TextInput *this, const std::string& text);
 "807938000f8466010000578d7c240883":
 __thiscall void TextInput::OnTextInput(TextInput *this, int asciiChar);
+
+
+struct TextInput depends (CEvent)
+{{
+	enum AllowedCharType
+	{
+	  ALLOW_ASCII = 0x0,
+	  ALLOW_LANGUAGE = 0x1,
+	  ALLOW_ANY = 0x2,
+	};
+	
+	TextInput()
+	{
+	}
+
+	TextInput(int maxChars, TextInput::AllowedCharType allowedCharType, const std::string& prompt)
+	{
+		this->constructor(maxChars, allowedCharType, prompt);
+	};
+}};

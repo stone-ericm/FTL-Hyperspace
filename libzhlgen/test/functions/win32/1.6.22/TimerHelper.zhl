@@ -1,12 +1,22 @@
 "5589e55653c6411101c7410800000000":
 __thiscall void TimerHelper::Start(TimerHelper *this, int goal);
-"8b44240889018b442404894104c20800":
-__thiscall void TimerHelper::ResetMinMax(TimerHelper *this, int min, int max);
-"0fb6411184c0746bf30f1041080f2e41":
-__thiscall bool TimerHelper::Done(TimerHelper *this);
-"80791100750af3c3908db42600000000":
-__thiscall void TimerHelper::Update(TimerHelper *this);
-"f30f104908f30f5e490cf30f10442404":
-__thiscall void TimerHelper::SetMaxTime(TimerHelper *this, float max);
 "0fb64111c3????????8dbc2700000000":
 __thiscall bool TimerHelper::Running(TimerHelper *this);
+"8b44240889018b442404894104c20800":
+__thiscall void TimerHelper::ResetMinMax(TimerHelper *this, int min, int max);
+"f30f104908f30f5e490cf30f10442404":
+__thiscall void TimerHelper::SetMaxTime(TimerHelper *this, float max);
+"00000000000000000000000000000000":
+__thiscall void TimerHelper::Stop(TimerHelper *this);
+"80791100750af3c3908db42600000000":
+__thiscall void TimerHelper::Update(TimerHelper *this);
+"0fb6411184c0746bf30f1041080f2e41":
+__thiscall bool TimerHelper::Done(TimerHelper *this);
+
+
+struct TimerHelper
+{{
+	TimerHelper(bool isLoop=false) : loop(isLoop) { }
+	
+	void Start(float goal); // float overload
+}};

@@ -1,22 +1,63 @@
-"8b44240484c088818802000074078381":
-__thiscall void ScoreKeeper::SetVictory(ScoreKeeper *this, bool victory);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec1c80b9c4":
-__thiscall void ScoreKeeper::MouseClick(ScoreKeeper *this, int x, int y);
-"578d7c240883e4f0ff77fc5589e557565389cb8db3cc":
-__thiscall void ScoreKeeper::CheckTypes(ScoreKeeper *this);
-"578d7c240883e4f0ff77fc5589e557565389cbb94033910083ec3c":
-__thiscall void ScoreKeeper::AddScrapCollected(ScoreKeeper *this, int scrap);
-"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b1fa1":
-__thiscall void ScoreKeeper::SaveGame(ScoreKeeper *this, int fd);
-"8b442404c7412400000000????????00":
-__thiscall void ScoreKeeper::SetSector(ScoreKeeper *this, int sector);
-"578d7c240883e4f0ff77fc5589e557565383ec5c8b37c7":
-__thiscall std::pair<int, int> ScoreKeeper::GetShipId(ScoreKeeper *this, const std::string& blueprintName);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec3c80b9c4":
-__thiscall void ScoreKeeper::Open(ScoreKeeper *this, bool fromGameOver);
+"00000000000000000000000000000000":
+__thiscall bool ScoreKeeper::GetShipUnlocked(ScoreKeeper *this, int shipId, int shipVariant);
 "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b47048d":
 __thiscall std::string ScoreKeeper::GetShipBlueprint(ScoreKeeper *this, int index);
-"578d7c240883e4f0ff77fc5589e557565381ec4c05000089":
-__thiscall void ScoreKeeper::LoadGame(ScoreKeeper *this, int fd);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::OnInit(ScoreKeeper *this);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::Save(ScoreKeeper *this, bool newHighScore);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::OnRender(ScoreKeeper *this, bool lastPlaythrough);
 "578d7c240883e4f0ff77fc5589e557565383ec1c8b17":
 __thiscall void ScoreKeeper::UnlockShip(ScoreKeeper *this, int shipType, int shipVariant, bool save, bool hidePopup);
+"8b44240484c088818802000074078381":
+__thiscall void ScoreKeeper::SetVictory(ScoreKeeper *this, bool victory);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::constructor(ScoreKeeper *this);
+"578d7c240883e4f0ff77fc5589e557565383ec5c8b37c7":
+__thiscall std::pair<int, int> ScoreKeeper::GetShipId(ScoreKeeper *this, const std::string& blueprintName);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::LoadVersionFour(ScoreKeeper *this, int file, int version);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::WipeProfile(ScoreKeeper *this, bool permanent);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec1c80b9c4":
+__thiscall void ScoreKeeper::MouseClick(ScoreKeeper *this, int x, int y);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::SetupTopShip(ScoreKeeper *this, int variant);
+"578d7c240883e4f0ff77fc5589e557565389cb8db3cc":
+__thiscall void ScoreKeeper::CheckTypes(ScoreKeeper *this);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::AddTopScoreType(ScoreKeeper *this, TopScore& topScore, int type);
+"00000000000000000000000000000000":
+__thiscall int ScoreKeeper::AddTopScoreList(ScoreKeeper *this, TopScore& score, std::vector<TopScore>& topScoreList);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::RenderTopScores(ScoreKeeper *this, const std::vector<TopScore>& topScoreList, Point position, int newHighScore);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::CycleLeft(ScoreKeeper *this);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::CycleRight(ScoreKeeper *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec3c80b9c4":
+__thiscall void ScoreKeeper::Open(ScoreKeeper *this, bool fromGameOver);
+"00000000000000000000000000000000":
+__thiscall bool ScoreKeeper::KeyDown(ScoreKeeper *this, SDLKey key);
+"578d7c240883e4f0ff77fc5589e557565389cbb94033910083ec3c":
+__thiscall void ScoreKeeper::AddScrapCollected(ScoreKeeper *this, int scrap);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::SaveScores(ScoreKeeper *this, int file, std::vector<TopScore>& topScores);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b1fa1":
+__thiscall void ScoreKeeper::SaveGame(ScoreKeeper *this, int fd);
+"578d7c240883e4f0ff77fc5589e557565381ec4c05000089":
+__thiscall void ScoreKeeper::LoadGame(ScoreKeeper *this, int fd);
+"00000000000000000000000000000000":
+__thiscall void ScoreKeeper::MouseMove(ScoreKeeper *this, int mX, int mY);
+"8b442404c7412400000000????????00":
+__thiscall void ScoreKeeper::SetSector(ScoreKeeper *this, int sector);
+
+"!8b430cb9(???????\?)c6804412000000c7042401000000":
+ScoreKeeper* Global_ScoreKeeper_Keeper;
+
+
+struct ScoreKeeper
+{{
+    int CountUnlockedShips(int variant);
+}};

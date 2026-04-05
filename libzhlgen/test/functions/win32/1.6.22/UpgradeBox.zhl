@@ -8,3 +8,34 @@ __thiscall void UpgradeBox::destructor(UpgradeBox *this);
 __thiscall void UpgradeBox::OnRender(UpgradeBox *this);
 "578d7c240883e4f0ff77fc5589e55783ec148b078b57048b39":
 __thiscall void UpgradeBox::MouseMove(UpgradeBox *this, int mX, int mY);
+"00000000000000000000000000000000":
+__thiscall void UpgradeBox::MouseClick(UpgradeBox *this, int mX, int mY);
+"00000000000000000000000000000000":
+__thiscall void UpgradeBox::MouseRightClick(UpgradeBox *this, int mX, int mY);
+"00000000000000000000000000000000":
+__thiscall void UpgradeBox::Undo(UpgradeBox *this);
+"00000000000000000000000000000000":
+__thiscall void UpgradeBox::Accept(UpgradeBox *this);
+
+
+struct UpgradeBox
+{{
+	UpgradeBox()
+	{
+	}
+	
+	UpgradeBox(Point pos, bool subsystem)
+	{
+		this->constructorEmpty(pos, subsystem);
+	}
+	
+	UpgradeBox(ShipManager *ship, ShipSystem *sys, Point pos, bool subsystem)
+	{
+		this->constructorSystem(ship, sys, pos, subsystem);
+	}
+	
+	~UpgradeBox()
+	{
+		this->destructor();
+	}
+}};

@@ -1,5 +1,7 @@
 "578d7c240883e4f0ff77fc5589e557565389cb89":
 __thiscall void SpaceStatus::OnInit(SpaceStatus *this, SpaceManager *space, Point pos);
+"00000000000000000000000000000000":
+__thiscall void SpaceStatus::RenderWarningText(SpaceStatus *this, int effect, int textOffset);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b492c":
 __thiscall void SpaceStatus::OnRender(SpaceStatus *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b378b41":

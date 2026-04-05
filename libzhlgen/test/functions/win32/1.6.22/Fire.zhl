@@ -1,2 +1,6 @@
+"00000000000000000000000000000000":
+__thiscall void Fire::OnLoop(Fire *this);
 "5589e5565389cb83e4f083ec108b018b":
 __thiscall void Fire::UpdateStartTimer(Fire *this, int doorLevel);
+"00000000000000000000000000000000":
+__thiscall void Fire::UpdateDeathTimer(Fire *this, int connectedFires);

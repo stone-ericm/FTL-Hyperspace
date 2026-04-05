@@ -1,10 +1,32 @@
+"00000000000000000000000000000000":
+__thiscall CollisionResponse Shields::CollisionReal(Shields *this, float x, float y, Damage damage, bool force);
+"00000000000000000000000000000000":
+__thiscall void Shields::constructor(Shields *this, int roomId, int shipId, int startingPower, const std::string& shieldFile);
 "5589e5f30f104d108b4508f30f104514":
 __thiscall void Shields::SetBaseEllipse(Shields *this, Globals::Ellipse ellipse);
 "538b44240883f8017e0983b9a8010000":
 __thiscall void Shields::SetHackingLevel(Shields *this, int hackingLevel);
 "578d7c240883e4f0ff77fc5589e557565389cb8db338":
 __thiscall void Shields::InstantCharge(Shields *this);
-"57ba050000008d7c240883e4f0ff77fc":
-__thiscall void Shields::AddSuperShield(Shields *this, Point pos);
+"00000000000000000000000000000000":
+__thiscall void Shields::Jump(Shields *this);
 "578d7c240883e4f0ff77fc5589e557565389cb8db564":
 __thiscall void Shields::OnLoop(Shields *this);
+"57ba050000008d7c240883e4f0ff77fc":
+__thiscall void Shields::AddSuperShield(Shields *this, Point pos);
+"00000000000000000000000000000000":
+__thiscall void Shields::RenderBase(Shields *this, float alpha, float superShieldOverwrite);
+"00000000000000000000000000000000":
+__thiscall CollisionResponse Shields::CollisionTest(Shields *this, float x, float y, Damage damage);
+
+"!f30f1015(???????\?)f30f5ee6":
+GL_Color *Global_COLOR_GREEN;
+
+
+struct Shields
+{{
+	Shields(int roomId, int shipId, int startingPower, const std::string& shieldFile)
+	{
+		this->constructor(roomId, shipId, startingPower, shieldFile);
+	}
+}};

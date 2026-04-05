@@ -1,0 +1,5 @@
+"00000000000000000000000000000000":
+__thiscall Animation AnimationControl::GetAnimation(AnimationControl *this, const std::string& animName);
+
+"!c70424(???????\?)89c18985ecfeffff":
+AnimationControl* Global_AnimationControl_Animations;

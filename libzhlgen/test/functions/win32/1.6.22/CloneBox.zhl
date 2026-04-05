@@ -1,0 +1,14 @@
+"00000000000000000000000000000000":
+__thiscall int CloneBox::GetHeightModifier(CloneBox* this);
+"00000000000000000000000000000000":
+__thiscall void CloneBox::constructor(CloneBox *this, Point pos, CloneSystem* sys);
+"00000000000000000000000000000000":
+__thiscall void CloneBox::OnRender(CloneBox *this, bool ignoreStatus);
+
+struct CloneBox
+{{
+	CloneBox(Point pos, CloneSystem* sys)
+	{
+		this->constructor(pos, sys);
+	}
+}};

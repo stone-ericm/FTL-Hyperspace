@@ -1,0 +1,20 @@
+"00000000000000000000000000000000":
+__thiscall void DroneStoreBox::constructor(DroneStoreBox *this, ShipManager *ship, Equipment *equip, const DroneBlueprint* bp);
+"00000000000000000000000000000000":
+__thiscall void DroneStoreBox::Purchase(DroneStoreBox *this);
+"00000000000000000000000000000000":
+__thiscall void WeaponStoreBox::Purchase(WeaponStoreBox *this);
+
+struct DroneStoreBox
+{{
+	DroneStoreBox(ShipManager *_ship, Equipment *_equip, const DroneBlueprint* _bp)
+	{
+		this->constructor(_ship, _equip, _bp);
+	}
+
+	DroneStoreBox()
+	{
+		StoreBox::constructor("storeUI/store_buy_drones", nullptr, nullptr);
+		this->bEquipmentBox = true;
+	}
+}};

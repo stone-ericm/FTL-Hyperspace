@@ -1,8 +1,42 @@
+"00000000000000000000000000000000":
+__thiscall void CrewAnimation::constructor(CrewAnimation *this, int shipId, const std::string& race, Pointf unk, bool hostile);
+"00000000000000000000000000000000":
+__thiscall std::string CrewAnimation::GetDeathSound(CrewAnimation *this);
+"00000000000000000000000000000000":
+__thiscall std::string CrewAnimation::GetShootingSound(CrewAnimation *this);
 "578d7c240883e4f0ff77fc5589f889e557565383ec7c8b59":
 __thiscall void CrewAnimation::OnRender(CrewAnimation *this, float scale, int selectedState, bool outlineOnly);
+"00000000000000000000000000000000":
+__thiscall void CrewAnimation::OnRenderProps(CrewAnimation *this);
+"00000000000000000000000000000000":
+__thiscall void CrewAnimation::OnInit(CrewAnimation *this, const std::string& name, Pointf position, bool enemy);
 "578d7c240883e4f0ff77fc5589e557568d8578":
 __thiscall void CrewAnimation::SetupStrips(CrewAnimation *this);
+"00000000000000000000000000000000":
+__thiscall void CrewAnimation::OnUpdate(CrewAnimation *this, Pointf position, bool moving, bool fighting, bool repairing, bool dying, bool onFire);
+"00000000000000000000000000000000":
+__thiscall void CrewAnimation::destructor(CrewAnimation *this);
 "5589e5538d999c08000083e4f089d9e8":
 __thiscall bool CrewAnimation::FireShot(CrewAnimation *this);
+"00000000000000000000000000000000":
+__thiscall int CrewAnimation::GetFiringFrame(CrewAnimation *this);
 "578d7c240883e4f0ff77fc5589e55756538db51c":
 __thiscall void CrewAnimation::RenderIcon(CrewAnimation *this, bool border);
+"00000000000000000000000000000000":
+__thiscall void CrewAnimation::OnUpdateEffects(CrewAnimation *this);
+
+
+struct CrewAnimation
+{{
+	CrewAnimation()
+	{
+	}
+
+	CrewAnimation(int _shipId, const std::string& _race, Pointf _unk, char _hostile)
+	{
+		this->constructor(_shipId, _race, _unk, _hostile);
+	}
+
+	bool _HS_CustomDeath();
+
+}};

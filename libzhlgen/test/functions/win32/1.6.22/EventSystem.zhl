@@ -1,2 +1,7 @@
 "538b54240885d278138b590c8b411029":
 __thiscall void EventSystem::AddEvent(EventSystem *this, int id);
+"00000000000000000000000000000000":
+__thiscall bool EventSystem::PollEvent(EventSystem *this, int id);
+
+"!c704240c000000b9(???????\?)e8????????31c0":
+EventSystem* Global_EventSystem_EventManager;

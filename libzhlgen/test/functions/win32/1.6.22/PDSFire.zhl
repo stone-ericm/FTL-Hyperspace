@@ -1,2 +1,14 @@
-"578d7c240883e4f0ff77fc5589e557565389cb83ec4c80b9b000":
+"00000000000000000000000000000000":
+__thiscall void PDSFire::CollisionCheck(PDSFire *this, Collideable *other);
+"00000000000000000000000000000000":
 __thiscall void PDSFire::OnUpdate(PDSFire *this);
+"00000000000000000000000000000000":
+__thiscall void PDSFire::constructor(PDSFire *this, Point pos, int destinationSpace, Pointf destination);
+
+struct PDSFire
+{{
+	PDSFire(Point pos, int destinationSpace, Pointf destination) : LaserBlast(Pointf(pos.x, pos.y), 0, destinationSpace, destination)
+	{
+		this->constructor(pos, destinationSpace, destination);
+	}
+}};

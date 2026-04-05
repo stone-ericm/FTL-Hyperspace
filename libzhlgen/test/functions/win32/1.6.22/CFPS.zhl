@@ -1,2 +1,7 @@
 "83ec04f30f104118f30f110424d90424":
 __thiscall float CFPS::GetSpeedFactor(CFPS *this);
+"00000000000000000000000000000000":
+__thiscall void CFPS::OnLoop(CFPS *this);
+
+"!5589e557565389cbb9(???????\?)83ec4c":
+CFPS* Global_CFPS_FPSControl;

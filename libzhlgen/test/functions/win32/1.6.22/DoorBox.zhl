@@ -1,0 +1,11 @@
+"00000000000000000000000000000000":
+__thiscall void DoorBox::constructor(DoorBox *this, Point pos, ShipSystem* sys, ShipManager* ship);
+
+
+struct DoorBox
+{{
+	DoorBox(Point pos, ShipSystem* sys, ShipManager *ship)
+	{
+		this->constructor(pos, sys, ship);
+	}
+}};

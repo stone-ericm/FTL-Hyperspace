@@ -1,0 +1,6 @@
+"00000000000000000000000000000000":
+__thiscall char ShipInfo::AddAugmentation(ShipInfo *this, const std::string& augment); 
+"00000000000000000000000000000000":
+__thiscall bool ShipInfo::HasAugmentation(ShipInfo *this, const std::string& augment);
+"00000000000000000000000000000000":
+__thiscall float ShipInfo::GetAugmentationValue(ShipInfo *this, const std::string& augment);

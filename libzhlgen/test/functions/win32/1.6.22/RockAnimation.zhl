@@ -1,0 +1,23 @@
+"00000000000000000000000000000000":
+__thiscall void RockAnimation::constructor(RockAnimation *this, const std::string& subRace, int iShipId, Pointf position, bool enemy);
+"00000000000000000000000000000000":
+noHook void RockAnimation::__DO_NOT_HOOK();
+"00000000000000000000000000000000":
+noHook void RockAnimation::__DO_NOT_HOOK2();
+"00000000000000000000000000000000":
+__thiscall std::string RockAnimation::GetShootingSound(RockAnimation *this);
+"00000000000000000000000000000000":
+noHook void RockAnimation::__DO_NOT_HOOK3();
+"00000000000000000000000000000000":
+noHook void RockAnimation::__DO_NOT_HOOK4();
+"00000000000000000000000000000000":
+__thiscall std::string RockAnimation::GetDeathSound(RockAnimation *this);
+
+
+struct RockAnimation depends (Pointf)
+{{
+    RockAnimation(const std::string& subRace, int shipId, Pointf position, bool enemy) : CrewAnimation(shipId, subRace, position, enemy)
+	{
+		this->constructor(subRace, shipId, position, enemy);
+	}
+}};

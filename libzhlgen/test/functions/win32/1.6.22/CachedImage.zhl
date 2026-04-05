@@ -1,9 +1,15 @@
+"00000000000000000000000000000000":
+__thiscall void CachedImage::destructor(CachedImage *this);
 "578d7c240883e4f0ff77fc5589e557565389cbb92097":
 __thiscall void CachedImage::SetImagePath(CachedImage *this, const std::string& imagePath);
+"00000000000000000000000000000000":
+__thiscall void CachedImage::constructor1(CachedImage *this, const std::string& path, int x, int y);
 "578d51108d7c240883e4f0ff77fc5589":
 __thiscall void CachedImage::constructor2(CachedImage *this, const std::string& path, CachedImage::Centered centered);
 "578d41108d7c240883e4f0ff77fc5589":
 __thiscall void CachedImage::constructor_copy(CachedImage *this, const CachedImage &other);
+"5589e557565383e4f083ec108b7508397124":
+__thiscall void CachedImage::SetPosition(CachedImage *this, int x, int y);
 "5589e55383e4f083ec20f30f1045080f":
 __thiscall void CachedImage::SetRotation(CachedImage *this, float _rotation);
 "5589e5565383e4f083ec108b750889f0":
@@ -14,5 +20,32 @@ __thiscall void CachedImage::SetScale(CachedImage *this, float wScale, float hSc
 __thiscall void CachedImage::CreatePrimitive(CachedImage *this);
 "5589e55383e4f083ec10f30f1045080f2e4134":
 __thiscall void CachedImage::SetPartial(CachedImage *this, float x_start, float y_start, float x_size, float y_size);
-"5589e557565383e4f083ec108b7508397124":
-__thiscall void CachedImage::SetPosition(CachedImage *this, int x, int y);
+
+
+struct CachedImage
+{{
+	enum Centered
+	{
+	  CENTERED = 0x0,
+	};
+	
+	CachedImage(const std::string& path, int x, int y)
+	{
+		constructor1(path, x, y);
+	}
+	
+	CachedImage(const std::string& path, Centered centered)
+	{
+		constructor2(path, centered);
+	}
+	
+	CachedImage()
+	{
+		
+	}
+	
+	CachedImage(const CachedImage &other)
+	{
+		constructor_copy(other);
+	}
+}};

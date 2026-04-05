@@ -1,4 +1,14 @@
+"00000000000000000000000000000000":
+__thiscall Drone* DroneSystem::RemoveDrone(DroneSystem *this, int slot);
+"00000000000000000000000000000000":
+__thiscall void DroneSystem::UpdateBonusPower(DroneSystem *this);
+"00000000000000000000000000000000":
+virtual __thiscall void DroneSystem::SetBonusPower(DroneSystem *this, int amount, int permanentPower);
+"00000000000000000000000000000000":
+__thiscall void DroneSystem::OnLoop(DroneSystem *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec2c807f04":
 __thiscall bool DroneSystem::DePowerDrone(DroneSystem *this, Drone *drone, bool unk);
+"00000000000000000000000000000000":
+__thiscall void DroneSystem::Jump(DroneSystem *this);
 "8d4c240483e4f0ff71fc5589e5535183ec108b19c704242d":
 static cleanup __cdecl int DroneSystem::StringToDrone(std::string &name);

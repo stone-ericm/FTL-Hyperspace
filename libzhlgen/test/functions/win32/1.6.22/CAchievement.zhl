@@ -2,3 +2,12 @@
 __thiscall void CAchievement::OnRender(CAchievement *this, Point pos, int selected, bool showNew);
 "578d41088d7c240883e4f0ff77fc5589e557565389cf":
 __thiscall void CAchievement::constructor(CAchievement *this);
+
+
+struct CAchievement 
+{{
+	CAchievement()
+	{
+		this->constructor();
+	}
+}};

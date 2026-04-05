@@ -1,0 +1,4 @@
+"00000000000000000000000000000000":
+__thiscall void CachedRect::SetPosition(CachedRect *this, int x, int y);
+"00000000000000000000000000000000":
+__thiscall void CachedRect::SetSize(CachedRect *this, int w, int h);

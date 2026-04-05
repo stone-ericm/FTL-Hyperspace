@@ -1,2 +1,15 @@
 "578d7c240883e4f0ff77fc5589e55783ec34":
 __thiscall float SuperShieldDrone::GetWeaponCooldown(SuperShieldDrone *this);
+"00000000000000000000000000000000":
+__thiscall void SuperShieldDrone::OnLoop(SuperShieldDrone *this);
+"00000000000000000000000000000000":
+__thiscall void SuperShieldDrone::constructor(SuperShieldDrone *this, int iShipId, int selfId, DroneBlueprint *blueprint);
+
+
+struct SuperShieldDrone
+{{
+	SuperShieldDrone(int iShipId, int selfId, DroneBlueprint *blueprint)
+	{
+		this->constructor(iShipId, selfId, blueprint);
+	}
+}};

@@ -1,2 +1,6 @@
+"00000000000000000000000000000000":
+__thiscall void ControlsScreen::OnInit(ControlsScreen *this);
+"00000000000000000000000000000000":
+__thiscall void ControlsScreen::OnLoop(ControlsScreen *this);
 "578d7c240883e4f0ff77fc5589e557565389cf81ecbc":
 __thiscall void ControlsScreen::OnRender(ControlsScreen *this);

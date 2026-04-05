@@ -1,2 +1,14 @@
+"00000000000000000000000000000000":
+__thiscall void CombatDrone::constructor(CombatDrone *this, int iShipId, int selfId, const DroneBlueprint* bp);
+"00000000000000000000000000000000":
+__thiscall void CombatDrone::SetWeaponTarget(CombatDrone *this, Targetable *target);
 "578d7c240883e4f0ff77fc5589e5575389cb83ec108b01ff":
 __thiscall void CombatDrone::PickTarget(CombatDrone *this);
+
+struct CombatDrone depends (DroneBlueprint)
+{{
+	CombatDrone(int shipId, int self, const DroneBlueprint* bp)
+	{
+		this->constructor(shipId, self, bp);
+	}
+}};

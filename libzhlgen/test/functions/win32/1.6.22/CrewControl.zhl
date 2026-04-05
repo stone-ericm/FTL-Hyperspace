@@ -1,6 +1,24 @@
+"00000000000000000000000000000000":
+__thiscall void CrewControl::OnRender(CrewControl *this);
 "578d7c240883e4f0ff77fc5589e557568db18c":
 __thiscall void CrewControl::OnLoop(CrewControl *this);
-"5589e55389cb8b450883e4f08901e8dd":
-__thiscall void CrewControl::LinkShip(CrewControl *this, ShipManager *ship);
 "578d7c240883e4f0ff77fc5589e55756538d45dc":
 __thiscall void CrewControl::UpdateCrewBoxes(CrewControl *this);
+"5589e55389cb8b450883e4f08901e8dd":
+__thiscall void CrewControl::LinkShip(CrewControl *this, ShipManager *ship);
+"00000000000000000000000000000000":
+__thiscall void CrewControl::MouseMove(CrewControl *this, int mX, int mY, int wX, int wY);
+"00000000000000000000000000000000":
+__thiscall void CrewControl::LButton(CrewControl *this, int mX, int mY, int wX, int wY, bool shiftHeld);
+"00000000000000000000000000000000":
+__thiscall void CrewControl::ClearDeadCrew(CrewControl *this, std::vector<CrewMember*> *crew);
+"00000000000000000000000000000000":
+__thiscall void CrewControl::ClearCrewBoxes(CrewControl *this);
+"00000000000000000000000000000000":
+__thiscall void CrewControl::SelectPotentialCrew(CrewControl *this, CrewMember *crew, bool allowTeleportLeaving);
+"00000000000000000000000000000000":
+__thiscall void CrewControl::KeyDown(CrewControl *this, SDLKey key);
+"00000000000000000000000000000000":
+__thiscall void CrewControl::RButton(CrewControl *this, int mX, int mY, bool shiftHeld);
+"00000000000000000000000000000000":
+__thiscall void CrewControl::SelectCrew(CrewControl *this, bool keep_current);

@@ -1,36 +1,57 @@
+"00000000000000000000000000000000":
+__thiscall void CombatControl::RenderTarget(CombatControl *this);
+"00000000000000000000000000000000":
+__thiscall ShipManager *CombatControl::GetCurrentTarget(CombatControl *this);
+"00000000000000000000000000000000":
+__thiscall char CombatControl::CurrentTargetIsBoss(CombatControl *this);
+"578d7c240883e4f0ff77fc5589e557565383ec5c8b81a4":
+__thiscall char CombatControl::CanTargetSelf(CombatControl *this);
 "80b9a80e0000000f8423010000578d7c":
 __thiscall void CombatControl::OnRenderCombat(CombatControl *this);
 "578d7c240883e4f0ff77fc5589e557565383ec5c8b91":
-__thiscall void CombatControl::AddEnemyShip(CombatControl *this, CompleteShip *ship);
+__thiscall void CombatControl::AddEnemyShip(CombatControl *this, CompleteShip *ship);	
 "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b8170":
 __thiscall void CombatControl::UpdateAiming(CombatControl *this);
+"00000000000000000000000000000000":
+__thiscall bool CombatControl::UpdateTarget(CombatControl *this);
+"578d7c240883e4f0ff77fc5589e55756538d5dc8":
+__thiscall void CombatControl::DrawHostileBox(CombatControl *this, GL_Color color, int stencilBit);
 "578d7c240883e4f0ff77fc5589e5575389cb83ec208b078b":
 __thiscall void CombatControl::OnInit(CombatControl *this, Point pos);
+"578d7c240883e4f0ff77fc5589e557565331db89ce83ec2c8b3f":
+__thiscall void CombatControl::OnLoop(CombatControl *this);
+"00000000000000000000000000000000":
+__thiscall void CombatControl::SetMouseCursor(CombatControl *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b91":
 __thiscall void CombatControl::DisarmAll(CombatControl *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b49":
 __thiscall bool CombatControl::SelectTarget(CombatControl *this);
+"00000000000000000000000000000000":
+__thiscall bool CombatControl::MouseRClick(CombatControl *this, int x, int y);
 "578d7c240883e4f0ff77fc5589e5575389cb83ec108b4904c7042409000000e8ec":
 __thiscall bool CombatControl::WeaponsArmed(CombatControl *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83c11483ec1c":
 __thiscall void CombatControl::KeyDown(CombatControl *this, SDLKey key);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b4904c7042409":
 __thiscall void CombatControl::DisarmTeleporter(CombatControl *this);
+"00000000000000000000000000000000":
+__thiscall void CombatControl::constructor(CombatControl *this);
+"578d7c240883e4f0ff77fc5589e5575389cb83c114":
+__thiscall void CombatControl::OnRenderSelfAiming(CombatControl *this);
+"00000000000000000000000000000000":
+__thiscall void CombatControl::RenderShipStatus(CombatControl *this, Pointf pos, GL_Color color);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b17":
 __thiscall std::string CombatControl::GetCrewTooltip(CombatControl *this, int x, int y);
 "578d7c240883e4f0ff77fc5589e557565389ce83ec1cc7":
 __thiscall void CombatControl::Clear(CombatControl *this);
-"5589e55756538b815c07000089ce83e4":
-__thiscall std::pair<int,int> CombatControl::GetTeleportationCommand(CombatControl *this);
-"578d7c240883e4f0ff77fc5589e557565389cb83c11483ec6c":
-__thiscall void CombatControl::MouseClick(CombatControl *this, int mX, int mY, bool shift);
-"578d7c240883e4f0ff77fc5589e557565331db89ce83ec2c8b3f":
-__thiscall void CombatControl::OnLoop(CombatControl *this);
 "57660fefc08d7c240883e4f0ff77fc5589e557565383":
 __thiscall bool CombatControl::MouseMove(CombatControl *this, int mX, int mY);
-"578d7c240883e4f0ff77fc5589e55756538d5dc8":
-__thiscall void CombatControl::DrawHostileBox(CombatControl *this, GL_Color color, int stencilBit);
-"578d7c240883e4f0ff77fc5589e5575389cb83c114":
-__thiscall void CombatControl::OnRenderSelfAiming(CombatControl *this);
-"578d7c240883e4f0ff77fc5589e557565383ec5c8b81a4":
-__thiscall char CombatControl::CanTargetSelf(CombatControl *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83c11483ec6c":
+__thiscall void CombatControl::MouseClick(CombatControl *this, int mX, int mY, bool shift);
+"5589e55756538b815c07000089ce83e4":
+__thiscall std::pair<int,int> CombatControl::GetTeleportationCommand(CombatControl *this);
+
+struct CombatControl 
+{{
+    void ArmArtillery(ArtillerySystem* artillerySystem);
+}};

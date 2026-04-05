@@ -1,23 +1,55 @@
+"00000000000000000000000000000000":
+__thiscall bool ShipSystem::DamageOverTime(ShipSystem *this, float unk);
 "8b414083e80383f80176155589e583e4":
 __thiscall void ShipSystem::CheckForRepower(ShipSystem *this);
+"00000000000000000000000000000000":
+static cleanup __cdecl int ShipSystem::NameToSystemId(const std::string& name);
 "8b414885c07e1b????????74158b9104":
 __thiscall int ShipSystem::IsMannedBoost(ShipSystem *this);
 "8d4c240483e4f0ff71fc5589e5535183ec108b41048b1983f811":
 static cleanup __cdecl std::string ShipSystem::SystemIdToName(int systemId);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b8128":
 __thiscall void ShipSystem::OnLoop(ShipSystem *this);
+"00000000000000000000000000000000":
+__thiscall bool ShipSystem::Ioned(ShipSystem *this, int num);
+"00000000000000000000000000000000":
+__thiscall int ShipSystem::SetPowerLoss(ShipSystem *this, int power);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b0783":
 __thiscall void ShipSystem::SetDividePower(ShipSystem *this, int val);
+"00000000000000000000000000000000":
+__thiscall bool ShipSystem::RawDecreasePower(ShipSystem *this);
+"00000000000000000000000000000000":
+__thiscall void ShipSystem::constructor(ShipSystem *this, int systemId, int roomId, int shipId, int startingPower);
 "8b811c01000083f8077f1585c0ba0000":
 __thiscall int ShipSystem::GetPowerCap(ShipSystem *this);
+"00000000000000000000000000000000":
+__thiscall void ShipSystem::SetPowerCap(ShipSystem *this, int cap);
 "578d7c240883e4f0ff77fc5589e55783ec148b0783":
 __thiscall void ShipSystem::LockSystem(ShipSystem *this, int lock);
+"00000000000000000000000000000000":
+__thiscall bool ShipSystem::ForceDecreasePower(ShipSystem *this, int powerLoss);
 "8b414831d285c07e14????????740e8b":
 __thiscall int ShipSystem::GetEffectivePower(ShipSystem *this);
+"00000000000000000000000000000000":
+__thiscall int ShipSystem::GetMaxPower(ShipSystem *this);
+"00000000000000000000000000000000":
+__thiscall void ShipSystem::SetBonusPower(ShipSystem *this, int amount, int permanentPower);
+"00000000000000000000000000000000":
+__thiscall void ShipSystem::CheckMaxPower(ShipSystem *this);
+"00000000000000000000000000000000":
+noHook void ShipSystem::__DO_NOT_HOOK(ShipSystem *this);
+"00000000000000000000000000000000":
+__thiscall bool ShipSystem::PartialDamage(ShipSystem *this, float amount);
+"00000000000000000000000000000000":
+__thiscall void ShipSystem::SetHackingLevel(ShipSystem *this, int hackingLevel);
+"00000000000000000000000000000000":
+static cleanup __cdecl bool ShipSystem::IsSubsystem(int systemType);
 "83b91c010000077e0a8b812001000085":
 __thiscall void ShipSystem::ClearStatus(ShipSystem *this);
 "8d4c240483e4f0ff71fc5589e55756535181eca801":
 static cleanup __cdecl std::string ShipSystem::GetLevelDescription(int systemId, int level, bool tooltip);
+"8b912801000085d20f9fc083faff0f94":
+__thiscall bool ShipSystem::GetLocked(ShipSystem *this);
 "578d7c240883e4f0ff77fc5589e55783ec148b8128":
 __thiscall void ShipSystem::AddLock(ShipSystem *this, int lock);
 "8b01c681ac010000008b40643de06875":
@@ -28,13 +60,68 @@ __thiscall void ShipSystem::SaveState(ShipSystem *this, int file);
 __thiscall void ShipSystem::LoadState(ShipSystem *this, int file);
 "8b015589e556538b401089cb8b750883":
 __thiscall bool ShipSystem::UpgradeSystem(ShipSystem *this, int amount);
-"8b54240489c88b8a2c01000089088b8a":
-__thiscall TimerHelper ShipSystem::GetLockTimer(ShipSystem *this);
+"00000000000000000000000000000000":
+__thiscall bool ShipSystem::IncreasePower(ShipSystem *this, int amount, bool force);
 "578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b178b5f0485d2750485db757329d383fb0f895de4772683fb018b06755c0fb61288108b5de48b06895e04c60418008d65f45b5e5f5d8d67f85fc208008d45e489f1c7442404000000008955d4890424e8d5":
 __thiscall bool ShipSystem::DecreasePower(ShipSystem *this, bool force);
-"8b912801000085d20f9fc083faff0f94":
-__thiscall bool ShipSystem::GetLocked(ShipSystem *this);
-"578d7c240883e4f0ff77fc5589e557565383ec2c8b3785f67e":
-__thiscall void ShipSystem::IonDamage(ShipSystem *this, int amount);
+"00000000000000000000000000000000":
+__thiscall bool ShipSystem::PartialRepair(ShipSystem *this, float speed, bool autoRepair);
 "578d7c240883e4f0ff77fc5589e557565389ce81ec9c0000008b07":
 __thiscall int ShipSystem::RenderPowerBoxes(ShipSystem *this, int x, int y, int width, int height, int gap, int heightMod, bool flash);
+"00000000000000000000000000000000":
+__thiscall void ShipSystem::AddDamage(ShipSystem *this, int amount);
+"00000000000000000000000000000000":
+__thiscall void ShipSystem::destructor(ShipSystem *this);
+"00000000000000000000000000000000":
+__thiscall bool ShipSystem::BlockedBoosted(ShipSystem *this, bool countLimit);
+"00000000000000000000000000000000":
+static cleanup __cdecl int ShipSystem::RenderPowerBoxesPlain(int x, int y, int width, int height, int gap, int current, int temp, int max);
+"00000000000000000000000000000000":
+__thiscall void ShipSystem::RenderSystemSymbol(ShipSystem *this, bool forPowerUI, int forceColor);
+"8b54240489c88b8a2c01000089088b8a":
+__thiscall TimerHelper ShipSystem::GetLockTimer(ShipSystem *this);
+"578d7c240883e4f0ff77fc5589e557565383ec2c8b3785f67e":
+__thiscall void ShipSystem::IonDamage(ShipSystem *this, int amount);
+
+"f30f11542404c7042400000000e8????????a1(???????\?)890424e8????????e8????????":
+GL_Primitive** ShipSystem__glowBlue;
+"c7042400000000f30f11442404e8????????a1(???????\?)890424":
+GL_Primitive** ShipSystem__glowWhite;
+"f30f11742404c7042400000000e8????????a1(???????\?)890424":
+GL_Primitive** ShipSystem__glowRed;
+
+"a1(???????\?)bef0ffffffbb10000000890424e8????????":
+GL_Primitive** ShipSystem__manningOutline;
+"a1(???????\?)bef0ffffffbb10000000e9????????a1(???????\?)bee8ffffffbb18000000e9????????a1(???????\?)bee8ffffffbb18000000e9????????":
+GL_Primitive** ShipSystem__manningWhite;
+GL_Primitive** ShipSystem__manningGreen;
+GL_Primitive** ShipSystem__manningYellow;
+
+"a1(???????\?)74??c704240100000089f9f30f114dcce8????????83ec0484c0a1(???????\?)0f4505(???????\?)f30f104dcc":
+GL_Primitive** ShipSystem__manningBarOn;
+GL_Primitive** ShipSystem__manningBarOff;
+GL_Primitive** ShipSystem__manningBarIon;
+
+"8b1d(???????\?)83faff895dbc0f85????????8b1d(???????\?)c745c8ff000000baff000000c745ccff000000895dbce9????????a1(???????\?)":
+GL_Primitive** ShipSystem__lockBlue;
+GL_Primitive** ShipSystem__lockWhite;
+GL_Primitive** ShipSystem__lockHack;
+
+"a1(???????\?)890424e8????????c744240800000000c74424040000c0c1c7042400000000":
+GL_Primitive** ShipSystem__sabotageImage;
+
+"a1(???????\?)890424e8????????c744240800000000c74424040000b0c1c7042400000000e8????????f30f105dd4":
+GL_Primitive** ShipSystem__fireImage;
+
+struct ShipSystem
+{{
+	ShipSystem() { }
+
+	ShipSystem(int systemId, int roomId, int shipId, int startingPower)
+	{
+		this->constructor(systemId, roomId, shipId, startingPower);
+	}
+
+	void CompleteSave(int fd);
+	void CompleteLoad(int fd);
+}};

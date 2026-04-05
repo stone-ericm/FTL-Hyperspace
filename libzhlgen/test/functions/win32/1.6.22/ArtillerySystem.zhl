@@ -1,2 +1,9 @@
+"00000000000000000000000000000000":
+__thiscall void ArtillerySystem::OnLoop(ArtillerySystem *this);
 "8b81c0010000c7400800000000c7802c":
 __thiscall void ArtillerySystem::Jump(ArtillerySystem *this);
+
+struct ArtillerySystem
+{{
+	void OnLoop_HS_ManualTarget();
+}};

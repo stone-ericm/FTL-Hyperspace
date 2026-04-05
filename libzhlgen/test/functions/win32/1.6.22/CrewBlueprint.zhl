@@ -1,8 +1,17 @@
 "578d7c240883e4f0ff77fc5589fa89e557565389cb83ec3c":
 __thiscall void CrewBlueprint::RandomSkills(CrewBlueprint *this, int worldLevel);
-"8b54240489c88b4c2408660fefc0660f":
-__thiscall GL_Color CrewBlueprint::GetCurrentSkillColor(CrewBlueprint *this, int skill);
-"578d7c240883e4f0ff77fc5589e557568db1780100005389cb8dbbc803000083ec2cc681d419000000c681d519000000c681d61900000089f1e812":
-__thiscall void CrewBlueprint::RenderIcon(CrewBlueprint *this, float opacity);
 "57660fefc0660fefc98d7c240883e4f0ff77fc5589e55756":
 __thiscall void CrewBlueprint::RenderSkill(CrewBlueprint *this, int x, int y, int length, int height, int skill);
+"578d7c240883e4f0ff77fc5589e557568db1780100005389cb8dbbc803000083ec2cc681d419000000c681d519000000c681d61900000089f1e812":
+__thiscall void CrewBlueprint::RenderIcon(CrewBlueprint *this, float opacity);
+"00000000000000000000000000000000":
+__thiscall void CrewBlueprint::destructor(CrewBlueprint *this);
+"00000000000000000000000000000000":
+__thiscall std::string CrewBlueprint::GetNameShort(CrewBlueprint* this);
+"8b54240489c88b4c2408660fefc0660f":
+__thiscall GL_Color CrewBlueprint::GetCurrentSkillColor(CrewBlueprint *this, int skill);
+
+
+struct CrewBlueprint
+{{
+}};

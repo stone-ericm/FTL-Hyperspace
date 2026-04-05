@@ -1,2 +1,4 @@
 "57????????008d7c240883e4f0ff77fc5589e55756538d45d08d75d889cb83c1":
 __thiscall void CloakingSystem::FiredWeapon(CloakingSystem *this);
+"00000000000000000000000000000000":
+__thiscall void CloakingSystem::OnLoop(CloakingSystem *this);

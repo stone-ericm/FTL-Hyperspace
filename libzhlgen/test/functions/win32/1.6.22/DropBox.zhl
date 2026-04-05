@@ -1,5 +1,9 @@
+"00000000000000000000000000000000":
+__thiscall int DropBox::GetHeight(DropBox *this); // 004d8790
 "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b81ac":
 __thiscall int DropBox::GetBodySpaceOffset(DropBox *this); // 004d87d0
+"00000000000000000000000000000000":
+__thiscall bool DropBox::Contains(DropBox *this, int x, int y); // 004d8930
 "578d7c240883e4f0ff77fc5589e557565389cb81ec6c010000e822f7":
 __thiscall void DropBox::OnRender(DropBox *this); // 004d8e70
 "578d7c240883e4f0ff77fc5589e5575653be22":

@@ -4,11 +4,19 @@ __thiscall void BossShip::Restart(BossShip *this);
 __thiscall bool BossShip::IncomingFire(BossShip *this);
 "578d7c240883e4f0ff77fc5589e5575389cb83ec108b0783":
 __thiscall void BossShip::constructor(BossShip *this, SpaceManager *space);
+"00000000000000000000000000000000":
+__thiscall void BossShip::SaveBoss(BossShip *this, int file);
 "578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b0789":
 __thiscall void BossShip::LoadBoss(BossShip *this, int file);
+"00000000000000000000000000000000":
+__thiscall void BossShip::ClearLocation(BossShip *this);
+"00000000000000000000000000000000":
+__thiscall bool BossShip::Defeated(BossShip *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec4ce805":
+__thiscall LocationEvent* BossShip::GetSubEvent(BossShip *this);
 "578d7c240883e4f0ff77fc5589e557565389ce8dbd":
 __thiscall void BossShip::StartStage(BossShip *this);
 "578d7c240883e4f0ff77fc5589e557565389cb8db338":
 __thiscall LocationEvent* BossShip::GetEvent(BossShip *this);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec4ce805":
-__thiscall LocationEvent* BossShip::GetSubEvent(BossShip *this);
+"00000000000000000000000000000000":
+__thiscall void BossShip::OnLoop(BossShip *this);

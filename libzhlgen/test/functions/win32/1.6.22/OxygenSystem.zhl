@@ -8,3 +8,17 @@ __thiscall void OxygenSystem::EmptyOxygen(OxygenSystem *this, int roomId);
 __thiscall void OxygenSystem::ModifyRoomOxygen(OxygenSystem *this, int roomId, float value);
 "578d7c240883e4f0ff77fc5589e557565389ce83ec3c0f":
 __thiscall void OxygenSystem::ComputeAirLoss(OxygenSystem *this, int roomId, float base_loss, bool silent);
+"00000000000000000000000000000000":
+__thiscall float OxygenSystem::GetRefillSpeed(OxygenSystem *this);
+"00000000000000000000000000000000":
+__thiscall void OxygenSystem::OnLoop(OxygenSystem *this);
+"00000000000000000000000000000000":
+__thiscall void OxygenSystem::constructor(OxygenSystem *this, int numRooms, int roomId, int shipId, int startingPower);
+
+struct OxygenSystem
+{{
+	OxygenSystem(int numRooms, int roomId, int shipId, int startingPower)
+	{
+		this->constructor(numRooms, roomId, shipId, startingPower);
+	}
+}};

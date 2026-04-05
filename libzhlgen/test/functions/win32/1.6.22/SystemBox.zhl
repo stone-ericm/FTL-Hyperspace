@@ -6,9 +6,19 @@ __thiscall void SystemBox::MouseRightClick(SystemBox *this, bool force);
 __thiscall void SystemBox::constructor(SystemBox *this, Point pos, ShipSystem *sys, bool playerUI);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b378b81":
 __thiscall void SystemBox::MouseMove(SystemBox *this, int x, int y);
+"5589e5565389cb8b494c8b750883e4f0":
+__thiscall bool SystemBox::MouseClick(SystemBox *this, bool shift);
 "578d7c240883e4f0ff77fc5589e557565389ce8d5db8":
 __thiscall void SystemBox::KeyDown(SystemBox *this, SDLKey key, bool shift);
 "5589e55756538d79348d591089ce83e4":
 __thiscall void SystemBox::destructor(SystemBox* this);
-"5589e5565389cb8b494c8b750883e4f0":
-__thiscall bool SystemBox::MouseClick(SystemBox *this, bool shift);
+
+struct SystemBox
+{{
+	SystemBox() { }
+	
+	SystemBox(Point pos, ShipSystem *sys, bool playerUI)
+	{
+		this->constructor(pos, sys, playerUI);
+	}
+}};

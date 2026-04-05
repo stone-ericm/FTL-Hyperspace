@@ -1,0 +1,36 @@
+"00000000000000000000000000000000":
+__thiscall void Pointf::constructor(Pointf *this, float x, float y);
+"00000000000000000000000000000000":
+__thiscall float Pointf::RelativeDistance(Pointf *this, Pointf other);
+"00000000000000000000000000000000":
+__thiscall Pointf Pointf::Normalize(Pointf *this);
+
+
+struct Pointf {{
+	Pointf() : x(0.f), y(0.f) {}
+	Pointf(float _x, float _y) : x(_x), y(_y) {}
+	
+	Pointf operator+(const Pointf& other)
+	{
+		return Pointf(x + other.x, y + other.y);
+	}
+	
+	Pointf operator-(const Pointf& other)
+	{		
+		return Pointf(x - other.x, y - other.y);
+	}
+	
+	Pointf operator/(float amount)
+	{		
+		return Pointf(x / amount, y / amount);
+	}
+	
+	Pointf operator*(float amount)
+	{		
+		return Pointf(x * amount, y * amount);
+	}
+
+	friend bool operator==(const Pointf &a, const Pointf &b) {return a.x==b.x && a.y==b.y;}
+	friend bool operator!=(const Pointf &a, const Pointf &b) {return a.x!=b.x || a.y!=b.y;}
+
+}};

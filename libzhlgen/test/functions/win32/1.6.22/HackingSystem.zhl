@@ -1,2 +1,6 @@
+"00000000000000000000000000000000":
+__thiscall void HackingSystem::BlowHackingDrone(HackingSystem *this);
+"00000000000000000000000000000000":
+__thiscall void HackingSystem::OnLoop(HackingSystem *this);
 "80b9c001000000750731c0c38d7426005589e55389cb83e4f0e8c2":
 __thiscall bool HackingSystem::SoundLoop(HackingSystem *this);
