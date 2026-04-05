@@ -1,8 +1,0 @@
-"00000000000000000000000000000000":
-__thiscall void ShipBlueprint::destructor(ShipBlueprint *this);
-
-
-struct ShipBlueprint
-{{
-	
-}};

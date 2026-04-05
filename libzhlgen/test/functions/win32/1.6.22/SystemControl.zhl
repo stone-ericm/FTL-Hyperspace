@@ -1,22 +1,2 @@
-"00000000000000000000000000000000":
-__thiscall void SystemControl::CreateSystemBoxes(SystemControl *this);
-"00000000000000000000000000000000":
-__thiscall SystemBox* SystemControl::GetSystemBox(SystemControl *this, int systemId);
-"00000000000000000000000000000000":
-__thiscall void SystemControl::RenderPowerBar(SystemControl *this);
 "578d7c240883e4f0ff77fc5589e557565389ce83ec6c8b09":
 __thiscall void SystemControl::OnRender(SystemControl *this, bool front);
-"00000000000000000000000000000000":
-static cleanup __cdecl SystemControl::PowerBars* SystemControl::GetPowerBars(int width, int height, int gap, bool useShieldGap);
-"00000000000000000000000000000000":
-__thiscall void SystemControl::UpdateSubSystemBox(SystemControl *this);
-"00000000000000000000000000000000":
-Point* Global_SystemControl_weapon_position;
-Point* Global_SystemControl_drone_position;
-
-struct SystemControl
-{{
-
-    bool OnScrollWheel(float direction);
-    void RButtonUp(int mX, int mY, bool shiftHeld);
-}};

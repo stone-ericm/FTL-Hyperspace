@@ -1,24 +1,6 @@
-"00000000000000000000000000000000":
-__thiscall void ShipSelect::SelectShip(ShipSelect *this, int shipType);
-"00000000000000000000000000000000":
-__thiscall void ShipSelect::constructor(ShipSelect *this);
-"00000000000000000000000000000000":
-__thiscall void ShipSelect::ClearShipButtons(ShipSelect *this);
-"00000000000000000000000000000000":
-__thiscall void ShipSelect::MouseMove(ShipSelect *this, int x, int y);
 "80b948050000007507f3c3908d742600":
 __thiscall void ShipSelect::OnLoop(ShipSelect *this);
-"00000000000000000000000000000000":
-__thiscall int ShipSelect::KeyDown(ShipSelect *this, SDLKey key);
 "578d7c240883e4f0ff77fc5589e5575389cb83ec1080b948":
 __thiscall void ShipSelect::MouseClick(ShipSelect *this);
-"00000000000000000000000000000000":
-__thiscall void ShipSelect::PreSelectShip(ShipSelect *this, int shipType);
 "5581c144050000c681f0faffff0089e5":
 __thiscall void ShipSelect::Close(ShipSelect *this);
-"00000000000000000000000000000000":
-__thiscall int ShipSelect::GetSelectedShip(ShipSelect *this);
-"00000000000000000000000000000000":
-__thiscall void ShipSelect::Open(ShipSelect *this, int currentId, int currentType);
-"00000000000000000000000000000000":
-__thiscall void ShipSelect::OnRender(ShipSelect *this);

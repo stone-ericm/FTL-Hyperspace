@@ -1,2 +1,0 @@
-"00000000000000000000000000000000":
-__thiscall void ShipEvent::constructor(ShipEvent *this, const ShipEvent& event);

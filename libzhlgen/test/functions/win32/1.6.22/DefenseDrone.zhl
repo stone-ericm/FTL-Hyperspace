@@ -1,10 +1,2 @@
-"00000000000000000000000000000000":
-__thiscall bool DefenseDrone::ValidTargetObject(DefenseDrone *this, Targetable *target);
-"00000000000000000000000000000000":
-__thiscall void DefenseDrone::SetWeaponTarget(DefenseDrone *this, Targetable *target);
-"00000000000000000000000000000000":
-__thiscall void DefenseDrone::PickTarget(DefenseDrone *this);
-"00000000000000000000000000000000":
-__thiscall std::string DefenseDrone::GetTooltip(DefenseDrone *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec4ce8f5a1":
 __thiscall void DefenseDrone::OnLoop(DefenseDrone *this);

@@ -1,2 +1,0 @@
-"00000000000000000000000000000000":
-static __cdecl int DebugHelper::CrashCatcher(void* exception_pointers);

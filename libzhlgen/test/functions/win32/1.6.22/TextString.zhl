@@ -1,16 +1,2 @@
 "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b17807a18":
 __thiscall std::string TextString::GetText(TextString *this);
-
-
-struct TextString depends (TextLibrary)
-{{
-	TextString() : TextString("", true)
-	{
-
-	}
-
-	TextString(const std::string& str, bool literal) : data(str), isLiteral(literal)
-	{
-
-	}
-}};

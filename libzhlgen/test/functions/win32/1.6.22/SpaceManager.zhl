@@ -1,88 +1,32 @@
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::constructor(SpaceManager *this);
 "0fb68188030000c6818803000000c390":
 __thiscall int SpaceManager::GetScreenShake(SpaceManager *this);
-"578d7c240883e4f0ff77fc5589e557565389ce83ec2c0fb681":
-__thiscall void SpaceManager::SaveSpace(SpaceManager *this, int fileHelper);
-"8b54240489c88b8ae802000089088b8a":
-__thiscall ImageDesc SpaceManager::SwitchBeacon(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall ImageDesc SpaceManager::SwitchPlanet(SpaceManager *this, const std::string& name);
-"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b59":
-__thiscall void SpaceManager::UpdatePlanetImage(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::SwitchImages(SpaceManager *this, ImageDesc planet, ImageDesc unk1, ImageDesc unk2);
-"00000000000000000000000000000000":
-__thiscall ImageDesc SpaceManager::SwitchBackground(SpaceManager *this, const std::string& name);
 "5789ca83c10c8d7c240883e4f0ff77fc":
 __thiscall void SpaceManager::StartAsteroids(SpaceManager *this, int shieldCount, bool unk);
-"578d7c240883e4f0ff77fc5589e557565389cb81ecbc0000008b47":
-__thiscall void SpaceManager::SetPlanetaryDefense(SpaceManager *this, char state, int target);
-"578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083ec3c8b00888189":
-__thiscall void SpaceManager::SetPulsarLevel(SpaceManager *this, bool pulsarLevel);
-"00000000000000000000000000000000":
-__thiscall bool SpaceManager::DangerousEnvironment(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::MouseMove(SpaceManager *this, int x, int y, int unk);
-"00000000000000000000000000000000":
-__thiscall SpaceDrone* SpaceManager::GetSelectedDrone(SpaceManager *this, int x, int y, int unk);
 "57660fefc08d7c240883e4f0ff77fc5589e5575383":
 __thiscall float SpaceManager::GetFlashOpacity(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall GL_Color SpaceManager::GetColorTint(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::OnRenderBackground(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::OnRenderFleet(SpaceManager *this);
-"578d7c240883e4f0ff77fc5589e557565389cf81ec9c":
-__thiscall void SpaceManager::OnRenderForeground(SpaceManager *this);
-"578d7c240883e4f0ff77fc5589e557565383ec3c8b0785c08945d0":
-__thiscall void SpaceManager::SetDangerZone(SpaceManager *this, int fleetType);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::OnRenderAsteroids(SpaceManager *this, int fieldLayers, float unk2);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::OnRenderProjectiles(SpaceManager *this, int iShipId, int layerCommand);
 "578d7c240883e4f0ff77fc5589e557568d45d8":
 __thiscall void SpaceManager::OnInit(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::Restart(SpaceManager *this);
 "c6818802000000c6818902000000c681":
 __thiscall void SpaceManager::ClearEnvironment(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::Clear(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::ClearProjectiles(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::UpdateProjectile(SpaceManager *this, Projectile *proj);
-"5589e556538b5d0883e4f08b138b7370":
-__thiscall void SpaceManager::TransferProjectile(SpaceManager *this, Projectile *proj);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::AddShip(SpaceManager *this, ShipManager *ship);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::AddProjectile(SpaceManager *this, Projectile *proj);
-"578d7c240883e4f0ff77fc5589e557565389ce83ec4c8b078904248945c8":
-__thiscall void SpaceManager::LoadSpace(SpaceManager *this, int fileHelper);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::UpdatePDS(SpaceManager *this);
-"00000000000000000000000000000000":
-__thiscall void SpaceManager::OnLoopNebulas(SpaceManager *this);
-"578d7c240883e4f0ff77fc5589e557565389cf81c120":
-__thiscall void SpaceManager::OnLoop(SpaceManager *this);
-"578d7c240883e4f0ff77fc5589e55756538d5dac":
-__thiscall void SpaceManager::SetNebula(SpaceManager *this, bool state);
-"578d7c240883e4f0ff77fc5589e557538d5d":
-__thiscall void SpaceManager::SetStorm(SpaceManager *this, bool state);
 "578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083ec3c8b00888188":
 __thiscall void SpaceManager::SetFireLevel(SpaceManager *this, bool state);
-
-
-struct SpaceManager
-{{
-	LaserBlast* CreateLaserBlast(WeaponBlueprint *weapon, Pointf position, int space, int ownerId, Pointf target, int targetSpace, float heading);
-	Asteroid* CreateAsteroid(Pointf position, int space, int ownerId, Pointf target, int targetSpace, float heading);
-	Missile* CreateMissile(WeaponBlueprint *weapon, Pointf position, int space, int ownerId, Pointf target, int targetSpace, float heading);
-	BombProjectile* CreateBomb(WeaponBlueprint *weapon, int ownerId, Pointf target, int targetSpace);
-	BeamWeapon* CreateBeam(WeaponBlueprint *weapon, Pointf position, int space, int ownerId, Pointf target1, Pointf target2, int targetSpace, int length, float heading);
-	LaserBlast* CreateBurstProjectile(WeaponBlueprint *weapon, const std::string &image, bool fake, Pointf position, int space, int ownerId, Pointf target, int targetSpace, float heading);
-	PDSFire* CreatePDSFire(WeaponBlueprint *weapon, Point position, Pointf target, int targetSpace, bool smoke);
-}};
+"578d7c240883e4f0ff77fc5589e557565389cb81ecbc0000008b47":
+__thiscall void SpaceManager::SetPlanetaryDefense(SpaceManager *this, char state, int target);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b59":
+__thiscall void SpaceManager::UpdatePlanetImage(SpaceManager *this);
+"578d7c240883e4f0ff77fc5589e557538d5d":
+__thiscall void SpaceManager::SetStorm(SpaceManager *this, bool state);
+"578d7c240883e4f0ff77fc5589f889e55756538d99b802000089cf8d75d083ec3c8b00888189":
+__thiscall void SpaceManager::SetPulsarLevel(SpaceManager *this, bool pulsarLevel);
+"578d7c240883e4f0ff77fc5589e557565389cf81c120":
+__thiscall void SpaceManager::OnLoop(SpaceManager *this);
+"578d7c240883e4f0ff77fc5589e557565383ec3c8b0785c08945d0":
+__thiscall void SpaceManager::SetDangerZone(SpaceManager *this, int fleetType);
+"578d7c240883e4f0ff77fc5589e55756538d5dac":
+__thiscall void SpaceManager::SetNebula(SpaceManager *this, bool state);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec4c8b078904248945c8":
+__thiscall void SpaceManager::LoadSpace(SpaceManager *this, int fileHelper);
+"578d7c240883e4f0ff77fc5589e557565389ce83ec2c0fb681":
+__thiscall void SpaceManager::SaveSpace(SpaceManager *this, int fileHelper);
+"578d7c240883e4f0ff77fc5589e557565389cf81ec9c":
+__thiscall void SpaceManager::OnRenderForeground(SpaceManager *this);

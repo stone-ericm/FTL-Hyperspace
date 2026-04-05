@@ -1,14 +1,2 @@
-"578d7c240883e4f0ff77fc5589e5575389cb83ec4080b9b0000000007462":
-__thiscall void LaserBlast::OnUpdate(LaserBlast *this);
 "5589e5538b417489cbc7413801000000":
 __thiscall void LaserBlast::OnInit(LaserBlast *this);
-
-"00000000000000000000000000000000":
-void** VTable_LaserBlast;
-void** VTable_Targetable_LaserBlast;
-
-
-struct LaserBlast
-{{
-	LaserBlast(Pointf _position, int _ownerId, int _targetId, Pointf _target);
-}};

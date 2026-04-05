@@ -1,10 +1,4 @@
 "5589e5538b51408b412889cb83e4f08b":
 __thiscall void TabbedWindow::Close(TabbedWindow *this);
-"00000000000000000000000000000000":
-__thiscall void TabbedWindow::AddWindow(TabbedWindow *this,const std::string& name,Button *button,FocusWindow *window);
 "578d7c240883e4f0ff77fc5589f889e557565389cf81ecac00":
 __thiscall void TabbedWindow::SetTab(TabbedWindow *this, unsigned int tab);
-"00000000000000000000000000000000":
-__thiscall void TabbedWindow::OnRender(TabbedWindow *this);
-"00000000000000000000000000000000":
-__thiscall void TabbedWindow::MouseMove(TabbedWindow *this,int mX,int mY);

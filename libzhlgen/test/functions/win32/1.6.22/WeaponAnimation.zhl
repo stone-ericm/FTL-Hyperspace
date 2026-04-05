@@ -2,8 +2,6 @@
 __thiscall void WeaponAnimation::SaveState(WeaponAnimation *this, int fd);
 "578d7c240883e4f0ff77fc5589e55783ec1480b9cd000000008b":
 __thiscall void WeaponAnimation::SetBoostLevel(WeaponAnimation *this, int value);
-"00000000000000000000000000000000":
-__thiscall bool WeaponAnimation::StartFire(WeaponAnimation *this);
 "8b5104660fefc0660fefc989d02b81d4":
 __thiscall void WeaponAnimation::SetFireTime(WeaponAnimation *this, float time);
 "578d7c240883e4f0ff77fc5589e5575389cb81c104":
@@ -12,8 +10,6 @@ __thiscall Pointf WeaponAnimation::GetSlide(WeaponAnimation *this);
 __thiscall void WeaponAnimation::SetPowered(WeaponAnimation *this, bool powered);
 "578d7c240883e4f0ff77fc5589e55783ec1480b9cd00000000f3":
 __thiscall void WeaponAnimation::SetChargedLevel(WeaponAnimation *this, float charged);
-"00000000000000000000000000000000":
-__thiscall void WeaponAnimation::Update(WeaponAnimation *this);
 "578d7c240883e4f0ff77fc5589e55783ec248b81f8":
 __thiscall Point WeaponAnimation::GetFireLocation(WeaponAnimation *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec5cf3":

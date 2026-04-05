@@ -1,4 +1,2 @@
-"00000000000000000000000000000000":
-void** VTable_OuterHull; //Within OuterHull constructor at 00617e90
 "578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b018b4028":
 __thiscall void OuterHull::OnLoop(OuterHull *this); //00618c40

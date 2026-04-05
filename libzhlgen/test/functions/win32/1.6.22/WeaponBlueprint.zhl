@@ -1,21 +1,2 @@
-"00000000000000000000000000000000":
-noHook void WeaponBlueprint::__DO_NOT_HOOK();
-"00000000000000000000000000000000":
-__thiscall void WeaponBlueprint::constructor(WeaponBlueprint *this);
-"00000000000000000000000000000000":
-__thiscall void WeaponBlueprint::destructor(WeaponBlueprint *this);
-"00000000000000000000000000000000":
-__thiscall std::string WeaponBlueprint::GetDescription(WeaponBlueprint *this, bool tooltip);
-"5781c16c0100008d7c240883e4f0ff77fc5589e55783":
-__thiscall void WeaponBlueprint::RenderIcon(WeaponBlueprint *this, float scale);
 "5781c16c0100008d7c240883e4f0ff77fc5589e55756":
 __thiscall Point WeaponBlueprint::GetDimensions(WeaponBlueprint *this);
-
-
-struct WeaponBlueprint
-{{
-	WeaponBlueprint()
-	{
-		this->constructor();
-	}
-}};

@@ -1,5 +1,0 @@
-"00000000000000000000000000000000":
-__thiscall Animation AnimationControl::GetAnimation(AnimationControl *this, const std::string& animName);
-
-"00000000000000000000000000000000":
-AnimationControl* Global_AnimationControl_Animations;

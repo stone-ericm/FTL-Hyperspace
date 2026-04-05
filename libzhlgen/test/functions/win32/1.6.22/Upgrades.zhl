@@ -1,20 +1,4 @@
 "578d7c240883e4f0ff77fc5589e557565389ce8d5de0":
 __thiscall void Upgrades::OnInit(Upgrades *this, ShipManager *ship);
-"00000000000000000000000000000000":
-__thiscall void Upgrades::ClearUpgradeBoxes(Upgrades *this);
-"00000000000000000000000000000000":
-__thiscall void Upgrades::MouseMove(Upgrades *this, int mX, int mY);
 "807938000f8466010000578d7c240883":
 __thiscall void Upgrades::OnLoop(Upgrades *this);
-"00000000000000000000000000000000":
-__thiscall void Upgrades::MouseClick(Upgrades *this, int mX, int mY);
-"00000000000000000000000000000000":
-__thiscall void Upgrades::MouseRightClick(Upgrades *this, int mX, int mY);
-"00000000000000000000000000000000":
-__thiscall void Upgrades::OnRender(Upgrades *this);
-"00000000000000000000000000000000":
-__thiscall void Upgrades::Close(Upgrades *this);
-"00000000000000000000000000000000":
-__thiscall void Upgrades::ConfirmUpgrades(Upgrades *this);
-"578d7c240883e4f0ff77fc5589e5575389cb83ec10e89622":
-__thiscall void Upgrades::Open(Upgrades *this);

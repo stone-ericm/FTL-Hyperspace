@@ -1,8 +1,2 @@
-"00000000000000000000000000000000":
-__thiscall void MenuScreen::OnLanguageChange(MenuScreen *this);
-"578d7c240883e4f0ff77fc5589e557565389cb8db564":
-__thiscall void MenuScreen::constructor(MenuScreen *this);
-"578d7c240883e4f0ff77fc5589e557565381ec1c01000080":
-__thiscall void MenuScreen::OnRender(MenuScreen *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83c14c":
 __thiscall void MenuScreen::Open(MenuScreen *this);

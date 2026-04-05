@@ -1,30 +1,4 @@
-"00000000000000000000000000000000":
-__thiscall void LockdownShard::constructor2(LockdownShard *this, int lockingRoom, Pointf start, Point goal, bool superFreeze); //0047ec10
-"00000000000000000000000000000000":
-__thiscall void LockdownShard::constructor(LockdownShard *this, int lockingRoom, Pointf start, Point goal, bool superFreeze); //0047f290
-"00000000000000000000000000000000":
-__thiscall void LockdownShard::constructor3(LockdownShard *this, int fd); //0047f920
 "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b37f30f1081":
 __thiscall void LockdownShard::SaveState(LockdownShard *this, int fd); //00480040
 "578d7c240883e4f0ff77fc5589e5575389cbb9????????83ec30e821":
 __thiscall void LockdownShard::Update(LockdownShard *this); //00480170
-"578d7c240883e4f0ff77fc5589e5575389cb83ec30e806":
-__thiscall void LockdownShard::OnRender(LockdownShard *this); //00480320
-
-struct LockdownShard
-{{
-    LockdownShard() {}
-
-	LockdownShard(int lockingRoom, Pointf start, Point goal, bool superFreeze)
-	{
-		this->constructor(lockingRoom, start, goal, superFreeze);
-	}
-
-	LockdownShard(int fd)
-	{
-		this->constructor3(fd);
-	}
-
-	void Initialize(bool loading, bool superFreeze);
-	void LinkDoor(Door* door);
-}};

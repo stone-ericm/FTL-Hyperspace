@@ -1,8 +1,4 @@
 "578d7c240883e4f0ff77fc5589e5575389cb83ec10c70424????????e81f":
 __thiscall void Description::constructor(Description *this);
-"00000000000000000000000000000000":
-__thiscall Description& Description::copy_assign_1(Description *this, Description& other);
-"00000000000000000000000000000000":
-__thiscall Description& Description::copy_assign_2(Description *this, const Description& other);
 "558d918c00000089e55389cb83e4f083":
 __thiscall void Description::destructor(Description *this);

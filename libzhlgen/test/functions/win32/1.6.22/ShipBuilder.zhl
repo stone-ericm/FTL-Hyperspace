@@ -1,40 +1,20 @@
 "578d7c240883e4f0ff77fc5589e557565389cb8db32c":
 __thiscall void ShipBuilder::CheckTypes(ShipBuilder *this);
-"00000000000000000000000000000000":
-__thiscall void ShipBuilder::MouseClick(ShipBuilder *this, int x, int y);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec4c8b17":
 __thiscall void ShipBuilder::SwitchShip(ShipBuilder *this, int shipType, int shipVariant);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b7f":
-__thiscall void ShipBuilder::CreateEquipmentBoxes(ShipBuilder *this);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec6c8b078b7f":
-__thiscall void ShipBuilder::CreateSystemBoxes(ShipBuilder *this);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b816c":
-__thiscall void ShipBuilder::SetupShipAchievements(ShipBuilder *this);
-"8b816c1c0000c781781c0000ffffffff8981701c0000c3":
-__thiscall void ShipBuilder::ClearShipAchievements(ShipBuilder *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b09":
 __thiscall void ShipBuilder::SwapType(ShipBuilder *this, int variant);
-"00000000000000000000000000000000":
-__thiscall void ShipBuilder::CycleShipNext(ShipBuilder *this);
-"00000000000000000000000000000000":
-__thiscall void ShipBuilder::CycleShipPrevious(ShipBuilder *this);
-"578d7c240883e4f0ff77fc5589e557565381ec4c05000089":
-__thiscall void ShipBuilder::Open(ShipBuilder *this);
-"00000000000000000000000000000000":
-__thiscall void ShipBuilder::OnRender(ShipBuilder *this);
 "578d7c240883e4f0ff77fc5589e557565389cbb9????????81ec8c":
 __thiscall void ShipBuilder::OnLoop(ShipBuilder *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83c10c8d":
 __thiscall void ShipBuilder::constructor(ShipBuilder *this);
-"578d7c240883e4f0ff77fc5589f889e557565389cf81ecac01":
-__thiscall void ShipBuilder::MouseMove(ShipBuilder *this, int x, int y);
-"00000000000000000000000000000000":
-__thiscall void ShipBuilder::OnKeyDown(ShipBuilder *this, SDLKey key);
-"80b9a810000000744b578d7c240883e4":
-__thiscall ShipManager *ShipBuilder::GetShip(ShipBuilder *this);
 "578d7c240883e4f0ff77fc5589e557565389cf31f683ec1c":
 __thiscall void ShipBuilder::CycleTypeNext(ShipBuilder *this);
-"578d7c240883e4f0ff77fc5589e557565389cfbe02":
-__thiscall void ShipBuilder::CycleTypePrev(ShipBuilder *this);
-"00000000000000000000000000000000":
-__thiscall void ShipBuilder::Close(ShipBuilder *this);
+"80b9a810000000744b578d7c240883e4":
+__thiscall ShipManager *ShipBuilder::GetShip(ShipBuilder *this);
+"578d7c240883e4f0ff77fc5589e557565381ec4c05000089":
+__thiscall void ShipBuilder::Open(ShipBuilder *this);
+"578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b816c":
+__thiscall void ShipBuilder::SetupShipAchievements(ShipBuilder *this);
+"578d7c240883e4f0ff77fc5589f889e557565389cf81ecac01":
+__thiscall void ShipBuilder::MouseMove(ShipBuilder *this, int x, int y);

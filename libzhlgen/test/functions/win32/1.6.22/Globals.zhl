@@ -1,26 +1,4 @@
-"00000000000000000000000000000000":
-static cleanup __cdecl float Globals::AimAhead(Pointf delta, Pointf vr, float muzzleV);
 "8b15????????8d420185????????0000":
 static __cdecl int Globals::GetNextSpaceId();
 "8d4c240483e4f0ff71fc5589e55183ec44f3":
-static cleanup __cdecl Pointf Globals::GetNextPoint(Pointf current, float mag_speed, float heading);
-"8d4c240483e4f0ff71fc5589e55183ec44f3":
 static cleanup __cdecl Pointf Globals::GetNextPoint(Pointf current, float mag_speed, Pointf dest);
-
-"00000000000000000000000000000000":
-TextLibrary* Global_Globals_Library;
-
-"00000000000000000000000000000000":
-int* Globals_GetNextSpaceId_id;
-
-"00000000000000000000000000000000":
-bool* Globals_RNG;
-
-"00000000000000000000000000000000":
-FILE* ftl_log_logfile;
-
-struct Globals::Rect
-{{
-    Rect() {}
-    Rect(int _x, int _y, int _w, int _h) : x(_x), y(_y), w(_w), h(_h) {}
-}};

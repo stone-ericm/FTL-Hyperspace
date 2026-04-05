@@ -1,13 +1,2 @@
-"00000000000000000000000000000000":
-__thiscall void CachedPrimitive::OnRender(CachedPrimitive *this, const GL_Color& color);
 "5589e583e4f083ec108b4104c701????":
 __thiscall void CachedPrimitive::destructor(CachedPrimitive *this);
-
-
-struct CachedPrimitive
-{{
-	~CachedPrimitive()
-	{
-		this->destructor();
-	}
-}};

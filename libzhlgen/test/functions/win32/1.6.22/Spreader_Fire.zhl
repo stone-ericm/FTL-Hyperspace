@@ -1,4 +1,0 @@
-"00000000000000000000000000000000":
-__thiscall int Spreader_Fire::CounterRoom(Spreader_Fire *this, int roomId); //007352c0
-"00000000000000000000000000000000":
-__thiscall void Spreader_Fire::UpdateSpread(Spreader_Fire *this); //007355b0

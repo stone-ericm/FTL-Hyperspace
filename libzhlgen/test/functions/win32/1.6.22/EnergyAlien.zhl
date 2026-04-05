@@ -1,4 +1,0 @@
-"5589e55389cb83e4f0e862edffff8b83":
-__thiscall void EnergyAlien::OnLoop(EnergyAlien *this);
-"00000000000000000000000000000000":
-__thiscall Damage EnergyAlien::GetRoomDamage(EnergyAlien *this);

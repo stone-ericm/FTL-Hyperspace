@@ -1,9 +1,4 @@
-"578d7c240883e4f0ff77fc5589e557565383ec4c8b4130":
-__thiscall void CombatAI::UpdateMindControl(CombatAI *this, bool unk);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec4ca1":
 __thiscall int CombatAI::PrioritizeSystem(CombatAI *this, int weaponType);
-"00000000000000000000000000000000":
-__thiscall void CombatAI::UpdateWeapons(CombatAI *this);
-"00000000000000000000000000000000":
-__thiscall void CombatAI::OnLoop(CombatAI *this);
-
+"578d7c240883e4f0ff77fc5589e557565383ec4c8b4130":
+__thiscall void CombatAI::UpdateMindControl(CombatAI *this, bool unk);

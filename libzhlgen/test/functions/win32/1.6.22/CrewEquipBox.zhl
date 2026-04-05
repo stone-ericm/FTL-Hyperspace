@@ -1,33 +1,4 @@
-"578d7c240883e4f0ff77fc5589e5575389cb83ec108b4968":
-__thiscall void CrewEquipBox::RemoveItem(CrewEquipBox *this);
 "578d7c240883e4f0ff77fc5589e557565389cb8d4d98":
 __thiscall void CrewEquipBox::constructor(CrewEquipBox *this, Point pos, ShipManager *ship, int slot);
 "0fb681d0020000c681d002000000c390":
 __thiscall bool CrewEquipBox::GetConfirmDelete(CrewEquipBox *this);
-"00000000000000000000000000000000":
-__thiscall void CrewEquipBox::RenderLabels(CrewEquipBox *this, bool dragging, bool isNew);
-"00000000000000000000000000000000":
-__thiscall void CrewEquipBox::OnRender(CrewEquipBox *this, bool unk);
-"00000000000000000000000000000000":
-__thiscall void CrewEquipBox::OnTextInput(CrewEquipBox *this, SDLKey key);
-"00000000000000000000000000000000":
-__thiscall void CrewEquipBox::OnTextEvent(CrewEquipBox *this, CEvent::TextEvent event);
-"00000000000000000000000000000000":
-__thiscall void CrewEquipBox::MouseClick(CrewEquipBox *this);
-"00000000000000000000000000000000":
-__thiscall void CrewEquipBox::CloseRename(CrewEquipBox *this);
-
-
-struct CrewEquipBox depends (TextInput)
-{{
-	CrewEquipBox()
-	{
-	}
-	
-	CrewEquipBox(Point pos_, ShipManager *ship_, int slot_)
-	{
-		this->constructor(pos_, ship_, slot_);
-	}
-
-	int GetType(bool forcedEmpty) { return 2;}
-}};

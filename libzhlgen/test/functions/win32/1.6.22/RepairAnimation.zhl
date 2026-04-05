@@ -1,7 +1,0 @@
-"00000000000000000000000000000000":
-void** VTable_RepairAnimation;
-
-struct RepairAnimation
-{{
-	RepairAnimation(int _shipId, const std::string& _race, Pointf _unk, bool _hostile);
-}};

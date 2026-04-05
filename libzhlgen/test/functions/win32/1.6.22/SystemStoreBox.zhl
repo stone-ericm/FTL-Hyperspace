@@ -1,25 +1,2 @@
-"578d7c240883e4f0ff77fc5589e557565383ec4c837904":
-__thiscall void SystemStoreBox::SetExtraData(SystemStoreBox *this, int droneChoice);
-"00000000000000000000000000000000":
-__thiscall void SystemStoreBox::constructor(SystemStoreBox *this, ShipManager *shopper, Equipment *equip, int sys);
-"8b913801000031c085d27454578d7c24":
-__thiscall bool SystemStoreBox::CanHold(SystemStoreBox *this);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b8130":
-__thiscall void SystemStoreBox::MouseMove(SystemStoreBox *this, int mX, int mY);
-"578d7c240883e4f0ff77fc5589e5575389cb83ec308b89":
-__thiscall void SystemStoreBox::Activate(SystemStoreBox *this);
 "578d7c240883e4f0ff77fc5589e557565389cb8db338":
 __thiscall void SystemStoreBox::Purchase(SystemStoreBox *this);
-"00000000000000000000000000000000":
-__thiscall TextString SystemStoreBox::GetConfirmText(SystemStoreBox *this);
-"00000000000000000000000000000000":
-__thiscall int SystemStoreBox::SetInfoBox(SystemStoreBox *this, InfoBox *box, int forceSystemInfoWidth);
-
-
-struct SystemStoreBox
-{{
-	SystemStoreBox(ShipManager *_shopper, Equipment *_equip, int _sys)
-	{
-		this->constructor(_shopper, _equip, _sys);
-	}
-}};

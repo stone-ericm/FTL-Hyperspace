@@ -1,8 +1,0 @@
-"00000000000000000000000000000000":
-__thiscall void ExplosionAnimation::OnInit(ExplosionAnimation *this, rapidxml::xml_node<char>* node, const std::string& name, Point glowOffset);
-"00000000000000000000000000000000":
-__thiscall void ExplosionAnimation::OnRender(ExplosionAnimation *this, Globals::Rect *shipRect, ImageDesc shipImage, GL_Primitive *shipImagePrimitive);
-"00000000000000000000000000000000":
-__thiscall void ExplosionAnimation::LoadGibs(ExplosionAnimation *this);
-"00000000000000000000000000000000":
-__thiscall ImageDesc ExplosionAnimation::GetFinalGib(ExplosionAnimation *this);

@@ -1,4 +1,0 @@
-"00000000000000000000000000000000":
-__thiscall void Blueprint::destructor(Blueprint *this);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b17807a50":
-__thiscall std::string Blueprint::GetNameShort(Blueprint* this);
