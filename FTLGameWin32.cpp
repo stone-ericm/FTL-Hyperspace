@@ -2257,7 +2257,7 @@ namespace _func162
 {
     static void *func = 0;
 	static short argdata[] = {0x4ff};
-	static FunctionDefinition funcObj("CSurface::GL_SetColorTint", typeid(void (*)(GL_Color )), "8d4c240483e4f0ff71fc5589e55183ec14a1????????3b", argdata, 1, 6, &func);
+	static FunctionDefinition funcObj("CSurface::GL_SetColorTint", typeid(void (*)(GL_Color )), "8d4c240483e4f0ff71fc5589e55183ec14a1????????3b05????????74??85c074??8b1189108b51048950048b51088950088b510c89500c", argdata, 1, 6, &func);
 }
 
 void CSurface::GL_SetColorTint(GL_Color color)
@@ -2383,7 +2383,7 @@ namespace _func171
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_SetStencilMode", typeid(void (*)(GL_StencilMode , int , int )), "5589e5565383e4f083ec108b45088b5d0c8b751083", argdata, 3, 6, &func);
+	static FunctionDefinition funcObj("CSurface::GL_SetStencilMode", typeid(void (*)(GL_StencilMode , int , int )), ".5589e5565383e4f083ec108b45088b5d0c8b751083f801a3????????891d????????8935????????0f84????????0f82????????", argdata, 3, 6, &func);
 }
 
 void CSurface::GL_SetStencilMode(GL_StencilMode stencilMode, int ref, int mask)
@@ -2495,7 +2495,7 @@ namespace _func179
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CSurface::GL_Translate", typeid(bool (*)(float , float , float )), "55660fefc0b90000000089e583e4f083", argdata, 3, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GL_Translate", typeid(bool (*)(float , float , float )), ".55660fefc0b9????????89e583e4f083ec20f30f105d0c0f2ed8", argdata, 3, 2, &func);
 }
 
 bool CSurface::GL_Translate(float x, float y, float z)
@@ -2537,7 +2537,7 @@ namespace _func182
 {
     static void *func = 0;
 	static short argdata[] = {0x1ff};
-	static FunctionDefinition funcObj("CSurface::GetColorTint", typeid(GL_Color (*)()), "8b15????????8b0d????????5539d189", argdata, 1, 2, &func);
+	static FunctionDefinition funcObj("CSurface::GetColorTint", typeid(GL_Color (*)()), ".8b15????????8b0d????????5539d189e58b450874??29ca83e2f08d5411f0", argdata, 1, 2, &func);
 }
 
 GL_Color CSurface::GetColorTint()
@@ -3013,7 +3013,7 @@ namespace _func216
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CachedImage::SetImagePath", typeid(void (CachedImage::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec1c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CachedImage::SetImagePath", typeid(void (CachedImage::*)(const std::string &)), "578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec1c8b07890424e8????????83ec04", argdata, 2, 5, &func);
 }
 
 void CachedImage::SetImagePath(const std::string &imagePath)
@@ -3041,7 +3041,7 @@ namespace _func218
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CachedImage::constructor2", typeid(void (CachedImage::*)(const std::string &, CachedImage::Centered )), "578d51108d7c240883e4f0ff77fc5589", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("CachedImage::constructor2", typeid(void (CachedImage::*)(const std::string &, CachedImage::Centered )), "578d51108d????0883e4??ff????5589e5575389cb83ec??8b??", argdata, 3, 5, &func);
 }
 
 void CachedImage::constructor2(const std::string &path, CachedImage::Centered centered)
@@ -3055,7 +3055,7 @@ namespace _func219
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CachedImage::constructor_copy", typeid(void (CachedImage::*)(const CachedImage &)), "578d41108d7c240883e4f0ff77fc5589", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CachedImage::constructor_copy", typeid(void (CachedImage::*)(const CachedImage &)), "578d41108d7c240883e4f0ff77fc5589e557565389cb83ec3c8b37c7410400000000", argdata, 2, 5, &func);
 }
 
 void CachedImage::constructor_copy(const CachedImage &other)
@@ -3069,7 +3069,7 @@ namespace _func220
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CachedImage::SetPosition", typeid(void (CachedImage::*)(int , int )), "5589e557565383e4f083ec108b7508397124", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("CachedImage::SetPosition", typeid(void (CachedImage::*)(int , int )), "5589e557565383e4f083ec108b75083971248b7d0c74??8b410489cb890424", argdata, 3, 5, &func);
 }
 
 void CachedImage::SetPosition(int x, int y)
@@ -3083,7 +3083,7 @@ namespace _func221
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CachedImage::SetRotation", typeid(void (CachedImage::*)(float )), "5589e55383e4f083ec20f30f1045080f", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CachedImage::SetRotation", typeid(void (CachedImage::*)(float )), "5589e55383e4f083ec20f30f1045080f2e41447a0b75098b5dfcc9", argdata, 2, 5, &func);
 }
 
 void CachedImage::SetRotation(float _rotation)
@@ -3097,7 +3097,7 @@ namespace _func222
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CachedImage::SetMirrored", typeid(void (CachedImage::*)(bool )), "5589e5565383e4f083ec108b750889f0", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CachedImage::SetMirrored", typeid(void (CachedImage::*)(bool )), "5589e5565383e4f083ec108b750889f038414874198b410489cb890424", argdata, 2, 5, &func);
 }
 
 void CachedImage::SetMirrored(bool _mirrored)
@@ -3111,7 +3111,7 @@ namespace _func223
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CachedImage::SetScale", typeid(void (CachedImage::*)(float , float )), "5589e55383e4f083ec10f30f1045080f2e412c", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("CachedImage::SetScale", typeid(void (CachedImage::*)(float , float )), "5589e55383e4f083ec10f30f1045080f2e412c7a??75??f30f105d0c0f2e5930", argdata, 3, 5, &func);
 }
 
 void CachedImage::SetScale(float wScale, float hScale)
@@ -3167,7 +3167,7 @@ namespace _func227
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CachedPrimitive::destructor", typeid(void (CachedPrimitive::*)()), "5589e583e4f083ec108b4104c701????", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CachedPrimitive::destructor", typeid(void (CachedPrimitive::*)()), "5589e583e4f083ec108b4104c701????????890424e8????????c9", argdata, 1, 5, &func);
 }
 
 void CachedPrimitive::destructor()
@@ -3209,7 +3209,7 @@ namespace _func230
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ChoiceBox::OnRender", typeid(void (ChoiceBox::*)()), "578d7c240883e4f0ff77fc5589e557565389ce81ecdc02", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ChoiceBox::OnRender", typeid(void (ChoiceBox::*)()), "578d7c240883e4f0ff77fc5589e557565389cb81ec????????e8????????8b4350c78528feffff09000000", argdata, 1, 5, &func);
 }
 
 void ChoiceBox::OnRender()
@@ -3223,7 +3223,7 @@ namespace _func231
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ChoiceBox::MouseMove", typeid(void (ChoiceBox::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b470489", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ChoiceBox::MouseMove", typeid(void (ChoiceBox::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b4704894de0b9????????8b1f8945e4e8????????8b7e508b464c", argdata, 3, 5, &func);
 }
 
 void ChoiceBox::MouseMove(int x, int y)
@@ -3237,7 +3237,7 @@ namespace _func232
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ChoiceBox::MouseClick", typeid(void (ChoiceBox::*)(int , int )), "578d7c240883e4f0ff77fc5589e55783ec14833d", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ChoiceBox::MouseClick", typeid(void (ChoiceBox::*)(int , int )), "578d7c240883e4f0ff77fc5589e55783ec14833d????????028b078b5704", argdata, 3, 5, &func);
 }
 
 void ChoiceBox::MouseClick(int mX, int mY)
@@ -3293,7 +3293,7 @@ namespace _func236
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CloakingSystem::FiredWeapon", typeid(void (CloakingSystem::*)()), "57????????008d7c240883e4f0ff77fc5589e55756538d45d08d75d889cb83c1", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CloakingSystem::FiredWeapon", typeid(void (CloakingSystem::*)()), "57ba524500008d7c240883e4f0ff77fc5589e55756538d45d08d75d889cb83c10883ec3c668955e08975d0890424c745d8434c4f41c745dc4b5f4649c745d40a000000c645e200", argdata, 1, 5, &func);
 }
 
 void CloakingSystem::FiredWeapon()
@@ -3398,7 +3398,7 @@ namespace _func244
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CloneSystem::GetProgress", typeid(float (CloneSystem::*)()), "5589e55389cb83e4f083ec10e85f69ff", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CloneSystem::GetProgress", typeid(float (CloneSystem::*)()), "5589e55389cb83e4f083ec10e8????????85", argdata, 1, 1, &func);
 }
 
 float CloneSystem::GetProgress()
@@ -3440,7 +3440,7 @@ namespace _func247
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CloneSystem::CloneReady", typeid(CrewMember *(CloneSystem::*)()), "5589e5538b99c4010000c781c4010000", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CloneSystem::CloneReady", typeid(CrewMember *(CloneSystem::*)()), "5589e5538b??????????c7??????????00000000", argdata, 1, 1, &func);
 }
 
 CrewMember *CloneSystem::CloneReady()
@@ -3468,7 +3468,7 @@ namespace _func249
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CombatAI::UpdateMindControl", typeid(void (CombatAI::*)(bool )), "578d7c240883e4f0ff77fc5589e557565383ec4c8b4130", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CombatAI::UpdateMindControl", typeid(void (CombatAI::*)(bool )), "578d7c240883e4f0ff77fc5589e557565383ec4c8b41308b178b703485f6", argdata, 2, 5, &func);
 }
 
 void CombatAI::UpdateMindControl(bool unk)
@@ -3482,7 +3482,7 @@ namespace _func250
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CombatAI::PrioritizeSystem", typeid(int (CombatAI::*)(int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec4ca1", argdata, 2, 1, &func);
+	static FunctionDefinition funcObj("CombatAI::PrioritizeSystem", typeid(int (CombatAI::*)(int )), ".578d????0883e4f0ff????5589e557565389cb83ec5ca1????????83f8020f84????????", argdata, 2, 1, &func);
 }
 
 int CombatAI::PrioritizeSystem(int weaponType)
@@ -3566,7 +3566,7 @@ namespace _func256
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CombatControl::CanTargetSelf", typeid(char (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e557565383ec5c8b81a4", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CombatControl::CanTargetSelf", typeid(char (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e557565383ec5c8b81a400000085c074??8b401c83b8b80000000374??", argdata, 1, 1, &func);
 }
 
 char CombatControl::CanTargetSelf()
@@ -3580,7 +3580,7 @@ namespace _func257
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CombatControl::OnRenderCombat", typeid(void (CombatControl::*)()), "80b9a80e0000000f8423010000578d7c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::OnRenderCombat", typeid(void (CombatControl::*)()), "80b9a80e0000000f84????????578d7c240883e4f0ff77fc5589e557565389cb83ec6c8bb15c07000085f6", argdata, 1, 5, &func);
 }
 
 void CombatControl::OnRenderCombat()
@@ -3594,7 +3594,7 @@ namespace _func258
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CombatControl::AddEnemyShip", typeid(void (CombatControl::*)(CompleteShip *)), "578d7c240883e4f0ff77fc5589e557565383ec5c8b91", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::AddEnemyShip", typeid(void (CombatControl::*)(CompleteShip *)), "578d7c240883e4f0ff77fc5589e557565383ec5c8b915c0700008b0785d274??c6816011000000", argdata, 2, 5, &func);
 }
 
 void CombatControl::AddEnemyShip(CompleteShip *ship)
@@ -3608,7 +3608,7 @@ namespace _func259
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CombatControl::UpdateAiming", typeid(void (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b8170", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::UpdateAiming", typeid(void (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b817007000083f8ff", argdata, 1, 5, &func);
 }
 
 void CombatControl::UpdateAiming()
@@ -3636,7 +3636,7 @@ namespace _func261
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x4ff, 0x1ff};
-	static FunctionDefinition funcObj("CombatControl::DrawHostileBox", typeid(void (CombatControl::*)(GL_Color , int )), "578d7c240883e4f0ff77fc5589e55756538d5dc8", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::DrawHostileBox", typeid(void (CombatControl::*)(GL_Color , int )), "578d7c240883e4f0ff77fc5589e55756538d5dd089ce83ec7c8b471089d9c744240400000000c70424????????8945b8e8????????8b86680700000345d4", argdata, 3, 5, &func);
 }
 
 void CombatControl::DrawHostileBox(GL_Color color, int stencilBit)
@@ -3650,7 +3650,7 @@ namespace _func262
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff};
-	static FunctionDefinition funcObj("CombatControl::OnInit", typeid(void (CombatControl::*)(Point )), "578d7c240883e4f0ff77fc5589e5575389cb83ec208b078b", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::OnInit", typeid(void (CombatControl::*)(Point )), "578d7c240883e4f0ff77fc5589e5575389cb83ec208b078b57048981640700008b816411000089916807000085c00f84????????8d8b68110000e8????????a1????????", argdata, 2, 5, &func);
 }
 
 void CombatControl::OnInit(Point pos)
@@ -3734,7 +3734,7 @@ namespace _func268
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CombatControl::WeaponsArmed", typeid(bool (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec108b4904c7042409000000e8ec", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CombatControl::WeaponsArmed", typeid(bool (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83ec108b4904c70424????????e8????????83ec0484c075??8b83a400000085c0", argdata, 1, 1, &func);
 }
 
 bool CombatControl::WeaponsArmed()
@@ -3748,7 +3748,7 @@ namespace _func269
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CombatControl::KeyDown", typeid(void (CombatControl::*)(SDLKey )), "578d7c240883e4f0ff77fc5589e557565389cb83c11483ec1c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::KeyDown", typeid(void (CombatControl::*)(SDLKey )), "578d7c240883e4f0ff77fc5589e557565389cb83c11483ec1c8b37893424e8????????83ec0484c074??8b4b04", argdata, 2, 5, &func);
 }
 
 void CombatControl::KeyDown(SDLKey key)
@@ -3762,7 +3762,7 @@ namespace _func270
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CombatControl::DisarmTeleporter", typeid(void (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b4904c7042409", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::DisarmTeleporter", typeid(void (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b4904c70424????????e8????????83ec0484c089c6", argdata, 1, 5, &func);
 }
 
 void CombatControl::DisarmTeleporter()
@@ -3790,7 +3790,7 @@ namespace _func272
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CombatControl::OnRenderSelfAiming", typeid(void (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83c114", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::OnRenderSelfAiming", typeid(void (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e5575389cb83c11483ec30e8????????8b4b04c70424????????e8????????83ec0484c00f84????????8b4b04", argdata, 1, 5, &func);
 }
 
 void CombatControl::OnRenderSelfAiming()
@@ -3818,7 +3818,7 @@ namespace _func274
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CombatControl::GetCrewTooltip", typeid(std::string (CombatControl::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b17", argdata, 4, 1, &func);
+	static FunctionDefinition funcObj("CombatControl::GetCrewTooltip", typeid(std::string (CombatControl::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b178b4f048b77088b825c07000085c074??2bb2680700002bb27807000089742408", argdata, 4, 1, &func);
 }
 
 std::string CombatControl::GetCrewTooltip(int x, int y)
@@ -3832,7 +3832,7 @@ namespace _func275
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CombatControl::Clear", typeid(void (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e557565389ce83ec1cc7", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::Clear", typeid(void (CombatControl::*)()), "578d7c240883e4f0ff77fc5589e557565389ce83ec1cc7815c07000000000000c78160070000000000008b490485c9", argdata, 1, 5, &func);
 }
 
 void CombatControl::Clear()
@@ -3846,7 +3846,7 @@ namespace _func276
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CombatControl::MouseMove", typeid(bool (CombatControl::*)(int , int )), "57660fefc08d7c240883e4f0ff77fc5589e557565383", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("CombatControl::MouseMove", typeid(bool (CombatControl::*)(int , int )), "57660fefc08d7c240883e4f0ff77fc5589e557565383ec2c8b378b5f040fb681a80e0000", argdata, 3, 1, &func);
 }
 
 bool CombatControl::MouseMove(int mX, int mY)
@@ -3860,7 +3860,7 @@ namespace _func277
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CombatControl::MouseClick", typeid(void (CombatControl::*)(int , int , bool )), "578d7c240883e4f0ff77fc5589e557565389cb83c11483ec6c", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("CombatControl::MouseClick", typeid(void (CombatControl::*)(int , int , bool )), "578d7c240883e4f0ff77fc5589e557565389cb83c11483ec1c8b378b7f04c681b80e000001c744240800000000897c2404893424", argdata, 4, 5, &func);
 }
 
 void CombatControl::MouseClick(int mX, int mY, bool shift)
@@ -3874,7 +3874,7 @@ namespace _func278
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CombatControl::GetTeleportationCommand", typeid(std::pair<int, int> (CombatControl::*)()), "5589e55756538b815c07000089ce83e4", argdata, 1, 9, &func);
+	static FunctionDefinition funcObj("CombatControl::GetTeleportationCommand", typeid(std::pair<int, int> (CombatControl::*)()), "5589e55756538b815c07000089ce83e4f085c0", argdata, 1, 9, &func);
 }
 
 std::pair<int, int> CombatControl::GetTeleportationCommand()
@@ -3930,7 +3930,7 @@ namespace _func282
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CommandGui::RunCommand", typeid(void (CommandGui::*)(std::string &)), "578d7c240883e4f0ff77fc5589e55756538d459081ec9c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CommandGui::RunCommand", typeid(void (CommandGui::*)(std::string &)), "578d7c240883e4f0ff77fc5589e55756538d459081ec????????8b378945888d45a8898d7cffffff8d4d88c7458c00000000c6459000", argdata, 2, 5, &func);
 }
 
 void CommandGui::RunCommand(std::string &command)
@@ -3986,7 +3986,7 @@ namespace _func286
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CommandGui::RenderStatic", typeid(void (CommandGui::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec6c803d", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CommandGui::RenderStatic", typeid(void (CommandGui::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec6c803d??????????0f85????????8b83081700008b4808c70424????????81c1????????e8????????", argdata, 1, 5, &func);
 }
 
 void CommandGui::RenderStatic()
@@ -4000,7 +4000,7 @@ namespace _func287
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CommandGui::RenderPlayerShip", typeid(void (CommandGui::*)(Point &, float )), "578d7c240883e4f0ff77fc5589e557565389cb8d4dd883ec3c8b37", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("CommandGui::RenderPlayerShip", typeid(void (CommandGui::*)(Point &, float )), "578d7c240883e4f0ff77fc5589e557565389cb8d4dd883ec3c8b37f30f104704c744240400000000c7042400000000f30f1145d4", argdata, 3, 5, &func);
 }
 
 void CommandGui::RenderPlayerShip(Point &shipCenter, float jumpScale)
@@ -4056,7 +4056,7 @@ namespace _func291
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CommandGui::OnInit", typeid(void (CommandGui::*)()), "578d7c240883e4f0ff77fc5589e55756538d9920", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CommandGui::OnInit", typeid(void (CommandGui::*)()), "578d7c240883e4f0ff77fc5589e55756538d992003000089cf8d75cc81ec????????898d54ffffff89d9e8????????ba????????8d8d5cffffffc70424????????", argdata, 1, 5, &func);
 }
 
 void CommandGui::OnInit()
@@ -4070,7 +4070,7 @@ namespace _func292
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CommandGui::MouseMove", typeid(void (CommandGui::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389ceb9????????81ecfc", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("CommandGui::MouseMove", typeid(void (CommandGui::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389ceb9????????81ec????????8b1f8b7f04891c24897c2404e8????????8b960c1700008b8610170000", argdata, 3, 5, &func);
 }
 
 void CommandGui::MouseMove(int mX, int mY)
@@ -4112,7 +4112,7 @@ namespace _func295
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CommandGui::CheckGameover", typeid(void (CommandGui::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8d45", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CommandGui::CheckGameover", typeid(void (CommandGui::*)()), "578d7c240883e4f0ff77fc5589e557565389cb8d45a883ec7c8b89081700008945a0c745a4000000008b7108c645a800", argdata, 1, 5, &func);
 }
 
 void CommandGui::CheckGameover()
@@ -4126,7 +4126,7 @@ namespace _func296
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CommandGui::IsGameOver", typeid(bool (CommandGui::*)()), "803d????????0075695589e55389cb8b", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CommandGui::IsGameOver", typeid(bool (CommandGui::*)()), "803d??????????75??5589e55389cb8b890817000083e4f085c974??8b41088b108b524481fa????????75??80b8990400000075??e8????????84c0", argdata, 1, 1, &func);
 }
 
 bool CommandGui::IsGameOver()
@@ -4182,7 +4182,7 @@ namespace _func300
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CommandGui::Restart", typeid(void (CommandGui::*)()), "578d7c240883e4f0ff77fc5589e557568db1780100005389cb8dbbc803000083ec2cc681d419000000c681d519000000c681d61900000089f1e812", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CommandGui::Restart", typeid(void (CommandGui::*)()), "578d7c240883e4f0ff77fc5589e557568d??????????5389cb8dbbc8030000", argdata, 1, 5, &func);
 }
 
 void CommandGui::Restart()
@@ -4196,7 +4196,7 @@ namespace _func301
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CommandGui::ClearLocation", typeid(void (CommandGui::*)()), "5589e5538b8108170000c78154170000", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CommandGui::ClearLocation", typeid(void (CommandGui::*)()), "5589e5538b8108170000c781541700005e01000089cb8d89c803000083e4f0", argdata, 1, 5, &func);
 }
 
 void CommandGui::ClearLocation()
@@ -4238,7 +4238,7 @@ namespace _func304
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::constructor", typeid(void (CompleteShip::*)(SpaceManager *, bool , int )), "578d7c240883e4f0ff77fc5589e5575389cb83ec108b47", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::constructor", typeid(void (CompleteShip::*)(SpaceManager *, bool , int )), ".578d7c240883e4f0ff77fc5589e5575389cb83ec108b47048b4f088b17c703????????c7430800000000", argdata, 4, 5, &func);
 }
 
 void CompleteShip::constructor(SpaceManager *space, bool unk, int unk2)
@@ -4252,7 +4252,7 @@ namespace _func305
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::SetShip", typeid(void (CompleteShip::*)(ShipManager *)), "5783c1188d7c240883e4f0ff77fc5589e55783ec148b078b", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::SetShip", typeid(void (CompleteShip::*)(ShipManager *)), ".5783c1188d7c240883e4f0ff77fc5589e55783ec148b078b90bc0700008941f089042489542404e8????????", argdata, 2, 5, &func);
 }
 
 void CompleteShip::SetShip(ShipManager *ship)
@@ -4266,7 +4266,7 @@ namespace _func306
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::OnInit", typeid(void (CompleteShip::*)(const ShipBlueprint *, int )), "578d7c240883e4f0ff77fc5589f889e557565389cb83ec2c8b50", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::OnInit", typeid(void (CompleteShip::*)(const ShipBlueprint *, int )), ".578d7c240883e4f0ff77fc5589f889e557565389cb83ec2c8b50048b3fc70424????????8955e4e8????????", argdata, 3, 5, &func);
 }
 
 void CompleteShip::OnInit(const ShipBlueprint *blueprint, int unk)
@@ -4280,7 +4280,7 @@ namespace _func307
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::AddBoarders", typeid(void (CompleteShip::*)(int , const std::string &, bool )), "578d7c240883e4f0ff77fc5589e557565389ce83ec3c8b178b5f0485d2750485db757329d383fb0f895de4772683fb018b06755c0fb61288108b5de48b06895e04c60418008d65f45b5e5f5d8d67f85fc208008d45e489f1c7442404000000008955d4890424e8551d", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::AddBoarders", typeid(void (CompleteShip::*)(int , const std::string &, bool )), ".578d7c240883e4f0ff77fc5589f889e557565389cf8d4d8c81ec????????8b10", argdata, 4, 5, &func);
 }
 
 void CompleteShip::AddBoarders(int amount, const std::string &race, bool unk2)
@@ -4294,7 +4294,7 @@ namespace _func308
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::AddCrewMember", typeid(CrewMember *(CompleteShip::*)(const CrewBlueprint *, bool )), "578d7c240883e4f0ff77fc5589e557565383ec1c8b378b7f0485", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("CompleteShip::AddCrewMember", typeid(CrewMember *(CompleteShip::*)(const CrewBlueprint *, bool )), ".578d7c240883e4f0ff77fc5589e557565381ec????????8b07898d50feffff8b7f04", argdata, 3, 1, &func);
 }
 
 CrewMember *CompleteShip::AddCrewMember(const CrewBlueprint *blueprint, bool hostile)
@@ -4308,7 +4308,7 @@ namespace _func309
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::AddCrewMember1", typeid(CrewMember *(CompleteShip::*)(const std::string &, const std::string &, bool )), "578d7c240883e4f0ff77fc5589e557565381ec8c02", argdata, 4, 1, &func);
+	static FunctionDefinition funcObj("CompleteShip::AddCrewMember1", typeid(CrewMember *(CompleteShip::*)(const std::string &, const std::string &, bool )), ".578d7c240883e4f0ff77fc5589e557565381ec????????8b4708", argdata, 4, 1, &func);
 }
 
 CrewMember *CompleteShip::AddCrewMember1(const std::string &race, const std::string &name, bool hostile)
@@ -4350,7 +4350,7 @@ namespace _func312
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::SaveState", typeid(void (CompleteShip::*)(int )), "5589e583e4f083ec108b813001000089", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::SaveState", typeid(void (CompleteShip::*)(int )), ".5589e583e4f083ec108b8130010000894424048b4508", argdata, 2, 5, &func);
 }
 
 void CompleteShip::SaveState(int unk)
@@ -4364,7 +4364,7 @@ namespace _func313
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::LoadState", typeid(void (CompleteShip::*)(int )), "578d7c240883e4f0ff77fc5589e5575389cb83ec208b078904", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::LoadState", typeid(void (CompleteShip::*)(int )), ".578d7c240883e4f0ff77fc5589e5575389cb83ec208b07890424", argdata, 2, 5, &func);
 }
 
 void CompleteShip::LoadState(int unk)
@@ -4378,7 +4378,7 @@ namespace _func314
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::InitiateTeleport", typeid(void (CompleteShip::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565383ec4c8b811c", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::InitiateTeleport", typeid(void (CompleteShip::*)(int , int )), ".578d7c240883e4f0ff77fc5589e557565383ec4c8b811c0100003981180100008b178b7704", argdata, 3, 5, &func);
 }
 
 void CompleteShip::InitiateTeleport(int targetRoom, int command)
@@ -4392,7 +4392,7 @@ namespace _func315
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CompleteShip::OnLoop", typeid(void (CompleteShip::*)()), "578d7c240883e4f0ff77fc5589e557565389cf31db83ec2c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::OnLoop", typeid(void (CompleteShip::*)()), ".578d7c240883e4f0ff77fc5589e557565389cf31db83ec2c8b4908e8????????", argdata, 1, 5, &func);
 }
 
 void CompleteShip::OnLoop()
@@ -4448,7 +4448,7 @@ namespace _func319
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CompleteShip::Jump", typeid(void (CompleteShip::*)()), "8b811801000089811c0100008b812401", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::Jump", typeid(void (CompleteShip::*)()), ".8b811801000089811c0100008b8124010000898128010000", argdata, 1, 5, &func);
 }
 
 void CompleteShip::Jump()
@@ -4462,7 +4462,7 @@ namespace _func320
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::SetEnemyShip", typeid(void (CompleteShip::*)(CompleteShip *)), "5783c1188d7c240883e4f0ff77fc5589e55783ec148b078941", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::SetEnemyShip", typeid(void (CompleteShip::*)(CompleteShip *)), ".5783c1188d7c240883e4f0ff77fc5589e55783ec14", argdata, 2, 5, &func);
 }
 
 void CompleteShip::SetEnemyShip(CompleteShip *other)
@@ -4476,7 +4476,7 @@ namespace _func321
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CompleteShip::DeadCrew", typeid(bool (CompleteShip::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c0fb641", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CompleteShip::DeadCrew", typeid(bool (CompleteShip::*)()), ".578d7c240883e4f0ff77fc5589e557565389cb83ec1c0fb64114b9????????", argdata, 1, 1, &func);
 }
 
 bool CompleteShip::DeadCrew()
@@ -4518,7 +4518,7 @@ namespace _func324
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CompleteShip::OnRenderSpace", typeid(void (CompleteShip::*)()), "578d7c240883e4f0ff77fc5589e55783ec148b510c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::OnRenderSpace", typeid(void (CompleteShip::*)()), ".578d7c240883e4f0ff77fc5589e55783ec14", argdata, 1, 5, &func);
 }
 
 void CompleteShip::OnRenderSpace()
@@ -4532,7 +4532,7 @@ namespace _func325
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CompleteShip::OnRenderShip", typeid(void (CompleteShip::*)(bool , bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b43048b37", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("CompleteShip::OnRenderShip", typeid(void (CompleteShip::*)(bool , bool )), ".578d7c240883e4f0ff77fc5589e557565389cb", argdata, 3, 5, &func);
 }
 
 void CompleteShip::OnRenderShip(bool unk1, bool unk2)
@@ -4546,7 +4546,7 @@ namespace _func326
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ConfirmWindow::SetText", typeid(void (ConfirmWindow::*)(const TextString &, int , bool , const TextString &, const TextString &)), "578d7c240883e4f0ff77fc5589f889e557565389cb83ec7c8b50", argdata, 6, 5, &func);
+	static FunctionDefinition funcObj("ConfirmWindow::SetText", typeid(void (ConfirmWindow::*)(const TextString &, int , bool , const TextString &, const TextString &)), "578d7c240883e4f0ff77fc5589f889e557565389cb83ec7c8b5008", argdata, 6, 5, &func);
 }
 
 void ConfirmWindow::SetText(const TextString &text_, int minWidth, bool autoCenter, const TextString &yesText_, const TextString &noText_)
@@ -4560,7 +4560,7 @@ namespace _func327
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ConfirmWindow::OnRender", typeid(void (ConfirmWindow::*)()), "578d7c240883e4f0ff77fc5589e557565389cb81eccc0000008b81", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ConfirmWindow::OnRender", typeid(void (ConfirmWindow::*)()), "578d7c240883e4f0ff77fc5589e557565389cb81ec????????8b8184000000", argdata, 1, 5, &func);
 }
 
 void ConfirmWindow::OnRender()
@@ -4574,7 +4574,7 @@ namespace _func328
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff};
-	static FunctionDefinition funcObj("ConfirmWindow::SetPosition", typeid(void (ConfirmWindow::*)(Point )), "578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b078b570489", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("ConfirmWindow::SetPosition", typeid(void (ConfirmWindow::*)(Point )), "578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b078b570489042489542404e8????????8b838400000083ec08", argdata, 2, 5, &func);
 }
 
 void ConfirmWindow::SetPosition(Point pos)
@@ -4616,7 +4616,7 @@ namespace _func331
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ConfirmWindow::MouseMove", typeid(void (ConfirmWindow::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565383ec1c807904", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("ConfirmWindow::MouseMove", typeid(void (ConfirmWindow::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565383ec1c807904008b378b7f0474??89cb", argdata, 3, 5, &func);
 }
 
 void ConfirmWindow::MouseMove(int mX, int mY)
@@ -4630,7 +4630,7 @@ namespace _func332
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ConfirmWindow::constructor", typeid(void (ConfirmWindow::*)()), "5589e55389cb83e4f0e8323a01008d43", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ConfirmWindow::constructor", typeid(void (ConfirmWindow::*)()), "5589e55389cb83e4f0e8????????8d43248d8b88000000c703????????c7432000000000c643240089431c8d434cc6433401c7433800000000c7434000000000894344", argdata, 1, 5, &func);
 }
 
 void ConfirmWindow::constructor()
@@ -4644,7 +4644,7 @@ namespace _func333
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ConfirmWindow::Close", typeid(void (ConfirmWindow::*)()), "5589e55389cb83e4f083ec10????????0000890424e856", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ConfirmWindow::Close", typeid(void (ConfirmWindow::*)()), "5589e55389cb83e4f083ec108b8184000000890424e8????????c783840000000000000089d9e8????????8b5dfc", argdata, 1, 5, &func);
 }
 
 void ConfirmWindow::Close()
@@ -4658,7 +4658,7 @@ namespace _func334
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("ControlButton::OnRender", typeid(void (ControlButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec7c8b41", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("ControlButton::OnRender", typeid(void (ControlButton::*)()), "578d7c240883e4f0ff77fc5589e557565389cb81ec????????8b415c83f8010f84????????f30f102d????????83f802f30f1035????????f30f103d????????f30f116da0f30f1175a4", argdata, 1, 5, &func);
 }
 
 void ControlButton::OnRender()
@@ -4728,7 +4728,7 @@ namespace _func339
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CooldownSystemBox::OnRender", typeid(void (CooldownSystemBox::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec6c0f", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CooldownSystemBox::OnRender", typeid(void (CooldownSystemBox::*)(bool )), "578d7c240883e4f0ff77fc5589e557565389cb83ec6c0fb607890424e8????????8b0383ec0489d9", argdata, 2, 5, &func);
 }
 
 void CooldownSystemBox::OnRender(bool ignoreStatus)
@@ -4784,7 +4784,7 @@ namespace _func343
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CreditScreen::Done", typeid(bool (CreditScreen::*)()), "55660fefc089e553bbabaaaaaa83e4f0", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CreditScreen::Done", typeid(bool (CreditScreen::*)()), "55660fefc089e553bb????????83e4f083ec108b51402b513cc1fa0369d2????????89d0f7e3b8????????d1ea8d1492c1e20329d0f30f2ac00f2e01", argdata, 1, 1, &func);
 }
 
 bool CreditScreen::Done()
@@ -4826,7 +4826,7 @@ namespace _func346
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x3ff, 0x1ff};
-	static FunctionDefinition funcObj("CrewAI::PrioritizeTask", typeid(int (CrewAI::*)(CrewTask , int )), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec2c8b70", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("CrewAI::PrioritizeTask", typeid(int (CrewAI::*)(CrewTask , int )), "578d7c240883e4f0ff77fc5589f889e557565389cf83ec2c8b700c8b188b50048b4008", argdata, 3, 1, &func);
 }
 
 int CrewAI::PrioritizeTask(CrewTask task, int crewId)
@@ -4840,7 +4840,7 @@ namespace _func347
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CrewAI::UpdateIntruders", typeid(void (CrewAI::*)()), "8b411839411c0f8434020000578d7c24", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CrewAI::UpdateIntruders", typeid(void (CrewAI::*)()), "8b511c8b411839d00f84????????5729c2c1fa028d7c240883e4f0ff77fc5589e557565331db89ce83ec3c", argdata, 1, 5, &func);
 }
 
 void CrewAI::UpdateIntruders()
@@ -4882,7 +4882,7 @@ namespace _func350
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CrewAI::CheckForHealing", typeid(void (CrewAI::*)()), "8b510c3b5110c64107000f840b020000", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CrewAI::CheckForHealing", typeid(void (CrewAI::*)()), "8b510c8b4110c641070029d0c1f80285c00f84????????578d7c240883e4f0ff77fc5589e557565389ce31db83ec3c", argdata, 1, 5, &func);
 }
 
 void CrewAI::CheckForHealing()
@@ -4910,7 +4910,7 @@ namespace _func352
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CrewAI::CheckForProblems", typeid(void (CrewAI::*)()), "578d7c240883e4f0ff77fc5589e557565389cf83ec7c8b", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CrewAI::CheckForProblems", typeid(void (CrewAI::*)()), "578d7c240883e4f0ff77fc5589e557565389cf83ec7c8b01c64108018b4004890424", argdata, 1, 5, &func);
 }
 
 void CrewAI::CheckForProblems()
@@ -4924,7 +4924,7 @@ namespace _func353
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CrewAI::DangerRating", typeid(int (CrewAI::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec5c8b47048b1f89", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("CrewAI::DangerRating", typeid(int (CrewAI::*)(int , int )), "578d7c240883e4f0ff77fc5589e557565389ce83ec5c8b47048b1f89c18945a88b460c8b0488f30f105028", argdata, 3, 1, &func);
 }
 
 int CrewAI::DangerRating(int roomId, int crewId)
@@ -4980,7 +4980,7 @@ namespace _func357
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CrewAnimation::OnRender", typeid(void (CrewAnimation::*)(float , int , bool )), "578d7c240883e4f0ff77fc5589f889e557565383ec7c8b59", argdata, 4, 5, &func);
+	static FunctionDefinition funcObj("CrewAnimation::OnRender", typeid(void (CrewAnimation::*)(float , int , bool )), "578d7c240883e4f0ff77fc5589f889e557565383ec7c8b59048b7008f30f102f8b7f04", argdata, 4, 5, &func);
 }
 
 void CrewAnimation::OnRender(float scale, int selectedState, bool outlineOnly)
@@ -5022,7 +5022,7 @@ namespace _func360
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CrewAnimation::SetupStrips", typeid(void (CrewAnimation::*)()), "578d7c240883e4f0ff77fc5589e557568d8578", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CrewAnimation::SetupStrips", typeid(void (CrewAnimation::*)()), "578d7c240883e4f0ff77fc5589e557568d8578feffff5389cf81ec????????898570feffff8b91ac0900008b81a80900008d8d70feffff", argdata, 1, 5, &func);
 }
 
 void CrewAnimation::SetupStrips()
@@ -5092,7 +5092,7 @@ namespace _func365
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CrewAnimation::RenderIcon", typeid(void (CrewAnimation::*)(bool )), "578d7c240883e4f0ff77fc5589e55756538db51c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CrewAnimation::RenderIcon", typeid(void (CrewAnimation::*)(bool )), "578d7c240883e4f0ff77fc5589e55756538db51cffffff89cb81ec1c010000803f008b41088b00", argdata, 2, 5, &func);
 }
 
 void CrewAnimation::RenderIcon(bool border)
@@ -5120,7 +5120,7 @@ namespace _func367
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff};
-	static FunctionDefinition funcObj("CrewBlueprint::RandomSkills", typeid(void (CrewBlueprint::*)(int )), "578d7c240883e4f0ff77fc5589fa89e557565389cb83ec3c", argdata, 2, 5, &func);
+	static FunctionDefinition funcObj("CrewBlueprint::RandomSkills", typeid(void (CrewBlueprint::*)(int )), "578d7c240883e4f0ff77fc5589fa89e557565389cb83ec3c8b07c745d80000000085c0", argdata, 2, 5, &func);
 }
 
 void CrewBlueprint::RandomSkills(int worldLevel)
@@ -5190,7 +5190,7 @@ namespace _func372
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("CrewBlueprint::GetCurrentSkillColor", typeid(GL_Color (CrewBlueprint::*)(int )), "8b54240489c88b4c2408660fefc0660f", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("CrewBlueprint::GetCurrentSkillColor", typeid(GL_Color (CrewBlueprint::*)(int )), "8b54240489c88b4c2408660fefc0660fefc98b9204010000", argdata, 3, 1, &func);
 }
 
 GL_Color CrewBlueprint::GetCurrentSkillColor(int skill)
