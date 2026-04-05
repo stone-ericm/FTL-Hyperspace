@@ -1,7 +1,7 @@
 
-"8b4424048b15f091910089108b15f491":
+"8b4424048b15????????89108b15????":
 static cleanup __cdecl GL_Color CSurface::GL_GetColor();
-"8d4c240483e4f0ff71fc5589e55183ec14a1e8":
+"8d4c240483e4f0ff71fc5589e55183ec14a1????????3b":
 static cleanup __cdecl void CSurface::GL_SetColorTint(GL_Color color);
 
 
@@ -30,7 +30,7 @@ static cleanup __cdecl void CSurface::GL_PopStencilMode();
 static cleanup __cdecl int CSurface::GL_OrthoProjection(float mx1, float mx2, float mx3, float mx4, float mx5, float mx6);
 "00000000000000000000000000000000":
 static cleanup __cdecl int CSurface::GL_LoadIdentity();
-"a10092910083f80f774689c10f280520":
+"a1????????83f80f774689c10f2805??":
 static cleanup __cdecl int CSurface::GL_PushMatrix();
 "00000000000000000000000000000000":
 static cleanup __cdecl int CSurface::GL_PopMatrix();
@@ -42,21 +42,21 @@ static cleanup __cdecl void CSurface::GL_Scale(float x, float y, float z);
 static cleanup __cdecl bool CSurface::GL_Translate(float x, float y, float z=0.f);
 "5589e583e4f083ec208b4508f30f1045":
 static cleanup __cdecl int CSurface::GL_SetColor(GL_Color color);
-"a1e89191003b05e4919100740883e810":
+"a1????????3b05????????740883e810":
 static cleanup __cdecl void CSurface::GL_RemoveColorTint();
-"8b15e89191008b0de49191005539d189":
+"8b15????????8b0d????????5539d189":
 static cleanup __cdecl GL_Color CSurface::GetColorTint();
 "5589e583e4f083ec10c7442408040000":
 static cleanup __cdecl bool CSurface::GL_EnableBlend();
 "00000000000000000000000000000000":
 static cleanup __cdecl bool CSurface::GL_DisableBlend();
-"8b442404a2e0919100c38db600000000":
+"8b442404a2????????c38db600000000":
 static cleanup __cdecl void CSurface::GL_ForceAntialias(bool on);
 "00000000000000000000000000000000":
 static cleanup __cdecl bool CSurface::GL_DrawLine(float x1, float y1, float x2, float y2, float lineWidth, GL_Color color);
 "5589e557565383e4f083ec608b45088b":
 static cleanup __cdecl bool CSurface::GL_DrawTriangle(Point vertex1, Point vertex2, Point vertex3, GL_Color color);
-"5589e583e4f081ec90000000a1e89191":
+"5589e583e4f081ec90000000a1??????":
 static cleanup __cdecl bool CSurface::GL_DrawRect(float x1, float y1, float x2, float y2, GL_Color color);
 "5589e583e4f081ecc00100008b55108b":
 static cleanup __cdecl bool CSurface::GL_DrawRectOutline(int x1, int y1, int x2, int y2, GL_Color color, float lineWidth);
@@ -102,9 +102,9 @@ static cleanup __cdecl GL_Primitive* CSurface::GL_CreatePixelImagePrimitive(GL_T
 "8d4c240483e4f0ff71fc5589e55756535181ece80000008b41":
 static cleanup __cdecl bool CSurface::GL_DrawEllipse(int x, int y, int a1, int b1, GL_Color color);
 
-"5589e557565383e4f083ec508b45108b15e49191008b5d088b7d0c89442434":
+"5589e557565383e4f083ec508b45108b15????????8b5d088b7d0c89442434":
 static cleanup __cdecl void CSurface::GL_BlitMultiColorImage(GL_Texture *tex, const std::vector<GL_ColorTexVertex>& texVertices, bool antialias);
-"5589e557565383e4f083ec508b45108b15e49191008b5d088b7d0c89442434":
+"5589e557565383e4f083ec508b45108b15????????8b5d088b7d0c89442434":
 static cleanup __cdecl void CSurface::GL_BlitMultiImage(GL_Texture *tex, const std::vector<GL_TexVertex>& texVertices, bool antialias);
 
 

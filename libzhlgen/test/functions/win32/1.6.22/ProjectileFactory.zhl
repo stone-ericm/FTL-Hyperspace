@@ -1,6 +1,6 @@
 "00000000000000000000000000000000":
 __thiscall void ProjectileFactory::constructor(ProjectileFactory *this, const WeaponBlueprint* bp, int shipId);
-"5589e55389cb83e4f0803d6098910000751e":
+"5589e55389cb83e4f0803d????????00751e":
 __thiscall void ProjectileFactory::SelectChargeGoal(ProjectileFactory *this);
 "00000000000000000000000000000000":
 __thiscall bool ProjectileFactory::IsChargedGoal(ProjectileFactory *this);
@@ -14,7 +14,7 @@ __thiscall void ProjectileFactory::SetCooldownModifier(ProjectileFactory *this, 
 __thiscall void ProjectileFactory::ForceCoolup(ProjectileFactory *this);
 "5781c1480100008d7c240883e4f0ff77fc5589e55783ec14f3":
 __thiscall void ProjectileFactory::RenderChargeBar(ProjectileFactory *this, float unk);
-"8d4c240483e4f0ff71fc5589e5535183ec108b19c7042470":
+"8d4c240483e4f0ff71fc5589e5535183ec108b19c70424????????89d9e80e":
 static cleanup __cdecl int ProjectileFactory::StringToWeapon(const std::string& str);
 "8b81000600003981040600000f95c0c3":
 __thiscall bool ProjectileFactory::QueuedShots(ProjectileFactory *this);

@@ -14,15 +14,15 @@ __thiscall void ShipBuilder::SetupShipAchievements(ShipBuilder *this);
 __thiscall void ShipBuilder::ClearShipAchievements(ShipBuilder *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b09":
 __thiscall void ShipBuilder::SwapType(ShipBuilder *this, int variant);
-"578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b0985c974??":
+"00000000000000000000000000000000":
 __thiscall void ShipBuilder::CycleShipNext(ShipBuilder *this);
-".578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b0985c974??":
+"00000000000000000000000000000000":
 __thiscall void ShipBuilder::CycleShipPrevious(ShipBuilder *this);
 "578d7c240883e4f0ff77fc5589e557565381ec4c05000089":
 __thiscall void ShipBuilder::Open(ShipBuilder *this);
 "00000000000000000000000000000000":
 __thiscall void ShipBuilder::OnRender(ShipBuilder *this);
-"578d7c240883e4f0ff77fc5589e557565389cbb94033910081ec8c":
+"578d7c240883e4f0ff77fc5589e557565389cbb9????????81ec8c":
 __thiscall void ShipBuilder::OnLoop(ShipBuilder *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83c10c8d":
 __thiscall void ShipBuilder::constructor(ShipBuilder *this);

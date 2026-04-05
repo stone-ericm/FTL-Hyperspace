@@ -14,7 +14,7 @@ __thiscall void EventsParser::AddEvents(EventsParser *this, EventGenerator& gene
 __thiscall std::vector<std::string> EventsParser::ProcessEventList(EventsParser *this, rapidxml::xml_node<char>* node, const std::string& listName);
 "00000000000000000000000000000000":
 __thiscall void EventsParser::ProcessChoice(EventsParser *this,EventTemplate *event,rapidxml::xml_node<char> *node,const std::string& eventName);
-"578d7c240883e4f0ff77fc5589e5575653befc5e870081ec6c":
+"578d7c240883e4f0ff77fc5589e5575653be????????81ec6c":
 __thiscall void EventsParser::ProcessBaseNode(EventsParser *this, rapidxml::xml_node<char>* node, EventGenerator& generator);
 
 "!b9(???????\?)8974240889442404":

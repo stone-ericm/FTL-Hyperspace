@@ -1,6 +1,6 @@
 "00000000000000000000000000000000":
 __thiscall void CachedImage::destructor(CachedImage *this);
-"578d7c240883e4f0ff77fc5589e557565389cbb92097":
+"578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec1c":
 __thiscall void CachedImage::SetImagePath(CachedImage *this, const std::string& imagePath);
 "00000000000000000000000000000000":
 __thiscall void CachedImage::constructor1(CachedImage *this, const std::string& path, int x, int y);

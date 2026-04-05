@@ -2,7 +2,7 @@
 __thiscall void FocusWindow::MouseClick(FocusWindow *this, int x, int y);
 "578d7c240883e4f0ff77fc5589e5575383ec108b4108":
 __thiscall void FocusWindow::MouseMove(FocusWindow *this, int x, int y);
-"578d7c240883e4f0ff77fc5589e5575389cb8d490883ec10c741f818":
+"578d7c240883e4f0ff77fc5589e5575389cb8d490883ec10c741f8????????c6":
 __thiscall void FocusWindow::constructor(FocusWindow *this);
 "5589e58b45088b550c5d894114895118":
 __thiscall void FocusWindow::SetPosition(FocusWindow *this, Point p);

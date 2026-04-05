@@ -2,5 +2,5 @@
 __thiscall void GameOver::OpenText(GameOver *this, const std::string& text);
 "00000000000000000000000000000000":
 __thiscall void GameOver::OnRender(GameOver *this);
-"578d7c240883e4f0ff77fc5589e557565389cbb9a096910083ec5c":
+"578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec5ce8":
 __thiscall void GameOver::OnLoop(GameOver *this);

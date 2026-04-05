@@ -1,4 +1,4 @@
-"8d4118f30f100574138800c741040100":
+"8d4118f30f1005????????c741040100":
 __thiscall void ResourceControl::constructor(ResourceControl *this);
 "578d7c240883e4f0ff77fc5589e557565383ec5c8b570c":
 __thiscall GL_Primitive* ResourceControl::CreateImagePrimitive(ResourceControl *this, GL_Texture *tex, int unk1, int unk2, int unk3, GL_Color color, float alpha, bool mirror);

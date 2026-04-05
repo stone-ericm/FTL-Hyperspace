@@ -18,7 +18,7 @@ __thiscall void Animation::destructor(Animation *this);
 __thiscall void Animation::StartReverse(Animation *this, bool reset);
 "00000000000000000000000000000000":
 __thiscall void Animation::SetProgress(Animation *this, float progress);
-"5589e55389cb83e4f0803d6098910000754e":
+"5589e55389cb83e4f0803d????????00754e":
 __thiscall int Animation::RandomStart(Animation *this);
 "5589e5565389cb83e4f083ec100fb641":
 __thiscall void Animation::SaveState(Animation *this, int fd);

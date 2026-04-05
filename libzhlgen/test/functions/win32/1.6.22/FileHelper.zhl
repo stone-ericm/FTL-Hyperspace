@@ -50,11 +50,11 @@ static cleanup __cdecl int FileHelper::readSaveFile();
 static cleanup __cdecl int FileHelper::readStatsFile();
 "00000000000000000000000000000000":
 static cleanup __cdecl bool FileHelper::saveFileExists();
-"8d4c240483e4f0ff71fc5589e556535183ec3c803dec3f8700008b19":
+"8d4c240483e4f0ff71fc5589e556535183ec3c803d????????008b19":
 static cleanup __cdecl bool FileHelper::writeFloat(int file, float data);
 "8d4c240483e4f0ff71fc5589e55756535183ec488b41048b318b38":
 static cleanup __cdecl bool FileHelper::writeString(int file, const std::string& data);
-"8d4c240483e4f0ff71fc5589e556535183ec3c803dec3f8700008b71":
+"8d4c240483e4f0ff71fc5589e556535183ec3c803d????????008b71":
 static cleanup __cdecl bool FileHelper::writeInt(int file, int data);
 
 

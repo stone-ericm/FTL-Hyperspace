@@ -12,7 +12,7 @@ __thiscall void StoreBox::OnLoop(StoreBox *this);
 __thiscall void StoreBox::SetPosition(StoreBox *this, Point pos);
 "00000000000000000000000000000000":
 __thiscall void StoreBox::OnRender(StoreBox *this);
-"57????????008d7c240883e4f0ff77fc5589e55756538d7dd08d75d889cbb9e098910083ec3c8975d0668955d8c744240800000000c7442404000080bf893c24c645da79c745d403000000c645db00e8fc":
+"57????????008d7c240883e4f0ff77fc5589e55756538d7dd08d75d889cbb9????????83ec3c8975d0668955d8c744240800000000c7442404000080bf893c24c645da79c745d403000000c645db00e8fc":
 __thiscall void StoreBox::Purchase(StoreBox *this);
 
 

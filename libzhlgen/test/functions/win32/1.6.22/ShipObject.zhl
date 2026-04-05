@@ -14,7 +14,7 @@ __thiscall std::vector<std::string> ShipObject::GetAugmentationList(ShipObject *
 __thiscall bool ShipObject::AddAugmentation(ShipObject *this, const std::string& augment);
 "00000000000000000000000000000000":
 noHook void ShipObject::__DO_NOT_HOOK();
-"8b510431c085d20f94c06bc034030580":
+"8b510431c085d20f94c06bc0340305??":
 __thiscall int ShipObject::GetAugmentationCount(ShipObject *this);
 "578d7c240883e4f0ff77fc5589e557565331db83ec2c8b41":
 __thiscall void ShipObject::ClearShipInfo(ShipObject *this);

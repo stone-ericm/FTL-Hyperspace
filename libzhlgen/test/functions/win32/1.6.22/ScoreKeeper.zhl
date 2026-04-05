@@ -40,7 +40,7 @@ __thiscall void ScoreKeeper::CycleRight(ScoreKeeper *this);
 __thiscall void ScoreKeeper::Open(ScoreKeeper *this, bool fromGameOver);
 "00000000000000000000000000000000":
 __thiscall bool ScoreKeeper::KeyDown(ScoreKeeper *this, SDLKey key);
-"578d7c240883e4f0ff77fc5589e557565389cbb94033910083ec3c":
+"578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec3c":
 __thiscall void ScoreKeeper::AddScrapCollected(ScoreKeeper *this, int scrap);
 "00000000000000000000000000000000":
 __thiscall void ScoreKeeper::SaveScores(ScoreKeeper *this, int file, std::vector<TopScore>& topScores);
