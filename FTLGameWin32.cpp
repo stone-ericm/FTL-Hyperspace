@@ -1137,7 +1137,7 @@ namespace _func81
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("BlueprintManager::SetRarity", typeid(void (BlueprintManager::*)(const std::string &, int )), "578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b378b47048d7964", argdata, 3, 5, &func);
+	static FunctionDefinition funcObj("BlueprintManager::SetRarity", typeid(void (BlueprintManager::*)(const std::string &, int )), ".578d????0883e4f0ff????5589e557565389cb83ec2c8b??8b????8d79648934??89f9", argdata, 3, 5, &func);
 }
 
 void BlueprintManager::SetRarity(const std::string &name, int rarity)
@@ -1606,7 +1606,7 @@ namespace _func115
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("BossShip::GetSubEvent", typeid(LocationEvent *(BossShip::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec4ce805", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("BossShip::GetSubEvent", typeid(LocationEvent *(BossShip::*)()), ".578d7c240883e4f0ff77fc5589e557565389cb83ec4c", argdata, 1, 1, &func);
 }
 
 LocationEvent *BossShip::GetSubEvent()
