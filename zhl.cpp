@@ -291,6 +291,22 @@ int FunctionDefinition::Load()
 
 	if(!sig.Scan())
 	{
+		// Diagnostic: log scan details for bridge-critical functions
+		if (strstr(_name, "CApp::OnLoop") || strstr(_name, "ShipManager::OnLoop")) {
+			FILE* df = fopen("zhl_diag.log", "a");
+			if (df) {
+				fprintf(df, "DIAG %s: sig='%s' siglen=%d base=%p\n",
+					_name, _sig, (int)strlen(_sig), SigScan::GetBaseAddress());
+				// Manually check first few bytes at expected offset
+				// CApp::OnLoop should be near RVA 0x2350
+				unsigned char* check = (unsigned char*)SigScan::GetBaseAddress() + 0x2350;
+				fprintf(df, "  bytes@0x2350: ");
+				for (int i = 0; i < 30; i++) fprintf(df, "%02x", check[i]);
+				fprintf(df, "\n");
+				fflush(df);
+				fclose(df);
+			}
+		}
 	#ifdef _WIN32
 		if (strncmp(_name, "AchievementTracker::", 20) == 0)
 		{
