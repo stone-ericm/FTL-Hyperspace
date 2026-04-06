@@ -384,7 +384,17 @@ int FunctionHook_private::Init()
 		}
 		if (!allowed) {
 			skipped_non_bridge++;
+			// Log first few skipped names to diagnose allowlist issues
+			if (skipped_non_bridge <= 5) {
+				FILE* df = fopen("zhl_diag.log", "a");
+				if (df) { fprintf(df, "SKIP hook: '%s'\n", it->second->_name); fflush(df); fclose(df); }
+			}
 			continue;
+		}
+		// Log allowed hooks
+		{
+			FILE* df = fopen("zhl_diag.log", "a");
+			if (df) { fprintf(df, "ALLOW hook: '%s'\n", it->second->_name); fflush(df); fclose(df); }
 		}
 		if(!it->second->Install()) {
 			failed++;
