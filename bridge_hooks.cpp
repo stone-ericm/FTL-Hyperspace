@@ -177,16 +177,17 @@ HOOK_METHOD_PRIORITY(CApp, OnLoop, 100, () -> void) {
     // --- First frame: enter WAITING_FOR_GAME ---
     if (!bridge_started) {
         bridge_started = true;
+        // Create pipe immediately so Python can connect even before game is fully started
+        ftl_rl::BridgeConfig config;
+        config.speed_multiplier = 100;
+        Bridge::initPipe(config);
         Bridge::setResetPhase(ResetPhase::WAITING_FOR_GAME);
-        fprintf(stderr, "[Bridge] Entering WAITING_FOR_GAME\n");
+        fprintf(stderr, "[Bridge] Entering WAITING_FOR_GAME (pipe created)\n");
     }
 
     // --- WAITING_FOR_GAME: let auto-start run freely ---
     if (Bridge::resetPhase() == ResetPhase::WAITING_FOR_GAME) {
         if (auto_start_state >= 5) {
-            ftl_rl::BridgeConfig config;
-            config.speed_multiplier = 100;  // 100x speed — verified safe for combat physics
-            Bridge::initPipe(config);
             Bridge::setResetPhase(ResetPhase::WAITING_FOR_COMBAT);
             wfc_timeout_frames = 0;
             fprintf(stderr, "[Bridge] Auto-start done → WAITING_FOR_COMBAT\n");
