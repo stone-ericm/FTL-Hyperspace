@@ -4,5 +4,5 @@ __thiscall void MenuScreen::OnLanguageChange(MenuScreen *this);
 __thiscall void MenuScreen::constructor(MenuScreen *this);
 ".578d7c240883e4f0ff77fc5589e557565381ec????????80b9c0020000000f84????????":
 __thiscall void MenuScreen::OnRender(MenuScreen *this);
-"578d7c240883e4f0ff77fc5589e557565389cb83c14c":
+".578d7c240883e4f0ff77fc5589e557565389cf83c14c8d75d883ec5cc641b801":
 __thiscall void MenuScreen::Open(MenuScreen *this);

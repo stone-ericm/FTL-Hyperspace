@@ -4,5 +4,5 @@ __thiscall TextString DroneControl::HolderLabel(DroneControl *this);
 __thiscall SDLKey DroneControl::ArmamentHotkey(DroneControl *this, unsigned int i);
 ".578d????0883e4f0ff????5589e557565389cb83ec7c8b4110":
 __thiscall void DroneControl::SelectArmament(DroneControl *this, unsigned int i);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b490cc7":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b490cc7042404000000":
 __thiscall void DroneControl::OnLoop(DroneControl *this); 

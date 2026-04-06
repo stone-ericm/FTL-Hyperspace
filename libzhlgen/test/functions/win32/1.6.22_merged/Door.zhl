@@ -6,17 +6,17 @@ __thiscall bool Door::ApplyDamage(Door *this, float amount); //00463f30
 __thiscall void Door::destructor(Door *this); //00463fe0
 ".578d????0883e4f0ff????5589fa89e557565389cf81ec7c010000":
 __thiscall void Door::constructor(Door *this, int roomId1, int roomId2, int locX, int locY, bool bVertical, int doorId, int shipId); //004643d0
-"5589e5565389ce83e4f083ec108b5d088b81d0":
+".5589e5565389ce83e4f083ec108b????8b81d0010000891c??8944????e8????????":
 __thiscall void Door::SaveState(Door *this, int fd); //004654f0
-"578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b37893424e870":
+".578d????0883e4f0ff????5589e557565389cb83ec1c8b??8934??e8????????8934??":
 __thiscall void Door::LoadState(Door *this, int fd); //00465590
 ".578d????0883e4f0ff????5589e5575389cb8d4934":
 __thiscall void Door::AccelerateAnimation(Door *this); //004656f0
 ".578d7c240883e4f0ff77fc5589e557565389cb83ec1c83b9b400000004":
 __thiscall void Door::FakeOpen(Door *this); //00465780
-"578d7c240883e4f0ff77fc5589e557565389cb83ec1c80791800c6":
+".578d7c240883e4f0ff77fc5589e557565389cb83ec1c80791800c641200075??":
 __thiscall void Door::FakeClose(Door *this); //00465860
-"80b92c020000008b4424040f85a30000":
+".80b92c020000008b54????0f85????????660fefd283fa04f30f2a91d0010000":
 __thiscall void Door::SetBlastDoor(Door *this, int val); //00465950
 ".8b913c0200008b410485d27e??85c00f94c00fb6c08b511c85d274??80791800":
 __thiscall bool Door::IsSealed(Door *this, int shipId); //00465a90
@@ -36,7 +36,7 @@ __thiscall void Door::PauseLoop(Door *this); //004663e0
 __thiscall void Door::UpdateAnimations(Door *this); //004665a0
 ".578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b813c02000085c0":
 __thiscall void Door::OnLoop(Door *this); //00466760
-"578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b77":
+".578d????0883e4f0ff????5589e557565389cb83ec5c8b????f30f10??":
 __thiscall void Door::OnRender(Door *this, float alpha, bool bForceView, bool useLargeSprites); //00466bb0
 
 struct Door depends (Point, ShipGraph)

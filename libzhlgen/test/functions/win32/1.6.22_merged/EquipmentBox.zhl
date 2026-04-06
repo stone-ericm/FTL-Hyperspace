@@ -2,7 +2,7 @@
 __thiscall void EquipmentBox::constructor(EquipmentBox *this, Point pos, int slot);
 "8b416485c074??8b401cc3908d7426008b416085c075??8b416885c074??":
 __thiscall Blueprint* EquipmentBox::GetBlueprint(EquipmentBox *this); // 0052cde0
-"5731c08d7c240883e4f0ff77fc5589e557565389cb":
+"5731c08d7c240883e4f0ff77fc5589e557565389cb83ec1c80b98100000000":
 __thiscall void EquipmentBox::SetBlueprint(EquipmentBox *this, InfoBox *infoBox, bool detailedBox); // 0052ccc0
 
 
@@ -18,7 +18,7 @@ virtual __thiscall int EquipmentBox::GetType(EquipmentBox *this, bool forcedEmpt
 virtual __thiscall void EquipmentBox::OnRender(EquipmentBox *this, bool isEmpty); // 0052b3d0
 ".578d7c240883e4f0ff77fc5589e55756538db560ffffff89cb81ec????????8b07":
 virtual __thiscall void EquipmentBox::UpdateBoxImage(EquipmentBox *this, bool unk); // 0052b790
-"578d7c240883e4f0ff77fc5589e557565389cb81ec8c0000008b4160":
+".578d7c240883e4f0ff77fc5589e557565389cb81ec????????8b4160":
 virtual __thiscall void EquipmentBox::RenderLabels(EquipmentBox *this, bool unk); // 0052c0f0
 
 "538b415031db8b54240839c27e??03415839c27d??8b41543944240c7e??":
@@ -31,7 +31,7 @@ virtual __thiscall void EquipmentBox::Restart(EquipmentBox *this); // 0052aae0 o
 virtual __thiscall void EquipmentBox::SetPosition(EquipmentBox *this, Point pos); // 0052aa30
 ".578d7c240883e4f0ff77fc5589e55783ec248b4160":
 virtual __thiscall void EquipmentBox::RenderIcon(EquipmentBox *this); // 0052af90
-"8b4424048b108951508b50048951548b":
+"8b4424048b10895150":
 __thiscall void EquipmentBox::ForceHitBox(EquipmentBox *this, Globals::Rect *newBox); // 0052cc00
 "8b416085c074??8b401c8b4070c366908b416485c075??8b416c85c074??8b500885d2":
 __thiscall int EquipmentBox::GetItemValue(EquipmentBox *this); // 0052cc80

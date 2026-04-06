@@ -1,10 +1,10 @@
-"80791000750ac208008db42600000000":
+"8079100075??c208008db426000000008b01c64110008b40103d????????75??c6410400c2080089f68dbc27000000005589e5":
 __thiscall void FocusWindow::MouseClick(FocusWindow *this, int x, int y);
-"578d7c240883e4f0ff77fc5589e5575383ec108b4108":
+"578d7c240883e4f0ff77fc5589e5575383ec108b41088b1f8b7f0483f8ff":
 __thiscall void FocusWindow::MouseMove(FocusWindow *this, int x, int y);
 "578d7c240883e4f0ff77fc5589e5575389cb8d490883ec10c741f8????????c6":
 __thiscall void FocusWindow::constructor(FocusWindow *this);
-"5589e58b45088b550c5d894114895118":
+"5589e58b????8b????5d894114":
 __thiscall void FocusWindow::SetPosition(FocusWindow *this, Point p);
 ".c6410400":
 __thiscall void FocusWindow::Close(FocusWindow *this);

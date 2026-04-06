@@ -1,10 +1,10 @@
-"578d7c240883e4f0ff77fc5589e557565389ce8d5de0":
+"578d7c240883e4f0ff77fc5589e557565389cb8d75bc81ec????????8b07c64105018d7dd489412c8945888b4118894424048b41148d4dcc":
 __thiscall void Upgrades::OnInit(Upgrades *this, ShipManager *ship);
 "5589e557565389cf83e4f083ec108b51208b492489c829d083f8037e??31f6908b1cb285db":
 __thiscall void Upgrades::ClearUpgradeBoxes(Upgrades *this);
 "578d7c240883e4f0ff77fc5589f889e557565389cf83ec2c8b3089f38975e48b7004891c24":
 __thiscall void Upgrades::MouseMove(Upgrades *this, int mX, int mY);
-"807938000f8466010000578d7c240883":
+"807904000f84????????578d7c240883e4f0ff77fc5589e557565381ec????????8b818c0100008b71208b592485c00f9fc2":
 __thiscall void Upgrades::OnLoop(Upgrades *this);
 "578d7c240883e4f0ff77fc5589e557565389cb31f683ec4c8b078b7f04890424897c2404":
 __thiscall void Upgrades::MouseClick(Upgrades *this, int mX, int mY);

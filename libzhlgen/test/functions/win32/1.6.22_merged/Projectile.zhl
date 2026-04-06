@@ -14,7 +14,7 @@ __thiscall int Projectile::ForceRenderLayer(Projectile *this);
 __thiscall void Projectile::OnUpdate(Projectile *this);
 "578d7c240883e4f0ff77fc5589e557565389ce83c10483ec2c8b1fc741fc00000000c7442404000000cfc70424000000cf":
 __thiscall CollisionResponse Projectile::CollisionMoving(Projectile *this, Pointf start, Pointf finish, Damage damage, bool raytrace);
-"8d4c240483e4f0ff71fc5589e5535183ec208b198d":
+"8d4c240483e4f0ff71fc5589e5535183ec208b198d4df0c7442404ffffffffc70424ffffffff":
 static cleanup __cdecl Pointf Projectile::RandomSidePoint(int side);
 
 

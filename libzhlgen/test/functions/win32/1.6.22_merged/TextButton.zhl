@@ -1,6 +1,6 @@
 "5589e55756538d79548d594889ce83e4f083ec108b0383c304890424e8????????c743fc0000000039fb75??":
 __thiscall void TextButton::ResetPrimitives(TextButton *this);
-"578d7c240883e4f0ff77fc5589e557565389cf81ecbc":
+"578d7c240883e4f0ff77fc5589e557565389cb83ec5c80b9dc000000000f85????????8d81c40000008d7dd0":
 __thiscall int TextButton::GetIdealButtonWidth(TextButton *this);
 ".83c30439f375??8d65f85b5e5dc204008d742600ffd08d65f85b":
 noHook void TextButton::__DO_NOT_HOOK();
@@ -8,19 +8,19 @@ noHook void TextButton::__DO_NOT_HOOK();
 __thiscall void TextButton::constructor(TextButton *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec3c8b4f0c8b078b57148b7704894dd08b4f108945c88b4708":
 __thiscall void TextButton::OnInit(TextButton *this, Point pos, Point size, int cornerInset, TextString* buttonLabel, int font);
-"578d7c240883e4f0ff77fc5589e557565389cf81ecac00000080":
+"578d7c240883e4f0ff77fc5589e557565389cf81ec????????80b9b4000000000f85????????8b474885c0":
 __thiscall void TextButton::OnRender(TextButton *this);
-"5589e55389cb81c3cc00000083e4f083":
+"5589e55389cb81c3????????83e4f083ec108b4148c701????????890424e8????????8b4380890424e8????????8b4384890424e8????????8b4394890424":
 __thiscall void TextButton::destructor(TextButton *this);
-"578d7c240883e4f0ff77fc5589e557565389cb83ec5c80b9b4":
+"578d7c240883e4f0ff77fc5589e557565389cb83ec5c80b9b40000000075??8b83a80000008b93ac000000":
 __int64 TextButton::GetSize_DO_NOT_USE_DIRECTLY(TextButton *this<ecx>);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec5c8b378b47088b57048b4e0c8945b88b470c8955b4894c24048b4e08":
 __thiscall void TextButton::OnInitRect(TextButton *this, Globals::Rect& rect, int cornerInset, TextString& buttonLabel, int font);
 "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b57048b078b4f088b5f0c8955e08b5004894de485d275??":
 __thiscall void TextButton::SetBaseImage(TextButton *this, const std::string& name, Point pos, int autoWidthMin);
-"8b5424048b4424108891b40000008b54":
+"8b5424048b4424108891b40000008b54240885c08891c00000008b54240c8991b80000007e??8981bc000000":
 __thiscall void TextButton::SetAutoWidth(TextButton *this, bool autoWidth, bool autoRightAlign, int margin, int min);
-"80b9b4000000007507f3c3908d742600":
+".80b9b400000000":
 __thiscall void TextButton::UpdateAutoWidth(TextButton *this);
 "5589e557565389cb83e4f083ec10807964000f85????????f30f1005????????c6416401f30f100d????????c781840000000000803ff30f1015????????f30f5ec8c781940000000000803f":
 __thiscall void TextButton::SetInactiveColor(TextButton *this, GL_Color color);

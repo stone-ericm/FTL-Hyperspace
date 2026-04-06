@@ -2026,7 +2026,7 @@ namespace _func145
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnLoop", typeid(void (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec4c", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::OnLoop", typeid(void (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557565389cbb9????????83ec4c", argdata, 1, 5, &func);
 }
 
 void CApp::OnLoop()
@@ -2152,7 +2152,7 @@ namespace _func154
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnRender", typeid(void (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec5ce825", argdata, 1, 5, &func);
+	static FunctionDefinition funcObj("CApp::OnRender", typeid(void (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557565389cb83ec5ce825", argdata, 1, 5, &func);
 }
 
 void CApp::OnRender()
@@ -2166,7 +2166,7 @@ namespace _func155
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnInit", typeid(int (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389cb83ec4cc7", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CApp::OnInit", typeid(int (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557565389cb83ec4cc7", argdata, 1, 1, &func);
 }
 
 int CApp::OnInit()
@@ -2180,7 +2180,7 @@ namespace _func156
 {
     static void *func = 0;
 	static short argdata[] = {0x101};
-	static FunctionDefinition funcObj("CApp::OnExecute", typeid(int (CApp::*)()), "578d7c240883e4f0ff77fc5589e557565389ceb9????????81ec2c", argdata, 1, 1, &func);
+	static FunctionDefinition funcObj("CApp::OnExecute", typeid(int (CApp::*)()), ".578d7c240883e4f0ff77fc5589e557565389ceb9????????81ec2c", argdata, 1, 1, &func);
 }
 
 int CApp::OnExecute()
@@ -14378,7 +14378,7 @@ namespace _func1043
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x1ff, 0x1ff, 0x1ff, 0x1ff};
-	static FunctionDefinition funcObj("ShipGraph::ConnectingDoor", typeid(Door *(ShipGraph::*)(int , int , int , int )), "578d7c240883e4f0ff77fc5589e5575383ec108b5f088b078b57048b7f0c895c2408890424897c240c89542404e84e", argdata, 5, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::ConnectingDoor", typeid(Door *(ShipGraph::*)(int , int , int , int )), ".578d7c240883e4f0ff77fc5589e5575383ec108b5f088b078b57048b7f0c895c2408890424897c240c89542404e84e", argdata, 5, 1, &func);
 }
 
 Door *ShipGraph::ConnectingDoor(int x1, int y1, int x2, int y2)
@@ -14420,7 +14420,7 @@ namespace _func1046
 {
     static void *func = 0;
 	static short argdata[] = {0x101, 0x2ff, 0x2ff};
-	static FunctionDefinition funcObj("ShipGraph::ConnectingDoor", typeid(Door *(ShipGraph::*)(Point , Point )), "578d7c240883e4f0ff77fc5589e5575383ec108b5f088b078b57048b7f0c895c2408890424897c240c89542404e84e", argdata, 3, 1, &func);
+	static FunctionDefinition funcObj("ShipGraph::ConnectingDoor", typeid(Door *(ShipGraph::*)(Point , Point )), ".578d7c240883e4f0ff77fc5589e5575383ec108b5f088b078b57048b7f0c895c2408890424897c240c89542404e84e", argdata, 3, 1, &func);
 }
 
 Door *ShipGraph::ConnectingDoor(Point p1, Point p2)

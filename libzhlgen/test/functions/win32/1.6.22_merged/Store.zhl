@@ -1,4 +1,4 @@
-"578d7c240883e4f0ff77fc5589e557565389cb31f683ec2c":
+"578d7c240883e4f0ff77fc5589e557565389cb83ec2c8b078b918c0400008945e48b47048945dc8b4708":
 __thiscall void Store::OnInit(Store *this, ShipManager *shopper, Equipment *equip, int worldLevel);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec7c8b178b47048955a08945a4":
 __thiscall void Store::CreateStoreBoxes(Store *this, int type, Equipment *equip);
@@ -10,9 +10,9 @@ __thiscall void Store::OnLoop(Store *this);
 __thiscall void Store::Close(Store *this);
 "578d7c240883e4f0ff77fc5589e557565389cb83ec1c8b378b7f04893424897c2404e8????????8b837c06000083ec0885c074??8d8b68010000897c2404893424":
 __thiscall void Store::MouseMove(Store *this, int x, int y);
-"5589e55389cb83e4f0e872080b008d43":
+"5589e55389cb83e4f0e8????????8d43288d8b90000000c703????????c7432400000000c64328008943208d4344c6433801c7434000000000":
 __thiscall void Store::constructor(Store *this);
-"5589e557565389cf83e4f083ec208b8164":
+"5589e557565389cb83e4f083ec208b8164060000894424048b4508890424e8????????8b836406000085c00f8e????????31f68b84b3680600008d3c76":
 __thiscall void Store::SaveStore(Store *this, int file);
 "578d7c240883e4f0ff77fc5589e557565389ce83ec2c8b47048b1f8945e48999a40400008b898c0400008b8690040000":
 __thiscall void Store::RelinkShip(Store *this, ShipManager *ship, Equipment *equip);
@@ -22,13 +22,13 @@ __thiscall bool Store::HasType(Store *this, int type);
 __thiscall void Store::Clear(Store *this);
 "578d7c240883e4f0ff77fc5589e557565389ce83ec7c8b1f8d7da4c745a000000000c645a400897d9c":
 __thiscall void Store::InitHeading(Store *this, int index, Point pos);
-"8d4c240483e4f0ff71fc5589e5575653518d45d0":
+"8d4c240483e4f0ff71fc5589e5575653518d45d08d75a08d5dd881ec????????c745d873746f72c745dc655f746189442404":
 static __cdecl void Store::DrawBuySellTabText();
 "578d7c240883e4f0ff77fc5589e557565389cb81ec????????8b078b7f04890424897c2404894584e8????????8b837c06000083ec08":
 __thiscall void Store::MouseClick(Store *this, int x, int y);
 "578d7c240883e4f0ff77fc5589e557565389cb81ec????????e8????????8b837c06000085c074??0f2805????????c70424????????0f298518ffffff8b851cffffff89442404":
 __thiscall void Store::OnRender(Store *this);
-"578d7c240883e4f0ff77fc5589e557565389ce31db81":
+"578d7c240883e4f0ff77fc5589e557565389cf31f683ec7cc64105018d4dd0c74424042a000000c70424????????e8????????83ec088b45d08b55d489f9":
 __thiscall void Store::SetPositions(Store *this);
 "578d7c240883e4f0ff77fc5589e557565389ce81ec????????8b078b918c040000898550ffffff8b47048bb990040000898538ffffff89f8":
 __thiscall void Store::LoadStore(Store *this, int file, int worldLevel);
