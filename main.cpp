@@ -24,7 +24,19 @@ extern "C" BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpv
             printf("Hyperspace.dll is loaded\n");
 #endif
 
-
+            // Diagnostic: dump CApp::OnLoop bytes BEFORE ZHL init
+            {
+                HMODULE hExe = GetModuleHandle(NULL);
+                unsigned char* check = (unsigned char*)hExe + 0x2350;
+                FILE* df = fopen("zhl_diag.log", "a");
+                if (df) {
+                    fprintf(df, "PRE-INIT bytes@0x2350: ");
+                    for (int i = 0; i < 20; i++) fprintf(df, "%02x", check[i]);
+                    fprintf(df, "\n");
+                    fflush(df);
+                    fclose(df);
+                }
+            }
 
             ZHL::SetLogPath("zhl.log");
             ZHL::Init();
