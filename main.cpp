@@ -27,7 +27,16 @@ extern "C" BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpv
 
 
             ZHL::SetLogPath("zhl.log");
-            ZHL::Init();
+            __try {
+                ZHL::Init();
+            } __except(EXCEPTION_EXECUTE_HANDLER) {
+                FILE* ef = fopen("zhl_errors.log", "a");
+                if (ef) {
+                    fprintf(ef, "CRASH: Exception 0x%lx during ZHL::Init() — continuing with partial hooks\n", GetExceptionCode());
+                    fflush(ef);
+                    fclose(ef);
+                }
+            }
 
             // Skip G_->Initialize() if flag file exists next to the DLL
             {
@@ -41,7 +50,16 @@ extern "C" BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpv
                 if (flagFile) {
                     fclose(flagFile);
                 } else {
-                    G_->Initialize();
+                    __try {
+                        G_->Initialize();
+                    } __except(EXCEPTION_EXECUTE_HANDLER) {
+                        FILE* ef2 = fopen("zhl_errors.log", "a");
+                        if (ef2) {
+                            fprintf(ef2, "CRASH: Exception 0x%lx during Initialize() — continuing\n", GetExceptionCode());
+                            fflush(ef2);
+                            fclose(ef2);
+                        }
+                    }
                 }
             }
 
