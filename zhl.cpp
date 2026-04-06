@@ -348,9 +348,28 @@ void FunctionHook_private::SetName(const char *name, const char *type)
 
 int FunctionHook_private::Init()
 {
+	// Bridge-only hook allowlist for 1.6.22 support.
+	// Other Hyperspace hooks reference globals that don't resolve on 1.6.22,
+	// causing crashes when the detoured functions are called.
+	const char* bridgeHooks[] = {
+		"CApp::OnRender", "CApp::OnLoop", "CApp::OnInputBlur",
+		"ShipManager::OnLoop", "ShipManager::JumpLeave",
+		"GameOver::OpenText",
+		NULL
+	};
+
 	int failed = 0;
+	int skipped_non_bridge = 0;
 	for(auto it = FuncHooks().begin() ; it != FuncHooks().end() ; ++it)
 	{
+		bool allowed = false;
+		for (int i = 0; bridgeHooks[i]; i++) {
+			if (strstr(it->second->_name, bridgeHooks[i])) { allowed = true; break; }
+		}
+		if (!allowed) {
+			skipped_non_bridge++;
+			continue;
+		}
 		if(!it->second->Install()) {
 			failed++;
 			FILE* f = fopen("zhl_errors.log", "a");
@@ -361,10 +380,11 @@ int FunctionHook_private::Init()
 			}
 		}
 	}
-	if (failed > 0) {
-		FILE* f = fopen("zhl_errors.log", "a");
+	{
+		FILE* f = fopen("zhl.log", "a");
 		if (f) {
-			fprintf(f, "ZHL: %d hooks failed to install (skipped)\n", failed);
+			fprintf(f, "ZHL hooks: %d installed, %d failed, %d non-bridge skipped\n",
+				(int)FuncHooks().size() - failed - skipped_non_bridge, failed, skipped_non_bridge);
 			fflush(f);
 			fclose(f);
 		}
